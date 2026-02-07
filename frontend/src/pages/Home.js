@@ -13,7 +13,7 @@ const Home = () => {
       <section
         className="relative h-screen flex items-center justify-center"
         style={{
-          backgroundImage: 'url(frontend/public/Salon-luxueux-accueil.webp)',
+          backgroundImage: 'url(frontend/public/Salon luxueux baie de La Ciotat.jpg)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           
