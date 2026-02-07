@@ -13,12 +13,13 @@ const Home = () => {
       <section
         className="relative h-screen flex items-center justify-center"
         style={{
-          backgroundImage: 'url(https://images.unsplash.com/photo-1733272967076-3a2ce81226e4)',
+          backgroundImage: 'url(frontend/public/Salon-luxueux-accueil.webp)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
+          
         }}
       >
-        <div className="absolute inset-0 bg-black bg-opacity-40"></div>
+        <div className="absolute inset-0 bg-black bg-opacity-30"></div>
         <div className="relative z-10 text-center px-4">
           <p className="section-subtitle text-white mb-4 fade-in">{photographer.specialty}</p>
           <h1 className="hero-title mb-6 fade-in" style={{ animationDelay: '0.2s' }}>
