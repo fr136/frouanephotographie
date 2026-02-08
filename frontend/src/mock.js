@@ -21,7 +21,7 @@ export const mockData = {
       title: "Sormiou",
       subtitle: "Le bijou marseillais",
       description: "Sormiou, c’est notre bijou. Une grande calanque ouverte, une eau claire comme une piscine, et cette lumière qui fait oublier tout le reste. Quand la mer est calme, la Méditerranée prend des airs de lagon. Pas besoin d’aller loin, ici, c’est les Maldives à la marseillaise.",
-      image: "https://images.unsplash.com/photo-1672861864274-6b24d19b578d",
+      image: "Sormiou.jpeg",
       category: "calanques",
       photoCount: 24
     },
