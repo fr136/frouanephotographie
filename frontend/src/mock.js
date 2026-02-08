@@ -33,7 +33,7 @@ export const mockData = {
       image: "https://images.unsplash.com/photo-1712227609859-2818504d07cb",
       category: "calanques",
       photoCount: 18,
-    }
+    },
     {
       id: 3,
       title: "Couchers de Soleil",
@@ -42,7 +42,7 @@ export const mockData = {
       image: "https://images.unsplash.com/photo-1712103554238-aca4fda947df",
       category: "sunset",
       photoCount: 32,
-    }
+    },
     {
       id: 4,
       title: "La route des crètes",
