@@ -17,7 +17,7 @@ const Home = () => {
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           
-        }
+        }}
       >
         <div className="absolute inset-0 bg-black bg-opacity-30"></div>
         <div className="relative z-10 text-center px-4 max-w-md sm:max-w-2xl mx-auto">
@@ -32,14 +32,14 @@ const Home = () => {
             <Link to="/collections" className="btn-gold w-full sm:w-auto">
               Découvrir les Collections
             </Link>
-            <Link to="/boutique" className="btn-outline w-full sm:w-auto" style={{ borderColor: 'white', color: 'white'
+            <Link to="/boutique" className="btn-outline w-full sm:w-auto" style={{ borderColor: 'white', color: 'white'}}
+        >
               Voir la Boutique
             </Link>
           </div>
         </div>
       </section>
-       }
-      {/* About Preview */}
+          {/* About Preview */}
       <section className="section-spacing">
         <div className="container-photo">
           <div className="grid md:grid-cols-2 gap-16 items-center">
