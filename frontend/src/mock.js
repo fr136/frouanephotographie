@@ -30,7 +30,7 @@ export const mockData = {
       title: "Calanque des anglais",
       subtitle: "La corniche d'Or",
       description: "La calanque des Anglais, c’est une petite crique à part, nichée entre les roches rouges de l’Estérel. L’eau y est souvent limpide, profonde dès les premiers mètres, avec des reflets bleus intenses quand le soleil tape juste comme il faut. Moins carte postale, plus naturelle, elle garde ce côté sauvage et tranquille qui donne envie de s’arrêter, de regarder, et de profiter du moment",
-      image: "/Calanque Agay.webp",
+      image: "/Calanque-agay.webp",
       category: "calanques",
       photoCount: 18,
     },
