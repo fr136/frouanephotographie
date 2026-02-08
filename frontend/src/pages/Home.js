@@ -11,7 +11,7 @@ const Home = () => {
     <div className="bg-white">
       {/* Hero Section */}
       <section
-        className="relative h-screen flex items-center justify-center"
+        className="relative min-h-screen flex items-center justify-center pt-24 sm:pt-0"
         style={{
           backgroundImage: "url('/hero.webp')",
           backgroundSize: 'cover',
@@ -20,7 +20,7 @@ const Home = () => {
         }}
       >
         <div className="absolute inset-0 bg-black bg-opacity-30"></div>
-        <div className="relative z-10 text-center px-4">
+        <div className="relative z-10 text-center px-4 max-w-md sm:max-w-2xl mx-auto">
           <p className="section-subtitle text-white mb-4 fade-in">{photographer.specialty}</p>
           <h1 className="hero-title mb-6 fade-in" style={{ animationDelay: '0.2s' }}>
             {photographer.name}
@@ -29,10 +29,10 @@ const Home = () => {
             {photographer.tagline}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center fade-in" style={{ animationDelay: '0.6s' }}>
-            <Link to="/collections" className="btn-gold">
+            <Link to="/collections" className="btn-gold w-full sm:w-auto">
               Découvrir les Collections
             </Link>
-            <Link to="/boutique" className="btn-outline" style={{ borderColor: 'white', color: 'white' }}>
+            <Link to="/boutique" className="btn-outline w-full sm:w-auto" style={{ borderColor: 'white', color: 'white'
               Voir la Boutique
             </Link>
           </div>
