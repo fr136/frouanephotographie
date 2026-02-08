@@ -30,7 +30,7 @@ export const mockData = {
       title: "Calanque des anglais",
       subtitle: "La corniche d'Or",
       description: "La calanque des Anglais, c’est une petite crique à part, nichée entre les roches rouges de l’Estérel. L’eau y est souvent limpide, profonde dès les premiers mètres, avec des reflets bleus intenses quand le soleil tape juste comme il faut. Moins carte postale, plus naturelle, elle garde ce côté sauvage et tranquille qui donne envie de s’arrêter, de regarder, et de profiter du moment",
-      image: "https://images.unsplash.com/photo-1712227609859-2818504d07cb",
+      image: "/Calanque Agay.webp",
       category: "calanques",
       photoCount: 18,
     },
@@ -48,7 +48,7 @@ export const mockData = {
       title: "La route des crètes",
       subtitle: "L'éléphant",
       description: "La route des Crêtes fait partie de ces routes qu’on n’oublie pas, souvent décor de films mais malheureusement victime de son succès. Entre La Ciotat et Cassis, elle serpente au-dessus de la Méditerranée, perchée sur les falaises, avec des panoramas ouverts sur la mer à perte de vue. Chaque virage offre une nouvelle perspective, entre ciel, roche et bleu profond. Une route spectaculaire, simple et brute, souvent citée comme l’une des plus belles de la Méditerranée, où le plaisir est autant dans le trajet que dans les points de vue",
-      image: "https://images.unsplash.com/photo-1547399614-28c8a1734469",
+      image: "/Coucher de soleil La Ciotat éléphant routedes crêtes.webp",
       category: "sunset",
       photoCount: 21
     },
@@ -57,7 +57,7 @@ export const mockData = {
       title: "Port d'alon",
       subtitle: "Un coin caché de Méditerrannée",
       description: "DeMalgré son nom, le port d’Alon n’a rien d’un port. C’est une calanque sauvage, sans bateaux ni installations, coincée entre falaises et pinède. Une crique préservée, avec une eau souvent limpide et un calme rare. Ici, pas d’agitation, juste la Méditerranée à l’état brut, idéale pour s’arrêter, observer et profiter du lieu tel qu’il est, et le point de départ du sentier du littoral.",
-      image: "https://images.unsplash.com/photo-1604948559069-3287d5c5a6e5",
+      image: "/Calanque Port d'alon Saint Cyr sur mer.webp",
       category: "calanques",
       photoCount: 15
     },
