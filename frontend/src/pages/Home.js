@@ -13,7 +13,7 @@ const Home = () => {
       <section
         className="relative min-h-screen flex items-center justify-center pt-24 sm:pt-0"
         style={{
-          backgroundImage: "url('/hero.webp')",
+          backgroundImage: "url('/sunrise-laciotat.jpeg')",
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           
