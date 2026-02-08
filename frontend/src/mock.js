@@ -35,10 +35,10 @@ export const mockData = {
     },
     {
       id: 3,
-      title: "Couchers de Soleil",
+      title: "Sunset",
       subtitle: "L'or de la Méditerranée",
       description: "Ces moments magiques où le ciel s'embrase et la mer se pare de mille reflets dorés.",
-      image: "https://images.unsplash.com/photo-1712103554238-aca4fda947df",
+      image: "/sunset-laciotat.JPEG",
       category: "sunset",
       photoCount: 32,
     },
