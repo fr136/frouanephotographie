@@ -43,8 +43,7 @@ const Home = () => {
         <div className="container-photo">
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <div>
-              <p className="section-subtitle mb-4">L'Artiste</p>
-              <h2 className="section-title mb-6">Capturer l'Essence de la Méditerranée</h2>
+              <h2 className="section-title mb-6"> Photographies de la méditerranée </h2>
               <div className="gold-line"></div>
               <p className="body-large mb-6">{photographer.bio}</p>
               <Link to="/a-propos" className="btn-outline inline-flex items-center gap-2">
@@ -54,8 +53,8 @@ const Home = () => {
             </div>
             <div className="image-container aspect-[4/5] rounded-sm overflow-hidden">
               <img
-                src="https://images.unsplash.com/photo-1672861864274-6b24d19b578d"
-                alt="Franck Rouane"
+                src="/Salon-sormiou.png"
+                alt="Salon luxueux sormiou"
                 className="image-zoom"
               />
             </div>
@@ -71,7 +70,7 @@ const Home = () => {
             <h2 className="section-title mb-6">Collections de Photographies</h2>
             <div className="gold-line mx-auto"></div>
             <p className="body-text max-w-2xl mx-auto mt-6">
-              Explorez mes collections de photographies maritimes, chacune racontant une histoire unique de la Méditerranée.
+              Explorez mes collections de photographies .
             </p>
           </div>
 
