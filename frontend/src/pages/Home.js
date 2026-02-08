@@ -32,9 +32,8 @@ const Home = () => {
             <Link to="/collections" className="btn-gold w-full sm:w-auto">
               Découvrir les Collections
             </Link>
-            <Link to="/boutique" className="btn-outline w-full sm:w-auto" style={{ borderColor: 'white', color: 'white'}}
-        >
-              Voir la Boutique
+            <Link to="/boutique" className="btn-outline w-full sm:w-auto" style={{ borderColor: 'white', color: 'white'  }}>
+                  Voir la Boutique
             </Link>
           </div>
         </div>
