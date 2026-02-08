@@ -17,7 +17,7 @@ const Home = () => {
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           
-        }}
+        }
       >
         <div className="absolute inset-0 bg-black bg-opacity-30"></div>
         <div className="relative z-10 text-center px-4 max-w-md sm:max-w-2xl mx-auto">
@@ -38,7 +38,7 @@ const Home = () => {
           </div>
         </div>
       </section>
-
+       }
       {/* About Preview */}
       <section className="section-spacing">
         <div className="container-photo">
