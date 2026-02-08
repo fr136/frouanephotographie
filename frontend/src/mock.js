@@ -3,12 +3,11 @@
 export const mockData = {
   photographer: {
     name: "Franck Rouane",
-    specialty: "Photographe de Paysage Maritime",
-    tagline: "Capturer l'âme de la Méditerranée",
-    bio: "Photographe de paysages maritimes basé entre Marseille et Monaco, je capture la beauté brute et intemporelle de la côte méditerranéenne. Chaque photographie raconte l'histoire d'un instant unique où la lumière rencontre la mer, où le ciel embrasse l'horizon. Mon travail est une célébration de la nature, une invitation à redécouvrir la splendeur de nos côtes à travers un regard contemplatif et authentique.",
+    specialty: "Photographe de paysages",
+    tagline: "Mon sud en photos",
+    bio: " Photographe de paysage basé à Marseille, je photographie les paysages maritimes de la côte méditerranéenne, de la rade de Marseille aux rivages de la Côte d'azur. Mon travail se concentre sur les lumières naturelles, l'horizon de la Méditerranée et ses instants calmes où la mer, le ciel et la côte s’équilibrent. Je photographie ces lieux sans mise en scène, tels qu’ils sont, au moment précis où la lumière illumine leur beauté. Chaque image est pensée comme une photographie durable, destinée à être regardée dans le temps, imprimée et intégrée dans des intérieurs sobres. Mes tirages mettent en valeur la mer Méditerranée, ses couleurs, ses lignes et ses silences.
     longBio: "Passionné par la mer depuis mon enfance, j'ai fait de la photographie maritime mon moyen d'expression privilégié. Mes images naissent de longues heures d'observation, d'attente de la lumière parfaite, de cette communion silencieuse avec les éléments. Du lever du soleil sur les calanques aux ciels dramatiques du crépuscule, je cherche à capturer l'essence même de la Méditerranée, cette mer qui a façonné notre histoire et notre culture. Chaque tirage est le fruit d'une approche artisanale, où la technique photographique se met au service de l'émotion et de la beauté naturelle.",
-    email: "contact@franckrouane-photo.fr",
-    phone: "+33 6 XX XX XX XX",
+    email: "rouanefra@live.fr",
     social: {
       instagram: "#",
       facebook: "#",
@@ -19,20 +18,20 @@ export const mockData = {
   collections: [
     {
       id: 1,
-      title: "Calanques de Marseille",
-      subtitle: "Les joyaux cachés de la côte",
-      description: "Explorez la beauté sauvage des calanques, ces fjords méditerranéens où la roche blanche plonge dans les eaux turquoise.",
+      title: "Sormiou",
+      subtitle: "Le bijou marseillais",
+      description: "Sormiou, c’est notre bijou. Une grande calanque ouverte, une eau claire comme une piscine, et cette lumière qui fait oublier tout le reste. Quand la mer est calme, la Méditerranée prend des airs de lagon. Pas besoin d’aller loin, ici, c’est les Maldives à la marseillaise.",
       image: "https://images.unsplash.com/photo-1672861864274-6b24d19b578d",
       category: "calanques",
       photoCount: 24
     },
     {
       id: 2,
-      title: "Ports de la Côte d'Azur",
-      subtitle: "L'élégance maritime",
-      description: "Des petits ports de pêche authentiques aux marinas prestigieuses, découvrez le charme intemporel de nos havres maritimes.",
+      title: "Calanque des anglais",
+      subtitle: "La corniche d'Or",
+      description: "La calanque des Anglais, c’est une petite crique à part, nichée entre les roches rouges de l’Estérel. L’eau y est souvent limpide, profonde dès les premiers mètres, avec des reflets bleus intenses quand le soleil tape juste comme il faut. Moins carte postale, plus naturelle, elle garde ce côté sauvage et tranquille qui donne envie de s’arrêter, de regarder, et de profiter du moment",
       image: "https://images.unsplash.com/photo-1712227609859-2818504d07cb",
-      category: "ports",
+      category: "calanques",
       photoCount: 18
     },
     {
@@ -46,20 +45,20 @@ export const mockData = {
     },
     {
       id: 4,
-      title: "Côte Sauvage",
-      subtitle: "La puissance des éléments",
-      description: "Les falaises abruptes, les vagues qui se brisent, la nature dans toute sa force et sa majesté.",
+      title: "La route des crètes",
+      subtitle: "L'éléphant",
+      description: "La route des Crêtes fait partie de ces routes qu’on n’oublie pas, souvent décor de films mais malheureusement victime de son succès. Entre La Ciotat et Cassis, elle serpente au-dessus de la Méditerranée, perchée sur les falaises, avec des panoramas ouverts sur la mer à perte de vue. Chaque virage offre une nouvelle perspective, entre ciel, roche et bleu profond. Une route spectaculaire, simple et brute, souvent citée comme l’une des plus belles de la Méditerranée, où le plaisir est autant dans le trajet que dans les points de vue",
       image: "https://images.unsplash.com/photo-1547399614-28c8a1734469",
-      category: "wild",
+      category: "sunset",
       photoCount: 21
     },
     {
       id: 5,
-      title: "Criques Secrètes",
-      subtitle: "Les trésors cachés",
-      description: "Des havres de paix préservés, accessibles seulement aux plus aventureux, où la nature règne en maître.",
+      title: "Port d'alon",
+      subtitle: "Un coin caché de Méditerrannée",
+      description: "DeMalgré son nom, le port d’Alon n’a rien d’un port. C’est une calanque sauvage, sans bateaux ni installations, coincée entre falaises et pinède. Une crique préservée, avec une eau souvent limpide et un calme rare. Ici, pas d’agitation, juste la Méditerranée à l’état brut, idéale pour s’arrêter, observer et profiter du lieu tel qu’il est, et le point de départ du sentier du littoral.",
       image: "https://images.unsplash.com/photo-1604948559069-3287d5c5a6e5",
-      category: "coves",
+      category: "calanques",
       photoCount: 15
     },
     {
