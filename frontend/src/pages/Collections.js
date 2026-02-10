@@ -97,7 +97,11 @@ const Collections = () => {
         <div className="container-photo">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredCollections.map((collection) => (
-              <div key={collection.id} className="photo-card group cursor-pointer">
+              <div 
+                key={collection.id} 
+                className="photo-card group cursor-pointer"
+                onClick={() => navigate(`/collections/${collection.slug}`)}
+              >
                 <div className="image-container aspect-[4/5]">
                   <img
                     src={collection.image}
