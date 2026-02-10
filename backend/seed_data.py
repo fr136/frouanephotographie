@@ -1,8 +1,14 @@
 """Script pour initialiser la base de données avec les collections et photos"""
 import asyncio
 import os
+from pathlib import Path
+from dotenv import load_dotenv
 from motor.motor_asyncio import AsyncIOMotorClient
 from datetime import datetime
+
+# Load environment variables
+ROOT_DIR = Path(__file__).parent
+load_dotenv(ROOT_DIR / '.env')
 
 # Données des 6 collections avec ~10 photos chacune
 COLLECTIONS_DATA = [
