@@ -1,17 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import Lightbox from 'yet-another-react-lightbox';
 import 'yet-another-react-lightbox/styles.css';
 import { collectionsAPI } from '../services/api';
 import { getCollectionBySlug } from '../data/collectionsData';
-import GlobeZoomEffect from '../components/GlobeZoomEffect';
-import EcologyContent from '../components/EcologyContent';
-import { MapPin, Calendar, Camera, ChevronLeft, Maximize2, Map as MapIcon, AlertTriangle, Heart, Leaf, Info } from 'lucide-react';
+import HeroZoomEffect from '../components/HeroZoomEffect';
+import { MapPin, Calendar, Camera, ChevronLeft, Maximize2, Map as MapIcon, Heart, AlertTriangle, Leaf, CheckCircle, XCircle } from 'lucide-react';
+import { useCart } from '../context/CartContext';
 import L from 'leaflet';
 import '../styles/photography.css';
 
-// Fix for Leaflet default marker icon
+// Fix Leaflet
 delete L.Icon.Default.prototype._getIconUrl;
 L.Icon.Default.mergeOptions({
   iconRetinaUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png',
@@ -22,6 +22,7 @@ L.Icon.Default.mergeOptions({
 const CollectionGallery = () => {
   const { slug } = useParams();
   const navigate = useNavigate();
+  const { addToWishlist, isInWishlist } = useCart();
   const [collection, setCollection] = useState(null);
   const [enrichedData, setEnrichedData] = useState(null);
   const [photos, setPhotos] = useState([]);
@@ -29,9 +30,7 @@ const CollectionGallery = () => {
   const [error, setError] = useState(null);
   const [lightboxIndex, setLightboxIndex] = useState(-1);
   const [showMap, setShowMap] = useState(false);
-  const [selectedPhoto, setSelectedPhoto] = useState(null);
-  const [showGlobe, setShowGlobe] = useState(true);
-  const [activeTab, setActiveTab] = useState('photos'); // photos, ecology, story
+  const [showHeroZoom, setShowHeroZoom] = useState(true);
 
   useEffect(() => {
     loadCollectionData();
@@ -44,7 +43,6 @@ const CollectionGallery = () => {
       setCollection(data.collection);
       setPhotos(data.photos || []);
       
-      // Charger les données enrichies
       const enriched = getCollectionBySlug(slug);
       setEnrichedData(enriched);
       
@@ -71,11 +69,9 @@ const CollectionGallery = () => {
   if (loading) {
     return (
       <div className="min-h-screen bg-white pt-32 pb-16">
-        <div className="container-photo">
-          <div className="text-center">
-            <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-[var(--color-gold)]"></div>
-            <p className="mt-4 text-gray-600">Chargement de la galerie...</p>
-          </div>
+        <div className="container-photo text-center">
+          <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-[var(--color-gold)]"></div>
+          <p className="mt-4 text-gray-600">Chargement...</p>
         </div>
       </div>
     );
@@ -86,7 +82,6 @@ const CollectionGallery = () => {
       <div className="min-h-screen bg-white pt-32 pb-16">
         <div className="container-photo text-center">
           <h2 className="section-title mb-4">Collection introuvable</h2>
-          <p className="body-text mb-8">{error || 'Cette collection n\'existe pas.'}</p>
           <button onClick={() => navigate('/collections')} className="btn-primary">
             Retour aux collections
           </button>
@@ -97,37 +92,42 @@ const CollectionGallery = () => {
 
   return (
     <div className="bg-white">
-      {/* Globe 3D Effect au premier chargement */}
-      {showGlobe && (
-        <GlobeZoomEffect 
-          onComplete={() => setShowGlobe(false)}
-          targetLocation={slug}
+      {/* Hero Zoom Effect */}
+      {showHeroZoom && collection && (
+        <HeroZoomEffect 
+          imageUrl={collection.coverImage}
+          onComplete={() => setShowHeroZoom(false)}
         />
       )}
 
       {/* Hero Header */}
-      <section className="pt-32 pb-16 bg-black text-white relative">
+      <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div
-          className="absolute inset-0 opacity-30"
+          className="absolute inset-0 bg-cover bg-center"
           style={{
             backgroundImage: `url(${collection.coverImage})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center'
+            transform: 'scale(1.1)'
           }}
         ></div>
-        <div className="container-photo relative z-10">
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/80"></div>
+        
+        <div className="relative z-10 container-photo text-center text-white">
           <button
             onClick={() => navigate('/collections')}
-            className="inline-flex items-center gap-2 text-white hover:text-[var(--color-gold)] transition-colors mb-6"
+            className="absolute top-8 left-8 inline-flex items-center gap-2 text-white hover:text-[var(--color-gold)] transition-colors"
           >
             <ChevronLeft size={20} />
-            Retour aux collections
+            Retour
           </button>
-          <h1 className="section-title text-white mb-4">{collection.title}</h1>
-          <p className="section-subtitle text-gray-300 mb-4">{collection.subtitle}</p>
-          <div className="gold-line"></div>
-          <p className="body-large text-gray-300 max-w-3xl mt-6">{collection.description}</p>
-          <div className="flex items-center gap-6 mt-6 text-sm text-gray-400">
+          
+          <p className="section-subtitle text-gray-200 mb-4 animate-in fade-in slide-in-from-bottom-4">{collection.subtitle}</p>
+          <h1 className="hero-title mb-6 animate-in fade-in slide-in-from-bottom-4 delay-200">{collection.title}</h1>
+          <div className="gold-line mx-auto animate-in fade-in delay-300"></div>
+          <p className="body-large text-gray-200 max-w-3xl mx-auto mt-6 animate-in fade-in slide-in-from-bottom-4 delay-400">
+            {collection.description}
+          </p>
+          
+          <div className="flex items-center justify-center gap-6 mt-8 text-sm text-gray-300 animate-in fade-in delay-500">
             <span>{photos.length} photographies</span>
             {photosWithLocations.length > 0 && (
               <button
@@ -140,15 +140,226 @@ const CollectionGallery = () => {
             )}
           </div>
         </div>
+        
+        {/* Scroll indicator */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+          <div className="w-6 h-10 border-2 border-white rounded-full flex justify-center">
+            <div className="w-1 h-3 bg-white rounded-full mt-2"></div>
+          </div>
+        </div>
       </section>
 
-      {/* Map Section */}
+      {/* Anecdote Section - Intégrée naturellement */}
+      {enrichedData?.anecdote && (
+        <section className="py-20 bg-gradient-to-br from-blue-50 to-gray-50">
+          <div className="container-photo max-w-4xl">
+            <div className="text-center mb-8">
+              <span className="inline-block px-4 py-2 bg-[var(--color-gold)] bg-opacity-20 text-[var(--color-gold)] text-sm font-semibold uppercase tracking-wider rounded-full mb-4">
+                Le saviez-vous ?
+              </span>
+            </div>
+            <p className="text-xl md:text-2xl leading-relaxed text-gray-700 italic text-center">
+              "{enrichedData.anecdote}"
+            </p>
+          </div>
+        </section>
+      )}
+
+      {/* Première série de photos (3-4 photos) */}
+      <section className="py-16">
+        <div className="container-photo">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {photos.slice(0, 4).map((photo, index) => (
+              <PhotoCard 
+                key={photo.id} 
+                photo={photo} 
+                index={index}
+                onClick={() => setLightboxIndex(photos.indexOf(photo))}
+                onAddToWishlist={() => addToWishlist(photo.id)}
+                isInWishlist={isInWishlist(photo.id)}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Histoire personnelle du photographe */}
+      {enrichedData?.story && (
+        <section className="py-20 bg-black text-white">
+          <div className="container-photo max-w-4xl">
+            <div className="flex items-start gap-6">
+              <div className="hidden md:block w-1 bg-[var(--color-gold)] flex-shrink-0"></div>
+              <div>
+                <h3 className="font-display text-3xl font-semibold mb-6">Histoire d'une Photo</h3>
+                <p className="text-lg md:text-xl leading-relaxed text-gray-300">
+                  {enrichedData.story}
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Deuxième série de photos */}
+      <section className="py-16">
+        <div className="container-photo">
+          <div className="grid md:grid-cols-2 gap-8">
+            {photos.slice(4, 7).map((photo, index) => (
+              <PhotoCard 
+                key={photo.id} 
+                photo={photo} 
+                index={index + 4}
+                onClick={() => setLightboxIndex(photos.indexOf(photo))}
+                onAddToWishlist={() => addToWishlist(photo.id)}
+                isInWishlist={isInWishlist(photo.id)}
+                large={index === 0}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Section Espèces Protégées - Immersive */}
+      {enrichedData?.ecology?.protectedSpecies && enrichedData.ecology.protectedSpecies.length > 0 && (
+        <section className="py-20 bg-gradient-to-br from-green-50 via-blue-50 to-green-50">
+          <div className="container-photo max-w-6xl">
+            <div className="text-center mb-12">
+              <Leaf className="inline-block text-green-600 mb-4" size={48} />
+              <h3 className="font-display text-4xl font-semibold mb-4">Vie Sauvage à Protéger</h3>
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                Ces espèces fragiles dépendent de la préservation de leur habitat. Chaque visite respectueuse compte.
+              </p>
+            </div>
+            
+            <div className="grid md:grid-cols-2 gap-8">
+              {enrichedData.ecology.protectedSpecies.map((species, idx) => (
+                <div key={idx} className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+                  <div className="flex items-start gap-6">
+                    <span className="text-6xl">{species.icon}</span>
+                    <div className="flex-1">
+                      <h4 className="font-display text-2xl font-semibold mb-2">{species.name}</h4>
+                      <span className="inline-block px-3 py-1 bg-red-100 text-red-700 text-xs font-bold rounded-full mb-4">
+                        {species.status}
+                      </span>
+                      <p className="text-gray-700 leading-relaxed">{species.description}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Troisième série de photos */}
+      <section className="py-16">
+        <div className="container-photo">
+          <div className="grid md:grid-cols-3 gap-6">
+            {photos.slice(7, 10).map((photo, index) => (
+              <PhotoCard 
+                key={photo.id} 
+                photo={photo} 
+                index={index + 7}
+                onClick={() => setLightboxIndex(photos.indexOf(photo))}
+                onAddToWishlist={() => addToWishlist(photo.id)}
+                isInWishlist={isInWishlist(photo.id)}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Menaces & Sensibilisation */}
+      {enrichedData?.ecology?.threats && enrichedData.ecology.threats.length > 0 && (
+        <section className="py-20 bg-red-50">
+          <div className="container-photo max-w-6xl">
+            <div className="text-center mb-12">
+              <AlertTriangle className="inline-block text-red-600 mb-4" size={48} />
+              <h3 className="font-display text-4xl font-semibold mb-4 text-red-900">Dangers Imminents</h3>
+              <p className="text-lg text-gray-700 max-w-2xl mx-auto">
+                Ces menaces pèsent sur l'écosystème. Soyons conscients et agissons.
+              </p>
+            </div>
+            
+            <div className="grid md:grid-cols-2 gap-6">
+              {enrichedData.ecology.threats.map((threat, idx) => (
+                <div key={idx} className="bg-white border-l-4 border-red-500 p-6 rounded-r-lg shadow-md">
+                  <div className="flex items-start gap-4">
+                    <span className="text-4xl">{threat.icon}</span>
+                    <div>
+                      <h4 className="font-display text-xl font-semibold mb-2">{threat.title}</h4>
+                      <span className="inline-block px-3 py-1 bg-red-600 text-white text-xs font-bold rounded-full mb-3">
+                        {threat.impact}
+                      </span>
+                      <p className="text-sm text-gray-700">{threat.description}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Règles de Respect - Call to Action */}
+      {enrichedData?.ecology?.respectGuidelines && enrichedData.ecology.respectGuidelines.length > 0 && (
+        <section className="py-20 bg-gradient-to-br from-blue-900 to-black text-white">
+          <div className="container-photo max-w-5xl">
+            <div className="text-center mb-12">
+              <Heart className="inline-block text-[var(--color-gold)] mb-4" size={48} />
+              <h3 className="font-display text-4xl font-semibold mb-4">Respectons Ce Paradis</h3>
+              <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+                Quelques gestes simples pour préserver ces lieux pour les générations futures
+              </p>
+            </div>
+            
+            <div className="grid md:grid-cols-2 gap-4">
+              {enrichedData.ecology.respectGuidelines.map((rule, idx) => {
+                const isPositive = rule.startsWith('✅');
+                return (
+                  <div 
+                    key={idx} 
+                    className={`flex items-start gap-3 p-5 rounded-lg backdrop-blur-sm ${
+                      isPositive ? 'bg-green-500 bg-opacity-20 border border-green-400' : 'bg-red-500 bg-opacity-20 border border-red-400'
+                    }`}
+                  >
+                    {isPositive ? (
+                      <CheckCircle className="text-green-400 flex-shrink-0 mt-1" size={24} />
+                    ) : (
+                      <XCircle className="text-red-400 flex-shrink-0 mt-1" size={24} />
+                    )}
+                    <span className="font-medium">{rule.replace(/^[✅❌]\s*/, '')}</span>
+                  </div>
+                );
+              })}
+            </div>
+            
+            {/* Actions positives */}
+            {enrichedData.ecology.positiveActions && (
+              <div className="mt-12 p-8 bg-[var(--color-gold)] bg-opacity-20 rounded-lg border-2 border-[var(--color-gold)]">
+                <h4 className="font-display text-2xl font-semibold mb-6 text-center">💚 Vous Pouvez Agir</h4>
+                <ul className="space-y-3">
+                  {enrichedData.ecology.positiveActions.map((action, idx) => (
+                    <li key={idx} className="flex items-start gap-3">
+                      <span className="text-[var(--color-gold)] text-2xl">→</span>
+                      <span className="text-lg">{action}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
+        </section>
+      )}
+
+      {/* Carte Interactive (optionnelle) */}
       {showMap && photosWithLocations.length > 0 && (
-        <section className="py-12 bg-gray-50">
+        <section className="py-12">
           <div className="container-photo">
-            <div className="h-[500px] rounded-lg overflow-hidden shadow-lg">
+            <h3 className="font-display text-3xl font-semibold mb-8 text-center">Carte des Prises de Vue</h3>
+            <div className="h-[600px] rounded-lg overflow-hidden shadow-2xl">
               <MapContainer
-                center={[43.5, 5.5]} // Côte d'Azur center
+                center={[43.5, 5.5]}
                 zoom={9}
                 style={{ height: '100%', width: '100%' }}
               >
@@ -164,24 +375,13 @@ const CollectionGallery = () => {
                       photo.location.coordinates.lng
                     ]}
                     eventHandlers={{
-                      click: () => {
-                        setSelectedPhoto(photo);
-                        const index = photos.findIndex((p) => p.id === photo.id);
-                        setLightboxIndex(index);
-                      }
+                      click: () => setLightboxIndex(photos.indexOf(photo))
                     }}
                   >
                     <Popup>
                       <div className="text-center">
-                        <img
-                          src={photo.imageUrl}
-                          alt={photo.title}
-                          className="w-32 h-24 object-cover rounded mb-2"
-                        />
+                        <img src={photo.imageUrl} alt={photo.title} className="w-32 h-24 object-cover rounded mb-2" />
                         <p className="font-semibold text-sm">{photo.title}</p>
-                        {photo.location.name && (
-                          <p className="text-xs text-gray-600 mt-1">{photo.location.name}</p>
-                        )}
                       </div>
                     </Popup>
                   </Marker>
@@ -192,158 +392,90 @@ const CollectionGallery = () => {
         </section>
       )}
 
-      {/* Tabs Navigation */}
-      {enrichedData && (
-        <section className="py-8 bg-gray-100 sticky top-20 z-40">
-          <div className="container-photo">
-            <div className="flex gap-4 justify-center">
-              <button
-                onClick={() => setActiveTab('photos')}
-                className={`px-6 py-3 font-semibold uppercase tracking-wider transition-all ${
-                  activeTab === 'photos'
-                    ? 'bg-black text-white'
-                    : 'bg-white text-gray-700 hover:bg-gray-200'
-                }`}
-              >
-                📸 Galerie Photos
-              </button>
-              <button
-                onClick={() => setActiveTab('ecology')}
-                className={`px-6 py-3 font-semibold uppercase tracking-wider transition-all ${
-                  activeTab === 'ecology'
-                    ? 'bg-black text-white'
-                    : 'bg-white text-gray-700 hover:bg-gray-200'
-                }`}
-              >
-                🌍 Écologie & Sensibilisation
-              </button>
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* Contenu Écologique */}
-      {activeTab === 'ecology' && enrichedData && (
-        <section className="section-spacing">
-          <div className="container-photo max-w-5xl">
-            <EcologyContent
-              ecology={enrichedData.ecology}
-              anecdote={enrichedData.anecdote}
-              story={enrichedData.story}
-              photographyTips={enrichedData.photographyTips}
-              bestPeriods={enrichedData.bestPeriods}
-              practicalInfo={enrichedData.practicalInfo}
-            />
-          </div>
-        </section>
-      )}
-
-      {/* Gallery Grid */}
-      {activeTab === 'photos' && (
-        <section className="section-spacing">
-          <div className="container-photo">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {photos.map((photo, index) => (
-              <div
-                key={photo.id}
-                className="group cursor-pointer photo-card"
-                onClick={() => setLightboxIndex(index)}
-              >
-                <div className="image-container aspect-[4/5] relative overflow-hidden">
-                  <img
-                    src={photo.imageUrl}
-                    alt={photo.title}
-                    className="image-zoom"
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 transition-all duration-300">
-                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                      <Maximize2 size={32} className="text-white" />
-                    </div>
-                  </div>
-                  {photo.location && photo.location.coordinates && (
-                    <div className="absolute top-4 right-4 bg-black bg-opacity-70 text-white px-2 py-1 rounded text-xs flex items-center gap-1">
-                      <MapPin size={12} />
-                      {photo.location.name || 'Localisé'}
-                    </div>
-                  )}
-                </div>
-                <div className="p-4">
-                  <h3 className="font-display text-lg font-semibold mb-2">{photo.title}</h3>
-                  {photo.caption && (
-                    <p className="text-sm text-gray-600 line-clamp-2">{photo.caption}</p>
-                  )}
-                  {photo.location && photo.location.name && (
-                    <div className="flex items-center gap-2 mt-2 text-xs text-gray-500">
-                      <MapPin size={12} />
-                      <span>{photo.location.name}</span>
-                    </div>
-                  )}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-      )}
-
       {/* Lightbox */}
       <Lightbox
         open={lightboxIndex >= 0}
         index={lightboxIndex}
         close={() => setLightboxIndex(-1)}
         slides={lightboxSlides}
-        styles={{
-          container: { backgroundColor: 'rgba(0, 0, 0, 0.95)' }
-        }}
-        render={{
-          slide: ({ slide, rect }) => {
-            const photo = photos[lightboxIndex];
-            return (
-              <div className="flex items-center justify-center h-full">
-                <div className="max-w-7xl w-full px-4">
-                  <div className="grid md:grid-cols-3 gap-8 items-center">
-                    <div className="md:col-span-2">
-                      <img
-                        src={slide.src}
-                        alt={slide.alt}
-                        className="w-full h-auto max-h-[80vh] object-contain"
-                      />
-                    </div>
-                    <div className="text-white space-y-4">
-                      <h2 className="font-display text-2xl font-semibold">{slide.title}</h2>
-                      {photo?.caption && (
-                        <p className="text-gray-300">{photo.caption}</p>
-                      )}
-                      {photo?.location?.name && (
-                        <div className="flex items-start gap-2 text-sm">
-                          <MapPin size={16} className="mt-1 flex-shrink-0" />
-                          <span>{photo.location.name}</span>
-                        </div>
-                      )}
-                      {photo?.dateTaken && (
-                        <div className="flex items-center gap-2 text-sm text-gray-400">
-                          <Calendar size={16} />
-                          <span>{new Date(photo.dateTaken).toLocaleDateString('fr-FR')}</span>
-                        </div>
-                      )}
-                      {photo?.camera && (
-                        <div className="flex items-center gap-2 text-sm text-gray-400">
-                          <Camera size={16} />
-                          <span>{photo.camera}</span>
-                        </div>
-                      )}
-                      {photo?.settings && (
-                        <p className="text-xs text-gray-500">{photo.settings}</p>
-                      )}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            );
-          }
-        }}
+        styles={{ container: { backgroundColor: 'rgba(0, 0, 0, 0.95)' } }}
       />
+    </div>
+  );
+};
+
+// Composant PhotoCard avec animations
+const PhotoCard = ({ photo, index, onClick, onAddToWishlist, isInWishlist, large = false }) => {
+  const [isVisible, setIsVisible] = useState(false);
+  const cardRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (cardRef.current) {
+      observer.observe(cardRef.current);
+    }
+
+    return () => {
+      if (cardRef.current) {
+        observer.unobserve(cardRef.current);
+      }
+    };
+  }, []);
+
+  return (
+    <div
+      ref={cardRef}
+      className={`photo-card group cursor-pointer transform transition-all duration-700 ${
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+      } ${large ? 'md:col-span-2 md:row-span-2' : ''}`}
+      style={{ transitionDelay: `${index * 100}ms` }}
+    >
+      <div className={`image-container ${large ? 'aspect-[16/10]' : 'aspect-[4/5]'} relative overflow-hidden`}>
+        <img
+          src={photo.imageUrl}
+          alt={photo.title}
+          className="image-zoom"
+          loading="lazy"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <div className="absolute inset-0 flex flex-col items-center justify-center text-white p-6">
+            <Maximize2 size={40} className="mb-4" />
+            <h3 className="font-display text-xl font-semibold text-center">{photo.title}</h3>
+          </div>
+        </div>
+        
+        {/* Wishlist heart button */}
+        <button
+          onClick={(e) => {
+            e.stopPropagation();
+            onAddToWishlist();
+          }}
+          className="absolute top-4 right-4 p-2 bg-white bg-opacity-90 rounded-full hover:bg-[var(--color-gold)] hover:text-white transition-colors z-10"
+        >
+          <Heart size={20} fill={isInWishlist ? 'currentColor' : 'none'} />
+        </button>
+        
+        {photo.location && photo.location.name && (
+          <div className="absolute bottom-4 left-4 bg-black bg-opacity-70 text-white px-3 py-1 rounded text-xs flex items-center gap-1">
+            <MapPin size={12} />
+            {photo.location.name}
+          </div>
+        )}
+      </div>
+      <div className="p-4" onClick={onClick}>
+        <h3 className="font-display text-lg font-semibold mb-2">{photo.title}</h3>
+        {photo.caption && (
+          <p className="text-sm text-gray-600 line-clamp-2">{photo.caption}</p>
+        )}
+      </div>
     </div>
   );
 };
