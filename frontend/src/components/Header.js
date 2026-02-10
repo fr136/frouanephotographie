@@ -75,16 +75,37 @@ const Header = () => {
             ))}
           </nav>
 
-          {/* Cart Icon */}
+          {/* Cart & Wishlist Icons */}
           <div className="hidden lg:flex items-center space-x-4">
-            <button
-              className={`p-2 transition-colors ${
+            <Link
+              to="/wishlist"
+              className={`p-2 relative transition-colors ${ 
+                isScrolled ? 'text-gray-900 hover:text-[var(--color-gold)]' : 'text-white hover:text-[var(--color-gold)]'
+              }`}
+              aria-label="Favoris"
+            >
+              <Heart size={20} />
+              {wishlistItemsCount > 0 && (
+                <span className="absolute -top-1 -right-1 bg-[var(--color-gold)] text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
+                  {wishlistItemsCount}
+                </span>
+              )}
+            </Link>
+            
+            <Link
+              to="/panier"
+              className={`p-2 relative transition-colors ${
                 isScrolled ? 'text-gray-900 hover:text-[var(--color-gold)]' : 'text-white hover:text-[var(--color-gold)]'
               }`}
               aria-label="Panier"
             >
               <ShoppingCart size={20} />
-            </button>
+              {cartItemsCount > 0 && (
+                <span className="absolute -top-1 -right-1 bg-[var(--color-gold)] text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
+                  {cartItemsCount}
+                </span>
+              )}
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
