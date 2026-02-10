@@ -6,6 +6,7 @@ import 'yet-another-react-lightbox/styles.css';
 import { collectionsAPI } from '../services/api';
 import { getCollectionBySlug } from '../data/collectionsData';
 import GlobeZoomEffect from '../components/GlobeZoomEffect';
+import EcologyContent from '../components/EcologyContent';
 import { MapPin, Calendar, Camera, ChevronLeft, Maximize2, Map as MapIcon, AlertTriangle, Heart, Leaf, Info } from 'lucide-react';
 import L from 'leaflet';
 import '../styles/photography.css';
