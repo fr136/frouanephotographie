@@ -1,0 +1,20 @@
+# Robots.txt pour Frouane Photographie
+# https://www.frouanephotographie.com/robots.txt
+
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+
+# Sitemap
+Sitemap: https://frouanephotographie.com/sitemap.xml
+
+# Robots spécifiques
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+# Crawl-delay pour éviter la surcharge
+Crawl-delay: 1
