@@ -153,17 +153,17 @@ const Home = () => {
               <div key={photo.id} className="photo-card">
                 <div className="image-container aspect-[4/5]">
                   <img
-                    src={product.image}
-                    alt={product.title}
+                    src={photo.imageUrl}
+                    alt={photo.title}
                     className="image-zoom"
                   />
                 </div>
                 <div className="p-6">
-                  <p className="caption mb-2">{product.location}</p>
-                  <h3 className="font-display text-xl font-semibold mb-3">{product.title}</h3>
-                  <p className="body-text text-sm mb-4">{product.description}</p>
+                  <p className="caption mb-2">{photo.location?.name || 'Côte d\'Azur'}</p>
+                  <h3 className="font-display text-xl font-semibold mb-3">{photo.title}</h3>
+                  <p className="body-text text-sm mb-4">{photo.caption || 'Photographie maritime'}</p>
                   <div className="flex items-center justify-between">
-                    <span className="text-2xl font-semibold text-[var(--color-gold)]">{product.price}€</span>
+                    <span className="text-2xl font-semibold text-[var(--color-gold)]">À partir de 180€</span>
                     <span className="caption">Édition limitée</span>
                   </div>
                 </div>
