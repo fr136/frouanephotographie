@@ -40,6 +40,17 @@ const Collections = () => {
       ? collections
       : collections.filter((c) => c.category === selectedCategory);
 
+  if (loading) {
+    return (
+      <div className="bg-white min-h-screen pt-32 pb-16">
+        <div className="container-photo text-center">
+          <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-[var(--color-gold)]"></div>
+          <p className="mt-4 text-gray-600">Chargement des collections...</p>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="bg-white">
       {/* Hero */}
