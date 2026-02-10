@@ -285,6 +285,7 @@ const CollectionGallery = () => {
           </div>
         </div>
       </section>
+      )}
 
       {/* Lightbox */}
       <Lightbox
