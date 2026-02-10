@@ -96,6 +96,14 @@ const CollectionGallery = () => {
 
   return (
     <div className="bg-white">
+      {/* Globe 3D Effect au premier chargement */}
+      {showGlobe && (
+        <GlobeZoomEffect 
+          onComplete={() => setShowGlobe(false)}
+          targetLocation={slug}
+        />
+      )}
+
       {/* Hero Header */}
       <section className="pt-32 pb-16 bg-black text-white relative">
         <div
