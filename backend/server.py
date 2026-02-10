@@ -90,8 +90,12 @@ async def get_status_checks():
     
     return status_checks
 
-# Include the router in the main app
+# Include the api router
 app.include_router(api_router)
+
+# Include collections and photos routers (they already have /api prefix)
+app.include_router(collections_router)
+app.include_router(photos_router)
 
 app.add_middleware(
     CORSMiddleware,
