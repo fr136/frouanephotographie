@@ -22,12 +22,15 @@ const CollectionGallery = () => {
   const { slug } = useParams();
   const navigate = useNavigate();
   const [collection, setCollection] = useState(null);
+  const [enrichedData, setEnrichedData] = useState(null);
   const [photos, setPhotos] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [lightboxIndex, setLightboxIndex] = useState(-1);
   const [showMap, setShowMap] = useState(false);
   const [selectedPhoto, setSelectedPhoto] = useState(null);
+  const [showGlobe, setShowGlobe] = useState(true);
+  const [activeTab, setActiveTab] = useState('photos'); // photos, ecology, story
 
   useEffect(() => {
     loadCollectionData();
@@ -39,6 +42,11 @@ const CollectionGallery = () => {
       const data = await collectionsAPI.getBySlug(slug);
       setCollection(data.collection);
       setPhotos(data.photos || []);
+      
+      // Charger les données enrichies
+      const enriched = getCollectionBySlug(slug);
+      setEnrichedData(enriched);
+      
       setError(null);
     } catch (err) {
       setError('Impossible de charger la collection');
