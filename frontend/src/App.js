@@ -2,8 +2,10 @@ import React from "react";
 import "./App.css";
 import "leaflet/dist/leaflet.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { CartProvider } from "./context/CartContext";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import NewsletterPopup from "./components/NewsletterPopup";
 import Home from "./pages/Home";
 import Collections from "./pages/Collections";
 import CollectionGallery from "./pages/CollectionGallery";
@@ -17,20 +19,23 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Header />
-        <main>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/collections" element={<Collections />} />
-            <Route path="/collections/:slug" element={<CollectionGallery />} />
-            <Route path="/boutique" element={<Shop />} />
-            <Route path="/a-propos" element={<About />} />
-            <Route path="/blog" element={<Blog />} />
-            <Route path="/contact" element={<Contact />} />
-          </Routes>
-        </main>
-        <Footer />
-        <Toaster />
+        <CartProvider>
+          <Header />
+          <main>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/collections" element={<Collections />} />
+              <Route path="/collections/:slug" element={<CollectionGallery />} />
+              <Route path="/boutique" element={<Shop />} />
+              <Route path="/a-propos" element={<About />} />
+              <Route path="/blog" element={<Blog />} />
+              <Route path="/contact" element={<Contact />} />
+            </Routes>
+          </main>
+          <Footer />
+          <NewsletterPopup />
+          <Toaster />
+        </CartProvider>
       </BrowserRouter>
     </div>
   );
