@@ -1,11 +1,29 @@
-import React, { useState } from 'react';
-import { mockData } from '../mock';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { collectionsAPI } from '../services/api';
 import { Filter } from 'lucide-react';
 import '../styles/photography.css';
 
 const Collections = () => {
-  const { collections } = mockData;
+  const navigate = useNavigate();
+  const [collections, setCollections] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [selectedCategory, setSelectedCategory] = useState('all');
+
+  useEffect(() => {
+    loadCollections();
+  }, []);
+
+  const loadCollections = async () => {
+    try {
+      const data = await collectionsAPI.getAll();
+      setCollections(data);
+    } catch (error) {
+      console.error('Error loading collections:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const categories = [
     { id: 'all', label: 'Toutes' },
