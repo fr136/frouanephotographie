@@ -14,6 +14,8 @@ from datetime import datetime, timezone
 # Import routes
 from routes.collections import router as collections_router
 from routes.photos import router as photos_router
+from routes.cart import router as cart_router
+from routes.wishlist import router as wishlist_router, newsletter_router
 
 
 ROOT_DIR = Path(__file__).parent
