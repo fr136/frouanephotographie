@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, ShoppingCart } from 'lucide-react';
+import { Menu, X, ShoppingCart, Heart } from 'lucide-react';
+import { useCart } from '../context/CartContext';
 import '../styles/photography.css';
 
 const Header = () => {
