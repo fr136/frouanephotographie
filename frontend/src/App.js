@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./App.css";
 import "leaflet/dist/leaflet.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { CartProvider } from "./context/CartContext";
+import usePageTracking from "./hooks/useAnalytics";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import NewsletterPopup from "./components/NewsletterPopup";
@@ -15,26 +16,43 @@ import Blog from "./pages/Blog";
 import Contact from "./pages/Contact";
 import { Toaster } from "./components/ui/toaster";
 
+// Composant qui track les pages
+const AppContent = () => {
+  usePageTracking(); // Active le tracking automatique des pages
+
+  return (
+    <>
+      <Header />
+      <main>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/collections" element={<Collections />} />
+          <Route path="/collections/:slug" element={<CollectionGallery />} />
+          <Route path="/boutique" element={<Shop />} />
+          <Route path="/a-propos" element={<About />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+      </main>
+      <Footer />
+      <NewsletterPopup />
+      <Toaster />
+    </>
+  );
+};
+
 function App() {
+  useEffect(() => {
+    // Log les IDs configurés (debug)
+    console.log('GA4 ID:', process.env.REACT_APP_GA4_ID);
+    console.log('GSC Verification:', process.env.REACT_APP_GSC_VERIFICATION);
+  }, []);
+
   return (
     <div className="App">
       <BrowserRouter>
         <CartProvider>
-          <Header />
-          <main>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/collections" element={<Collections />} />
-              <Route path="/collections/:slug" element={<CollectionGallery />} />
-              <Route path="/boutique" element={<Shop />} />
-              <Route path="/a-propos" element={<About />} />
-              <Route path="/blog" element={<Blog />} />
-              <Route path="/contact" element={<Contact />} />
-            </Routes>
-          </main>
-          <Footer />
-          <NewsletterPopup />
-          <Toaster />
+          <AppContent />
         </CartProvider>
       </BrowserRouter>
     </div>
