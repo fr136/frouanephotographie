@@ -124,7 +124,7 @@ const Home = () => {
                   <p className="caption mb-4">{collection.subtitle}</p>
                   <p className="body-text text-sm">{collection.description}</p>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
 
