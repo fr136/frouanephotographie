@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import Lightbox from 'yet-another-react-lightbox';
+import 'yet-another-react-lightbox/styles.css';
 import { collectionsAPI } from '../services/api';
 import { MapPin, Calendar, Camera, X, ChevronLeft, ChevronRight, Maximize2, Map as MapIcon } from 'lucide-react';
 import L from 'leaflet';
 import '../styles/photography.css';
-import '../styles/libraries.css';
 
 // Fix for Leaflet default marker icon
 delete L.Icon.Default.prototype._getIconUrl;
