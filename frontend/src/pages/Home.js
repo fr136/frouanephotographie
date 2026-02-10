@@ -100,7 +100,11 @@ const Home = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {collections.slice(0, 6).map((collection) => (
-              <div key={collection.id} className="photo-card group">
+              <Link 
+                key={collection.id} 
+                to={`/collections/${collection.slug}`}
+                className="photo-card group"
+              >
                 <div className="image-container aspect-[4/5]">
                   <img
                     src={collection.image}
