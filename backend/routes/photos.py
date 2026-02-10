@@ -5,7 +5,7 @@ from models.photo import Photo, PhotoCreate, PhotoUpdate
 router = APIRouter(prefix="/api/photos", tags=["photos"])
 
 def get_db():
-    \"\"\"Get database instance from app state\"\"\"
+    """Get database instance from app state"""
     from server import db
     return db
 
