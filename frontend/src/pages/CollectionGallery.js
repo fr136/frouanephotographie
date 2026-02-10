@@ -4,7 +4,9 @@ import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import Lightbox from 'yet-another-react-lightbox';
 import 'yet-another-react-lightbox/styles.css';
 import { collectionsAPI } from '../services/api';
-import { MapPin, Calendar, Camera, X, ChevronLeft, ChevronRight, Maximize2, Map as MapIcon } from 'lucide-react';
+import { getCollectionBySlug } from '../data/collectionsData';
+import GlobeZoomEffect from '../components/GlobeZoomEffect';
+import { MapPin, Calendar, Camera, ChevronLeft, Maximize2, Map as MapIcon, AlertTriangle, Heart, Leaf, Info } from 'lucide-react';
 import L from 'leaflet';
 import '../styles/photography.css';
 
