@@ -6,7 +6,7 @@ from datetime import datetime
 router = APIRouter(prefix="/api/collections", tags=["collections"])
 
 def get_db():
-    \"\"\"Get database instance from app state\"\"\"
+    """Get database instance from app state"""
     from server import db
     return db
 
