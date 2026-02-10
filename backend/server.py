@@ -98,6 +98,9 @@ app.include_router(api_router)
 # Include collections and photos routers (they already have /api prefix)
 app.include_router(collections_router)
 app.include_router(photos_router)
+app.include_router(cart_router)
+app.include_router(wishlist_router)
+app.include_router(newsletter_router)
 
 app.add_middleware(
     CORSMiddleware,
