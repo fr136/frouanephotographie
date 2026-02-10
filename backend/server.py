@@ -25,7 +25,18 @@ client = AsyncIOMotorClient(mongo_url)
 db = client[os.environ['DB_NAME']]
 
 # Create the main app without a prefix
-app = FastAPI()
+app = FastAPI(
+    title="Frouane Photographie API",
+    description="API pour le portfolio de photographie maritime de Franck Rouane",
+    version="1.0.0"
+)
+
+# Create uploads directory if it doesn't exist
+uploads_dir = ROOT_DIR / "uploads"
+uploads_dir.mkdir(exist_ok=True)
+
+# Serve uploaded files
+app.mount("/uploads", StaticFiles(directory=str(uploads_dir)), name="uploads")
 
 # Create a router with the /api prefix
 api_router = APIRouter(prefix="/api")
