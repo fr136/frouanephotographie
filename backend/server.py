@@ -53,10 +53,18 @@ class StatusCheck(BaseModel):
 class StatusCheckCreate(BaseModel):
     client_name: str
 
-# Add your routes to the router instead of directly to app
+# Health check routes
 @api_router.get("/")
 async def root():
-    return {"message": "Hello World"}
+    return {
+        "message": "Frouane Photographie API",
+        "version": "1.0.0",
+        "status": "running"
+    }
+
+@api_router.get("/health")
+async def health_check():
+    return {"status": "healthy", "database": "connected"}
 
 @api_router.post("/status", response_model=StatusCheck)
 async def create_status_check(input: StatusCheckCreate):
