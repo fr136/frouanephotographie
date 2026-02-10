@@ -1,11 +1,34 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Camera, Award, Heart } from 'lucide-react';
+import { collectionsAPI, photosAPI } from '../services/api';
 import { mockData } from '../mock';
 import '../styles/photography.css';
 
 const Home = () => {
-  const { photographer, collections, featuredProducts, testimonials } = mockData;
+  const { photographer, testimonials } = mockData;
+  const [collections, setCollections] = useState([]);
+  const [featuredPhotos, setFeaturedPhotos] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    loadData();
+  }, []);
+
+  const loadData = async () => {
+    try {
+      const [collectionsData, photosData] = await Promise.all([
+        collectionsAPI.getAll(),
+        photosAPI.getAll({ limit: 6 })
+      ]);
+      setCollections(collectionsData);
+      setFeaturedPhotos(photosData.photos || []);
+    } catch (error) {
+      console.error('Error loading data:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <div className="bg-white">
