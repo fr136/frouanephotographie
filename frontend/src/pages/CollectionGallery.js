@@ -239,8 +239,9 @@ const CollectionGallery = () => {
       )}
 
       {/* Gallery Grid */}
-      <section className="section-spacing">
-        <div className="container-photo">
+      {activeTab === 'photos' && (
+        <section className="section-spacing">
+          <div className="container-photo">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {photos.map((photo, index) => (
               <div
