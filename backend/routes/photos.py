@@ -15,7 +15,7 @@ async def get_photos(
     limit: int = Query(50, ge=1, le=100),
     skip: int = Query(0, ge=0)
 ):
-    \"\"\"Récupère les photos avec pagination optionnelle\"\"\"
+    """Récupère les photos avec pagination optionnelle"""
     db = get_db()
     query = {}
     if collection:
@@ -32,7 +32,7 @@ async def get_photos(
 
 @router.get("/{photo_id}")
 async def get_photo(photo_id: str):
-    \"\"\"Récupère une photo spécifique\"\"\"
+    """Récupère une photo spécifique"""
     db = get_db()
     photo = await db.photos.find_one({"id": photo_id})
     if not photo:
@@ -41,7 +41,7 @@ async def get_photo(photo_id: str):
 
 @router.post("", response_model=Photo, status_code=status.HTTP_201_CREATED)
 async def create_photo(photo: PhotoCreate):
-    \"\"\"Ajoute une nouvelle photo\"\"\"
+    """Ajoute une nouvelle photo"""
     db = get_db()
     # Vérifier que la collection existe
     collection = await db.collections.find_one({"slug": photo.collectionId})
@@ -62,7 +62,7 @@ async def create_photo(photo: PhotoCreate):
 
 @router.put("/{photo_id}", response_model=Photo)
 async def update_photo(photo_id: str, photo_update: PhotoUpdate):
-    \"\"\"Met à jour une photo (légendes, localisations, etc.)\"\"\"
+    """Met à jour une photo (légendes, localisations, etc.)"""
     db = get_db()
     update_data = {k: v for k, v in photo_update.dict(exclude_unset=True).items()}
     
@@ -79,7 +79,7 @@ async def update_photo(photo_id: str, photo_update: PhotoUpdate):
 
 @router.delete("/{photo_id}")
 async def delete_photo(photo_id: str):
-    \"\"\"Supprime une photo\"\"\"
+    """Supprime une photo"""
     db = get_db()
     photo = await db.photos.find_one({"id": photo_id})
     if not photo:
