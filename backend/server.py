@@ -42,7 +42,7 @@ app.mount("/uploads", StaticFiles(directory=str(uploads_dir)), name="uploads")
 api_router = APIRouter(prefix="/api")
 
 
-# Define Models
+# Define Models for health check
 class StatusCheck(BaseModel):
     model_config = ConfigDict(extra="ignore")  # Ignore MongoDB's _id field
     
