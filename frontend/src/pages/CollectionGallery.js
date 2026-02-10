@@ -191,6 +191,52 @@ const CollectionGallery = () => {
         </section>
       )}
 
+      {/* Tabs Navigation */}
+      {enrichedData && (
+        <section className="py-8 bg-gray-100 sticky top-20 z-40">
+          <div className="container-photo">
+            <div className="flex gap-4 justify-center">
+              <button
+                onClick={() => setActiveTab('photos')}
+                className={`px-6 py-3 font-semibold uppercase tracking-wider transition-all ${
+                  activeTab === 'photos'
+                    ? 'bg-black text-white'
+                    : 'bg-white text-gray-700 hover:bg-gray-200'
+                }`}
+              >
+                📸 Galerie Photos
+              </button>
+              <button
+                onClick={() => setActiveTab('ecology')}
+                className={`px-6 py-3 font-semibold uppercase tracking-wider transition-all ${
+                  activeTab === 'ecology'
+                    ? 'bg-black text-white'
+                    : 'bg-white text-gray-700 hover:bg-gray-200'
+                }`}
+              >
+                🌍 Écologie & Sensibilisation
+              </button>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Contenu Écologique */}
+      {activeTab === 'ecology' && enrichedData && (
+        <section className="section-spacing">
+          <div className="container-photo max-w-5xl">
+            <EcologyContent
+              ecology={enrichedData.ecology}
+              anecdote={enrichedData.anecdote}
+              story={enrichedData.story}
+              photographyTips={enrichedData.photographyTips}
+              bestPeriods={enrichedData.bestPeriods}
+              practicalInfo={enrichedData.practicalInfo}
+            />
+          </div>
+        </section>
+      )}
+
       {/* Gallery Grid */}
       <section className="section-spacing">
         <div className="container-photo">
