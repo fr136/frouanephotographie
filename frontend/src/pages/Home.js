@@ -84,7 +84,11 @@ const Home = () => {
           </div>
         </div>
       </section>
-
+const safeCollections = Array.isArray(collections)
+? collections
+: (collections && typeof collections === 'object')
+? Object.values(collections)
+: [];
       {/* Collections Preview */}
       <section className="section-spacing bg-gray-50">
         <div className="container-photo">
@@ -98,7 +102,7 @@ const Home = () => {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {collections.slice(0, 6).map((collection) => (
+            {safeCollections.slice(0, 6).map((collection) => (
               <Link 
                 key={collection.id} 
                 to={`/collections/${collection.slug}`}
