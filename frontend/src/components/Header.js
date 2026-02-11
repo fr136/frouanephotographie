@@ -52,7 +52,7 @@ const Header = () => {
                 isScrolled ? 'text-gray-600' : 'text-gray-200'
               }`}
             >
-              Photographie Maritime
+              Photographe
             </span>
           </Link>
 

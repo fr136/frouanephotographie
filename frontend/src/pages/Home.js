@@ -34,15 +34,16 @@ const Home = () => {
     <div className="bg-white">
       {/* Hero Section */}
       <section
-        className="relative h-screen flex items-center justify-center"
+        className="relative min-h-screen flex items-center justify-center pt-24 sm:pt-0"
         style={{
-          backgroundImage: 'url(https://images.unsplash.com/photo-1733272967076-3a2ce81226e4)',
+          backgroundImage: "url('/sunrise-laciotat.jpeg')",
           backgroundSize: 'cover',
           backgroundPosition: 'center',
+          
         }}
       >
-        <div className="absolute inset-0 bg-black bg-opacity-40"></div>
-        <div className="relative z-10 text-center px-4">
+        <div className="absolute inset-0 bg-black bg-opacity-30"></div>
+        <div className="relative z-10 text-center px-4 max-w-md sm:max-w-2xl mx-auto">
           <p className="section-subtitle text-white mb-4 fade-in">{photographer.specialty}</p>
           <h1 className="hero-title mb-6 fade-in" style={{ animationDelay: '0.2s' }}>
             {photographer.name}
@@ -51,23 +52,21 @@ const Home = () => {
             {photographer.tagline}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center fade-in" style={{ animationDelay: '0.6s' }}>
-            <Link to="/collections" className="btn-gold">
+            <Link to="/collections" className="btn-gold w-full sm:w-auto">
               Découvrir les Collections
             </Link>
-            <Link to="/boutique" className="btn-outline" style={{ borderColor: 'white', color: 'white' }}>
-              Voir la Boutique
+            <Link to="/boutique" className="btn-outline w-full sm:w-auto" style={{ borderColor: 'white', color: 'white'  }}>
+                  Voir la Boutique
             </Link>
           </div>
         </div>
       </section>
-
-      {/* About Preview */}
+          {/* About Preview */}
       <section className="section-spacing">
         <div className="container-photo">
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <div>
-              <p className="section-subtitle mb-4">L'Artiste</p>
-              <h2 className="section-title mb-6">Capturer l'Essence de la Méditerranée</h2>
+              <h2 className="section-title mb-6"> Photographies de la méditerranée </h2>
               <div className="gold-line"></div>
               <p className="body-large mb-6">{photographer.bio}</p>
               <Link to="/a-propos" className="btn-outline inline-flex items-center gap-2">
@@ -77,8 +76,8 @@ const Home = () => {
             </div>
             <div className="image-container aspect-[4/5] rounded-sm overflow-hidden">
               <img
-                src="https://images.unsplash.com/photo-1672861864274-6b24d19b578d"
-                alt="Franck Rouane"
+                src="/Salon-sormiou.png"
+                alt="Salon luxueux sormiou"
                 className="image-zoom"
               />
             </div>
@@ -94,7 +93,7 @@ const Home = () => {
             <h2 className="section-title mb-6">Collections de Photographies</h2>
             <div className="gold-line mx-auto"></div>
             <p className="body-text max-w-2xl mx-auto mt-6">
-              Explorez mes collections de photographies maritimes, chacune racontant une histoire unique de la Méditerranée.
+              Explorez mes collections de photographies .
             </p>
           </div>
 
