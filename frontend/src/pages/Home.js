@@ -29,7 +29,11 @@ const Home = () => {
       setLoading(false);
     }
   };
-
+const safeCollections = Array.isArray(collections)
+? collections
+: (collections && typeof collections === "object")
+? Object.values(collections)
+: [];
   return (
     <div className="bg-white">
       {/* Hero Section */}
@@ -84,11 +88,7 @@ const Home = () => {
           </div>
         </div>
       </section>
-const safeCollections = Array.isArray(collections)
-? collections
-: (collections && typeof collections === 'object')
-? Object.values(collections)
-: [];
+
       {/* Collections Preview */}
       <section className="section-spacing bg-gray-50">
         <div className="container-photo">
