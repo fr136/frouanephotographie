@@ -3,7 +3,16 @@ import { useNavigate } from 'react-router-dom';
 import { collectionsAPI } from '../services/api';
 import { Filter } from 'lucide-react';
 import '../styles/photography.css';
-
+const toArray = (v) => {
+  if (Array.isArray(v)) return v;
+  if (v && typeof v === "object") return Object.values(v);
+  const safeFilteredCollections = Array.isArray(filteredCollections)
+  ? filteredCollections
+  : (filteredCollections && typeof filteredCollections === "object")
+  ? Object.values(filteredCollections)
+  : [];
+  return [];
+};
 const Collections = () => {
   const navigate = useNavigate();
   const [collections, setCollections] = useState([]);
@@ -105,7 +114,7 @@ const collectionsArray = Array.isArray(collections)
       <section className="section-spacing">
         <div className="container-photo">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredCollections.map((collection) => (
+            {safeFilteredCollections.map((collection) => (
               <div 
                 key={collection.id} 
                 className="photo-card group cursor-pointer"
