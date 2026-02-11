@@ -50,6 +50,15 @@ const Collections = () => {
       </div>
     );
   }
+const collectionsArray = Array.isArray(collections)
+  ? collections
+  : (collections && Array.isArray(collections.collections))
+  ? collections.collections
+  : (collections && Array.isArray(collections.data))
+  ? collections.data
+  : (collections && typeof collections === "object")
+  ? Object.values(collections)
+  : [];
 
   return (
     <div className="bg-white">
