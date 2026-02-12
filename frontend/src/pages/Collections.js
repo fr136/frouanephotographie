@@ -3,16 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { collectionsAPI } from '../services/api';
 import { Filter } from 'lucide-react';
 import '../styles/photography.css';
-const toArray = (v) => {
-  if (Array.isArray(v)) return v;
-  if (v && typeof v === "object") return Object.values(v);
-  const safeFilteredCollections = Array.isArray(filteredCollections)
-  ? filteredCollections
-  : (filteredCollections && typeof filteredCollections === "object")
-  ? Object.values(filteredCollections)
-  : [];
-  return [];
-};
+
 const Collections = () => {
   const navigate = useNavigate();
   const [collections, setCollections] = useState([]);
@@ -44,10 +35,22 @@ const Collections = () => {
     { id: 'seascapes', label: 'Paysages Maritimes' }
   ];
 
+  // Convertir les collections en array si nécessaire
+  const collectionsArray = Array.isArray(collections)
+    ? collections
+    : (collections && Array.isArray(collections.collections))
+    ? collections.collections
+    : (collections && Array.isArray(collections.data))
+    ? collections.data
+    : (collections && typeof collections === "object")
+    ? Object.values(collections)
+    : [];
+
+  // Filtrer les collections
   const filteredCollections =
     selectedCategory === 'all'
-      ? collections
-      : collections.filter((c) => c.category === selectedCategory);
+      ? collectionsArray
+      : collectionsArray.filter((c) => c.category === selectedCategory);
 
   if (loading) {
     return (
@@ -59,15 +62,6 @@ const Collections = () => {
       </div>
     );
   }
-const collectionsArray = Array.isArray(collections)
-  ? collections
-  : (collections && Array.isArray(collections.collections))
-  ? collections.collections
-  : (collections && Array.isArray(collections.data))
-  ? collections.data
-  : (collections && typeof collections === "object")
-  ? Object.values(collections)
-  : [];
 
   return (
     <div className="bg-white">
@@ -114,7 +108,7 @@ const collectionsArray = Array.isArray(collections)
       <section className="section-spacing">
         <div className="container-photo">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {safeFilteredCollections.map((collection) => (
+            {filteredCollections.map((collection) => (
               <div 
                 key={collection.id} 
                 className="photo-card group cursor-pointer"
