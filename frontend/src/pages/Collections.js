@@ -3,16 +3,30 @@ import { useNavigate } from 'react-router-dom';
 import { collectionsAPI } from '../services/api';
 import { Filter } from 'lucide-react';
 import '../styles/photography.css';
-const toArray = (v) => {
-  if (Array.isArray(v)) return v;
-  if (v && typeof v === "object") return Object.values(v);
-  const safeFilteredCollections = Array.isArray(filteredCollections)
-  ? filteredCollections
-  : (filteredCollections && typeof filteredCollections === "object")
-  ? Object.values(filteredCollections)
-  : [];
+
+const toArray = (value) => {
+  if (Array.isArray(value)) return value;
   return [];
 };
+
+const normalizeCollections = (payload) => {
+  const candidates = [
+    payload,
+    payload?.collections,
+    payload?.data,
+    payload?.items,
+    payload?.results,
+  ];
+
+  for (const candidate of candidates) {
+    if (Array.isArray(candidate)) {
+      return candidate.filter((item) => item && typeof item === 'object');
+    }
+  }
+
+  return [];
+};
+
 const Collections = () => {
   const navigate = useNavigate();
   const [collections, setCollections] = useState([]);
@@ -44,10 +58,12 @@ const Collections = () => {
     { id: 'seascapes', label: 'Paysages Maritimes' }
   ];
 
+  const collectionsArray = normalizeCollections(collections);
+
   const filteredCollections =
     selectedCategory === 'all'
-      ? collections
-      : collections.filter((c) => c.category === selectedCategory);
+      ? collectionsArray
+      : collectionsArray.filter((c) => c.category === selectedCategory);
 
   if (loading) {
     return (
@@ -59,15 +75,7 @@ const Collections = () => {
       </div>
     );
   }
-const collectionsArray = Array.isArray(collections)
-  ? collections
-  : (collections && Array.isArray(collections.collections))
-  ? collections.collections
-  : (collections && Array.isArray(collections.data))
-  ? collections.data
-  : (collections && typeof collections === "object")
-  ? Object.values(collections)
-  : [];
+  const safeFilteredCollections = toArray(filteredCollections);
 
   return (
     <div className="bg-white">
@@ -114,9 +122,9 @@ const collectionsArray = Array.isArray(collections)
       <section className="section-spacing">
         <div className="container-photo">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {safeFilteredCollections.map((collection) => (
+            {safeFilteredCollections.map((collection, index) => (
               <div 
-                key={collection.id} 
+                key={collection.id || collection.slug || `collection-${index}`} 
                 className="photo-card group cursor-pointer"
                 onClick={() => navigate(`/collections/${collection.slug}`)}
               >

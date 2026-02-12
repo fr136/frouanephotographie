@@ -1,7 +1,19 @@
 import axios from 'axios';
 
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
-const API = `${BACKEND_URL}/api`;
+const getBackendUrl = () => {
+  const configuredUrl = process.env.REACT_APP_BACKEND_URL?.trim();
+  if (configuredUrl) {
+    return configuredUrl.replace(/\/$/, '');
+  }
+
+  if (typeof window !== 'undefined' && window.location?.origin) {
+    return window.location.origin;
+  }
+
+  return '';
+};
+
+const API = `${getBackendUrl()}/api`;
 
 // Génère ou récupère l'ID de session
 const getSessionId = () => {
