@@ -22,17 +22,25 @@ const Shop = () => {
 
   return (
     <div className="bg-white">
-      {/* Hero */}
-      <section className="pt-32 pb-16 bg-black text-white">
-        <div className="container-photo text-center">
-          <p className="section-subtitle text-white mb-4">Boutique</p>
-          <h1 className="section-title text-white mb-6">Tirages d'Art en Édition Limitée</h1>
-          <div className="gold-line mx-auto"></div>
-          <p className="body-large text-gray-300 max-w-3xl mx-auto mt-6">
-            Découvrez ma collection de tirages d'art, chaque œuvre est numérotée, signée et imprimée sur papier Fine Art de qualité muséale.
-          </p>
-        </div>
-      </section>
+{/* Hero */}
+<section 
+  className="pt-32 pb-16 bg-cover bg-center relative"
+  style={{
+    backgroundImage: `url('/Salon luxueux baie de La Ciotat.jpg')`,
+  }}
+>
+  {/* Overlay sombre pour la lisibilité du texte */}
+  <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+  
+  <div className="container-photo text-center relative z-10">
+    <p className="section-subtitle text-white mb-4">Boutique</p>
+    <h1 className="section-title text-white mb-6">Tirages d'Art en Édition Limitée</h1>
+    <div className="gold-line mx-auto"></div>
+    <p className="body-large text-gray-300 max-w-3xl mx-auto mt-6">
+      Découvrez ma collection de tirages d'art, chaque œuvre est numérotée, signée et imprimée sur papier Fine Art de qualité muséale.
+    </p>
+  </div>
+</section>
 
       {/* Filter */}
       <section className="py-8 bg-gray-50">
