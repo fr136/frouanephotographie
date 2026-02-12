@@ -1,7 +1,8 @@
-// Adding a hero background image
+// Update the hero section's background style in Collections.js
+const heroStyle = {
+  backgroundSize: 'contain', // Changed from 'cover' to 'contain'
+  backgroundPosition: 'center',
+  backgroundRepeat: 'no-repeat', // Added backgroundRepeat no-repeat
+};
 
-const heroBackgroundImage = 'frontend/public/Calanque Port d'alon Saint Cyr sur mer.webp';
-
-const moderateZoomStyle = { backgroundImage: `url(${heroBackgroundImage})`, backgroundSize: 'cover', backgroundPosition: 'center center', zoom: '1.1' };
-
-// Use moderateZoomStyle in your component
+// Rest of the Collections.js code...
