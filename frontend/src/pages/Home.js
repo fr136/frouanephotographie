@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, Camera, Award, Heart } from 'lucide-react';
 import { collectionsAPI, photosAPI } from '../services/api';
 import { mockData } from '../mock';
+import CollectionsReveal from '../components/CollectionsReveal';
 import '../styles/photography.css';
 
 const Home = () => {
@@ -101,41 +102,7 @@ const safeCollections = Array.isArray(collections)
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {safeCollections.slice(0, 6).map((collection) => (
-              <Link 
-                key={collection.id} 
-                to={`/collections/${collection.slug}`}
-                className="photo-card group"
-              >
-                <div className="image-container aspect-[4/5]">
-                  <img
-                    src={collection.image}
-                    alt={collection.title}
-                    className="image-zoom"
-                  />
-                  <div className="image-overlay"></div>
-                  <div className="absolute inset-0 flex items-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <div className="text-white">
-                      <h3 className="font-display text-2xl font-semibold mb-2">{collection.title}</h3>
-                      <p className="text-sm text-gray-200">{collection.photoCount} photographies</p>
-                    </div>
-                  </div>
-                </div>
-                <div className="p-6">
-                  <h3 className="font-display text-xl font-semibold mb-2">{collection.title}</h3>
-                  <p className="caption mb-4">{collection.subtitle}</p>
-                  <p className="body-text text-sm">{collection.description}</p>
-                </div>
-              </Link>
-            ))}
-          </div>
-
-          <div className="text-center mt-12">
-            <Link to="/collections" className="btn-primary">
-              Voir Toutes les Collections
-            </Link>
-          </div>
+          <CollectionsReveal collections={safeCollections} />
         </div>
       </section>
 
