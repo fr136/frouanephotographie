@@ -9,7 +9,7 @@ Site web professionnel de photographie maritime par **Franck Rouane**, photograp
 ## ✨ Caractéristiques
 
 ### 🎨 Portfolio Immersif
-- **6 collections** de photographies maritimes
+- **Collections** de photographies 
 - Galerie interactive avec **effet hero zoom**
 - Animations fluides au scroll
 - Lightbox haute qualité
@@ -52,10 +52,10 @@ Site web professionnel de photographie maritime par **Franck Rouane**, photograp
 
 ## 📞 Contact
 
-**Franck Rouane** - Photographe Paysage Maritime
+**Franck Rouane** - Photographe Paysage 
 
 - 🌐 Site : [frouanephotographie.com](https://frouanephotographie.com)
-- 📍 Zone : Marseille - Monaco (Côte d'Azur)
+- 📍 Zone : Marseille
 
 ---
 
