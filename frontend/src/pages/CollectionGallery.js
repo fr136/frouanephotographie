@@ -390,22 +390,41 @@ const EcologyBlock = ({ ecology, collectionTitle }) => {
   );
 };
 
-// --- SOUS-COMPOSANT PHOTOCARD ---
+// --- SOUS-COMPOSANT PHOTOCARD avec animations ---
 const PhotoCard = ({ photo, index, onClick, onAddToWishlist, isInWishlist }) => {
+  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
+
   return (
-    <div className="photo-card group cursor-pointer overflow-hidden relative aspect-[4/5]" onClick={onClick}>
-      <img src={photo.imageUrl} alt={photo.title} className="image-zoom w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" />
-      <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center text-white p-4">
-        <Maximize2 size={32} className="mb-2" />
-        <h3 className="text-lg font-semibold">{photo.title}</h3>
+    <motion.div 
+      ref={ref}
+      initial={{ opacity: 0, y: 50 }}
+      animate={inView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.6, delay: (index % 6) * 0.1 }}
+      className="photo-card group cursor-pointer overflow-hidden relative aspect-[4/5]" 
+      onClick={onClick}
+      whileHover={{ y: -5 }}
+    >
+      <motion.img 
+        src={photo.imageUrl} 
+        alt={photo.title} 
+        className="w-full h-full object-cover"
+        loading="lazy"
+        whileHover={{ scale: 1.1 }}
+        transition={{ duration: 0.6 }}
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col items-center justify-end text-white p-6">
+        <Maximize2 size={32} className="mb-4 opacity-80" />
+        <h3 className="text-lg font-semibold text-center">{photo.title}</h3>
       </div>
-      <button 
+      <motion.button 
         onClick={(e) => { e.stopPropagation(); onAddToWishlist(); }}
-        className="absolute top-4 right-4 p-2 bg-white rounded-full text-black hover:text-red-500 z-20"
+        className="absolute top-4 right-4 p-2 bg-white/90 backdrop-blur-sm rounded-full text-black hover:text-red-500 z-20 shadow-lg"
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.95 }}
       >
         <Heart size={20} fill={isInWishlist ? "red" : "none"} stroke={isInWishlist ? "red" : "currentColor"} />
-      </button>
-    </div>
+      </motion.button>
+    </motion.div>
   );
 };
 
