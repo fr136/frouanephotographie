@@ -51,22 +51,62 @@ const safeCollections = Array.isArray(collections)
         }}
       >
         <div className="absolute inset-0 bg-black bg-opacity-30"></div>
-        <div className="relative z-10 text-center px-4 max-w-md sm:max-w-2xl mx-auto">
-          <p className="section-subtitle text-white mb-4 fade-in">{photographer.specialty}</p>
-          <h1 className="hero-title mb-6 fade-in" style={{ animationDelay: '0.2s' }}>
-                     </h1>
-          <p className="text-white text-xl md:text-2xl font-light mb-8 max-w-2xl mx-auto fade-in" style={{ animationDelay: '0.4s' }}>
+        <motion.div 
+          className="relative z-10 text-center px-4 max-w-md sm:max-w-2xl mx-auto"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease: 'easeOut' }}
+        >
+          <motion.p 
+            className="section-subtitle text-white mb-4"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.3 }}
+          >
+            {photographer.specialty}
+          </motion.p>
+          <motion.h1 
+            className="hero-title mb-6"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5, duration: 0.8 }}
+          >
+            {photographer.name || 'Franck Rouane'}
+          </motion.h1>
+          <motion.p 
+            className="text-white text-xl md:text-2xl font-light mb-8 max-w-2xl mx-auto"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.7 }}
+          >
             {photographer.tagline}
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center fade-in" style={{ animationDelay: '0.6s' }}>
+          </motion.p>
+          <motion.div 
+            className="flex flex-col sm:flex-row gap-4 justify-center"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.9 }}
+          >
             <Link to="/collections" className="btn-gold w-full sm:w-auto">
               Découvrir les Collections
             </Link>
             <Link to="/boutique" className="btn-outline w-full sm:w-auto" style={{ borderColor: 'white', color: 'white'  }}>
                   Voir la Boutique
             </Link>
+          </motion.div>
+        </motion.div>
+        
+        {/* Scroll indicator */}
+        <motion.div 
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1, y: [0, 10, 0] }}
+          transition={{ delay: 1.5, y: { repeat: Infinity, duration: 2 } }}
+        >
+          <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center pt-2">
+            <div className="w-1.5 h-3 bg-white/70 rounded-full" />
           </div>
-        </div>
+        </motion.div>
       </section>
           {/* About Preview */}
       <section className="section-spacing">
