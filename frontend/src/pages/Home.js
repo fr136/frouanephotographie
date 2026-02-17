@@ -186,40 +186,48 @@ const safeCollections = Array.isArray(collections)
       {/* Why Choose Section */}
       <section className="section-spacing bg-black text-white">
         <div className="container-photo">
-          <div className="text-center mb-16">
-            <h2 className="section-title text-white mb-6">Pourquoi Choisir Mes Tirages</h2>
-            <div className="gold-line mx-auto"></div>
-          </div>
+          <FadeInOnScroll>
+            <div className="text-center mb-16">
+              <h2 className="section-title text-white mb-6">Pourquoi Choisir Mes Tirages</h2>
+              <div className="gold-line mx-auto"></div>
+            </div>
+          </FadeInOnScroll>
 
-          <div className="grid md:grid-cols-3 gap-12">
-            <div className="text-center">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-[var(--color-gold)] rounded-full mb-6">
-                <Award size={32} />
+          <StaggerContainer className="grid md:grid-cols-3 gap-12" staggerDelay={0.15}>
+            <StaggerItem>
+              <div className="text-center">
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-[var(--color-gold)] rounded-full mb-6">
+                  <Award size={32} />
+                </div>
+                <h3 className="font-display text-xl font-semibold mb-4">Qualité Muséale</h3>
+                <p className="text-gray-400">
+                  Tous mes tirages sont réalisés sur papier Fine Art de qualité professionnelle, garantissant une durabilité exceptionnelle.
+                </p>
               </div>
-              <h3 className="font-display text-xl font-semibold mb-4">Qualité Muséale</h3>
-              <p className="text-gray-400">
-                Tous mes tirages sont réalisés sur papier Fine Art de qualité professionnelle, garantissant une durabilité exceptionnelle.
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-[var(--color-gold)] rounded-full mb-6">
-                <Camera size={32} />
+            </StaggerItem>
+            <StaggerItem>
+              <div className="text-center">
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-[var(--color-gold)] rounded-full mb-6">
+                  <Camera size={32} />
+                </div>
+                <h3 className="font-display text-xl font-semibold mb-4">Édition Limitée</h3>
+                <p className="text-gray-400">
+                  Chaque photographie est produite en édition limitée, numérotée et signée, assurant l'exclusivité de votre acquisition.
+                </p>
               </div>
-              <h3 className="font-display text-xl font-semibold mb-4">Édition Limitée</h3>
-              <p className="text-gray-400">
-                Chaque photographie est produite en édition limitée, numérotée et signée, assurant l'exclusivité de votre acquisition.
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-[var(--color-gold)] rounded-full mb-6">
-                <Heart size={32} />
+            </StaggerItem>
+            <StaggerItem>
+              <div className="text-center">
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-[var(--color-gold)] rounded-full mb-6">
+                  <Heart size={32} />
+                </div>
+                <h3 className="font-display text-xl font-semibold mb-4">Passion & Authenticité</h3>
+                <p className="text-gray-400">
+                  Chaque image est le fruit d'une connexion profonde avec la nature et d'une recherche constante de la lumière parfaite.
+                </p>
               </div>
-              <h3 className="font-display text-xl font-semibold mb-4">Passion & Authenticité</h3>
-              <p className="text-gray-400">
-                Chaque image est le fruit d'une connexion profonde avec la nature et d'une recherche constante de la lumière parfaite.
-              </p>
-            </div>
-          </div>
+            </StaggerItem>
+          </StaggerContainer>
         </div>
       </section>
 
