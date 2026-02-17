@@ -1,51 +1,60 @@
-import { useEffect } from "react";
-import "@/App.css";
+import React, { useEffect } from "react";
+import "./App.css";
+import "leaflet/dist/leaflet.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import axios from "axios";
+import { CartProvider } from "./context/CartContext";
+import usePageTracking from "./hooks/useAnalytics";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import NewsletterPopup from "./components/NewsletterPopup";
+import Home from "./pages/Home";
+import Collections from "./pages/Collections";
+import CollectionGallery from "./pages/CollectionGallery";
+import Shop from "./pages/Shop";
+import About from "./pages/About";
+import Blog from "./pages/Blog";
+import Contact from "./pages/Contact";
+import { Toaster } from "./components/ui/toaster";
 
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
-const API = `${BACKEND_URL}/api`;
-
-const Home = () => {
-  const helloWorldApi = async () => {
-    try {
-      const response = await axios.get(`${API}/`);
-      console.log(response.data.message);
-    } catch (e) {
-      console.error(e, `errored out requesting / api`);
-    }
-  };
-
-  useEffect(() => {
-    helloWorldApi();
-  }, []);
+// Composant qui track les pages
+const AppContent = () => {
+  usePageTracking(); // Active le tracking automatique des pages
 
   return (
-    <div>
-      <header className="App-header">
-        <a
-          className="App-link"
-          href="https://emergent.sh"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img src="https://avatars.githubusercontent.com/in/1201222?s=120&u=2686cf91179bbafbc7a71bfbc43004cf9ae1acea&v=4" />
-        </a>
-        <p className="mt-5">Building something incredible ~!</p>
-      </header>
-    </div>
+    <>
+      <Header />
+      <main>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/collections" element={<Collections />} />
+          <Route path="/collections/:slug" element={<CollectionGallery />} />
+          <Route path="/boutique" element={<Shop />} />
+          <Route path="/a-propos" element={<About />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+      </main>
+      <Footer />
+      <NewsletterPopup />
+      <Toaster />
+    </>
   );
 };
 
 function App() {
+  useEffect(() => {
+    // Désactiver les logs en production pour plus de sécurité
+    if (process.env.NODE_ENV === 'development') {
+      console.log('GA4 ID:', process.env.REACT_APP_GA4_ID);
+    }
+  }, []);
+
   return (
     <div className="App">
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />}>
-            <Route index element={<Home />} />
-          </Route>
-        </Routes>
+        <CartProvider>
+          <AppContent />
+        </CartProvider>
       </BrowserRouter>
     </div>
   );
