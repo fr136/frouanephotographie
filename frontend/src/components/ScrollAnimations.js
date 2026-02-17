@@ -1,35 +1,46 @@
 import React, { useEffect, useRef } from 'react';
-import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
-import { useInView } from 'framer-motion';
+import { motion, useScroll, useTransform, useSpring, useInView } from 'framer-motion';
 
-// Hook pour parallaxe au scroll
-export const useParallax = (value, distance) => {
-  return useTransform(value, [0, 1], [-distance, distance]);
-};
-
-// Hook pour animations au scroll
-export const useScrollAnimation = () => {
+// Composant pour animation au scroll avec fade-in
+export const FadeInOnScroll = ({ children, delay = 0, direction = 'up', className = '' }) => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { 
-    once: false, 
-    amount: 0.3,
-    margin: "-100px" 
-  });
-  
-  return { ref, isInView };
+  const isInView = useInView(ref, { once: true, margin: '-100px' });
+
+  const directionVariants = {
+    up: { y: 60 },
+    down: { y: -60 },
+    left: { x: 60 },
+    right: { x: -60 },
+  };
+
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, ...directionVariants[direction] }}
+      animate={isInView ? { opacity: 1, y: 0, x: 0 } : {}}
+      transition={{ 
+        duration: 0.8, 
+        delay, 
+        ease: [0.25, 0.46, 0.45, 0.94] 
+      }}
+      className={className}
+    >
+      {children}
+    </motion.div>
+  );
 };
 
-// Composant Image Parallaxe
-export const ParallaxImage = ({ src, alt, speed = 50, className = '' }) => {
+// Composant pour effet parallax sur les images
+export const ParallaxImage = ({ src, alt, className = '', speed = 0.5 }) => {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["start end", "end start"]
+    offset: ['start end', 'end start']
   });
-  
-  const y = useTransform(scrollYProgress, [0, 1], [-speed, speed]);
-  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [1, 1.05, 1]);
-  
+
+  const y = useTransform(scrollYProgress, [0, 1], ['0%', `${speed * 30}%`]);
+  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [1.1, 1, 1.1]);
+
   return (
     <div ref={ref} className={`overflow-hidden ${className}`}>
       <motion.img
@@ -42,68 +53,152 @@ export const ParallaxImage = ({ src, alt, speed = 50, className = '' }) => {
   );
 };
 
-// Composant Texte Révélé
-export const RevealText = ({ children, delay = 0 }) => {
-  const { ref, isInView } = useScrollAnimation();
-  
+// Composant pour révéler le texte lettre par lettre
+export const TextReveal = ({ children, className = '', delay = 0 }) => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: '-50px' });
+  const text = typeof children === 'string' ? children : '';
+
+  return (
+    <span ref={ref} className={className}>
+      {text.split('').map((char, index) => (
+        <motion.span
+          key={index}
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{
+            duration: 0.4,
+            delay: delay + index * 0.03,
+            ease: 'easeOut'
+          }}
+          style={{ display: 'inline-block' }}
+        >
+          {char === ' ' ? '\u00A0' : char}
+        </motion.span>
+      ))}
+    </span>
+  );
+};
+
+// Composant pour animation de scale au scroll
+export const ScaleOnScroll = ({ children, className = '' }) => {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ['start end', 'end start']
+  });
+
+  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [0.8, 1, 0.8]);
+  const opacity = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [0.3, 1, 1, 0.3]);
+
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: 50 }}
-      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-      transition={{ 
-        duration: 0.8, 
-        delay,
-        ease: [0.25, 0.1, 0.25, 1]
-      }}
+      style={{ scale, opacity }}
+      className={className}
     >
       {children}
     </motion.div>
   );
 };
 
-// Composant Section Sticky
-export const StickySection = ({ children, className = '' }) => {
-  return (
-    <div className={`sticky top-0 h-screen ${className}`}>
-      {children}
-    </div>
-  );
-};
-
-// Composant Zoom au Scroll
-export const ZoomOnScroll = ({ children, className = '' }) => {
+// Composant pour effet de masque qui se révèle
+export const MaskReveal = ({ children, className = '' }) => {
   const ref = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"]
-  });
-  
-  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [0.8, 1, 0.8]);
-  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
-  
+  const isInView = useInView(ref, { once: true, margin: '-100px' });
+
   return (
-    <div ref={ref} className={className}>
-      <motion.div style={{ scale, opacity }}>
+    <div ref={ref} className={`overflow-hidden ${className}`}>
+      <motion.div
+        initial={{ y: '100%' }}
+        animate={isInView ? { y: 0 } : {}}
+        transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+      >
         {children}
       </motion.div>
     </div>
   );
 };
 
-// Composant Galerie Horizontale
-export const HorizontalScroll = ({ children }) => {
+// Composant pour stagger animation sur une liste
+export const StaggerContainer = ({ children, className = '', staggerDelay = 0.1 }) => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: '-50px' });
+
+  return (
+    <motion.div
+      ref={ref}
+      initial="hidden"
+      animate={isInView ? 'visible' : 'hidden'}
+      variants={{
+        hidden: {},
+        visible: {
+          transition: {
+            staggerChildren: staggerDelay
+          }
+        }
+      }}
+      className={className}
+    >
+      {children}
+    </motion.div>
+  );
+};
+
+export const StaggerItem = ({ children, className = '' }) => {
+  return (
+    <motion.div
+      variants={{
+        hidden: { opacity: 0, y: 40 },
+        visible: { 
+          opacity: 1, 
+          y: 0,
+          transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }
+        }
+      }}
+      className={className}
+    >
+      {children}
+    </motion.div>
+  );
+};
+
+// Composant pour effet Ken Burns sur les images
+export const KenBurnsImage = ({ src, alt, className = '', duration = 20 }) => {
+  return (
+    <div className={`overflow-hidden ${className}`}>
+      <motion.img
+        src={src}
+        alt={alt}
+        className="w-full h-full object-cover"
+        animate={{
+          scale: [1, 1.15, 1],
+          x: ['0%', '2%', '0%'],
+          y: ['0%', '-2%', '0%']
+        }}
+        transition={{
+          duration,
+          repeat: Infinity,
+          ease: 'linear'
+        }}
+      />
+    </div>
+  );
+};
+
+// Composant pour le scroll horizontal immersif
+export const HorizontalScroll = ({ children, className = '' }) => {
   const targetRef = useRef(null);
   const { scrollYProgress } = useScroll({
-    target: targetRef,
+    target: targetRef
   });
-  
-  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-75%"]);
-  
+
+  const x = useTransform(scrollYProgress, [0, 1], ['0%', '-75%']);
+
   return (
-    <section ref={targetRef} className="relative h-[300vh]">
+    <section ref={targetRef} className={`relative h-[300vh] ${className}`}>
       <div className="sticky top-0 h-screen flex items-center overflow-hidden">
-        <motion.div style={{ x }} className="flex gap-8 px-8">
+        <motion.div style={{ x }} className="flex gap-8">
           {children}
         </motion.div>
       </div>
@@ -111,106 +206,32 @@ export const HorizontalScroll = ({ children }) => {
   );
 };
 
-// Composant 3D Tilt Card
-export const TiltCard = ({ children, className = '' }) => {
-  const [rotateX, setRotateX] = React.useState(0);
-  const [rotateY, setRotateY] = React.useState(0);
-  
-  const handleMouseMove = (e) => {
-    const card = e.currentTarget;
-    const box = card.getBoundingClientRect();
-    const x = e.clientX - box.left;
-    const y = e.clientY - box.top;
-    const centerX = box.width / 2;
-    const centerY = box.height / 2;
-    const rotateXVal = (y - centerY) / 10;
-    const rotateYVal = (centerX - x) / 10;
-    
-    setRotateX(rotateXVal);
-    setRotateY(rotateYVal);
-  };
-  
-  const handleMouseLeave = () => {
-    setRotateX(0);
-    setRotateY(0);
-  };
-  
-  return (
-    <motion.div
-      className={className}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      animate={{ rotateX, rotateY }}
-      transition={{ type: "spring", stiffness: 300, damping: 20 }}
-      style={{ 
-        transformStyle: "preserve-3d",
-        perspective: "1000px"
-      }}
-    >
-      {children}
-    </motion.div>
-  );
+// Hook personnalisé pour utiliser le scroll progress
+export const useScrollAnimation = (options = {}) => {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    ...options
+  });
+
+  const smoothProgress = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
+
+  return { ref, scrollYProgress, smoothProgress };
 };
 
-// Composant Fade In Stagger (pour listes)
-export const StaggerContainer = ({ children, staggerDelay = 0.1 }) => {
-  const { ref, isInView } = useScrollAnimation();
-  
-  return (
-    <motion.div
-      ref={ref}
-      initial="hidden"
-      animate={isInView ? "visible" : "hidden"}
-      variants={{
-        visible: {
-          transition: {
-            staggerChildren: staggerDelay
-          }
-        }
-      }}
-    >
-      {children}
-    </motion.div>
-  );
-};
-
-export const StaggerItem = ({ children }) => {
-  return (
-    <motion.div
-      variants={{
-        hidden: { opacity: 0, y: 20 },
-        visible: { 
-          opacity: 1, 
-          y: 0,
-          transition: { duration: 0.6 }
-        }
-      }}
-    >
-      {children}
-    </motion.div>
-  );
-};
-
-// Smooth Scroll Hook
-export const useSmoothScroll = () => {
-  useEffect(() => {
-    const lenis = new (require('lenis').default)({
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      orientation: 'vertical',
-      smoothWheel: true,
-      wheelMultiplier: 1,
-      smoothTouch: false,
-      touchMultiplier: 2,
-    });
-
-    function raf(time) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-
-    requestAnimationFrame(raf);
-
-    return () => lenis.destroy();
-  }, []);
+export default {
+  FadeInOnScroll,
+  ParallaxImage,
+  TextReveal,
+  ScaleOnScroll,
+  MaskReveal,
+  StaggerContainer,
+  StaggerItem,
+  KenBurnsImage,
+  HorizontalScroll,
+  useScrollAnimation
 };
