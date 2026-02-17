@@ -315,9 +315,18 @@ export const collectionsData = [
   }
 ];
 
+// Mapping des slugs pour correspondance
+const SLUG_MAPPING = {
+  'calanques': 'calanques-marseille',
+  'calanques-marseille': 'calanques-marseille',
+  'sunset': 'couchers-soleil',
+  'couchers-soleil': 'couchers-soleil',
+};
+
 // Fonction helper pour récupérer une collection par slug
 export const getCollectionBySlug = (slug) => {
-  return collectionsData.find(c => c.slug === slug);
+  const mappedSlug = SLUG_MAPPING[slug] || slug;
+  return collectionsData.find(c => c.slug === mappedSlug);
 };
 
 export const getAllCollections = () => {
