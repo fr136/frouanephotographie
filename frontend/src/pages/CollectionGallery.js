@@ -4,11 +4,14 @@ import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 import L from "leaflet";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 import { collectionsAPI } from "../services/api";
 import { getCollectionBySlug } from "../data/collectionsData";
 import HeroZoomEffect from "../components/HeroZoomEffect";
 import { useCart } from "../context/CartContext";
+import { FadeInOnScroll, StaggerContainer, StaggerItem } from "../components/ScrollAnimations";
 
 import {
   MapPin,
@@ -20,6 +23,8 @@ import {
   Leaf,
   CheckCircle,
   XCircle,
+  Camera,
+  Info,
 } from "lucide-react";
 
 import "../styles/photography.css";
