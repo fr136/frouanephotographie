@@ -229,8 +229,164 @@ const CollectionGallery = () => {
         </section>
       )}
 
+      {/* ECOLOGY SECTION - Sensibilisation */}
+      {enrichedData?.ecology && (
+        <EcologyBlock ecology={enrichedData.ecology} collectionTitle={collection.title} />
+      )}
+
       <Lightbox open={lightboxIndex >= 0} index={lightboxIndex} close={() => setLightboxIndex(-1)} slides={lightboxSlides} />
     </div>
+  );
+};
+
+// --- COMPOSANT ECOLOGY BLOCK ---
+const EcologyBlock = ({ ecology, collectionTitle }) => {
+  const [activeTab, setActiveTab] = useState('species');
+
+  return (
+    <section className="py-20 bg-gradient-to-b from-gray-900 to-black text-white">
+      <div className="container-photo">
+        <FadeInOnScroll>
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-500/20 rounded-full mb-6">
+              <Leaf className="w-5 h-5 text-emerald-400" />
+              <span className="text-emerald-400 text-sm font-medium uppercase tracking-wider">
+                Sensibilisation Écologique
+              </span>
+            </div>
+            <h2 className="section-title text-white mb-4">
+              Protégeons {collectionTitle}
+            </h2>
+            <p className="text-gray-400 max-w-2xl mx-auto">
+              {ecology.status}
+            </p>
+          </div>
+        </FadeInOnScroll>
+
+        {/* Tabs */}
+        <div className="flex flex-wrap justify-center gap-4 mb-12">
+          {['species', 'threats', 'guidelines', 'actions'].map((tab) => (
+            <button
+              key={tab}
+              onClick={() => setActiveTab(tab)}
+              className={`px-6 py-3 rounded-full text-sm font-medium transition-all ${
+                activeTab === tab
+                  ? 'bg-[var(--color-gold)] text-black'
+                  : 'bg-white/10 text-white hover:bg-white/20'
+              }`}
+            >
+              {tab === 'species' && 'Espèces Protégées'}
+              {tab === 'threats' && 'Menaces'}
+              {tab === 'guidelines' && 'Bonnes Pratiques'}
+              {tab === 'actions' && 'Agir'}
+            </button>
+          ))}
+        </div>
+
+        {/* Tab Content */}
+        <motion.div
+          key={activeTab}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4 }}
+        >
+          {activeTab === 'species' && ecology.protectedSpecies && (
+            <div className="grid md:grid-cols-2 gap-6">
+              {ecology.protectedSpecies.map((species, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                  className="bg-white/5 backdrop-blur-sm rounded-lg p-6 border border-white/10"
+                >
+                  <div className="flex items-start gap-4">
+                    <span className="text-4xl">{species.icon}</span>
+                    <div>
+                      <h4 className="text-lg font-semibold text-white mb-1">{species.name}</h4>
+                      <span className="inline-block px-2 py-1 bg-red-500/20 text-red-400 text-xs rounded mb-3">
+                        {species.status}
+                      </span>
+                      <p className="text-gray-400 text-sm">{species.description}</p>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          )}
+
+          {activeTab === 'threats' && ecology.threats && (
+            <div className="grid md:grid-cols-2 gap-6">
+              {ecology.threats.map((threat, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                  className="bg-white/5 backdrop-blur-sm rounded-lg p-6 border border-white/10"
+                >
+                  <div className="flex items-start gap-4">
+                    <span className="text-3xl">{threat.icon}</span>
+                    <div>
+                      <div className="flex items-center gap-3 mb-2">
+                        <h4 className="text-lg font-semibold text-white">{threat.title}</h4>
+                        <span className={`text-xs px-2 py-1 rounded ${
+                          threat.impact.includes('Critique') ? 'bg-red-500/20 text-red-400' : 'bg-orange-500/20 text-orange-400'
+                        }`}>
+                          {threat.impact}
+                        </span>
+                      </div>
+                      <p className="text-gray-400 text-sm">{threat.description}</p>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          )}
+
+          {activeTab === 'guidelines' && ecology.respectGuidelines && (
+            <div className="max-w-3xl mx-auto">
+              <div className="grid gap-3">
+                {ecology.respectGuidelines.map((guideline, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.05 }}
+                    className={`flex items-start gap-3 p-4 rounded-lg ${
+                      guideline.startsWith('✅') ? 'bg-emerald-500/10 border border-emerald-500/20' :
+                      guideline.startsWith('❌') ? 'bg-red-500/10 border border-red-500/20' : 'bg-white/5'
+                    }`}
+                  >
+                    <span className="text-lg">{guideline.substring(0, 2)}</span>
+                    <span className="text-gray-300">{guideline.substring(2)}</span>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {activeTab === 'actions' && ecology.positiveActions && (
+            <div className="max-w-3xl mx-auto">
+              <div className="grid gap-4">
+                {ecology.positiveActions.map((action, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.1 }}
+                    className="flex items-start gap-4 p-5 bg-emerald-500/10 rounded-lg border border-emerald-500/20"
+                  >
+                    <span className="text-2xl">{action.substring(0, 2)}</span>
+                    <span className="text-gray-200">{action.substring(2)}</span>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          )}
+        </motion.div>
+      </div>
+    </section>
   );
 };
 
