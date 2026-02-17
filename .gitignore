@@ -85,3 +85,4 @@ android-sdk/ -e
 # Environment files
 *.env
 *.env.*
+temp_repo/.git/objects/pack/pack-53e82d90b5f4577d011e3b5c21eb7881c7efdd0c.pack
