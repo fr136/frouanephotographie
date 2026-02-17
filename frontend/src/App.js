@@ -24,6 +24,7 @@ const AppContent = () => {
 
   return (
     <>
+      <SEO />
       <Header />
       <main>
         <Routes>
@@ -52,13 +53,15 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
-      <BrowserRouter>
-        <CartProvider>
-          <AppContent />
-        </CartProvider>
-      </BrowserRouter>
-    </div>
+    <HelmetProvider>
+      <div className="App">
+        <BrowserRouter>
+          <CartProvider>
+            <AppContent />
+          </CartProvider>
+        </BrowserRouter>
+      </div>
+    </HelmetProvider>
   );
 }
 
