@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Camera, Award, Heart } from 'lucide-react';
+import { motion } from 'framer-motion';
 import { collectionsAPI, photosAPI } from '../services/api';
 import { mockData } from '../mock';
+import { FadeInOnScroll, StaggerContainer, StaggerItem } from '../components/ScrollAnimations';
+import CollectionsPreview from '../components/CollectionsPreview';
+import EcologySection from '../components/EcologySection';
 import '../styles/photography.css';
 
 const Home = () => {
