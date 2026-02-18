@@ -10,7 +10,7 @@ const CollectionsPreview = ({ collections = [] }) => {
       id: "calanques",
       slug: "calanques",
       title: "Calanques",
-      subtitle: "Marseille à La Ciotat",
+      subtitle: "Marseille à Menton",
       image: "/Calanques/Cover.jpg",
       coverImage: "/Calanques/Cover.jpg",
     },
