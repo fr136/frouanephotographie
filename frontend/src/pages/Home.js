@@ -71,8 +71,7 @@ const safeCollections = Array.isArray(collections)
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.8 }}
           >
-            {photographer.name || 'Franck Rouane'}
-          </motion.h1>
+                      </motion.h1>
           <motion.p 
             className="text-white text-xl md:text-2xl font-light mb-8 max-w-2xl mx-auto"
             initial={{ opacity: 0 }}
@@ -278,9 +277,9 @@ const safeCollections = Array.isArray(collections)
       >
         <div className="absolute inset-0 bg-black bg-opacity-50"></div>
         <div className="relative z-10 container-photo text-center text-white">
-          <h2 className="section-title text-white mb-6">Prêt à Découvrir Mes Œuvres ?</h2>
+          <h2 className="section-title text-white mb-6">Prêt à découvrir mes oeuvres ?</h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto">
-            Explorez ma collection complète de tirages d'art et trouvez la photographie parfaite pour votre intérieur.
+            Explorez ma collection complète  et trouvez la photographie parfaite pour votre intérieur.
           </p>
           <Link to="/boutique" className="btn-gold">
             Découvrir la Boutique
