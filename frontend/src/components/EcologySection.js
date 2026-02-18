@@ -6,31 +6,31 @@ import { FadeInOnScroll, StaggerContainer, StaggerItem } from './ScrollAnimation
 
 const EcologySection = () => {
   const stats = [
-    { icon: Users, value: '2M+', label: 'visiteurs/an dans les Calanques', color: 'text-orange-500' },
-    { icon: Fish, value: '25%', label: 'de la biodiversité marine menacée', color: 'text-blue-500' },
-    { icon: Globe, value: '+20cm', label: "montée des eaux depuis 1900", color: 'text-cyan-500' },
+    { icon: Users, label: 'Trois millions de visiteurs par an dans les calanques', color: 'text-orange-500' },
+    { icon: Fish,  label: 'La Méditerranée est l’un des bassins marins les plus exploités au monde : environ 60 % de ses stocks de poissons sont surexploités', color: 'text-blue-500' },
+    { icon: Globe, label: "La Méditerranée change. Le niveau de la mer monte, sa température moyenne augmente, et l’équilibre qui façonnait ses paysages se transforme.", color: 'text-cyan-500' },
   ];
 
   const actions = [
     {
       icon: '🌅',
-      title: 'Visitez hors-saison',
-      description: 'Avril-mai et septembre-octobre : moins de monde, plus de magie'
+      title: 'Hors-saison',
+      description: 'Au printemps et en arrière-saison, la fréquentation diminue. La lumière gagne en douceur. L’expérience change.'
     },
     {
       icon: '🗑️',
       title: 'Zéro déchet',
-      description: 'Ramenez tout, même les pelures de fruits (2 ans de décomposition)'
+      description: 'Même un déchet organique met du temps à disparaître. Une peau de fruit peut rester visible des mois.'
     },
     {
       icon: '☀️',
-      title: 'Crème solaire minérale',
-      description: 'Les filtres chimiques détruisent les herbiers de posidonie'
+      title: 'Crème solaire ',
+      description: 'Privilégier des formules à faible impact limite la pression sur le milieu marin.'
     },
     {
       icon: '🤫',
       title: 'Respect du silence',
-      description: "Les oiseaux nicheurs sont très sensibles au bruit"
+      description: "Dans les calanques, le silence n’est pas décoratif :il fait partie de l’équilibre."
     }
   ];
 
@@ -54,12 +54,11 @@ const EcologySection = () => {
               </span>
             </div>
             <h2 className="section-title text-white mb-6">
-              Protégeons la Méditerranée
+              Préserver la Méditerranée
             </h2>
             <div className="gold-line mx-auto"></div>
             <p className="body-large text-gray-300 max-w-3xl mx-auto mt-6">
-              Derrière chaque photo se cache un écosystème fragile. Le surtourisme, la pollution 
-              et le changement climatique menacent ces paysages que nous aimons tant.
+              Derrière chaque image, il y a un lieu réel. Falaises, garrigue, herbiers marins. Ces paysages évoluent. La fréquentation, les déchets et la pression humaine laissent des traces visibles.
             </p>
           </div>
         </FadeInOnScroll>
@@ -86,11 +85,10 @@ const EcologySection = () => {
             <div className="flex items-start gap-4">
               <AlertTriangle className="w-8 h-8 text-amber-400 flex-shrink-0 mt-1" />
               <div>
-                <h3 className="text-xl font-semibold text-white mb-2">Le surtourisme : une menace réelle</h3>
+                <h3 className="text-xl font-semibold text-white mb-2">Ces lieux évoluent sous la pression de la fréquentation.</h3>
                 <p className="text-gray-300">
-                  Les Calanques reçoivent plus de 2 millions de visiteurs par an. Érosion des sentiers, 
-                  dérangement de la faune, pollution... Chaque visite laisse une trace. 
-                  <strong className="text-amber-400"> Ensemble, adoptons des comportements responsables.</strong>
+                  De Marseille à la Côte d’Azur, le littoral attire chaque année des millions de visiteurs. À long terme, la répétition des passages transforme les lieux, parfois discrètement.
+                  <strong className="text-amber-400"> Des gestes simples font la différence.</strong>
                 </p>
               </div>
             </div>
@@ -100,7 +98,7 @@ const EcologySection = () => {
         {/* Actions */}
         <FadeInOnScroll delay={0.3}>
           <h3 className="text-2xl font-display font-semibold text-center text-white mb-8">
-            4 gestes simples pour préserver ces lieux
+            4 repères simples
           </h3>
         </FadeInOnScroll>
 
@@ -123,14 +121,14 @@ const EcologySection = () => {
         <FadeInOnScroll delay={0.4}>
           <div className="text-center">
             <p className="text-gray-300 mb-6">
-              Découvrez dans chaque collection les enjeux écologiques spécifiques et les bonnes pratiques à adopter.
+             Dans chaque collection, des repères pour mieux comprendre ces paysages.
             </p>
             <Link 
               to="/collections" 
               className="inline-flex items-center gap-2 px-8 py-4 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-sm transition-all duration-300 group"
             >
               <Heart className="w-5 h-5" />
-              Explorer les collections avec conscience
+              Explorer les collections
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>
