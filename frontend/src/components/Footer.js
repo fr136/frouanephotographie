@@ -14,7 +14,7 @@ const Footer = () => {
           <div>
             <h3 className="font-display text-2xl font-semibold mb-4">Franck Rouane</h3>
             <p className="text-gray-400 text-sm leading-relaxed">
-              Photographe de paysage maritime passionné par la beauté de la Méditerranée.
+              Photographe de paysage passionné par la beauté de la Méditerranée.
             </p>
             <div className="flex space-x-4 mt-6">
               <a
@@ -78,10 +78,7 @@ const Footer = () => {
             <h4 className="font-semibold text-sm uppercase tracking-wider mb-4">Collections</h4>
             <ul className="space-y-2">
               <li className="text-gray-400 text-sm">Calanques</li>
-              <li className="text-gray-400 text-sm">Ports</li>
               <li className="text-gray-400 text-sm">Couchers de Soleil</li>
-              <li className="text-gray-400 text-sm">Côte Sauvage</li>
-              <li className="text-gray-400 text-sm">Criques Secrètes</li>
             </ul>
           </div>
 
