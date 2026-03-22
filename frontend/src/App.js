@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import { CartProvider } from "./context/CartContext";
 import usePageTracking from "./hooks/useAnalytics";
+import { Analytics } from "@vercel/analytics/react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import NewsletterPopup from "./components/NewsletterPopup";
@@ -58,6 +59,7 @@ function App() {
           <AppContent />
         </CartProvider>
       </BrowserRouter>
+      <Analytics />
     </div>
   );
 }
