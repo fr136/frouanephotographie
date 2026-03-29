@@ -27,7 +27,7 @@ const AppContent = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/collections" element={<Collections />} />
-          <Route path="/collections/:slug" element={<CollectionGallery />} />
+          <Route path="/collections/:slug" element={<PremiumCollectionGallery />} />
           <Route path="/boutique" element={<Shop />} />
           <Route path="/a-propos" element={<About />} />
           <Route path="/blog" element={<Blog />} />
