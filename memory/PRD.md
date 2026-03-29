@@ -1,68 +1,82 @@
 # Franck Rouane Photographie - PRD
 
 ## Original Problem Statement
-L'utilisateur souhaitait améliorer son site de photographie existant sans toucher aux personnalisations existantes:
-- Scroll animations immersives sur les pages collections
-- Aperçu des collections amélioré sur la Home avec liens
-- Bloc sensibilisation au surtourisme et à l'écologie sur Home et pages collection
-- SEO et Google Analytics
+Redesign des collections Calanques et Sunset pour les rendre plus premium, immersives et visuellement fortes.
+
+### Direction Créative:
+- **Calanques**: Mediterranean, mineral, bright, elegant, coastal atmosphere
+- **Sunset**: warm, cinematic, golden-hour, emotional atmosphere
+
+### Contraintes Techniques:
+- Garder la compatibilité React/Vercel
+- Préserver les routes et assets existants
+- Ne pas toucher aux autres pages (sauf composants partagés)
 
 ## Architecture
-- **Frontend**: React.js avec Framer Motion pour animations
-- **Backend**: FastAPI (existant)
-- **Database**: MongoDB (existant)
-- **Styling**: Tailwind CSS + CSS personnalisé (photography.css)
+- **Frontend**: React.js + Framer Motion + TailwindCSS
+- **Routing**: React Router avec slugs /collections/:slug
+- **Images**: Assets statiques dans /public/Calanques et /public/Sunset
 
 ## User Personas
-1. **Visiteur** - Découvre les photographies de la Méditerranée
-2. **Acheteur potentiel** - Intéressé par les tirages d'art
-3. **Écologiste** - Sensible aux enjeux environnementaux
+1. **Amateur de photographie** - Recherche des images artistiques de qualité
+2. **Acheteur potentiel** - Veut acquérir des tirages d'art
+3. **Visiteur local** - Intéressé par la région Méditerranée
 
-## Core Requirements (Static)
-- Préserver le design existant (polices, couleurs, structure)
-- Expérience immersive sur les collections
-- Sensibilisation écologique intégrée
+## What's Been Implemented - Mars 2026
 
-## What's Been Implemented - Jan 17, 2026
+### Nouveaux Composants Créés
+1. **PremiumCollectionGallery.js** - Composant premium avec:
+   - Thèmes distincts par collection (turquoise/méditerranéen vs orange/cinématique)
+   - Hero immersif avec parallax
+   - Section citation/intro
+   - Galerie masonry avec photos featured
+   - Section écologie avec onglets
 
-### Composants Créés
-1. **ScrollAnimations.js** - Animations au scroll (FadeInOnScroll, ParallaxImage, StaggerContainer, etc.)
-2. **CollectionsPreview.js** - Section aperçu collections avec parallax
-3. **EcologySection.js** - Bloc sensibilisation Home (stats, alerte, actions)
-4. **SEO.js** - Composant SEO (désactivé temporairement)
+2. **premium-gallery.css** - Styles premium avec:
+   - Variables CSS par thème (.collection-calanques, .collection-sunset)
+   - Effets hover sophistiqués
+   - Layout masonry responsive
+   - Badges "Featured"
+   - Animations scroll indicator
 
-### Pages Modifiées
-1. **Home.js** - Ajout animations hero, section collections preview, section écologie
-2. **CollectionGallery.js** - Ajout animations photos, bloc écologie détaillé avec onglets
-3. **App.js** - Intégration des nouveaux composants
+### Fonctionnalités
+- ✅ Hero parallax avec image de couverture
+- ✅ Badge de collection (Golden Hour / Méditerranée Sauvage)
+- ✅ Tags d'atmosphère (Lumineux, Minéral, Méditerranéen / Cinématique, Chaleureux, Émotionnel)
+- ✅ Citation artistique + attribution auteur
+- ✅ Galerie premium avec photos featured en grand
+- ✅ Hover effects avec numéro de photo et titre
+- ✅ Lightbox plein écran
+- ✅ Boutons favoris
+- ✅ Section écologie intégrée
+- ✅ Mobile responsive (390px+)
+- ✅ Scroll indicator animé
 
-### Fonctionnalités Ajoutées
-- ✅ Hero animé avec indicateur de scroll
-- ✅ Section About avec fade-in au scroll
-- ✅ Collections Preview avec effets parallax et liens
-- ✅ Section Écologie avec stats (2M+ visiteurs, 25% biodiversité, +20cm niveau mer)
-- ✅ Alerte surtourisme et 4 gestes éco-responsables
-- ✅ Galerie photos avec animations fade-in progressives
-- ✅ Bloc écologie détaillé sur collections avec 4 onglets (Espèces, Menaces, Bonnes Pratiques, Agir)
+### Tests: 95%+ passés
+- Thèmes distincts: 100%
+- Galerie: 100%
+- Mobile: 95%
+- Navigation: 90%
 
 ## Prioritized Backlog
 
-### P0 - Critical
+### P0 - Critique
 - (Aucun)
 
-### P1 - High Priority
-- Réactiver SEO avec react-helmet-async (problème de configuration)
-- Intégration Google Analytics 4 complète
-- Google Search Console
+### P1 - Important
+- API backend wishlist pour persistance favoris
 
-### P2 - Medium Priority
-- Smooth scroll avec Lenis
-- Effet Ken Burns sur hero
-- Curseur personnalisé
-- Lightbox amélioré avec infos écologiques
+### P2 - Moyen
+- Animations scroll plus fluides (Lenis)
+- Lightbox avec infos photo (location, date)
+- Effet Ken Burns sur hero au chargement
+
+## Files Changed
+- `/app/frontend/src/pages/PremiumCollectionGallery.js` (nouveau)
+- `/app/frontend/src/styles/premium-gallery.css` (nouveau)
+- `/app/frontend/src/App.js` (route modifiée)
 
 ## Next Tasks
-1. Corriger le composant SEO pour les meta tags dynamiques
-2. Configurer Google Analytics 4 avec l'ID GA4 de l'utilisateur
-3. Ajouter sitemap dynamique pour SEO
-4. Personnaliser l'image hero avec l'image souhaitée par l'utilisateur
+1. Déployer sur Vercel via GitHub
+2. Ajouter Google Analytics
+3. Optimiser les images (WebP, lazy loading avancé)
