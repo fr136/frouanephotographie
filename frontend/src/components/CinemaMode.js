@@ -41,6 +41,7 @@ const CinemaMode = ({ photos, isOpen, onClose, startIndex = 0, collectionTitle =
         audioRef.current = null;
       }
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isOpen]);
 
   // Handle mute toggle
