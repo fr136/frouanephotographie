@@ -1,59 +1,229 @@
 import React, { useState } from 'react';
-import { mockData } from '../mock';
-import { ShoppingCart, Eye } from 'lucide-react';
+import { ShoppingCart, Eye, Heart, X } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { useCart } from '../context/CartContext';
 import '../styles/photography.css';
 
+// Produits basés sur vos vraies photos
+const shopProducts = [
+  // CALANQUES
+  {
+    id: 'cal-001',
+    title: 'Sormiou - Vue Panoramique',
+    category: 'calanques',
+    location: 'Calanque de Sormiou, Marseille',
+    image: '/Calanques/Calanque Sormiou 2.webp',
+    description: 'Vue panoramique sur la calanque de Sormiou, joyau des calanques marseillaises. Les eaux turquoise contrastent avec les falaises calcaires.',
+    price: 150,
+    sizes: ['30x40 cm', '50x70 cm', '70x100 cm'],
+    edition: 'Édition limitée 1/25',
+    featured: true
+  },
+  {
+    id: 'cal-002',
+    title: 'Port de Cassis',
+    category: 'calanques',
+    location: 'Cassis, Bouches-du-Rhône',
+    image: '/Calanques/Port de cassis.jpg',
+    description: 'Le pittoresque port de Cassis au petit matin, quand les pêcheurs préparent leurs filets.',
+    price: 120,
+    sizes: ['30x40 cm', '50x70 cm', '70x100 cm'],
+    edition: 'Édition limitée 1/25'
+  },
+  {
+    id: 'cal-003',
+    title: 'Calanque des Anglais',
+    category: 'calanques',
+    location: 'Calanque des Anglais, Marseille',
+    image: '/Calanques/Calanque des anglais.webp',
+    description: "Une crique secrète aux eaux cristallines, accessible uniquement à pied. L'essence même de la Méditerranée sauvage.",
+    price: 130,
+    sizes: ['30x40 cm', '50x70 cm', '70x100 cm'],
+    edition: 'Édition limitée 1/25'
+  },
+  {
+    id: 'cal-004',
+    title: "Port d'Alon",
+    category: 'calanques',
+    location: 'Saint-Cyr-sur-Mer',
+    image: '/Calanques/Calanque Port d\'alon Saint Cyr sur mer.webp',
+    description: 'La calanque de Port d\'Alon, entre pins et rochers, offre un panorama exceptionnel sur la côte.',
+    price: 140,
+    sizes: ['30x40 cm', '50x70 cm', '70x100 cm'],
+    edition: 'Édition limitée 1/25'
+  },
+  {
+    id: 'cal-005',
+    title: 'Sormiou au Crépuscule',
+    category: 'calanques',
+    location: 'Calanque de Sormiou, Marseille',
+    image: '/Calanques/Sormiou.jpeg',
+    description: 'Les dernières lueurs du jour embrasent les falaises de Sormiou dans une symphonie de couleurs.',
+    price: 160,
+    sizes: ['30x40 cm', '50x70 cm', '70x100 cm'],
+    edition: 'Édition limitée 1/20',
+    featured: true
+  },
+  {
+    id: 'cal-006',
+    title: 'Calanque Agay',
+    category: 'calanques',
+    location: 'Agay, Var',
+    image: '/Calanques/Calanque-agay.webp',
+    description: 'Les roches rouges d\'Agay plongent dans les eaux bleu intense de la Méditerranée.',
+    price: 130,
+    sizes: ['30x40 cm', '50x70 cm', '70x100 cm'],
+    edition: 'Édition limitée 1/25'
+  },
+  // SUNSET
+  {
+    id: 'sun-001',
+    title: 'La Ciotat - Route des Crêtes',
+    category: 'sunset',
+    location: 'La Ciotat, Bouches-du-Rhône',
+    image: '/Sunset/Coucher de soleil La Ciotat éléphant routedes crêtes.webp',
+    description: 'Le rocher de l\'éléphant se découpe sur un ciel embrasé, vu depuis la mythique route des crêtes.',
+    price: 180,
+    sizes: ['30x40 cm', '50x70 cm', '70x100 cm', '100x150 cm'],
+    edition: 'Édition limitée 1/15',
+    featured: true
+  },
+  {
+    id: 'sun-002',
+    title: 'Ciel de Feu',
+    category: 'sunset',
+    location: 'La Ciotat, Bouches-du-Rhône',
+    image: '/Sunset/sunset fire la ciotat.jpg',
+    description: 'Quand le ciel de La Ciotat s\'embrase, offrant un spectacle pyrotechnique naturel.',
+    price: 170,
+    sizes: ['30x40 cm', '50x70 cm', '70x100 cm'],
+    edition: 'Édition limitée 1/15',
+    featured: true
+  },
+  {
+    id: 'sun-003',
+    title: 'Catalans - Marseille',
+    category: 'sunset',
+    location: 'Plage des Catalans, Marseille',
+    image: '/Sunset/Sunset catalans marseille.jpg',
+    description: 'Le soleil plonge dans la Méditerranée devant la plage emblématique des Catalans.',
+    price: 140,
+    sizes: ['30x40 cm', '50x70 cm', '70x100 cm'],
+    edition: 'Édition limitée 1/20'
+  },
+  {
+    id: 'sun-004',
+    title: "L'Estaque",
+    category: 'sunset',
+    location: "L'Estaque, Marseille",
+    image: '/Sunset/sunset l\'estaque Marseille.jpg',
+    description: 'L\'Estaque, ce quartier cher à Cézanne, baigné dans la lumière dorée du soir.',
+    price: 150,
+    sizes: ['30x40 cm', '50x70 cm', '70x100 cm'],
+    edition: 'Édition limitée 1/20'
+  },
+  {
+    id: 'sun-005',
+    title: 'Port Saint-Jean',
+    category: 'sunset',
+    location: 'La Ciotat, Bouches-du-Rhône',
+    image: '/Sunset/sunset port saintjean la ciotat.jpg',
+    description: 'Les bateaux du port Saint-Jean se balancent doucement sous un ciel de feu.',
+    price: 130,
+    sizes: ['30x40 cm', '50x70 cm', '70x100 cm'],
+    edition: 'Édition limitée 1/25'
+  },
+  {
+    id: 'sun-006',
+    title: 'Bain des Dames',
+    category: 'sunset',
+    location: 'Marseille',
+    image: '/Sunset/sunset serpent bain des dames marseille.jpg',
+    description: 'Le serpent de pierre du Bain des Dames se dessine sur le coucher de soleil marseillais.',
+    price: 140,
+    sizes: ['30x40 cm', '50x70 cm', '70x100 cm'],
+    edition: 'Édition limitée 1/20'
+  }
+];
+
 const Shop = () => {
-  const { featuredProducts } = mockData;
   const [selectedCategory, setSelectedCategory] = useState('all');
+  const [selectedProduct, setSelectedProduct] = useState(null);
+  const [selectedSize, setSelectedSize] = useState(null);
+  const { addToCart, addToWishlist, isInWishlist } = useCart();
 
   const categories = [
-    { id: 'all', label: 'Toutes' },
+    { id: 'all', label: 'Tous les tirages' },
     { id: 'calanques', label: 'Calanques' },
-    { id: 'ports', label: 'Ports' },
-    { id: 'sunset', label: 'Couchers de Soleil' },
-    { id: 'wild', label: 'Côte Sauvage' }
+    { id: 'sunset', label: 'Couchers de Soleil' }
   ];
 
-  const filteredProducts =
-    selectedCategory === 'all'
-      ? featuredProducts
-      : featuredProducts.filter((p) => p.category === selectedCategory);
+  const filteredProducts = selectedCategory === 'all'
+    ? shopProducts
+    : shopProducts.filter((p) => p.category === selectedCategory);
+
+  const getPriceBySize = (basePrice, size) => {
+    if (size?.includes('100x150')) return basePrice + 150;
+    if (size?.includes('70x100')) return basePrice + 80;
+    if (size?.includes('50x70')) return basePrice + 40;
+    return basePrice;
+  };
+
+  const handleAddToCart = (product, size) => {
+    if (!size) {
+      alert('Veuillez sélectionner un format');
+      return;
+    }
+    const finalPrice = getPriceBySize(product.price, size);
+    addToCart({
+      ...product,
+      selectedSize: size,
+      finalPrice
+    });
+  };
 
   return (
     <div className="bg-white">
-{/* Hero */}
-<section 
-  className="pt-32 pb-16 bg-cover bg-center relative"
-  style={{
-    backgroundImage: `url('/Salon luxueux baie de La Ciotat.jpg')`,
-  }}
->
-  {/* Overlay sombre pour la lisibilité du texte */}
-  <div className="absolute inset-0 bg-black bg-opacity-50"></div>
-  
-  <div className="container-photo text-center relative z-10">
-    <p className="section-subtitle text-white mb-4">Boutique</p>
-    <h1 className="section-title text-white mb-6">Tirages d'Art en Édition Limitée</h1>
-    <div className="gold-line mx-auto"></div>
-    <p className="body-large text-gray-300 max-w-3xl mx-auto mt-6">
-      Découvrez ma collection de tirages d'art, chaque œuvre est numérotée, signée et imprimée sur papier Fine Art de qualité muséale.
-    </p>
-  </div>
-</section>
+      {/* Hero */}
+      <section 
+        className="pt-32 pb-20 bg-cover bg-center relative min-h-[50vh] flex items-center"
+        style={{
+          backgroundImage: `url('/Sunset/Cover.JPEG')`,
+        }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70"></div>
+        
+        <div className="container-photo text-center relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <p className="text-[var(--color-gold)] text-sm uppercase tracking-widest mb-4">Boutique</p>
+            <h1 className="font-display text-4xl md:text-6xl font-semibold text-white mb-6">
+              Tirages d'Art
+            </h1>
+            <div className="w-16 h-0.5 bg-[var(--color-gold)] mx-auto mb-6"></div>
+            <p className="text-gray-300 text-lg max-w-2xl mx-auto">
+              Chaque tirage est numéroté, signé et imprimé sur papier Fine Art de qualité muséale. 
+              Des œuvres uniques issues de mes collections Calanques et Couchers de Soleil.
+            </p>
+          </motion.div>
+        </div>
+      </section>
 
       {/* Filter */}
-      <section className="py-8 bg-gray-50">
+      <section className="py-8 bg-gray-50 sticky top-0 z-40 border-b border-gray-200">
         <div className="container-photo">
           <div className="flex flex-wrap gap-3 justify-center">
             {categories.map((cat) => (
               <button
                 key={cat.id}
                 onClick={() => setSelectedCategory(cat.id)}
-                className={`px-4 py-2 text-sm font-semibold uppercase tracking-wider transition-all ${
+                className={`px-6 py-2.5 text-sm font-medium uppercase tracking-wider transition-all rounded-sm ${
                   selectedCategory === cat.id
                     ? 'bg-black text-white'
-                    : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-300'
+                    : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200'
                 }`}
               >
                 {cat.label}
@@ -64,97 +234,214 @@ const Shop = () => {
       </section>
 
       {/* Products Grid */}
-      <section className="section-spacing">
+      <section className="py-16">
         <div className="container-photo">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredProducts.map((product) => (
-              <div key={product.id} className="photo-card group">
-                <div className="image-container aspect-[4/5] relative">
-                  <img
-                    src={product.image}
-                    alt={product.title}
-                    className="image-zoom"
-                  />
-                  <div className="absolute top-4 right-4 bg-[var(--color-gold)] text-white px-3 py-1 text-xs font-semibold uppercase tracking-wider">
-                    Édition Limitée
-                  </div>
-                  <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
-                    <button className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white text-black px-6 py-3 font-semibold uppercase tracking-wider text-sm flex items-center gap-2 hover:bg-[var(--color-gold)] hover:text-white">
-                      <Eye size={18} />
-                      Voir Détails
+            {filteredProducts.map((product, index) => (
+              <motion.div 
+                key={product.id} 
+                className="group"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+              >
+                <div className="bg-white border border-gray-100 rounded-sm overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                  {/* Image */}
+                  <div className="aspect-[4/5] relative overflow-hidden">
+                    <motion.img
+                      src={product.image}
+                      alt={product.title}
+                      className="w-full h-full object-cover"
+                      whileHover={{ scale: 1.05 }}
+                      transition={{ duration: 0.5 }}
+                    />
+                    
+                    {/* Badges */}
+                    {product.featured && (
+                      <div className="absolute top-4 left-4 bg-[var(--color-gold)] text-white px-3 py-1 text-xs font-semibold uppercase tracking-wider">
+                        Coup de cœur
+                      </div>
+                    )}
+                    
+                    {/* Wishlist */}
+                    <button 
+                      onClick={() => addToWishlist(product.id)}
+                      className="absolute top-4 right-4 p-2 bg-white/90 backdrop-blur-sm rounded-full hover:bg-white transition-colors"
+                    >
+                      <Heart 
+                        size={18} 
+                        fill={isInWishlist(product.id) ? "#C9A961" : "none"} 
+                        stroke={isInWishlist(product.id) ? "#C9A961" : "currentColor"}
+                      />
                     </button>
+
+                    {/* Quick view overlay */}
+                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                      <button 
+                        onClick={() => setSelectedProduct(product)}
+                        className="bg-white text-black px-6 py-3 font-medium uppercase tracking-wider text-sm flex items-center gap-2 hover:bg-[var(--color-gold)] hover:text-white transition-colors"
+                      >
+                        <Eye size={18} />
+                        Voir Détails
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Info */}
+                  <div className="p-6">
+                    <p className="text-gray-500 text-xs uppercase tracking-wider mb-2">{product.location}</p>
+                    <h3 className="font-display text-xl font-semibold mb-2">{product.title}</h3>
+                    <p className="text-gray-600 text-sm mb-4 line-clamp-2">{product.description}</p>
+                    
+                    <div className="flex items-center justify-between pt-4 border-t border-gray-100">
+                      <div>
+                        <p className="text-2xl font-semibold text-[var(--color-gold)]">
+                          {product.price}€
+                        </p>
+                        <p className="text-gray-400 text-xs">{product.edition}</p>
+                      </div>
+                      <button 
+                        onClick={() => setSelectedProduct(product)}
+                        className="bg-black text-white px-4 py-2 text-sm font-medium hover:bg-[var(--color-gold)] transition-colors"
+                      >
+                        Commander
+                      </button>
+                    </div>
                   </div>
                 </div>
-                <div className="p-6">
-                  <p className="caption mb-2">{product.location}</p>
-                  <h3 className="font-display text-xl font-semibold mb-3">{product.title}</h3>
-                  <p className="body-text text-sm mb-4 line-clamp-2">{product.description}</p>
-                  
-                  <div className="mb-4">
-                    <p className="text-xs text-gray-500 mb-2">Formats disponibles :</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Product Modal */}
+      <AnimatePresence>
+        {selectedProduct && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80"
+            onClick={() => { setSelectedProduct(null); setSelectedSize(null); }}
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              className="bg-white max-w-4xl w-full max-h-[90vh] overflow-y-auto rounded-sm"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="grid md:grid-cols-2">
+                {/* Image */}
+                <div className="aspect-square md:aspect-auto md:h-full">
+                  <img
+                    src={selectedProduct.image}
+                    alt={selectedProduct.title}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+
+                {/* Details */}
+                <div className="p-8 flex flex-col">
+                  <button 
+                    onClick={() => { setSelectedProduct(null); setSelectedSize(null); }}
+                    className="absolute top-4 right-4 p-2 hover:bg-gray-100 rounded-full"
+                  >
+                    <X size={24} />
+                  </button>
+
+                  <p className="text-gray-500 text-xs uppercase tracking-wider mb-2">
+                    {selectedProduct.location}
+                  </p>
+                  <h2 className="font-display text-3xl font-semibold mb-4">
+                    {selectedProduct.title}
+                  </h2>
+                  <p className="text-gray-600 mb-6">{selectedProduct.description}</p>
+
+                  {/* Size selection */}
+                  <div className="mb-6">
+                    <p className="font-medium mb-3">Sélectionnez un format :</p>
                     <div className="flex flex-wrap gap-2">
-                      {product.sizes.map((size, idx) => (
-                        <span key={idx} className="text-xs border border-gray-300 px-2 py-1">
+                      {selectedProduct.sizes.map((size) => (
+                        <button
+                          key={size}
+                          onClick={() => setSelectedSize(size)}
+                          className={`px-4 py-2 border transition-all ${
+                            selectedSize === size
+                              ? 'border-[var(--color-gold)] bg-[var(--color-gold)]/10 text-[var(--color-gold)]'
+                              : 'border-gray-200 hover:border-gray-400'
+                          }`}
+                        >
                           {size}
-                        </span>
+                        </button>
                       ))}
                     </div>
                   </div>
 
-                  <div className="flex items-center justify-between pt-4 border-t border-gray-200">
-                    <div>
-                      <p className="text-2xl font-semibold text-[var(--color-gold)]">
-                        à partir de {product.price}€
-                      </p>
-                      <p className="caption">{product.edition}</p>
-                    </div>
-                    <button className="bg-black text-white p-3 hover:bg-[var(--color-gold)] transition-colors" aria-label="Ajouter au panier">
-                      <ShoppingCart size={20} />
-                    </button>
+                  {/* Price */}
+                  <div className="mb-6">
+                    <p className="text-3xl font-semibold text-[var(--color-gold)]">
+                      {getPriceBySize(selectedProduct.price, selectedSize)}€
+                    </p>
+                    <p className="text-gray-400 text-sm">{selectedProduct.edition}</p>
+                  </div>
+
+                  {/* Add to cart */}
+                  <button
+                    onClick={() => {
+                      handleAddToCart(selectedProduct, selectedSize);
+                      setSelectedProduct(null);
+                      setSelectedSize(null);
+                    }}
+                    className="w-full bg-black text-white py-4 font-medium uppercase tracking-wider hover:bg-[var(--color-gold)] transition-colors flex items-center justify-center gap-2"
+                  >
+                    <ShoppingCart size={20} />
+                    Ajouter au panier
+                  </button>
+
+                  {/* Info */}
+                  <div className="mt-6 pt-6 border-t border-gray-100 text-sm text-gray-500">
+                    <p>✓ Tirage numéroté et signé</p>
+                    <p>✓ Papier Fine Art 100% coton</p>
+                    <p>✓ Certificat d'authenticité</p>
+                    <p>✓ Livraison sécurisée</p>
                   </div>
                 </div>
               </div>
-            ))}
-          </div>
-
-          {filteredProducts.length === 0 && (
-            <div className="text-center py-16">
-              <p className="body-text">Aucun produit trouvé pour cette catégorie.</p>
-            </div>
-          )}
-        </div>
-      </section>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Info Section */}
-      <section className="section-spacing bg-gray-50">
+      <section className="py-20 bg-[#1a1a1a] text-white">
         <div className="container-photo">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="section-title text-center mb-12">Informations sur les Tirages</h2>
-            <div className="grid md:grid-cols-2 gap-8">
-              <div className="bg-white p-8">
-                <h3 className="font-display text-xl font-semibold mb-4">Qualité & Support</h3>
-                <p className="body-text">
-                  Tous les tirages sont réalisés sur papier Fine Art 100% coton, sans acide, garantissant une conservation optimale et une longue durée de vie. Les impressions sont réalisées avec des encres pigmentaires de qualité archive.
-                </p>
-              </div>
-              <div className="bg-white p-8">
-                <h3 className="font-display text-xl font-semibold mb-4">Édition Limitée</h3>
-                <p className="body-text">
-                  Chaque photographie est imprimée en nombre limité (10 à 25 exemplaires), numérotée et signée par l'artiste. Cette exclusivité garantit la valeur et l'unicité de votre acquisition.
-                </p>
-              </div>
-              <div className="bg-white p-8">
-                <h3 className="font-display text-xl font-semibold mb-4">Livraison Sécurisée</h3>
-                <p className="body-text">
-                  Les tirages sont expédiés soigneusement emballés dans des tubes rigides ou des cartons renforcés pour garantir leur protection durant le transport. Livraison en France et en Europe.
-                </p>
-              </div>
-              <div className="bg-white p-8">
-                <h3 className="font-display text-xl font-semibold mb-4">Certificat d'Authenticité</h3>
-                <p className="body-text">
-                  Chaque tirage est accompagné d'un certificat d'authenticité détaillé, incluant le numéro d'édition, les caractéristiques techniques et la signature de l'artiste.
-                </p>
-              </div>
+          <div className="max-w-4xl mx-auto text-center mb-16">
+            <h2 className="font-display text-3xl font-semibold mb-4">Qualité & Authenticité</h2>
+            <div className="w-16 h-0.5 bg-[var(--color-gold)] mx-auto"></div>
+          </div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="text-center p-6">
+              <div className="text-[var(--color-gold)] text-4xl mb-4">🎨</div>
+              <h3 className="font-display text-lg font-semibold mb-2">Papier Fine Art</h3>
+              <p className="text-gray-400 text-sm">100% coton, sans acide, qualité muséale</p>
+            </div>
+            <div className="text-center p-6">
+              <div className="text-[var(--color-gold)] text-4xl mb-4">✍️</div>
+              <h3 className="font-display text-lg font-semibold mb-2">Signé & Numéroté</h3>
+              <p className="text-gray-400 text-sm">Chaque tirage est unique et authentifié</p>
+            </div>
+            <div className="text-center p-6">
+              <div className="text-[var(--color-gold)] text-4xl mb-4">📜</div>
+              <h3 className="font-display text-lg font-semibold mb-2">Certificat</h3>
+              <p className="text-gray-400 text-sm">Certificat d'authenticité fourni</p>
+            </div>
+            <div className="text-center p-6">
+              <div className="text-[var(--color-gold)] text-4xl mb-4">📦</div>
+              <h3 className="font-display text-lg font-semibold mb-2">Livraison Sécurisée</h3>
+              <p className="text-gray-400 text-sm">Emballage renforcé, France & Europe</p>
             </div>
           </div>
         </div>
