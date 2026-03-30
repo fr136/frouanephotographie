@@ -7,6 +7,7 @@ import { mockData } from '../mock';
 import { FadeInOnScroll, StaggerContainer, StaggerItem } from '../components/ScrollAnimations';
 import CollectionsPreview from '../components/CollectionsPreview';
 import EcologySection from '../components/EcologySection';
+import InteractiveMap, { MapButton } from '../components/InteractiveMap';
 import '../styles/photography.css';
 
 const Home = () => {
@@ -14,6 +15,7 @@ const Home = () => {
   const [collections, setCollections] = useState([]);
   const [featuredPhotos, setFeaturedPhotos] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [showMap, setShowMap] = useState(false);
 
   useEffect(() => {
     loadData();
