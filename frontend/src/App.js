@@ -71,17 +71,19 @@ function App() {
   }, []);
 
   return (
-    <SmoothScrollProvider>
-      <div className="App cursor-none">
-        <LoadingScreen isLoading={isLoading} />
-        <CustomCursor />
-        <BrowserRouter>
-          <CartProvider>
-            <AppContent />
-          </CartProvider>
-        </BrowserRouter>
-      </div>
-    </SmoothScrollProvider>
+    <HelmetProvider>
+      <SmoothScrollProvider>
+        <div className="App cursor-none">
+          <LoadingScreen isLoading={isLoading} />
+          <CustomCursor />
+          <BrowserRouter>
+            <CartProvider>
+              <AppContent />
+            </CartProvider>
+          </BrowserRouter>
+        </div>
+      </SmoothScrollProvider>
+    </HelmetProvider>
   );
 }
 
