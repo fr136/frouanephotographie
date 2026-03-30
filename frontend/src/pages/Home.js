@@ -289,6 +289,10 @@ const safeCollections = Array.isArray(collections)
           </Link>
         </div>
       </section>
+
+      {/* Interactive Map Button & Modal */}
+      <MapButton onClick={() => setShowMap(true)} />
+      <InteractiveMap isOpen={showMap} onClose={() => setShowMap(false)} />
     </div>
   );
 };
