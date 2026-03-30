@@ -523,148 +523,129 @@ const GalleryItem = ({ photo, index, isFeatured, onClick, onWishlist, inWishlist
   );
 };
 
-// Ecology Section (Simplified for collections)
+// Ecology Section - Style harmonisé avec la page d'accueil
 const EcologySection = ({ ecology, collection }) => {
-  const [activeTab, setActiveTab] = useState('guidelines');
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.2 });
 
-  const tabs = [
-    { id: 'guidelines', label: 'Bonnes Pratiques', icon: '✅' },
-    { id: 'species', label: 'Espèces', icon: '🐟' },
-    { id: 'threats', label: 'Menaces', icon: '⚠️' },
-  ];
+  // Données spécifiques selon la collection
+  const collectionData = {
+    calanques: {
+      title: 'Préserver les Calanques',
+      intro: "Entre Marseille et La Ciotat, les Calanques sont un trésor fragile. Chaque année, plus de 3 millions de visiteurs foulent ces sentiers. À nous de les protéger.",
+      quote: "« Ici, on laisse que des traces de pas. Le reste, on le ramène avec nous. »",
+      quoteAuthor: "Garde du Parc National des Calanques",
+      conseils: [
+        { titre: 'Restez sur les sentiers balisés', description: "La garrigue met des décennies à se régénérer. Les raccourcis détruisent la végétation et accélèrent l'érosion." },
+        { titre: 'Emportez vos déchets', description: "Même les peaux de fruits. Un trognon de pomme met 6 mois à se décomposer, un mégot 12 ans." },
+        { titre: 'Crème solaire minérale', description: "Les filtres chimiques détruisent les herbiers de posidonie, poumons de la Méditerranée." },
+        { titre: 'Évitez les heures de pointe', description: "Partez tôt le matin ou en fin d'après-midi. La lumière est plus belle, et vous aurez la calanque pour vous." }
+      ]
+    },
+    sunset: {
+      title: 'Respecter le littoral',
+      intro: "Ces couchers de soleil que je capture, c'est la Méditerranée dans toute sa splendeur. Mais derrière la beauté, il y a un écosystème fragile qui mérite notre respect.",
+      quote: "« Le soleil se couche sur la même mer depuis des millénaires. À nous de faire en sorte qu'il continue de le faire. »",
+      quoteAuthor: "Pêcheur de La Ciotat",
+      conseils: [
+        { titre: 'Pas de feu sur la côte', description: "Le risque d'incendie est permanent. Un mégot mal éteint peut ravager des hectares de garrigue." },
+        { titre: 'Respectez la faune', description: "Au crépuscule, les oiseaux marins regagnent leurs nids. Évitez le bruit et les flashs." },
+        { titre: 'Stationnement responsable', description: "Garez-vous sur les parkings prévus. Le stationnement sauvage détruit la végétation." },
+        { titre: 'Partagez avec conscience', description: "Vos photos attirent du monde. Évitez de géolocaliser les spots secrets pour les préserver." }
+      ]
+    }
+  };
+
+  const data = collectionData[collection.id] || collectionData.calanques;
 
   return (
     <section 
       ref={ref}
-      className="py-24 bg-gradient-to-b from-gray-900 via-gray-900 to-black text-white"
+      className="py-24 bg-[#1a1a1a] text-white overflow-hidden"
     >
       <div className="container-photo">
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          className="max-w-3xl mx-auto text-center mb-16"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-500/20 rounded-full mb-6">
-            <Leaf className="w-5 h-5 text-emerald-400" />
-            <span className="text-emerald-400 text-sm font-medium uppercase tracking-wider">
-              Écologie & Préservation
-            </span>
-          </div>
-          <h2 className="section-title text-white mb-4">
-            Protégeons ces lieux
+          <p className="text-[var(--color-gold)] text-sm uppercase tracking-widest mb-4">
+            Engagement
+          </p>
+          <h2 className="font-display text-4xl md:text-5xl font-semibold mb-6">
+            {data.title}
           </h2>
-          <p className="text-gray-400 max-w-2xl mx-auto">
-            {ecology.status}
+          <div className="w-16 h-0.5 bg-[var(--color-gold)] mx-auto mb-8"></div>
+          <p className="text-gray-400 text-lg leading-relaxed">
+            {data.intro}
           </p>
         </motion.div>
 
-        {/* Tabs */}
-        <div className="flex justify-center gap-3 mb-10 flex-wrap">
-          {tabs.map((tab) => (
-            <button
-              key={tab.id}
-              onClick={() => setActiveTab(tab.id)}
-              className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all flex items-center gap-2 ${
-                activeTab === tab.id
-                  ? 'bg-white text-gray-900'
-                  : 'bg-white/10 text-white hover:bg-white/20'
-              }`}
-            >
-              <span>{tab.icon}</span>
-              {tab.label}
-            </button>
-          ))}
-        </div>
+        {/* Quote */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="max-w-4xl mx-auto mb-16 px-8 py-12 border-l-2 border-[var(--color-gold)] bg-white/5"
+        >
+          <p className="font-display text-2xl md:text-3xl italic text-white/90 mb-6">
+            {data.quote}
+          </p>
+          <div className="flex items-center gap-4">
+            <div className="w-12 h-0.5 bg-[var(--color-gold)]"></div>
+            <p className="text-gray-400">{data.quoteAuthor}</p>
+          </div>
+        </motion.div>
 
-        {/* Content */}
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={activeTab}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.3 }}
-            className="max-w-4xl mx-auto"
+        {/* Conseils */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.3 }}
+        >
+          <h3 className="font-display text-2xl font-semibold text-center mb-12">
+            Visiter en conscience
+          </h3>
+          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+            {data.conseils.map((conseil, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
+                animate={inView ? { opacity: 1, x: 0 } : {}}
+                transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
+                className="p-6 bg-white/5 rounded-sm border border-white/5 hover:border-[var(--color-gold)]/20 transition-all duration-300"
+              >
+                <h4 className="font-display text-lg font-semibold text-white mb-3">
+                  {conseil.titre}
+                </h4>
+                <p className="text-gray-400 leading-relaxed">
+                  {conseil.description}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Source */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={inView ? { opacity: 1 } : {}}
+          transition={{ duration: 0.6, delay: 0.6 }}
+          className="text-center mt-12"
+        >
+          <a 
+            href="http://www.calanques-parcnational.fr" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-gray-500 hover:text-[var(--color-gold)] transition-colors text-sm"
           >
-            {activeTab === 'guidelines' && ecology.respectGuidelines && (
-              <div className="grid gap-3">
-                {ecology.respectGuidelines.slice(0, 8).map((guideline, i) => (
-                  <motion.div
-                    key={i}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: i * 0.05 }}
-                    className={`flex items-start gap-3 p-4 rounded-lg ${
-                      guideline.startsWith('✅') ? 'bg-emerald-500/10 border border-emerald-500/20' :
-                      guideline.startsWith('❌') ? 'bg-red-500/10 border border-red-500/20' : 'bg-white/5'
-                    }`}
-                  >
-                    <span className="text-xl">{guideline.substring(0, 2)}</span>
-                    <span className="text-gray-300">{guideline.substring(2).trim()}</span>
-                  </motion.div>
-                ))}
-              </div>
-            )}
-
-            {activeTab === 'species' && ecology.protectedSpecies && (
-              <div className="grid md:grid-cols-2 gap-4">
-                {ecology.protectedSpecies.map((species, i) => (
-                  <motion.div
-                    key={i}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: i * 0.1 }}
-                    className="bg-white/5 rounded-lg p-5 border border-white/10"
-                  >
-                    <div className="flex items-start gap-4">
-                      <span className="text-3xl">{species.icon}</span>
-                      <div>
-                        <h4 className="font-semibold text-white mb-1">{species.name}</h4>
-                        <span className="inline-block px-2 py-0.5 bg-red-500/20 text-red-400 text-xs rounded mb-2">
-                          {species.status}
-                        </span>
-                        <p className="text-gray-400 text-sm">{species.description}</p>
-                      </div>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            )}
-
-            {activeTab === 'threats' && ecology.threats && (
-              <div className="grid md:grid-cols-2 gap-4">
-                {ecology.threats.map((threat, i) => (
-                  <motion.div
-                    key={i}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: i * 0.1 }}
-                    className="bg-white/5 rounded-lg p-5 border border-white/10"
-                  >
-                    <div className="flex items-start gap-4">
-                      <span className="text-2xl">{threat.icon}</span>
-                      <div>
-                        <div className="flex items-center gap-2 mb-2">
-                          <h4 className="font-semibold text-white">{threat.title}</h4>
-                          <span className={`text-xs px-2 py-0.5 rounded ${
-                            threat.impact.includes('Critique') 
-                              ? 'bg-red-500/20 text-red-400' 
-                              : 'bg-orange-500/20 text-orange-400'
-                          }`}>
-                            {threat.impact}
-                          </span>
-                        </div>
-                        <p className="text-gray-400 text-sm">{threat.description}</p>
-                      </div>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            )}
-          </motion.div>
-        </AnimatePresence>
+            Source : Parc National des Calanques
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            </svg>
+          </a>
+        </motion.div>
       </div>
     </section>
   );
