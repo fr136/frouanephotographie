@@ -117,7 +117,7 @@ export const CartProvider = ({ children }) => {
   };
 
   const isInWishlist = (photoId) => {
-    return wishlist.items.some(item => item.photoId === photoId);
+    return wishlist?.items?.some(item => item.photoId === photoId) || false;
   };
 
   const cartItemsCount = cart.items?.reduce((sum, item) => sum + item.quantity, 0) || 0;
