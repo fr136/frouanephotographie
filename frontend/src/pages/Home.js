@@ -8,6 +8,7 @@ import { FadeInOnScroll, StaggerContainer, StaggerItem } from '../components/Scr
 import CollectionsPreview from '../components/CollectionsPreview';
 import EcologySection from '../components/EcologySection';
 import InteractiveMap, { MapButton } from '../components/InteractiveMap';
+import SEOHead from '../components/SEOHead';
 import '../styles/photography.css';
 
 const Home = () => {
