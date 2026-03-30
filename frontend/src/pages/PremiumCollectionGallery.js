@@ -150,12 +150,16 @@ const PremiumCollectionGallery = () => {
   const [loading, setLoading] = useState(true);
   const [lightboxIndex, setLightboxIndex] = useState(-1);
   const [showIntro, setShowIntro] = useState(true);
+  const [cinemaMode, setCinemaMode] = useState(false);
 
   // Build data
   const galleryData = useMemo(() => buildGalleryData(slug), [slug]);
   const collection = galleryData?.collection;
   const photos = galleryData?.photos || [];
   const enrichedData = useMemo(() => getCollectionBySlug(slug), [slug]);
+
+  // Check if this is the Sunset collection (cinema mode only for sunset)
+  const isSunsetCollection = slug === 'sunset' || slug === 'couchers-soleil';
 
   // Sort photos: featured first
   const sortedPhotos = useMemo(() => {
@@ -200,6 +204,8 @@ const PremiumCollectionGallery = () => {
         collection={collection} 
         photoCount={photos.length}
         onNavigateBack={() => navigate("/collections")}
+        showCinemaButton={isSunsetCollection}
+        onCinemaMode={() => setCinemaMode(true)}
       />
 
       {/* INTRO QUOTE */}
@@ -212,6 +218,8 @@ const PremiumCollectionGallery = () => {
         onPhotoClick={(index) => setLightboxIndex(index)}
         onWishlist={addToWishlist}
         isInWishlist={isInWishlist}
+        showCinemaButton={isSunsetCollection}
+        onCinemaMode={() => setCinemaMode(true)}
       />
 
       {/* ECOLOGY SECTION */}
