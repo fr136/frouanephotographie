@@ -218,7 +218,7 @@ const PremiumCollectionGallery = () => {
         onPhotoClick={(index) => setLightboxIndex(index)}
         onWishlist={addToWishlist}
         isInWishlist={isInWishlist}
-        showCinemaButton={isSunsetCollection}
+        showCinemaButton={hasCinemaMode}
         onCinemaMode={() => setCinemaMode(true)}
       />
 
