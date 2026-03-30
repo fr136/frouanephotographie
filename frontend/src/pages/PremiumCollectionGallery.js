@@ -158,8 +158,8 @@ const PremiumCollectionGallery = () => {
   const photos = useMemo(() => galleryData?.photos || [], [galleryData]);
   const enrichedData = useMemo(() => getCollectionBySlug(slug), [slug]);
 
-  // Check if this is the Sunset collection (cinema mode only for sunset)
-  const isSunsetCollection = slug === 'sunset' || slug === 'couchers-soleil';
+  // Cinema mode available for both collections
+  const hasCinemaMode = slug === 'sunset' || slug === 'couchers-soleil' || slug === 'calanques' || slug === 'calanques-marseille';
 
   // Sort photos: featured first
   const sortedPhotos = useMemo(() => {
