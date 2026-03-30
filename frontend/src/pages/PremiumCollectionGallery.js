@@ -240,12 +240,22 @@ const PremiumCollectionGallery = () => {
           container: { backgroundColor: "rgba(0, 0, 0, 0.95)" },
         }}
       />
+
+      {/* CINEMA MODE - Only for Sunset */}
+      {isSunsetCollection && (
+        <CinemaMode
+          photos={sortedPhotos}
+          isOpen={cinemaMode}
+          onClose={() => setCinemaMode(false)}
+          collectionTitle={collection.title}
+        />
+      )}
     </div>
   );
 };
 
 // Hero Section Component
-const HeroSection = ({ collection, photoCount, onNavigateBack }) => {
+const HeroSection = ({ collection, photoCount, onNavigateBack, showCinemaButton, onCinemaMode }) => {
   const { scrollY } = useScroll();
   const y = useTransform(scrollY, [0, 500], [0, 150]);
   const opacity = useTransform(scrollY, [0, 400], [1, 0]);
