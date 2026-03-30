@@ -43,6 +43,13 @@ const safeCollections = Array.isArray(collections)
 : [];
   return (
     <div className="bg-white">
+      {/* SEO */}
+      <SEOHead 
+        title="Accueil"
+        description="Photographe professionnel spécialisé dans les paysages méditerranéens. Découvrez mes collections Calanques et Couchers de Soleil. Tirages d'art numérotés et signés."
+        url="/"
+      />
+      
       {/* Hero Section */}
       <section
         className="relative min-h-screen flex items-center justify-center pt-24 sm:pt-0"
