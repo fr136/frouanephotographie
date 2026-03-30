@@ -9,6 +9,7 @@ import { collectionsAPI } from "../services/api";
 import { getCollectionBySlug } from "../data/collectionsData";
 import { useCart } from "../context/CartContext";
 import { FadeInOnScroll, StaggerContainer, StaggerItem } from "../components/ScrollAnimations";
+import CinemaMode from "../components/CinemaMode";
 
 import {
   ChevronLeft,
@@ -19,6 +20,8 @@ import {
   Leaf,
   ArrowDown,
   Sparkles,
+  Film,
+  Play,
 } from "lucide-react";
 
 import "../styles/photography.css";
