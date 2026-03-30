@@ -2,10 +2,9 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
-import { FadeInOnScroll, StaggerContainer, StaggerItem, ParallaxImage } from './ScrollAnimations';
+import { FadeInOnScroll, StaggerContainer, StaggerItem } from './ScrollAnimations';
 
 const CollectionsPreview = ({ collections = [] }) => {
-  // Collections par défaut si vide
   const defaultCollections = [
     {
       id: 'calanques',
@@ -27,7 +26,7 @@ const CollectionsPreview = ({ collections = [] }) => {
     }
   ];
 
-  const displayCollections = collections.length > 0 ? collections.slice(0, 3) : defaultCollections;
+  const displayCollections = collections.length > 0 ? collections.slice(0, 2) : defaultCollections;
 
   return (
     <section className="py-24 bg-gray-50 overflow-hidden">
@@ -45,95 +44,56 @@ const CollectionsPreview = ({ collections = [] }) => {
           </div>
         </FadeInOnScroll>
 
-        {/* Collections Grid */}
-        <StaggerContainer className="grid lg:grid-cols-2 gap-8 mb-12" staggerDelay={0.2}>
-          {/* Grande carte à gauche */}
-          <StaggerItem>
-            <Link 
-              to={`/collections/${displayCollections[0]?.slug}`}
-              className="group block relative h-[600px] overflow-hidden rounded-sm"
-            >
-              <ParallaxImage
-                src={displayCollections[0]?.image}
-                alt={displayCollections[0]?.title}
-                className="absolute inset-0"
-                speed={0.3}
-              />
-              
-              {/* Overlay gradient */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500" />
-              
-              {/* Content */}
-              <div className="absolute inset-0 flex flex-col justify-end p-8">
-                <motion.div
-                  initial={{ y: 20, opacity: 0 }}
-                  whileInView={{ y: 0, opacity: 1 }}
-                  transition={{ delay: 0.3 }}
-                >
-                  <span className="text-[var(--color-gold)] text-sm uppercase tracking-wider mb-2 block">
-                    {displayCollections[0]?.photoCount} photos
-                  </span>
-                  <h3 className="font-display text-4xl font-semibold text-white mb-3">
-                    {displayCollections[0]?.title}
-                  </h3>
-                  <p className="text-gray-300 mb-4 max-w-md">
-                    {displayCollections[0]?.description}
-                  </p>
-                  <span className="inline-flex items-center gap-2 text-white font-medium group-hover:text-[var(--color-gold)] transition-colors">
-                    Découvrir la collection
-                    <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
-                  </span>
-                </motion.div>
-              </div>
-
-              {/* Hover effect border */}
-              <div className="absolute inset-0 border-2 border-transparent group-hover:border-[var(--color-gold)] transition-colors duration-500 rounded-sm pointer-events-none" />
-            </Link>
-          </StaggerItem>
-
-          {/* Cartes à droite */}
-          <div className="flex flex-col gap-8">
-            {displayCollections.slice(1, 3).map((collection, index) => (
-              <StaggerItem key={collection.id}>
-                <Link 
-                  to={`/collections/${collection.slug}`}
-                  className="group block relative h-[284px] overflow-hidden rounded-sm"
-                >
-                  <ParallaxImage
+        {/* Collections Grid - 2 colonnes égales */}
+        <StaggerContainer className="grid md:grid-cols-2 gap-8 mb-12" staggerDelay={0.2}>
+          {displayCollections.map((collection) => (
+            <StaggerItem key={collection.id}>
+              <Link 
+                to={`/collections/${collection.slug}`}
+                className="group block relative h-[500px] overflow-hidden rounded-sm"
+              >
+                {/* Image avec effet zoom */}
+                <div className="absolute inset-0 overflow-hidden">
+                  <motion.img
                     src={collection.image}
                     alt={collection.title}
-                    className="absolute inset-0"
-                    speed={0.2}
+                    className="w-full h-full object-cover"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.6 }}
                   />
-                  
-                  {/* Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500" />
-                  
-                  {/* Content */}
-                  <div className="absolute inset-0 flex items-center p-8">
-                    <div>
-                      <span className="text-[var(--color-gold)] text-sm uppercase tracking-wider mb-2 block">
-                        {collection.photoCount} photos
-                      </span>
-                      <h3 className="font-display text-2xl font-semibold text-white mb-2">
-                        {collection.title}
-                      </h3>
-                      <p className="text-gray-300 text-sm mb-3 max-w-xs">
-                        {collection.description}
-                      </p>
-                      <span className="inline-flex items-center gap-2 text-white text-sm font-medium group-hover:text-[var(--color-gold)] transition-colors">
-                        Explorer
-                        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                      </span>
-                    </div>
-                  </div>
+                </div>
+                
+                {/* Overlay gradient */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500" />
+                
+                {/* Content */}
+                <div className="absolute inset-0 flex flex-col justify-end p-8">
+                  <motion.div
+                    initial={{ y: 20, opacity: 0 }}
+                    whileInView={{ y: 0, opacity: 1 }}
+                    transition={{ delay: 0.3 }}
+                  >
+                    <span className="text-[var(--color-gold)] text-sm uppercase tracking-wider mb-2 block">
+                      {collection.photoCount} photos
+                    </span>
+                    <h3 className="font-display text-3xl md:text-4xl font-semibold text-white mb-3">
+                      {collection.title}
+                    </h3>
+                    <p className="text-gray-300 mb-4 max-w-md">
+                      {collection.description}
+                    </p>
+                    <span className="inline-flex items-center gap-2 text-white font-medium group-hover:text-[var(--color-gold)] transition-colors">
+                      Découvrir la collection
+                      <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
+                    </span>
+                  </motion.div>
+                </div>
 
-                  {/* Hover border */}
-                  <div className="absolute inset-0 border-2 border-transparent group-hover:border-[var(--color-gold)] transition-colors duration-500 rounded-sm pointer-events-none" />
-                </Link>
-              </StaggerItem>
-            ))}
-          </div>
+                {/* Hover effect border */}
+                <div className="absolute inset-0 border-2 border-transparent group-hover:border-[var(--color-gold)] transition-colors duration-500 rounded-sm pointer-events-none" />
+              </Link>
+            </StaggerItem>
+          ))}
         </StaggerContainer>
 
         {/* CTA */}
