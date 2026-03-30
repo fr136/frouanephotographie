@@ -204,7 +204,7 @@ const PremiumCollectionGallery = () => {
         collection={collection} 
         photoCount={photos.length}
         onNavigateBack={() => navigate("/collections")}
-        showCinemaButton={isSunsetCollection}
+        showCinemaButton={hasCinemaMode}
         onCinemaMode={() => setCinemaMode(true)}
       />
 
