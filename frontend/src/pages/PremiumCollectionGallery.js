@@ -241,8 +241,8 @@ const PremiumCollectionGallery = () => {
         }}
       />
 
-      {/* CINEMA MODE - Only for Sunset */}
-      {isSunsetCollection && (
+      {/* CINEMA MODE - Available for all premium collections */}
+      {hasCinemaMode && (
         <CinemaMode
           photos={sortedPhotos}
           isOpen={cinemaMode}
