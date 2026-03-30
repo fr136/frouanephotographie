@@ -355,6 +355,23 @@ const HeroSection = ({ collection, photoCount, onNavigateBack, showCinemaButton,
             <div className="hero-stat-label">Collection</div>
           </div>
         </motion.div>
+
+        {/* Cinema Mode Button - Only for Sunset */}
+        {showCinemaButton && (
+          <motion.button
+            onClick={onCinemaMode}
+            className="mt-8 inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white font-semibold rounded-full transition-all shadow-lg shadow-orange-500/30 hover:shadow-orange-500/50 hover:scale-105"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.2 }}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.98 }}
+          >
+            <Film size={20} />
+            <span>Mode Cinéma</span>
+            <Play size={16} className="ml-1" />
+          </motion.button>
+        )}
       </motion.div>
 
       {/* Scroll indicator */}
