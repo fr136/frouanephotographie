@@ -3,6 +3,7 @@ import "./App.css";
 import "leaflet/dist/leaflet.css";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
+import { HelmetProvider } from "react-helmet-async";
 import { CartProvider } from "./context/CartContext";
 import usePageTracking from "./hooks/useAnalytics";
 import Header from "./components/Header";
