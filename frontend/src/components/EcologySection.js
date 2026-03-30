@@ -1,137 +1,165 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Leaf, AlertTriangle, Heart, ArrowRight, Globe, Users, Fish } from 'lucide-react';
-import { FadeInOnScroll, StaggerContainer, StaggerItem } from './ScrollAnimations';
+import { ArrowRight, ExternalLink } from 'lucide-react';
+import { FadeInOnScroll } from './ScrollAnimations';
 
 const EcologySection = () => {
-  const stats = [
-    { icon: Users, value: '2M+', label: 'visiteurs/an dans les Calanques', color: 'text-orange-500' },
-    { icon: Fish, value: '25%', label: 'de la biodiversité marine menacée', color: 'text-blue-500' },
-    { icon: Globe, value: '+20cm', label: "montée des eaux depuis 1900", color: 'text-cyan-500' },
+  const facts = [
+    {
+      stat: '3 millions',
+      label: 'de visiteurs par an dans les Calanques',
+      source: 'Parc National des Calanques, 2023'
+    },
+    {
+      stat: '20 000 ha',
+      label: "d'espace protégé terre et mer",
+      source: 'Parc National des Calanques'
+    },
+    {
+      stat: '140+',
+      label: 'espèces protégées recensées',
+      source: 'IUCN Méditerranée'
+    }
   ];
 
-  const actions = [
+  const conseils = [
     {
-      icon: '🌅',
-      title: 'Visitez hors-saison',
-      description: 'Avril-mai et septembre-octobre : moins de monde, plus de magie'
+      titre: 'Évitez les heures de pointe',
+      description: "Entre juin et août, partez à l'aube ou en fin d'après-midi. Les locaux le savent : c'est là que la lumière est la plus belle, et qu'on a la calanque pour soi."
     },
     {
-      icon: '🗑️',
-      title: 'Zéro déchet',
-      description: 'Ramenez tout, même les pelures de fruits (2 ans de décomposition)'
+      titre: 'Restez sur les sentiers',
+      description: "Les raccourcis abîment les sols fragiles. La garrigue met des décennies à se reconstituer. Et entre nous, les sentiers officiels offrent les plus beaux points de vue."
     },
     {
-      icon: '☀️',
-      title: 'Crème solaire minérale',
-      description: 'Les filtres chimiques détruisent les herbiers de posidonie'
+      titre: 'Remportez tout',
+      description: "Même les peaux de fruits, même les mégots. Un mégot, c'est 500 litres d'eau polluée et 12 ans pour se décomposer. Ici, on laisse que des traces de pas."
     },
     {
-      icon: '🤫',
-      title: 'Respect du silence',
-      description: "Les oiseaux nicheurs sont très sensibles au bruit"
+      titre: 'Crème solaire minérale',
+      description: "Les filtres chimiques (oxybenzone, octinoxate) détruisent les herbiers de posidonie. Ces herbiers, c'est 50% de l'oxygène de la Méditerranée. Pas rien, quoi."
     }
   ];
 
   return (
-    <section className="py-24 bg-gradient-to-b from-gray-900 to-black text-white relative overflow-hidden">
-      {/* Background pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-        }} />
-      </div>
-
-      <div className="container-photo relative z-10">
+    <section className="py-24 bg-[#1a1a1a] text-white overflow-hidden">
+      <div className="container-photo">
         {/* Header */}
         <FadeInOnScroll>
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-500/20 rounded-full mb-6">
-              <Leaf className="w-5 h-5 text-emerald-400" />
-              <span className="text-emerald-400 text-sm font-medium uppercase tracking-wider">
-                Sensibilisation
-              </span>
-            </div>
-            <h2 className="section-title text-white mb-6">
-              Protégeons la Méditerranée
+          <div className="max-w-3xl mx-auto text-center mb-16">
+            <p className="text-[var(--color-gold)] text-sm uppercase tracking-widest mb-4">
+              Engagement
+            </p>
+            <h2 className="font-display text-4xl md:text-5xl font-semibold mb-6">
+              Préserver notre littoral
             </h2>
-            <div className="gold-line mx-auto"></div>
-            <p className="body-large text-gray-300 max-w-3xl mx-auto mt-6">
-              Derrière chaque photo se cache un écosystème fragile. Le surtourisme, la pollution 
-              et le changement climatique menacent ces paysages que nous aimons tant.
+            <div className="w-16 h-0.5 bg-[var(--color-gold)] mx-auto mb-8"></div>
+            <p className="text-gray-400 text-lg leading-relaxed">
+              Ces paysages que je photographie, ce sont ceux où j'ai grandi. Entre les criques de Sormiou 
+              et les falaises de La Ciotat, j'ai vu le surtourisme transformer nos coins secrets. 
+              Aujourd'hui, photographier ces lieux, c'est aussi témoigner de leur fragilité.
             </p>
           </div>
         </FadeInOnScroll>
 
         {/* Stats */}
-        <StaggerContainer className="grid md:grid-cols-3 gap-8 mb-16" staggerDelay={0.15}>
-          {stats.map((stat, index) => (
-            <StaggerItem key={index}>
-              <motion.div 
-                className="text-center p-8 bg-white/5 backdrop-blur-sm rounded-lg border border-white/10 hover:border-[var(--color-gold)]/50 transition-all duration-300"
-                whileHover={{ y: -5, scale: 1.02 }}
+        <FadeInOnScroll delay={0.1}>
+          <div className="grid md:grid-cols-3 gap-8 mb-20">
+            {facts.map((fact, index) => (
+              <motion.div
+                key={index}
+                className="text-center p-8 border border-white/10 rounded-sm hover:border-[var(--color-gold)]/30 transition-colors duration-300"
+                whileHover={{ y: -5 }}
               >
-                <stat.icon className={`w-10 h-10 mx-auto mb-4 ${stat.color}`} />
-                <div className="text-4xl font-bold text-white mb-2">{stat.value}</div>
-                <p className="text-gray-400 text-sm">{stat.label}</p>
+                <div className="font-display text-4xl md:text-5xl font-semibold text-[var(--color-gold)] mb-2">
+                  {fact.stat}
+                </div>
+                <p className="text-white mb-2">{fact.label}</p>
+                <p className="text-gray-500 text-xs italic">{fact.source}</p>
               </motion.div>
-            </StaggerItem>
-          ))}
-        </StaggerContainer>
+            ))}
+          </div>
+        </FadeInOnScroll>
 
-        {/* Alert box */}
+        {/* Quote */}
         <FadeInOnScroll delay={0.2}>
-          <div className="bg-gradient-to-r from-amber-500/20 to-orange-500/20 border border-amber-500/30 rounded-lg p-6 mb-16">
-            <div className="flex items-start gap-4">
-              <AlertTriangle className="w-8 h-8 text-amber-400 flex-shrink-0 mt-1" />
-              <div>
-                <h3 className="text-xl font-semibold text-white mb-2">Le surtourisme : une menace réelle</h3>
-                <p className="text-gray-300">
-                  Les Calanques reçoivent plus de 2 millions de visiteurs par an. Érosion des sentiers, 
-                  dérangement de la faune, pollution... Chaque visite laisse une trace. 
-                  <strong className="text-amber-400"> Ensemble, adoptons des comportements responsables.</strong>
-                </p>
-              </div>
+          <div className="max-w-4xl mx-auto mb-20 px-8 py-12 border-l-2 border-[var(--color-gold)] bg-white/5">
+            <p className="font-display text-2xl md:text-3xl italic text-white/90 mb-6">
+              « Les Calanques, c'est pas un parc d'attractions. C'est un sanctuaire. 
+              Chaque été, on ramasse des tonnes de déchets, on soigne des goélands mazoutés, 
+              on replante des pins d'Alep. Venez, mais venez avec respect. »
+            </p>
+            <div className="flex items-center gap-4">
+              <div className="w-12 h-0.5 bg-[var(--color-gold)]"></div>
+              <p className="text-gray-400">
+                Bénévole, Association des Calanques de Marseille
+              </p>
             </div>
           </div>
         </FadeInOnScroll>
 
-        {/* Actions */}
+        {/* Conseils */}
         <FadeInOnScroll delay={0.3}>
-          <h3 className="text-2xl font-display font-semibold text-center text-white mb-8">
-            4 gestes simples pour préserver ces lieux
-          </h3>
+          <div className="mb-16">
+            <h3 className="font-display text-2xl font-semibold text-center mb-12">
+              Visiter en conscience
+            </h3>
+            <div className="grid md:grid-cols-2 gap-6">
+              {conseils.map((conseil, index) => (
+                <motion.div
+                  key={index}
+                  className="p-6 bg-white/5 rounded-sm border border-white/5 hover:border-[var(--color-gold)]/20 transition-all duration-300"
+                  whileHover={{ x: 5 }}
+                >
+                  <h4 className="font-display text-lg font-semibold text-white mb-3">
+                    {conseil.titre}
+                  </h4>
+                  <p className="text-gray-400 leading-relaxed">
+                    {conseil.description}
+                  </p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
         </FadeInOnScroll>
 
-        <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12" staggerDelay={0.1}>
-          {actions.map((action, index) => (
-            <StaggerItem key={index}>
-              <motion.div 
-                className="bg-white/5 backdrop-blur-sm rounded-lg p-6 border border-white/10 h-full hover:bg-white/10 transition-all duration-300"
-                whileHover={{ y: -3 }}
-              >
-                <div className="text-4xl mb-4">{action.icon}</div>
-                <h4 className="text-lg font-semibold text-white mb-2">{action.title}</h4>
-                <p className="text-gray-400 text-sm">{action.description}</p>
-              </motion.div>
-            </StaggerItem>
-          ))}
-        </StaggerContainer>
-
-        {/* CTA */}
+        {/* Sources & CTA */}
         <FadeInOnScroll delay={0.4}>
           <div className="text-center">
-            <p className="text-gray-300 mb-6">
-              Découvrez dans chaque collection les enjeux écologiques spécifiques et les bonnes pratiques à adopter.
-            </p>
+            <div className="flex flex-wrap justify-center gap-6 mb-10 text-sm">
+              <a 
+                href="http://www.calanques-parcnational.fr" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-gray-500 hover:text-[var(--color-gold)] transition-colors"
+              >
+                Parc National des Calanques <ExternalLink size={14} />
+              </a>
+              <a 
+                href="https://www.mio.osupytheas.fr" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-gray-500 hover:text-[var(--color-gold)] transition-colors"
+              >
+                Institut Méditerranéen d'Océanologie <ExternalLink size={14} />
+              </a>
+              <a 
+                href="https://www.marseille.fr/environnement" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-gray-500 hover:text-[var(--color-gold)] transition-colors"
+              >
+                Ville de Marseille - Environnement <ExternalLink size={14} />
+              </a>
+            </div>
+            
             <Link 
               to="/collections" 
-              className="inline-flex items-center gap-2 px-8 py-4 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-sm transition-all duration-300 group"
+              className="inline-flex items-center gap-3 px-8 py-4 bg-transparent border border-[var(--color-gold)] text-[var(--color-gold)] hover:bg-[var(--color-gold)] hover:text-black font-medium rounded-sm transition-all duration-300"
             >
-              <Heart className="w-5 h-5" />
-              Explorer les collections avec conscience
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              Découvrir les collections
+              <ArrowRight size={18} />
             </Link>
           </div>
         </FadeInOnScroll>
