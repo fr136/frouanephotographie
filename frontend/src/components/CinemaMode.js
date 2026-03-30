@@ -113,6 +113,7 @@ const CinemaMode = ({ photos, isOpen, onClose, startIndex = 0, collectionTitle =
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isOpen, onClose]);
 
   // Hide controls after inactivity
