@@ -415,7 +415,7 @@ const IntroSection = ({ collection }) => {
 };
 
 // Gallery Section
-const GallerySection = ({ photos, collection, onPhotoClick, onWishlist, isInWishlist }) => {
+const GallerySection = ({ photos, collection, onPhotoClick, onWishlist, isInWishlist, showCinemaButton, onCinemaMode }) => {
   return (
     <section className="gallery-section">
       <div className="container-photo">
@@ -425,6 +425,19 @@ const GallerySection = ({ photos, collection, onPhotoClick, onWishlist, isInWish
             <p className="gallery-description">
               {photos.length} photographies soigneusement sélectionnées
             </p>
+            {/* Cinema Mode Button in Gallery */}
+            {showCinemaButton && (
+              <motion.button
+                onClick={onCinemaMode}
+                className="mt-6 inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white font-medium rounded-full transition-all shadow-lg shadow-orange-500/20 hover:shadow-orange-500/40"
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.98 }}
+                data-testid="cinema-mode-button"
+              >
+                <Film size={18} />
+                <span>Lancer le diaporama cinématique</span>
+              </motion.button>
+            )}
           </div>
         </FadeInOnScroll>
       </div>
