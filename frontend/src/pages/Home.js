@@ -81,7 +81,7 @@ const safeCollections = Array.isArray(collections)
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.8 }}
           >
-            {photographer.name || 'Franck Rouane'}
+            
           </motion.h1>
           <motion.p 
             className="text-white text-xl md:text-2xl font-light mb-8 max-w-2xl mx-auto"
