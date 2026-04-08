@@ -43,14 +43,14 @@ const About = () => {
                     <MapPin size={20} className="text-[var(--color-gold)]" />
                     <span className="font-semibold">Localisation</span>
                   </div>
-                  <p className="caption">Marseille - Monaco</p>
+                  <p className="caption">Marseille </p>
                 </div>
                 <div>
                   <div className="flex items-center gap-2 mb-2">
                     <Camera size={20} className="text-[var(--color-gold)]" />
                     <span className="font-semibold">Spécialité</span>
                   </div>
-                  <p className="caption">Paysage Maritime</p>
+                  <p className="caption">Paysages</p>
                 </div>
               </div>
             </div>
