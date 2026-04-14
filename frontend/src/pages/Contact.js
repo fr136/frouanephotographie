@@ -1,23 +1,15 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Send } from 'lucide-react';
-import { mockData } from '../mock';
 import { Link } from 'react-router-dom';
-import '../styles/photography.css';
+import { motion } from 'framer-motion';
+import { Mail, Phone, MapPin, Send, CheckCircle, Image, Truck, Award, Clock } from 'lucide-react';
+import { mockData } from '../mock';
+import { FadeInOnScroll, StaggerContainer, StaggerItem } from '../components/ScrollAnimations';
 import { toast } from '../hooks/use-toast';
+import '../styles/photography.css';
 
-/*
- * Page de contact bilingue (français / anglais).
- * Cette version conserve la structure du composant d'origine tout en ajoutant :
- * - un champ de téléphone optionnel ;
- * - un champ Sujet sous forme de liste déroulante avec quatre motifs ;
- * - un texte bilingue pour les titres et instructions ;
- * - des éléments de réassurance (qualité des tirages, livraison, édition limitée, délais de réponse) ;
- * - une section présentant quelques formats et des prix indicatifs ;
- * - des liens vers la galerie et Instagram.
- */
 const Contact = () => {
   const { photographer } = mockData;
-  // État du formulaire incluant un téléphone optionnel et un sujet
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -35,252 +27,339 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Ici on simule l'envoi du formulaire
     console.log('Form submitted:', formData);
     toast({
-      title: 'Message envoyé !',
+      title: 'Message envoyé !',
       description: 'Merci pour votre message. Je vous répondrai dans les plus brefs délais.'
     });
     setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
   };
 
+  const reassurance = [
+    { icon: Image, text: 'Tirages Fine Art sur papier Hahnemühle' },
+    { icon: Award, text: 'Éditions limitées, numérotées et signées' },
+    { icon: Truck, text: 'Livraison soignée en tube ou encadrée' },
+    { icon: Clock, text: 'Réponse sous 24 h' },
+  ];
+
+  const formats = [
+    { size: '30 x 45 cm', price: 'à partir de 180 €' },
+    { size: '50 x 75 cm', price: 'à partir de 260 €' },
+    { size: '70 x 105 cm', price: 'à partir de 360 €' },
+  ];
+
   return (
     <div className="bg-white">
-      {/* Bannière/hero bilingue */}
-      <section className="pt-32 pb-16 bg-black text-white">
-        <div className="container-photo text-center">
-          <p className="section-subtitle text-white mb-4">
-            Contact / Get in touch
-          </p>
-          <h1 className="section-title text-white mb-6">
-            Entrons en Contact / Get in touch
-          </h1>
-          <div className="gold-line mx-auto"></div>
-          <p className="body-large text-gray-300 max-w-3xl mx-auto mt-6">
-            Une question sur mes tirages ? Un projet photographique ? Je serais ravi d'échanger avec vous.<br />
-            Any question about my fine art prints or a custom project? I'd be delighted to discuss with you.
-          </p>
-        </div>
+
+      {/* Hero plein écran */}
+      <section
+        className="relative min-h-[70vh] flex items-center justify-center"
+        style={{
+          backgroundImage: "url('https://images.unsplash.com/photo-1712227609859-2818504d07cb')",
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundAttachment: 'fixed',
+        }}
+      >
+        <div className="absolute inset-0 bg-black/50"></div>
+        <motion.div
+          className="relative z-10 text-center px-4 max-w-3xl mx-auto"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease: 'easeOut' }}
+        >
+          <motion.p
+            className="section-subtitle text-white mb-4"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.3 }}
+          >
+            Contact
+          </motion.p>
+          <motion.h1
+            className="hero-title mb-6"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5, duration: 0.8 }}
+          >
+            Entrons en Contact
+          </motion.h1>
+          <motion.div
+            className="gold-line mx-auto mb-6"
+            initial={{ scaleX: 0 }}
+            animate={{ scaleX: 1 }}
+            transition={{ delay: 0.7, duration: 0.6 }}
+          />
+          <motion.p
+            className="text-white text-xl md:text-2xl font-light max-w-2xl mx-auto"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.9 }}
+          >
+            Une question sur mes tirages ? Un projet photographique ? Je serais ravi d'échanger avec vous.
+          </motion.p>
+        </motion.div>
       </section>
 
-      {/* Contenu de contact */}
+      {/* Coordonnées + Formulaire */}
       <section className="section-spacing">
         <div className="container-photo">
           <div className="grid md:grid-cols-2 gap-16">
-            {/* Coordonnées */}
-            <div>
-              <h2 className="section-title mb-6">Coordonnées / Contact details</h2>
-              <div className="gold-line mb-8"></div>
-              <p className="body-large mb-8">
-                N'hésitez pas à me contacter pour toute question concernant mes œuvres, une commande personnalisée, ou simplement pour discuter de photographie maritime.<br />
-                Feel free to contact me about my artwork, a custom order or simply to talk about seascape photography.
-              </p>
 
-              <div className="space-y-6">
-                {/* Email */}
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 flex items-center justify-center bg-[var(--color-gold)] text-white rounded-full flex-shrink-0">
-                    <Mail size={20} />
-                  </div>
+            {/* Colonne gauche : coordonnées */}
+            <div>
+              <FadeInOnScroll direction="left">
+                <h2 className="section-title mb-6">Coordonnées</h2>
+                <div className="gold-line mb-8"></div>
+                <p className="body-large mb-8">
+                  N'hésitez pas à me contacter pour toute question concernant mes œuvres, une commande personnalisée, ou simplement pour discuter de photographie maritime.
+                </p>
+
+                <div className="space-y-6">
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 flex items-center justify-center bg-[var(--color-gold)] text-white rounded-full flex-shrink-0">
+                      <Mail size={20} />
+                    </div>
                     <div>
-                      <h3 className="font-semibold mb-1">Email / Email</h3>
+                      <h3 className="font-semibold mb-1">Email</h3>
                       <p className="body-text">{photographer.email}</p>
                     </div>
-                </div>
+                  </div>
 
-                {/* Téléphone */}
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 flex items-center justify-center bg-[var(--color-gold)] text-white rounded-full flex-shrink-0">
-                    <Phone size={20} />
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 flex items-center justify-center bg-[var(--color-gold)] text-white rounded-full flex-shrink-0">
+                      <Phone size={20} />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold mb-1">Téléphone</h3>
+                      <p className="body-text">{photographer.phone || '+33 6 00 00 00 00'}</p>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="font-semibold mb-1">Téléphone / Phone</h3>
-                    {/* Si le numéro n'est pas défini dans mockData, on affiche un exemple */}
-                    <p className="body-text">{photographer.phone || '+33 6 00 00 00 00'}</p>
-                  </div>
-                </div>
 
-                {/* Zone d'activité */}
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 flex items-center justify-center bg-[var(--color-gold)] text-white rounded-full flex-shrink-0">
-                    <MapPin size={20} />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold mb-1">Zone d'activité / Area of operation</h3>
-                    <p className="body-text">Côte d'Azur – de Marseille à Monaco / French Riviera – Marseille to Monaco</p>
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 flex items-center justify-center bg-[var(--color-gold)] text-white rounded-full flex-shrink-0">
+                      <MapPin size={20} />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold mb-1">Zone d'activité</h3>
+                      <p className="body-text">Côte méditerranéenne — de Marseille au Var</p>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </FadeInOnScroll>
 
               {/* Image illustrative */}
-              <div className="mt-12 image-container aspect-[4/3] rounded-sm overflow-hidden">
-                <img
-                  src="https://images.unsplash.com/photo-1712227609859-2818504d07cb"
-                  alt="Photographie Côte d'Azur mer Méditerranée / Mediterranean seascape"
-                  className="image-zoom"
-                />
-              </div>
+              <FadeInOnScroll delay={0.3}>
+                <div className="mt-12 image-container aspect-[4/3] rounded-sm overflow-hidden">
+                  <img
+                    src="https://images.unsplash.com/photo-1712227609859-2818504d07cb"
+                    alt="Paysage méditerranéen"
+                    className="image-zoom"
+                  />
+                </div>
+              </FadeInOnScroll>
             </div>
 
-            {/* Formulaire et informations de vente */}
+            {/* Colonne droite : formulaire */}
             <div>
-              <h2 className="section-title mb-6">Envoyez‑moi un Message / Send me a message</h2>
-              <div className="gold-line mb-8"></div>
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div>
-                  <label htmlFor="name" className="block font-semibold mb-2">
-                    Nom complet * / Full name *
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[var(--color-gold)] focus:border-transparent"
-                    placeholder="Votre nom / Your name"
-                  />
-                </div>
+              <FadeInOnScroll direction="right" delay={0.2}>
+                <h2 className="section-title mb-6">Envoyez-moi un message</h2>
+                <div className="gold-line mb-8"></div>
 
-                <div>
-                  <label htmlFor="email" className="block font-semibold mb-2">
-                    Adresse email * / Email address *
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[var(--color-gold)] focus:border-transparent"
-                    placeholder="votre@email.com / your@email.com"
-                  />
-                </div>
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div>
+                    <label htmlFor="name" className="block font-semibold mb-2">
+                      Nom complet *
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      required
+                      className="w-full px-4 py-3 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[var(--color-gold)] focus:border-transparent transition-all"
+                      placeholder="Votre nom"
+                    />
+                  </div>
 
-                <div>
-                  <label htmlFor="phone" className="block font-semibold mb-2">
-                    Téléphone (optionnel) / Phone (optional)
-                  </label>
-                  <input
-                    type="tel"
-                    id="phone"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[var(--color-gold)] focus:border-transparent"
-                    placeholder="06 12 34 56 78 / +33 6 12 34 56 78"
-                  />
-                </div>
+                  <div>
+                    <label htmlFor="email" className="block font-semibold mb-2">
+                      Adresse email *
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
+                      className="w-full px-4 py-3 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[var(--color-gold)] focus:border-transparent transition-all"
+                      placeholder="votre@email.com"
+                    />
+                  </div>
 
-                <div>
-                  <label htmlFor="subject" className="block font-semibold mb-2">
-                    Sujet * / Subject *
-                  </label>
-                  <select
-                    id="subject"
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[var(--color-gold)] focus:border-transparent"
+                  <div>
+                    <label htmlFor="phone" className="block font-semibold mb-2">
+                      Téléphone (optionnel)
+                    </label>
+                    <input
+                      type="tel"
+                      id="phone"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[var(--color-gold)] focus:border-transparent transition-all"
+                      placeholder="06 12 34 56 78"
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="subject" className="block font-semibold mb-2">
+                      Sujet *
+                    </label>
+                    <select
+                      id="subject"
+                      name="subject"
+                      value={formData.subject}
+                      onChange={handleChange}
+                      required
+                      className="w-full px-4 py-3 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[var(--color-gold)] focus:border-transparent transition-all"
+                    >
+                      <option value="">-- Sélectionner un sujet --</option>
+                      <option value="Commande tirage">Commande tirage</option>
+                      <option value="Tirage personnalisé">Tirage personnalisé</option>
+                      <option value="Renseignements">Renseignements</option>
+                      <option value="Collaboration">Collaboration</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label htmlFor="message" className="block font-semibold mb-2">
+                      Message *
+                    </label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      value={formData.message}
+                      onChange={handleChange}
+                      required
+                      rows={6}
+                      className="w-full px-4 py-3 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[var(--color-gold)] focus:border-transparent resize-none transition-all"
+                      placeholder="Votre message..."
+                    />
+                  </div>
+
+                  <button
+                    type="submit"
+                    className="btn-gold w-full inline-flex items-center justify-center gap-2"
                   >
-                    <option value="">-- Sélectionner un sujet / Select a subject --</option>
-                    <option value="Commande tirage">Commande tirage / Print order</option>
-                    <option value="Tirage personnalisé">Tirage personnalisé / Custom print</option>
-                    <option value="Renseignements">Renseignements / Information</option>
-                    <option value="Collaboration">Collaboration / Collaboration</option>
-                  </select>
-                </div>
+                    <Send size={18} />
+                    Envoyer ma demande
+                  </button>
+                </form>
 
-                <div>
-                  <label htmlFor="message" className="block font-semibold mb-2">
-                    Message * / Message *
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    required
-                    rows={6}
-                    className="w-full px-4 py-3 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[var(--color-gold)] focus:border-transparent resize-none"
-                    placeholder="Votre message... / Your message..."
-                  />
-                </div>
-                <button
-                  type="submit"
-                  className="btn-gold w-full inline-flex items-center justify-center gap-2"
-                >
-                  <Send size={18} />
-                  Envoyer ma demande / Send my request
-                </button>
-              </form>
-
-              <p className="caption mt-6 text-center">
-                * Champs obligatoires / Required fields. Vos données sont protégées et ne seront jamais partagées. / Your data are protected and will never be shared.
-              </p>
-
-              {/* Éléments de réassurance */}
-              <ul className="mt-8 space-y-2 text-sm">
-                <li>✅ Tirages Fine Art sur papier Hahnemühle / Fine art prints on Hahnemühle paper</li>
-                <li>✅ Impression giclée haute résolution / High‑resolution giclée printing</li>
-                <li>✅ Livraison soignée en tube ou encadrée / Careful delivery in tube or framed</li>
-                <li>✅ Éditions limitées et numérotées / Limited and numbered editions</li>
-                <li>✅ Réponse sous 24 h / Reply within 24 h</li>
-              </ul>
-
-              {/* Section formats et tarifs */}
-              <div className="mt-12">
-                <h3 className="font-semibold mb-2">Formats &amp; Tarifs / Sizes &amp; Prices</h3>
-                <table className="w-full text-left text-sm">
-                  <thead>
-                    <tr>
-                      <th className="border-b pb-2 pr-4">Format</th>
-                      <th className="border-b pb-2">Prix indicatif / Indicative price</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td className="py-2 pr-4">30×45 cm / 12×18 in</td>
-                      <td className="py-2">à partir de 180 €</td>
-                    </tr>
-                    <tr>
-                      <td className="py-2 pr-4">50×75 cm / 20×30 in</td>
-                      <td className="py-2">à partir de 260 €</td>
-                    </tr>
-                    <tr>
-                      <td className="py-2 pr-4">70×105 cm / 28×42 in</td>
-                      <td className="py-2">à partir de 360 €</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-
-              {/* Liens vers la galerie et Instagram */}
-              <div className="mt-8 flex flex-col sm:flex-row gap-4">
-                <Link to="/collections" className="btn-outline w-full sm:w-auto">
-                  Voir la Galerie / View the Gallery
-                </Link>
-                <a
-                  href={photographer.social?.instagram || '#'}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-outline w-full sm:w-auto"
-                >
-                  Instagram
-                </a>
-              </div>
+                <p className="caption mt-6 text-center">
+                  * Champs obligatoires. Vos données sont protégées et ne seront jamais partagées.
+                </p>
+              </FadeInOnScroll>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Section carte (facultatif) */}
-      <section className="h-96 bg-gray-200">
-        <div className="w-full h-full flex items-center justify-center">
-          <p className="text-gray-500">Carte interactive de la Côte d'Azur (Marseille – Monaco) / Interactive map of the French Riviera (Marseille – Monaco)</p>
+      {/* Réassurance – fond noir */}
+      <section className="section-spacing bg-black text-white">
+        <div className="container-photo">
+          <FadeInOnScroll>
+            <div className="text-center mb-12">
+              <p className="section-subtitle text-white mb-4">Engagements</p>
+              <h2 className="section-title text-white mb-6">Pourquoi me faire confiance</h2>
+              <div className="gold-line mx-auto"></div>
+            </div>
+          </FadeInOnScroll>
+
+          <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8" staggerDelay={0.1}>
+            {reassurance.map((item, index) => (
+              <StaggerItem key={index}>
+                <div className="text-center">
+                  <div className="inline-flex items-center justify-center w-14 h-14 bg-[var(--color-gold)] rounded-full mb-4">
+                    <item.icon size={24} />
+                  </div>
+                  <p className="text-gray-300 text-sm">{item.text}</p>
+                </div>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
+        </div>
+      </section>
+
+      {/* Formats & Tarifs */}
+      <section className="section-spacing">
+        <div className="container-photo">
+          <div className="max-w-2xl mx-auto">
+            <FadeInOnScroll>
+              <div className="text-center mb-12">
+                <p className="section-subtitle mb-4">Tirages</p>
+                <h2 className="section-title mb-6">Formats & Tarifs</h2>
+                <div className="gold-line mx-auto"></div>
+              </div>
+            </FadeInOnScroll>
+
+            <FadeInOnScroll delay={0.2}>
+              <div className="bg-gray-50 rounded-sm overflow-hidden">
+                {formats.map((format, index) => (
+                  <div
+                    key={index}
+                    className={`flex items-center justify-between p-6 ${index < formats.length - 1 ? 'border-b border-gray-200' : ''}`}
+                  >
+                    <span className="font-display font-semibold text-lg">{format.size}</span>
+                    <span className="text-[var(--color-gold)] font-semibold">{format.price}</span>
+                  </div>
+                ))}
+              </div>
+            </FadeInOnScroll>
+
+            <FadeInOnScroll delay={0.3}>
+              <div className="flex flex-col sm:flex-row gap-4 mt-8 justify-center">
+                <Link to="/collections" className="btn-outline">
+                  Voir la Galerie
+                </Link>
+                <a
+                  href={photographer.social?.instagram || '#'}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-outline"
+                >
+                  Instagram
+                </a>
+              </div>
+            </FadeInOnScroll>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA immersif */}
+      <section
+        className="relative py-32"
+        style={{
+          backgroundImage: 'url(https://images.unsplash.com/photo-1627041193914-66f1cf8fbf4f)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundAttachment: 'fixed',
+        }}
+      >
+        <div className="absolute inset-0 bg-black/50"></div>
+        <div className="relative z-10 container-photo text-center text-white">
+          <FadeInOnScroll>
+            <h2 className="section-title text-white mb-6">Explorez les Collections</h2>
+            <p className="text-xl mb-8 max-w-2xl mx-auto">
+              Découvrez l'ensemble de mes photographies méditerranéennes et trouvez l'œuvre qui sublimera votre intérieur.
+            </p>
+            <Link to="/collections" className="btn-gold">
+              Voir les Collections
+            </Link>
+          </FadeInOnScroll>
         </div>
       </section>
     </div>
