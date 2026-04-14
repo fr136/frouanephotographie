@@ -18,21 +18,25 @@ const Footer = () => {
             </p>
             <div className="flex space-x-4 mt-6">
               <a
-                href="#"
+                href="https://www.instagram.com/frouanephotographie"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-gray-400 hover:text-[var(--color-gold)] transition-colors"
                 aria-label="Instagram"
               >
                 <Instagram size={20} />
               </a>
               <a
-                href="#"
+                href="https://www.facebook.com/frouanephotographie"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-gray-400 hover:text-[var(--color-gold)] transition-colors"
                 aria-label="Facebook"
               >
                 <Facebook size={20} />
               </a>
               <a
-                href="#"
+                href="mailto:rouanefra@live.fr"
                 className="text-gray-400 hover:text-[var(--color-gold)] transition-colors"
                 aria-label="Email"
               >
@@ -66,8 +70,8 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/blog" className="text-gray-400 hover:text-[var(--color-gold)] transition-colors text-sm">
-                  Blog
+                <Link to="/contact" className="text-gray-400 hover:text-[var(--color-gold)] transition-colors text-sm">
+                  Contact
                 </Link>
               </li>
             </ul>
@@ -77,11 +81,16 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold text-sm uppercase tracking-wider mb-4">Collections</h4>
             <ul className="space-y-2">
-              <li className="text-gray-400 text-sm">Calanques</li>
-              <li className="text-gray-400 text-sm">Ports</li>
-              <li className="text-gray-400 text-sm">Couchers de Soleil</li>
-              <li className="text-gray-400 text-sm">Côte Sauvage</li>
-              <li className="text-gray-400 text-sm">Criques Secrètes</li>
+              <li>
+                <Link to="/collections/calanques" className="text-gray-400 hover:text-[var(--color-gold)] transition-colors text-sm">
+                  Calanques
+                </Link>
+              </li>
+              <li>
+                <Link to="/collections/sunset" className="text-gray-400 hover:text-[var(--color-gold)] transition-colors text-sm">
+                  Couchers de Soleil
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -91,7 +100,7 @@ const Footer = () => {
             <p className="text-gray-400 text-sm mb-4">
               Recevez les dernières actualités et nouvelles collections.
             </p>
-            <form className="flex flex-col space-y-2">
+            <form className="flex flex-col space-y-2" onSubmit={(e) => e.preventDefault()}>
               <input
                 type="email"
                 placeholder="Votre email"
@@ -116,11 +125,11 @@ const Footer = () => {
             <Link to="/mentions-legales" className="text-gray-400 hover:text-[var(--color-gold)] text-sm transition-colors">
               Mentions Légales
             </Link>
-            <Link to="/confidentialite" className="text-gray-400 hover:text-[var(--color-gold)] text-sm transition-colors">
-              Confidentialité
-            </Link>
             <Link to="/cgv" className="text-gray-400 hover:text-[var(--color-gold)] text-sm transition-colors">
               CGV
+            </Link>
+            <Link to="/confidentialite" className="text-gray-400 hover:text-[var(--color-gold)] text-sm transition-colors">
+              Confidentialité
             </Link>
           </div>
         </div>

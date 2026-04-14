@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { ShoppingCart, Eye, Heart, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useCart } from '../context/CartContext';
+import SEOHead from '../components/SEOHead';
 import '../styles/photography.css';
 
 // Produits basés sur vos vraies photos
@@ -184,6 +185,11 @@ const Shop = () => {
 
   return (
     <div className="bg-white">
+      <SEOHead 
+        title="Boutique"
+        description="Tirages d'art en édition limitée de la Méditerranée. Calanques, couchers de soleil. Papier Fine Art, numérotés et signés. Livraison France & Europe."
+        url="/boutique"
+      />
       {/* Hero */}
       <section 
         className="pt-32 pb-20 bg-cover bg-center relative min-h-[50vh] flex items-center"

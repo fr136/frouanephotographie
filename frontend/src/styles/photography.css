@@ -311,10 +311,7 @@ body {
   }
 }
 
-/* Smooth Scroll */
-html {
-  scroll-behavior: smooth;
-}
+/* Smooth Scroll géré par Lenis (PremiumEffects.js) */
 
 /* Focus States */
 *:focus-visible {

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { collectionsAPI } from "../services/api";
 import { Filter } from "lucide-react";
+import SEOHead from "../components/SEOHead";
 import "../styles/photography.css";
 
 // 1. ON DÉFINIT LES DONNÉES LOCALES ICI (Indispensable si l'API est vide)
@@ -77,6 +78,11 @@ const Collections = () => {
 
   return (
     <div className="bg-white">
+      <SEOHead 
+        title="Collections"
+        description="Explorez les collections photographiques de Franck Rouane : calanques de Marseille, couchers de soleil méditerranéens. Tirages d'art en édition limitée."
+        url="/collections"
+      />
       {/* HERO */}
       <section className="pt-32 pb-16 text-white relative overflow-hidden" style={{
         backgroundImage: "url(/Calanques/Calanque Port d'alon Saint Cyr sur mer.webp)",

@@ -1,21 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, ShoppingCart, Heart } from 'lucide-react';
-import { useCart } from '../context/CartContext';
+import { Menu, X } from 'lucide-react';
 import '../styles/photography.css';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
-  const { cartItemsCount, wishlistItemsCount } = useCart();
+
+  // Fermer le menu mobile au changement de route
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+  }, [location.pathname]);
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -24,7 +27,6 @@ const Header = () => {
     { path: '/collections', label: 'Collections' },
     { path: '/boutique', label: 'Boutique' },
     { path: '/a-propos', label: 'À Propos' },
-    // Blog supprimé du menu
     { path: '/contact', label: 'Contact' }
   ];
 
@@ -73,43 +75,11 @@ const Header = () => {
             ))}
           </nav>
 
-          {/* Icônes panier & favoris */}
-          <div className="hidden lg:flex items-center space-x-4">
-            <Link
-              to="/wishlist"
-              className={`p-2 relative transition-colors ${
-                isScrolled ? 'text-gray-900 hover:text-[var(--color-gold)]' : 'text-white hover:text-[var(--color-gold)]'
-              }`}
-              aria-label="Favoris"
-            >
-              <Heart size={20} />
-              {wishlistItemsCount > 0 && (
-                <span className="absolute -top-1 -right-1 bg-[var(--color-gold)] text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
-                  {wishlistItemsCount}
-                </span>
-              )}
-            </Link>
-            <Link
-              to="/panier"
-              className={`p-2 relative transition-colors ${
-                isScrolled ? 'text-gray-900 hover:text-[var(--color-gold)]' : 'text-white hover:text-[var(--color-gold)]'
-              }`}
-              aria-label="Panier"
-            >
-              <ShoppingCart size={20} />
-              {cartItemsCount > 0 && (
-                <span className="absolute -top-1 -right-1 bg-[var(--color-gold)] text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
-                  {cartItemsCount}
-                </span>
-              )}
-            </Link>
-          </div>
-
           {/* Bouton menu mobile */}
           <button
             className={`lg:hidden p-2 transition-colors ${isScrolled ? 'text-gray-900' : 'text-white'}`}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label="Menu"
+            aria-label={isMobileMenuOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -127,7 +97,6 @@ const Header = () => {
                 className={`nav-link ${
                   location.pathname === link.path ? 'text-[var(--color-gold)]' : 'text-gray-900'
                 }`}
-                onClick={() => setIsMobileMenuOpen(false)}
               >
                 {link.label}
               </Link>

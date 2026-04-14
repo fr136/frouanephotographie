@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import './App.css';
 import 'leaflet/dist/leaflet.css';
-import { BrowserRouter, Routes, Route, useLocation, Navigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useLocation, Navigate, Link } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import { HelmetProvider } from 'react-helmet-async';
 import { CartProvider } from './context/CartContext';
@@ -9,17 +9,34 @@ import usePageTracking from './hooks/useAnalytics';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import NewsletterPopup from './components/NewsletterPopup';
-import { CustomCursor, SmoothScrollProvider, LoadingScreen, PageTransition } from './components/PremiumEffects';
+import { CustomCursor, SmoothScrollProvider, PageTransition } from './components/PremiumEffects';
 import Home from './pages/Home';
 import Collections from './pages/Collections';
 import PremiumCollectionGallery from './pages/PremiumCollectionGallery';
 import Shop from './pages/Shop';
 import About from './pages/About';
-// Blog supprimé : le contenu est fusionné dans About
 import Contact from './pages/Contact';
+import MentionsLegales from './pages/MentionsLegales';
+import CGV from './pages/CGV';
+import Confidentialite from './pages/Confidentialite';
 import { Toaster } from './components/ui/toaster';
+import './styles/photography.css';
 
-// Composant pour les routes animées
+// Page 404
+const NotFound = () => (
+  <div className="min-h-screen flex items-center justify-center bg-black text-white text-center px-4">
+    <div>
+      <p className="text-[var(--color-gold)] text-sm uppercase tracking-widest mb-4">Erreur 404</p>
+      <h1 className="font-display text-5xl md:text-7xl font-semibold mb-6">Page introuvable</h1>
+      <p className="text-gray-400 text-lg mb-8 max-w-md mx-auto">
+        Cette page n'existe pas ou a été déplacée.
+      </p>
+      <Link to="/" className="btn-gold">Retour à l'accueil</Link>
+    </div>
+  </div>
+);
+
+// Routes animées
 const AnimatedRoutes = () => {
   const location = useLocation();
 
@@ -31,15 +48,17 @@ const AnimatedRoutes = () => {
         <Route path="/collections/:slug" element={<PageTransition><PremiumCollectionGallery /></PageTransition>} />
         <Route path="/boutique" element={<PageTransition><Shop /></PageTransition>} />
         <Route path="/a-propos" element={<PageTransition><About /></PageTransition>} />
-        {/* Redirection de /blog vers /a-propos */}
         <Route path="/blog" element={<Navigate to="/a-propos" replace />} />
         <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
+        <Route path="/mentions-legales" element={<PageTransition><MentionsLegales /></PageTransition>} />
+        <Route path="/cgv" element={<PageTransition><CGV /></PageTransition>} />
+        <Route path="/confidentialite" element={<PageTransition><Confidentialite /></PageTransition>} />
+        <Route path="*" element={<PageTransition><NotFound /></PageTransition>} />
       </Routes>
     </AnimatePresence>
   );
 };
 
-// Composant principal
 const AppContent = () => {
   usePageTracking();
 
@@ -57,25 +76,10 @@ const AppContent = () => {
 };
 
 function App() {
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    // Simulation d'un chargement initial
-    const timer = setTimeout(() => setIsLoading(false), 1500);
-    return () => clearTimeout(timer);
-  }, []);
-
-  useEffect(() => {
-    if (process.env.NODE_ENV === 'development') {
-      console.log('GA4 ID:', process.env.REACT_APP_GA4_ID);
-    }
-  }, []);
-
   return (
     <HelmetProvider>
       <SmoothScrollProvider>
-        <div className="App cursor-none">
-          <LoadingScreen isLoading={isLoading} />
+        <div className="App">
           <CustomCursor />
           <BrowserRouter>
             <CartProvider>

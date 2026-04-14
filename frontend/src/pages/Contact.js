@@ -4,6 +4,8 @@ import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Send, CheckCircle, Image, Truck, Award, Clock } from 'lucide-react';
 import { mockData } from '../mock';
 import { FadeInOnScroll, StaggerContainer, StaggerItem } from '../components/ScrollAnimations';
+import SEOHead from '../components/SEOHead';
+import { contactAPI } from '../services/api';
 import { toast } from '../hooks/use-toast';
 import '../styles/photography.css';
 
@@ -27,12 +29,20 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    toast({
-      title: 'Message envoyé !',
-      description: 'Merci pour votre message. Je vous répondrai dans les plus brefs délais.'
-    });
-    setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
+    try {
+      await contactAPI.submit(formData);
+      toast({
+        title: 'Message envoyé !',
+        description: 'Merci pour votre message. Je vous répondrai dans les plus brefs délais.'
+      });
+      setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
+    } catch (error) {
+      toast({
+        title: 'Erreur',
+        description: 'Impossible d\'envoyer le message. Veuillez réessayer.',
+        variant: 'destructive'
+      });
+    }
   };
 
   const reassurance = [
@@ -50,12 +60,17 @@ const Contact = () => {
 
   return (
     <div className="bg-white">
+      <SEOHead 
+        title="Contact"
+        description="Contactez Franck Rouane pour vos tirages d'art, commandes personnalisées ou projets photographiques. Basé à Marseille, côte méditerranéenne."
+        url="/contact"
+      />
 
       {/* Hero plein écran */}
       <section
         className="relative min-h-[70vh] flex items-center justify-center"
         style={{
-          backgroundImage: "url('https://images.unsplash.com/photo-1712227609859-2818504d07cb')",
+          backgroundImage: "url('https://images.unsplash.com/photo-1712227609859-2818504d07cb?w=1400&q=80')",
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundAttachment: 'fixed',
@@ -152,7 +167,7 @@ const Contact = () => {
               <FadeInOnScroll delay={0.3}>
                 <div className="mt-12 image-container aspect-[4/3] rounded-sm overflow-hidden">
                   <img
-                    src="https://images.unsplash.com/photo-1712227609859-2818504d07cb"
+                    src="https://images.unsplash.com/photo-1712227609859-2818504d07cb?w=800&q=80" loading="lazy"
                     alt="Paysage méditerranéen"
                     className="image-zoom"
                   />
@@ -343,7 +358,7 @@ const Contact = () => {
       <section
         className="relative py-32"
         style={{
-          backgroundImage: 'url(https://images.unsplash.com/photo-1627041193914-66f1cf8fbf4f)',
+          backgroundImage: 'url(https://images.unsplash.com/photo-1627041193914-66f1cf8fbf4f?w=1400&q=80)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundAttachment: 'fixed',

@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { Camera, MapPin, Compass, Leaf } from 'lucide-react';
 import { mockData } from '../mock';
 import { FadeInOnScroll, StaggerContainer, StaggerItem } from '../components/ScrollAnimations';
+import SEOHead from '../components/SEOHead';
 import '../styles/photography.css';
 
 const About = () => {
@@ -14,25 +15,25 @@ const About = () => {
       id: 1,
       title: 'Marseille & Calanques',
       desc: 'Exploration des calanques sauvages aux eaux turquoise et falaises dorées. Ces criques secrètes offrent des panoramas uniques à quelques encablures de la ville.',
-      image: 'https://images.unsplash.com/photo-1672861864274-6b24d19b578d'
+      image: 'https://images.unsplash.com/photo-1672861864274-6b24d19b578d?w=800&q=80'
     },
     {
       id: 2,
       title: 'Cassis',
       desc: 'Village de pêcheurs niché au pied du Cap Canaille, Cassis mêle ports colorés et falaises vertigineuses. Chaque coucher de soleil y est une fête.',
-      image: 'https://images.unsplash.com/photo-1691325011849-de814c92dbbd'
+      image: 'https://images.unsplash.com/photo-1691325011849-de814c92dbbd?w=800&q=80'
     },
     {
       id: 3,
       title: 'La Ciotat',
       desc: 'Entre vieille ville et calanques discrètes, La Ciotat révèle des paysages maritimes paisibles et des lumières dorées au crépuscule.',
-      image: 'https://images.unsplash.com/photo-1712103554238-aca4fda947df'
+      image: 'https://images.unsplash.com/photo-1712103554238-aca4fda947df?w=800&q=80'
     },
     {
       id: 4,
       title: 'Bandol',
       desc: 'Station balnéaire conviviale, Bandol est entourée de plages, de pinèdes et d\u2019une mer aux reflets changeants. Un terrain de jeu idéal pour saisir l\u2019essence du littoral varois.',
-      image: 'https://images.unsplash.com/photo-1712227609859-2818504d07cb'
+      image: 'https://images.unsplash.com/photo-1712227609859-2818504d07cb?w=800&q=80'
     },
     {
       id: 5,
@@ -44,18 +45,23 @@ const About = () => {
       id: 6,
       title: 'Le Var côtier',
       desc: 'De la route des Crêtes aux plages sauvages, le littoral varois offre une diversité de paysages où ciel et mer se rencontrent à l\u2019infini.',
-      image: 'https://images.unsplash.com/photo-1627041193914-66f1cf8fbf4f'
+      image: 'https://images.unsplash.com/photo-1627041193914-66f1cf8fbf4f?w=800&q=80'
     }
   ];
 
   return (
     <div className="bg-white">
+      <SEOHead 
+        title="À Propos"
+        description="Franck Rouane, photographe de paysages méditerranéens basé à Marseille. Découvrez mon parcours, ma philosophie et mes terrains de jeu entre calanques et littoral varois."
+        url="/a-propos"
+      />
 
       {/* Hero plein écran avec parallax */}
       <section
         className="relative min-h-[80vh] flex items-center justify-center"
         style={{
-          backgroundImage: "url('https://images.unsplash.com/photo-1672861864274-6b24d19b578d')",
+          backgroundImage: "url('https://images.unsplash.com/photo-1672861864274-6b24d19b578d?w=1400&q=80')",
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundAttachment: 'fixed',
@@ -120,7 +126,7 @@ const About = () => {
             <FadeInOnScroll direction="left">
               <div className="image-container aspect-[3/4] rounded-sm overflow-hidden">
                 <img
-                  src="https://images.unsplash.com/photo-1672861864274-6b24d19b578d"
+                  src="https://images.unsplash.com/photo-1672861864274-6b24d19b578d?w=800&q=80" loading="lazy"
                   alt="Portrait Franck Rouane"
                   className="image-zoom"
                 />
@@ -308,7 +314,7 @@ const About = () => {
       <section
         className="relative py-32"
         style={{
-          backgroundImage: 'url(https://images.unsplash.com/photo-1758769523560-d060d8326fd8)',
+          backgroundImage: 'url(https://images.unsplash.com/photo-1758769523560-d060d8326fd8?w=1400&q=80)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundAttachment: 'fixed',

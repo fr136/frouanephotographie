@@ -1,5 +1,4 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
-import { cartAPI, wishlistAPI } from '../services/ecommerce';
+import React, { createContext, useContext, useState, useCallback } from 'react';
 
 const CartContext = createContext();
 
@@ -11,134 +10,133 @@ export const useCart = () => {
   return context;
 };
 
+/**
+ * CartProvider en mode local (localStorage).
+ * Le backend e-commerce n'est pas implémenté.
+ * Toute la logique panier/wishlist fonctionne côté client.
+ */
 export const CartProvider = ({ children }) => {
-  const [cart, setCart] = useState({ items: [], total: 0, discount: 0 });
-  const [wishlist, setWishlist] = useState({ items: [] });
-  const [loading, setLoading] = useState(true);
+  const [cart, setCart] = useState(() => {
+    try {
+      const saved = localStorage.getItem('frouane_cart');
+      return saved ? JSON.parse(saved) : { items: [], total: 0 };
+    } catch {
+      return { items: [], total: 0 };
+    }
+  });
 
-  // Charger panier et wishlist au démarrage
-  useEffect(() => {
-    loadCart();
-    loadWishlist();
+  const [wishlist, setWishlist] = useState(() => {
+    try {
+      const saved = localStorage.getItem('frouane_wishlist');
+      return saved ? JSON.parse(saved) : { items: [] };
+    } catch {
+      return { items: [] };
+    }
+  });
+
+  const persistCart = useCallback((newCart) => {
+    setCart(newCart);
+    try { localStorage.setItem('frouane_cart', JSON.stringify(newCart)); } catch {}
   }, []);
 
-  const loadCart = async () => {
-    try {
-      const data = await cartAPI.get();
-      setCart(data);
-    } catch (error) {
-      console.error('Error loading cart:', error);
-    } finally {
-      setLoading(false);
-    }
-  };
+  const persistWishlist = useCallback((newWishlist) => {
+    setWishlist(newWishlist);
+    try { localStorage.setItem('frouane_wishlist', JSON.stringify(newWishlist)); } catch {}
+  }, []);
 
-  const loadWishlist = async () => {
-    try {
-      const data = await wishlistAPI.get();
-      setWishlist(data);
-    } catch (error) {
-      console.error('Error loading wishlist:', error);
-    }
-  };
+  const addToCart = useCallback((product) => {
+    setCart(prev => {
+      const existingIndex = prev.items.findIndex(
+        item => item.id === product.id && item.selectedSize === product.selectedSize
+      );
+      let newItems;
+      if (existingIndex >= 0) {
+        newItems = prev.items.map((item, i) =>
+          i === existingIndex ? { ...item, quantity: item.quantity + 1 } : item
+        );
+      } else {
+        newItems = [...prev.items, { ...product, quantity: 1 }];
+      }
+      const newTotal = newItems.reduce((sum, item) => sum + (item.finalPrice || item.price) * item.quantity, 0);
+      const newCart = { items: newItems, total: newTotal };
+      try { localStorage.setItem('frouane_cart', JSON.stringify(newCart)); } catch {}
+      return newCart;
+    });
+    return true;
+  }, []);
 
-  const addToCart = async (photoId, format, quantity = 1) => {
-    try {
-      const updatedCart = await cartAPI.addItem(photoId, format, quantity);
-      setCart(updatedCart);
-      return true;
-    } catch (error) {
-      console.error('Error adding to cart:', error);
-      return false;
-    }
-  };
+  const removeFromCart = useCallback((itemId) => {
+    setCart(prev => {
+      const newItems = prev.items.filter(item => item.id !== itemId);
+      const newTotal = newItems.reduce((sum, item) => sum + (item.finalPrice || item.price) * item.quantity, 0);
+      const newCart = { items: newItems, total: newTotal };
+      try { localStorage.setItem('frouane_cart', JSON.stringify(newCart)); } catch {}
+      return newCart;
+    });
+    return true;
+  }, []);
 
-  const removeFromCart = async (itemId) => {
-    try {
-      await cartAPI.removeItem(itemId);
-      await loadCart();
-      return true;
-    } catch (error) {
-      console.error('Error removing from cart:', error);
-      return false;
-    }
-  };
+  const updateCartItem = useCallback((itemId, quantity) => {
+    if (quantity <= 0) return removeFromCart(itemId);
+    setCart(prev => {
+      const newItems = prev.items.map(item =>
+        item.id === itemId ? { ...item, quantity } : item
+      );
+      const newTotal = newItems.reduce((sum, item) => sum + (item.finalPrice || item.price) * item.quantity, 0);
+      const newCart = { items: newItems, total: newTotal };
+      try { localStorage.setItem('frouane_cart', JSON.stringify(newCart)); } catch {}
+      return newCart;
+    });
+    return true;
+  }, [removeFromCart]);
 
-  const updateCartItem = async (itemId, quantity) => {
-    try {
-      const updatedCart = await cartAPI.updateItem(itemId, quantity);
-      setCart(updatedCart);
-      return true;
-    } catch (error) {
-      console.error('Error updating cart:', error);
-      return false;
-    }
-  };
+  const clearCart = useCallback(() => {
+    const emptyCart = { items: [], total: 0 };
+    persistCart(emptyCart);
+  }, [persistCart]);
 
-  const applyPromoCode = async (code) => {
-    try {
-      const updatedCart = await cartAPI.applyPromo(code);
-      setCart(updatedCart);
-      return { success: true, cart: updatedCart };
-    } catch (error) {
-      return { success: false, error: error.response?.data?.detail || 'Code invalide' };
-    }
-  };
+  const addToWishlist = useCallback((photoId) => {
+    setWishlist(prev => {
+      if (prev.items.some(item => item.photoId === photoId)) return prev;
+      const newWishlist = { items: [...prev.items, { photoId }] };
+      try { localStorage.setItem('frouane_wishlist', JSON.stringify(newWishlist)); } catch {}
+      return newWishlist;
+    });
+    return true;
+  }, []);
 
-  const clearCart = async () => {
-    try {
-      await cartAPI.clear();
-      setCart({ items: [], total: 0, discount: 0 });
-    } catch (error) {
-      console.error('Error clearing cart:', error);
-    }
-  };
+  const removeFromWishlist = useCallback((photoId) => {
+    setWishlist(prev => {
+      const newWishlist = { items: prev.items.filter(item => item.photoId !== photoId) };
+      try { localStorage.setItem('frouane_wishlist', JSON.stringify(newWishlist)); } catch {}
+      return newWishlist;
+    });
+    return true;
+  }, []);
 
-  const addToWishlist = async (photoId) => {
-    try {
-      const updatedWishlist = await wishlistAPI.addItem(photoId);
-      setWishlist(updatedWishlist);
-      return true;
-    } catch (error) {
-      console.error('Error adding to wishlist:', error);
-      return false;
-    }
-  };
+  const isInWishlist = useCallback((photoId) => {
+    return wishlist.items.some(item => item.photoId === photoId);
+  }, [wishlist]);
 
-  const removeFromWishlist = async (photoId) => {
-    try {
-      await wishlistAPI.removeItem(photoId);
-      await loadWishlist();
-      return true;
-    } catch (error) {
-      console.error('Error removing from wishlist:', error);
-      return false;
-    }
-  };
-
-  const isInWishlist = (photoId) => {
-    return wishlist?.items?.some(item => item.photoId === photoId) || false;
-  };
-
-  const cartItemsCount = cart.items?.reduce((sum, item) => sum + item.quantity, 0) || 0;
-  const wishlistItemsCount = wishlist.items?.length || 0;
+  const cartItemsCount = cart.items.reduce((sum, item) => sum + item.quantity, 0);
+  const wishlistItemsCount = wishlist.items.length;
 
   const value = {
     cart,
     wishlist,
-    loading,
+    loading: false,
     cartItemsCount,
     wishlistItemsCount,
     addToCart,
     removeFromCart,
     updateCartItem,
-    applyPromoCode,
+    applyPromoCode: async () => ({ success: false, error: 'Non disponible' }),
     clearCart,
     addToWishlist,
     removeFromWishlist,
     isInWishlist,
-    refreshCart: loadCart,
-    refreshWishlist: loadWishlist
+    refreshCart: () => {},
+    refreshWishlist: () => {}
   };
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;

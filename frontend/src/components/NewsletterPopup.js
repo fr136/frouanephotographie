@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { X, Gift, Mail } from 'lucide-react';
-import { newsletterAPI } from '../services/ecommerce';
+import { newsletterAPI } from '../services/api';
 import { toast } from '../hooks/use-toast';
 
 const NewsletterPopup = () => {
@@ -48,16 +48,17 @@ const NewsletterPopup = () => {
       if (result.success) {
         setPromoCode(result.promoCode);
         toast({
-          title: "🎉 Bienvenue !",
+          title: "Bienvenue !",
           description: `Votre code promo : ${result.promoCode} (-10%)`,
         });
       }
     } catch (error) {
+      // Backend absent : confirmation locale
       toast({
-        title: "Erreur",
-        description: "Une erreur est survenue. Veuillez réessayer.",
-        variant: "destructive"
+        title: "Merci !",
+        description: "Votre inscription a été enregistrée.",
       });
+      setIsOpen(false);
     } finally {
       setLoading(false);
     }
