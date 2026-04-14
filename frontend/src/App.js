@@ -1,28 +1,28 @@
-import React, { useEffect, useState } from "react";
-import "./App.css";
-import "leaflet/dist/leaflet.css";
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
-import { AnimatePresence } from "framer-motion";
-import { HelmetProvider } from "react-helmet-async";
-import { CartProvider } from "./context/CartContext";
-import usePageTracking from "./hooks/useAnalytics";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import NewsletterPopup from "./components/NewsletterPopup";
-import { CustomCursor, SmoothScrollProvider, LoadingScreen, PageTransition } from "./components/PremiumEffects";
-import Home from "./pages/Home";
-import Collections from "./pages/Collections";
-import PremiumCollectionGallery from "./pages/PremiumCollectionGallery";
-import Shop from "./pages/Shop";
-import About from "./pages/About";
-import Blog from "./pages/Blog";
-import Contact from "./pages/Contact";
-import { Toaster } from "./components/ui/toaster";
+import React, { useEffect, useState } from 'react';
+import './App.css';
+import 'leaflet/dist/leaflet.css';
+import { BrowserRouter, Routes, Route, useLocation, Navigate } from 'react-router-dom';
+import { AnimatePresence } from 'framer-motion';
+import { HelmetProvider } from 'react-helmet-async';
+import { CartProvider } from './context/CartContext';
+import usePageTracking from './hooks/useAnalytics';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import NewsletterPopup from './components/NewsletterPopup';
+import { CustomCursor, SmoothScrollProvider, LoadingScreen, PageTransition } from './components/PremiumEffects';
+import Home from './pages/Home';
+import Collections from './pages/Collections';
+import PremiumCollectionGallery from './pages/PremiumCollectionGallery';
+import Shop from './pages/Shop';
+import About from './pages/About';
+// Blog supprimé : le contenu est fusionné dans About
+import Contact from './pages/Contact';
+import { Toaster } from './components/ui/toaster';
 
-// Animated Routes Component
+// Composant pour les routes animées
 const AnimatedRoutes = () => {
   const location = useLocation();
-  
+
   return (
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
@@ -31,16 +31,17 @@ const AnimatedRoutes = () => {
         <Route path="/collections/:slug" element={<PageTransition><PremiumCollectionGallery /></PageTransition>} />
         <Route path="/boutique" element={<PageTransition><Shop /></PageTransition>} />
         <Route path="/a-propos" element={<PageTransition><About /></PageTransition>} />
-        <Route path="/blog" element={<PageTransition><Blog /></PageTransition>} />
+        {/* Redirection de /blog vers /a-propos */}
+        <Route path="/blog" element={<Navigate to="/a-propos" replace />} />
         <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
       </Routes>
     </AnimatePresence>
   );
 };
 
-// Composant qui track les pages
+// Composant principal
 const AppContent = () => {
-  usePageTracking(); // Active le tracking automatique des pages
+  usePageTracking();
 
   return (
     <>
@@ -59,7 +60,7 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate initial loading
+    // Simulation d'un chargement initial
     const timer = setTimeout(() => setIsLoading(false), 1500);
     return () => clearTimeout(timer);
   }, []);
