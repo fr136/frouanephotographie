@@ -24,16 +24,14 @@ const Header = () => {
     { path: '/collections', label: 'Collections' },
     { path: '/boutique', label: 'Boutique' },
     { path: '/a-propos', label: 'À Propos' },
-    { path: '/blog', label: 'Blog' },
+    // Blog supprimé du menu
     { path: '/contact', label: 'Contact' }
   ];
 
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-white shadow-md'
-          : 'bg-transparent'
+        isScrolled ? 'bg-white shadow-md' : 'bg-transparent'
       }`}
     >
       <div className="container-photo">
@@ -56,7 +54,7 @@ const Header = () => {
             </span>
           </Link>
 
-          {/* Desktop Navigation */}
+          {/* Navigation bureau */}
           <nav className="hidden lg:flex items-center space-x-8">
             {navLinks.map((link) => (
               <Link
@@ -75,11 +73,11 @@ const Header = () => {
             ))}
           </nav>
 
-          {/* Cart & Wishlist Icons */}
+          {/* Icônes panier & favoris */}
           <div className="hidden lg:flex items-center space-x-4">
             <Link
               to="/wishlist"
-              className={`p-2 relative transition-colors ${ 
+              className={`p-2 relative transition-colors ${
                 isScrolled ? 'text-gray-900 hover:text-[var(--color-gold)]' : 'text-white hover:text-[var(--color-gold)]'
               }`}
               aria-label="Favoris"
@@ -91,7 +89,6 @@ const Header = () => {
                 </span>
               )}
             </Link>
-            
             <Link
               to="/panier"
               className={`p-2 relative transition-colors ${
@@ -108,11 +105,9 @@ const Header = () => {
             </Link>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Bouton menu mobile */}
           <button
-            className={`lg:hidden p-2 transition-colors ${
-              isScrolled ? 'text-gray-900' : 'text-white'
-            }`}
+            className={`lg:hidden p-2 transition-colors ${isScrolled ? 'text-gray-900' : 'text-white'}`}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Menu"
           >
@@ -121,7 +116,7 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Menu mobile */}
       {isMobileMenuOpen && (
         <div className="lg:hidden bg-white border-t border-gray-200">
           <nav className="container-photo py-4 flex flex-col space-y-4">
