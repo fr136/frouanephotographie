@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
-import { ShoppingCart, Eye, Heart, X } from 'lucide-react';
+import { ShoppingCart, Eye, Heart, X, CreditCard } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useCart } from '../context/CartContext';
+import { checkoutAPI } from '../services/api';
 import SEOHead from '../components/SEOHead';
+import { toast } from '../hooks/use-toast';
 import '../styles/photography.css';
 
 // Produits basés sur vos vraies photos
@@ -25,7 +27,7 @@ const shopProducts = [
     title: 'Port de Cassis',
     category: 'calanques',
     location: 'Cassis, Bouches-du-Rhône',
-    image: '/Calanques/Port de cassis.jpg',
+    image: '/Calanques/Port de cassis.webp',
     description: 'Le pittoresque port de Cassis au petit matin, quand les pêcheurs préparent leurs filets.',
     price: 120,
     sizes: ['30x40 cm', '50x70 cm', '70x100 cm'],
@@ -58,7 +60,7 @@ const shopProducts = [
     title: 'Sormiou au Crépuscule',
     category: 'calanques',
     location: 'Calanque de Sormiou, Marseille',
-    image: '/Calanques/Sormiou.jpeg',
+    image: '/Calanques/Sormiou.webp',
     description: 'Les dernières lueurs du jour embrasent les falaises de Sormiou dans une symphonie de couleurs.',
     price: 160,
     sizes: ['30x40 cm', '50x70 cm', '70x100 cm'],
@@ -94,7 +96,7 @@ const shopProducts = [
     title: 'Ciel de Feu',
     category: 'sunset',
     location: 'La Ciotat, Bouches-du-Rhône',
-    image: '/Sunset/sunset fire la ciotat.jpg',
+    image: '/Sunset/sunset fire la ciotat.webp',
     description: 'Quand le ciel de La Ciotat s\'embrase, offrant un spectacle pyrotechnique naturel.',
     price: 170,
     sizes: ['30x40 cm', '50x70 cm', '70x100 cm'],
@@ -106,7 +108,7 @@ const shopProducts = [
     title: 'Catalans - Marseille',
     category: 'sunset',
     location: 'Plage des Catalans, Marseille',
-    image: '/Sunset/Sunset catalans marseille.jpg',
+    image: '/Sunset/Sunset catalans marseille.webp',
     description: 'Le soleil plonge dans la Méditerranée devant la plage emblématique des Catalans.',
     price: 140,
     sizes: ['30x40 cm', '50x70 cm', '70x100 cm'],
@@ -128,7 +130,7 @@ const shopProducts = [
     title: 'Port Saint-Jean',
     category: 'sunset',
     location: 'La Ciotat, Bouches-du-Rhône',
-    image: '/Sunset/sunset port saintjean la ciotat.jpg',
+    image: '/Sunset/sunset port saintjean la ciotat.webp',
     description: 'Les bateaux du port Saint-Jean se balancent doucement sous un ciel de feu.',
     price: 130,
     sizes: ['30x40 cm', '50x70 cm', '70x100 cm'],
@@ -139,7 +141,7 @@ const shopProducts = [
     title: 'Bain des Dames',
     category: 'sunset',
     location: 'Marseille',
-    image: '/Sunset/sunset serpent bain des dames marseille.jpg',
+    image: '/Sunset/sunset serpent bain des dames marseille.webp',
     description: 'Le serpent de pierre du Bain des Dames se dessine sur le coucher de soleil marseillais.',
     price: 140,
     sizes: ['30x40 cm', '50x70 cm', '70x100 cm'],

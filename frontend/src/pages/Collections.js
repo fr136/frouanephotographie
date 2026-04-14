@@ -1,33 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { collectionsAPI } from "../services/api";
-import { Filter } from "lucide-react";
 import SEOHead from "../components/SEOHead";
 import "../styles/photography.css";
-
-// 1. ON DÉFINIT LES DONNÉES LOCALES ICI (Indispensable si l'API est vide)
-const LOCAL_COLLECTIONS = [
-  {
-    id: "calanques",
-    title: "Marseille",
-    subtitle: "Les Calanques",
-    description: "Découvrez la beauté sauvage des Calanques de Marseille à La Ciotat.",
-    category: "calanques",
-    slug: "calanques",
-    image: "/Calanques/Cover.jpg", // Extension corrigée en .jpg (minuscule)
-    photoCount: 31
-  },
-  {
-    id: "sunset",
-    title: "Couchers de Soleil",
-    subtitle: "Golden Hour",
-    description: "Une sélection des plus beaux couchers de soleil de la région.",
-    category: "sunset",
-    slug: "sunset",
-    image: "/Sunset/Cover.JPEG",
-    photoCount: 11
-  }
-];
 
 const Collections = () => {
   const navigate = useNavigate();
@@ -42,17 +17,10 @@ const Collections = () => {
   const loadCollections = async () => {
     try {
       const data = await collectionsAPI.getAll();
-      const apiData = Array.isArray(data) ? data : data?.collections || data?.data || [];
-      
-      // 2. SI L'API EST VIDE, ON UTILISE LES DONNÉES LOCALES
-      if (apiData.length > 0) {
-        setCollections(apiData);
-      } else {
-        setCollections(LOCAL_COLLECTIONS);
-      }
+      setCollections(Array.isArray(data) ? data : []);
     } catch (error) {
-      console.error("Erreur API, chargement local:", error);
-      setCollections(LOCAL_COLLECTIONS);
+      console.error("Erreur chargement collections:", error);
+      setCollections([]);
     } finally {
       setLoading(false);
     }

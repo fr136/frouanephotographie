@@ -1,32 +1,24 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { FadeInOnScroll, StaggerContainer, StaggerItem } from './ScrollAnimations';
+import { collectionsAPI } from '../services/api';
 
-const CollectionsPreview = ({ collections = [] }) => {
-  const defaultCollections = [
-    {
-      id: 'calanques',
-      slug: 'calanques',
-      title: 'Calanques',
-      subtitle: 'Marseille à La Ciotat',
-      description: 'La beauté sauvage des fjords méditerranéens',
-      image: '/Calanques/Cover.jpg',
-      photoCount: 31
-    },
-    {
-      id: 'sunset',
-      slug: 'sunset',
-      title: 'Couchers de Soleil',
-      subtitle: 'Golden Hour',
-      description: "L'or de la Méditerranée au crépuscule",
-      image: '/Sunset/Cover.JPEG',
-      photoCount: 11
+const CollectionsPreview = ({ collections: propCollections = [] }) => {
+  const [fallbackCollections, setFallbackCollections] = useState([]);
+
+  useEffect(() => {
+    if (propCollections.length === 0) {
+      collectionsAPI.getAll().then(data => {
+        setFallbackCollections(Array.isArray(data) ? data.slice(0, 2) : []);
+      }).catch(() => {});
     }
-  ];
+  }, [propCollections]);
 
-  const displayCollections = collections.length > 0 ? collections.slice(0, 2) : defaultCollections;
+  const displayCollections = propCollections.length > 0
+    ? propCollections.slice(0, 2)
+    : fallbackCollections;
 
   return (
     <section className="py-24 bg-gray-50 overflow-hidden">

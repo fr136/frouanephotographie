@@ -115,6 +115,36 @@ export const newsletterAPI = {
 
 
 // ═══════════════════════════════════════════
+//  CHECKOUT (Stripe)
+// ═══════════════════════════════════════════
+
+export const checkoutAPI = {
+  /**
+   * Créer une session Stripe Checkout
+   * @param {Array} items - [{ title, size, image_url, price (centimes), quantity }]
+   * @param {string} customerEmail - optionnel
+   * @returns {Object} { session_id, url }
+   */
+  createSession: async (items, customerEmail = null) => {
+    if (!BACKEND_URL) {
+      throw new Error('Backend non configuré — paiement impossible');
+    }
+    return apiCall(`${API}/checkout/create-session`, {
+      method: 'POST',
+      body: JSON.stringify({ items, customer_email: customerEmail }),
+    });
+  },
+
+  /**
+   * Récupérer les détails d'une session (page confirmation)
+   */
+  getSession: async (sessionId) => {
+    return apiCall(`${API}/checkout/session/${sessionId}`);
+  },
+};
+
+
+// ═══════════════════════════════════════════
 //  COLLECTIONS (données locales, pas de backend)
 // ═══════════════════════════════════════════
 
