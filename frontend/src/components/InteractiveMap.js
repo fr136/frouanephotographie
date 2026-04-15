@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, useMap } from 'react-leaflet';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, MapPin, Camera, ExternalLink } from 'lucide-react';
 import L from 'leaflet';
@@ -40,7 +40,7 @@ const photoLocations = [
   {
     id: 'loc-1',
     name: 'Calanque de Sormiou',
-    coordinates: [43.2102, 5.4192],
+    coordinates: [43.2101, 5.4192],
     collection: 'calanques',
     photos: [
       { title: 'Sormiou - Vue Panoramique', image: '/Calanques/Calanque Sormiou 2.webp' },
@@ -51,7 +51,7 @@ const photoLocations = [
   {
     id: 'loc-2',
     name: 'Calanque des Anglais',
-    coordinates: [43.2150, 5.4350],
+    coordinates: [43.2073, 5.4269],
     collection: 'calanques',
     photos: [
       { title: 'Calanque des Anglais', image: '/Calanques/Calanque des anglais.webp' },
@@ -62,7 +62,7 @@ const photoLocations = [
   {
     id: 'loc-3',
     name: 'Port de Cassis',
-    coordinates: [43.2142, 5.5378],
+    coordinates: [43.2144, 5.5375],
     collection: 'calanques',
     photos: [
       { title: 'Port de Cassis', image: '/Calanques/Port de cassis.webp' },
@@ -72,7 +72,7 @@ const photoLocations = [
   {
     id: 'loc-4',
     name: 'Calanque de Port d\'Alon',
-    coordinates: [43.1647, 5.7189],
+    coordinates: [43.1612, 5.6983],
     collection: 'calanques',
     photos: [
       { title: 'Port d\'Alon', image: '/Calanques/Calanque Port d\'alon Saint Cyr sur mer.webp' },
@@ -82,7 +82,7 @@ const photoLocations = [
   {
     id: 'loc-5',
     name: 'Agay',
-    coordinates: [43.4328, 6.8681],
+    coordinates: [43.4308, 6.8631],
     collection: 'calanques',
     photos: [
       { title: 'Calanque Agay', image: '/Calanques/Calanque-agay.webp' },
@@ -93,7 +93,7 @@ const photoLocations = [
   {
     id: 'loc-6',
     name: 'La Ciotat - Route des Crêtes',
-    coordinates: [43.1756, 5.6053],
+    coordinates: [43.1975, 5.6089],
     collection: 'sunset',
     photos: [
       { title: 'La Ciotat - Route des Crêtes', image: '/Sunset/Coucher de soleil La Ciotat éléphant routedes crêtes.webp' },
@@ -104,7 +104,7 @@ const photoLocations = [
   {
     id: 'loc-7',
     name: 'Plage des Catalans',
-    coordinates: [43.2892, 5.3553],
+    coordinates: [43.2878, 5.3546],
     collection: 'sunset',
     photos: [
       { title: 'Catalans - Marseille', image: '/Sunset/Sunset catalans marseille.webp' },
@@ -115,7 +115,7 @@ const photoLocations = [
   {
     id: 'loc-8',
     name: 'L\'Estaque',
-    coordinates: [43.3614, 5.3033],
+    coordinates: [43.3614, 5.3089],
     collection: 'sunset',
     photos: [
       { title: 'L\'Estaque', image: '/Sunset/sunset l\'estaque Marseille.jpg' },
@@ -125,7 +125,7 @@ const photoLocations = [
   {
     id: 'loc-9',
     name: 'Port Saint-Jean, La Ciotat',
-    coordinates: [43.1742, 5.6089],
+    coordinates: [43.1740, 5.6044],
     collection: 'sunset',
     photos: [
       { title: 'Port Saint-Jean', image: '/Sunset/sunset port saintjean la ciotat.webp' },
@@ -135,7 +135,7 @@ const photoLocations = [
   {
     id: 'loc-10',
     name: 'Bain des Dames',
-    coordinates: [43.2825, 5.3478],
+    coordinates: [43.2933, 5.3458],
     collection: 'sunset',
     photos: [
       { title: 'Bain des Dames', image: '/Sunset/sunset serpent bain des dames marseille.webp' },
@@ -222,8 +222,8 @@ const InteractiveMap = ({ isOpen, onClose, initialCollection = 'all' }) => {
           </div>
         </div>
 
-        {/* Map */}
-        <div className="absolute inset-0 pt-32">
+        {/* Map — z-[1] crée un stacking context qui contient les z-indexes internes de Leaflet (200-800) */}
+        <div className="absolute inset-0 pt-32 z-[1]">
           <MapContainer
             center={mapCenter}
             zoom={mapZoom}
@@ -243,14 +243,7 @@ const InteractiveMap = ({ isOpen, onClose, initialCollection = 'all' }) => {
                 eventHandlers={{
                   click: () => handleLocationClick(location),
                 }}
-              >
-                <Popup className="custom-popup">
-                  <div className="p-2">
-                    <h4 className="font-semibold text-sm">{location.name}</h4>
-                    <p className="text-xs text-gray-500">{location.photos.length} photo(s)</p>
-                  </div>
-                </Popup>
-              </Marker>
+              />
             ))}
           </MapContainer>
         </div>
