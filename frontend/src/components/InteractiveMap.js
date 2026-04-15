@@ -144,12 +144,50 @@ const photoLocations = [
   },
 ];
 
+const DEFAULT_MAP_CENTER = [43.25, 5.45];
+const DEFAULT_MAP_ZOOM = 10;
+const LOCATION_FOCUS_ZOOM = 13;
+
+const getFilteredLocations = (collection) => (
+  collection === 'all'
+    ? photoLocations
+    : photoLocations.filter((location) => location.collection === collection)
+);
+
 // Map center controller
-const MapController = ({ center, zoom }) => {
+const MapController = ({ filterCollection, selectedLocation, isOpen }) => {
   const map = useMap();
+
   useEffect(() => {
-    map.flyTo(center, zoom, { duration: 1.5 });
-  }, [center, zoom, map]);
+    if (!isOpen) return;
+
+    if (selectedLocation) {
+      map.flyTo(selectedLocation.coordinates, LOCATION_FOCUS_ZOOM, { duration: 1.5 });
+      return;
+    }
+
+    const locations = getFilteredLocations(filterCollection);
+
+    if (!locations.length) {
+      map.flyTo(DEFAULT_MAP_CENTER, DEFAULT_MAP_ZOOM, { duration: 1.5 });
+      return;
+    }
+
+    if (locations.length === 1) {
+      map.flyTo(locations[0].coordinates, LOCATION_FOCUS_ZOOM, { duration: 1.5 });
+      return;
+    }
+
+    map.flyToBounds(
+      L.latLngBounds(locations.map((location) => location.coordinates)),
+      {
+        padding: [48, 48],
+        duration: 1.5,
+        maxZoom: DEFAULT_MAP_ZOOM,
+      }
+    );
+  }, [filterCollection, isOpen, map, selectedLocation]);
+
   return null;
 };
 
@@ -157,24 +195,29 @@ const MapController = ({ center, zoom }) => {
 const InteractiveMap = ({ isOpen, onClose, initialCollection = 'all' }) => {
   const [selectedLocation, setSelectedLocation] = useState(null);
   const [filterCollection, setFilterCollection] = useState(initialCollection);
-  const [mapCenter, setMapCenter] = useState([43.25, 5.45]);
-  const [mapZoom, setMapZoom] = useState(10);
 
-  const filteredLocations = filterCollection === 'all'
-    ? photoLocations
-    : photoLocations.filter(loc => loc.collection === filterCollection);
+  const filteredLocations = getFilteredLocations(filterCollection);
+
+  useEffect(() => {
+    if (!isOpen) {
+      setSelectedLocation(null);
+      setFilterCollection(initialCollection);
+      return;
+    }
+
+    setSelectedLocation(null);
+    setFilterCollection(initialCollection);
+  }, [initialCollection, isOpen]);
 
   const handleLocationClick = (location) => {
     setSelectedLocation(location);
-    setMapCenter(location.coordinates);
-    setMapZoom(13);
   };
-
-  if (!isOpen) return null;
 
   return (
     <AnimatePresence>
+      {isOpen && (
       <motion.div
+        key="interactive-map-modal"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
@@ -207,8 +250,6 @@ const InteractiveMap = ({ isOpen, onClose, initialCollection = 'all' }) => {
                 onClick={() => {
                   setFilterCollection(filter.id);
                   setSelectedLocation(null);
-                  setMapCenter([43.25, 5.45]);
-                  setMapZoom(10);
                 }}
                 className={`px-4 py-2 text-sm font-medium rounded-full transition-all ${
                   filterCollection === filter.id
@@ -225,12 +266,16 @@ const InteractiveMap = ({ isOpen, onClose, initialCollection = 'all' }) => {
         {/* Map — z-[1] crée un stacking context qui contient les z-indexes internes de Leaflet (200-800) */}
         <div className="absolute inset-0 pt-32 z-[1]">
           <MapContainer
-            center={mapCenter}
-            zoom={mapZoom}
+            center={DEFAULT_MAP_CENTER}
+            zoom={DEFAULT_MAP_ZOOM}
             style={{ height: '100%', width: '100%' }}
             zoomControl={false}
           >
-            <MapController center={mapCenter} zoom={mapZoom} />
+            <MapController
+              filterCollection={filterCollection}
+              selectedLocation={selectedLocation}
+              isOpen={isOpen}
+            />
             <TileLayer
               url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
               attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
@@ -316,6 +361,7 @@ const InteractiveMap = ({ isOpen, onClose, initialCollection = 'all' }) => {
           )}
         </AnimatePresence>
       </motion.div>
+      )}
     </AnimatePresence>
   );
 };
