@@ -4,6 +4,7 @@ import 'leaflet/dist/leaflet.css';
 import { BrowserRouter, Routes, Route, useLocation, Navigate, Link } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import { HelmetProvider } from 'react-helmet-async';
+import { Analytics } from '@vercel/analytics/react';
 import { CartProvider } from './context/CartContext';
 import usePageTracking from './hooks/useAnalytics';
 import Header from './components/Header';
@@ -88,6 +89,7 @@ function App() {
               <AppContent />
             </CartProvider>
           </BrowserRouter>
+          <Analytics />
         </div>
       </SmoothScrollProvider>
     </HelmetProvider>
