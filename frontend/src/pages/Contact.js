@@ -26,24 +26,23 @@ const Contact = () => {
       [e.target.name]: e.target.value
     });
   };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    try {
-      await contactAPI.submit(formData);
-      toast({
-        title: 'Message envoyé !',
-        description: 'Merci pour votre message. Je vous répondrai dans les plus brefs délais.'
-      });
-      setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
-    } catch (error) {
-      toast({
-        title: 'Erreur',
-        description: 'Impossible d\'envoyer le message. Veuillez réessayer.',
-        variant: 'destructive'
-      });
-    }
-  };
+  
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  try {
+     toast({
+      title: 'Message envoyé !',
+      description: 'Merci pour votre message. Je vous répondrai dans les plus brefs délais.'
+    });
+    setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
+  } catch (error) {
+    toast({
+      title: 'Erreur',
+      description: 'Impossible d\'envoyer le message. Veuillez réessayer.',
+      variant: 'destructive'
+    });
+  }
+};
 
   const reassurance = [
     { icon: Image, text: 'Tirages Fine Art sur papier Hahnemühle' },
