@@ -18,7 +18,7 @@ const shopProducts = [
     image: '/Calanques/Calanque Sormiou 2.webp',
     description: 'Vue panoramique sur la calanque de Sormiou, joyau des calanques marseillaises. Les eaux turquoise contrastent avec les falaises calcaires.',
     price: 150,
-    sizes: ['30x40 cm', '50x70 cm', '70x100 cm'],
+    sizes: ['30x45 cm', '50x75 cm', '70x105 cm'],
     edition: 'Édition limitée 1/25',
     featured: true
   },
@@ -30,7 +30,7 @@ const shopProducts = [
     image: '/Calanques/Port de cassis.webp',
     description: 'Le pittoresque port de Cassis au petit matin, quand les pêcheurs préparent leurs filets.',
     price: 120,
-    sizes: ['30x40 cm', '50x70 cm', '70x100 cm'],
+    sizes: ['30x45 cm', '50x75 cm', '70x105 cm'],
     edition: 'Édition limitée 1/25'
   },
   {
@@ -41,7 +41,7 @@ const shopProducts = [
     image: '/Calanques/Calanque des anglais.webp',
     description: "Une crique secrète aux eaux cristallines, accessible uniquement à pied. L'essence même de la Méditerranée sauvage.",
     price: 130,
-    sizes: ['30x40 cm', '50x70 cm', '70x100 cm'],
+    sizes: ['30x45 cm', '50x75 cm', '70x105 cm'],
     edition: 'Édition limitée 1/25'
   },
   {
@@ -52,7 +52,7 @@ const shopProducts = [
     image: '/Calanques/Calanque Port d\'alon Saint Cyr sur mer.webp',
     description: 'La calanque de Port d\'Alon, entre pins et rochers, offre un panorama exceptionnel sur la côte.',
     price: 140,
-    sizes: ['30x40 cm', '50x70 cm', '70x100 cm'],
+    sizes: ['30x45 cm', '50x75 cm', '70x105 cm'],
     edition: 'Édition limitée 1/25'
   },
   {
@@ -63,7 +63,7 @@ const shopProducts = [
     image: '/Calanques/Sormiou.webp',
     description: 'Les dernières lueurs du jour embrasent les falaises de Sormiou dans une symphonie de couleurs.',
     price: 160,
-    sizes: ['30x40 cm', '50x70 cm', '70x100 cm'],
+    sizes: ['30x45 cm', '50x75 cm', '70x105 cm'],
     edition: 'Édition limitée 1/20',
     featured: true
   },
@@ -75,7 +75,7 @@ const shopProducts = [
     image: '/Calanques/Calanque-agay.webp',
     description: 'Les roches rouges d\'Agay plongent dans les eaux bleu intense de la Méditerranée.',
     price: 130,
-    sizes: ['30x40 cm', '50x70 cm', '70x100 cm'],
+    sizes: ['30x45 cm', '50x75 cm', '70x105 cm'],
     edition: 'Édition limitée 1/25'
   },
   // SUNSET
@@ -87,7 +87,7 @@ const shopProducts = [
     image: '/Sunset/Coucher de soleil La Ciotat éléphant routedes crêtes.webp',
     description: 'Le rocher de l\'éléphant se découpe sur un ciel embrasé, vu depuis la mythique route des crêtes.',
     price: 180,
-    sizes: ['30x40 cm', '50x70 cm', '70x100 cm', '100x150 cm'],
+    sizes: ['30x45 cm', '50x75 cm', '70x105 cm', '100x150 cm'],
     edition: 'Édition limitée 1/15',
     featured: true
   },
@@ -99,7 +99,7 @@ const shopProducts = [
     image: '/Sunset/sunset fire la ciotat.webp',
     description: 'Quand le ciel de La Ciotat s\'embrase, offrant un spectacle pyrotechnique naturel.',
     price: 170,
-    sizes: ['30x40 cm', '50x70 cm', '70x100 cm'],
+    sizes: ['30x45 cm', '50x75 cm', '70x105 cm'],
     edition: 'Édition limitée 1/15',
     featured: true
   },
@@ -111,7 +111,7 @@ const shopProducts = [
     image: '/Sunset/Sunset catalans marseille.webp',
     description: 'Le soleil plonge dans la Méditerranée devant la plage emblématique des Catalans.',
     price: 140,
-    sizes: ['30x40 cm', '50x70 cm', '70x100 cm'],
+    sizes: ['30x45 cm', '50x75 cm', '70x105 cm'],
     edition: 'Édition limitée 1/20'
   },
   {
@@ -122,7 +122,7 @@ const shopProducts = [
     image: '/Sunset/sunset l\'estaque Marseille.jpg',
     description: 'L\'Estaque, ce quartier cher à Cézanne, baigné dans la lumière dorée du soir.',
     price: 150,
-    sizes: ['30x40 cm', '50x70 cm', '70x100 cm'],
+    sizes: ['30x45 cm', '50x75 cm', '70x105 cm'],
     edition: 'Édition limitée 1/20'
   },
   {
@@ -133,7 +133,7 @@ const shopProducts = [
     image: '/Sunset/sunset port saintjean la ciotat.webp',
     description: 'Les bateaux du port Saint-Jean se balancent doucement sous un ciel de feu.',
     price: 130,
-    sizes: ['30x40 cm', '50x70 cm', '70x100 cm'],
+    sizes: ['30x45 cm', '50x75 cm', '70x105 cm'],
     edition: 'Édition limitée 1/25'
   },
   {
@@ -144,7 +144,7 @@ const shopProducts = [
     image: '/Sunset/sunset serpent bain des dames marseille.webp',
     description: 'Le serpent de pierre du Bain des Dames se dessine sur le coucher de soleil marseillais.',
     price: 140,
-    sizes: ['30x40 cm', '50x70 cm', '70x100 cm'],
+    sizes: ['30x45 cm', '50x75 cm', '70x105 cm'],
     edition: 'Édition limitée 1/20'
   }
 ];
@@ -153,6 +153,7 @@ const Shop = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [selectedSize, setSelectedSize] = useState(null);
+  const [isLoadingCheckout, setIsLoadingCheckout] = useState(false);
   const { addToCart, addToWishlist, isInWishlist } = useCart();
 
   const categories = [
@@ -167,8 +168,8 @@ const Shop = () => {
 
   const getPriceBySize = (basePrice, size) => {
     if (size?.includes('100x150')) return basePrice + 150;
-    if (size?.includes('70x100')) return basePrice + 80;
-    if (size?.includes('50x70')) return basePrice + 40;
+    if (size?.includes('70x105')) return basePrice + 80;
+    if (size?.includes('50x75')) return basePrice + 40;
     return basePrice;
   };
 
@@ -183,6 +184,40 @@ const Shop = () => {
       selectedSize: size,
       finalPrice
     });
+  };
+
+  const handleBuyNow = async (product, size) => {
+    if (!size) {
+      toast({
+        title: 'Format requis',
+        description: 'Veuillez sélectionner un format avant de procéder au paiement.',
+        variant: 'destructive',
+      });
+      return;
+    }
+    const finalPrice = getPriceBySize(product.price, size);
+    const imageUrl = window.location.origin + product.image;
+
+    setIsLoadingCheckout(true);
+    try {
+      const session = await checkoutAPI.createSession([
+        {
+          title: product.title,
+          size,
+          image_url: imageUrl,
+          price: finalPrice * 100, // en centimes
+          quantity: 1,
+        },
+      ]);
+      window.location.href = session.url;
+    } catch (err) {
+      toast({
+        title: 'Paiement indisponible',
+        description: 'Le service de paiement est momentanément indisponible. Veuillez réessayer plus tard.',
+        variant: 'destructive',
+      });
+      setIsLoadingCheckout(false);
+    }
   };
 
   return (
@@ -406,6 +441,16 @@ const Shop = () => {
                   >
                     <ShoppingCart size={20} />
                     Ajouter au panier
+                  </button>
+
+                  {/* Acheter maintenant */}
+                  <button
+                    onClick={() => handleBuyNow(selectedProduct, selectedSize)}
+                    disabled={isLoadingCheckout}
+                    className="w-full mt-3 border-2 border-black text-black py-4 font-medium uppercase tracking-wider hover:bg-black hover:text-white transition-colors flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    <CreditCard size={20} />
+                    {isLoadingCheckout ? 'Redirection en cours…' : 'Acheter maintenant'}
                   </button>
 
                   {/* Info */}

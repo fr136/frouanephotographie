@@ -19,6 +19,7 @@ import Contact from './pages/Contact';
 import MentionsLegales from './pages/MentionsLegales';
 import CGV from './pages/CGV';
 import Confidentialite from './pages/Confidentialite';
+import OrderConfirmation from './pages/OrderConfirmation';
 import { Toaster } from './components/ui/toaster';
 import './styles/photography.css';
 
@@ -53,6 +54,7 @@ const AnimatedRoutes = () => {
         <Route path="/mentions-legales" element={<PageTransition><MentionsLegales /></PageTransition>} />
         <Route path="/cgv" element={<PageTransition><CGV /></PageTransition>} />
         <Route path="/confidentialite" element={<PageTransition><Confidentialite /></PageTransition>} />
+        <Route path="/commande/confirmation" element={<PageTransition><OrderConfirmation /></PageTransition>} />
         <Route path="*" element={<PageTransition><NotFound /></PageTransition>} />
       </Routes>
     </AnimatePresence>
