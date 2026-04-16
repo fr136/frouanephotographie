@@ -5,10 +5,11 @@ import { useCart } from '../context/CartContext';
 import { checkoutAPI } from '../services/api';
 import SEOHead from '../components/SEOHead';
 import { toast } from '../hooks/use-toast';
+import printAssetCatalog from '../data/printAssetCatalog.json';
 import '../styles/photography.css';
 
 // Produits basés sur vos vraies photos
-const shopProducts = [
+const baseShopProducts = [
   // CALANQUES
   {
     id: 'cal-001',
@@ -119,7 +120,7 @@ const shopProducts = [
     title: "L'Estaque",
     category: 'sunset',
     location: "L'Estaque, Marseille",
-    image: '/Sunset/sunset l\'estaque Marseille.jpg',
+    image: '/Sunset/sunset l\'estaque Marseille.webp',
     description: 'L\'Estaque, ce quartier cher à Cézanne, baigné dans la lumière dorée du soir.',
     price: 150,
     sizes: ['30x45 cm', '50x75 cm', '70x105 cm'],
@@ -148,6 +149,24 @@ const shopProducts = [
     edition: 'Édition limitée 1/20'
   }
 ];
+
+const shopProducts = baseShopProducts.map((product) => {
+  const printAsset = printAssetCatalog[product.id] || null;
+
+  if (printAsset && printAsset.previewImage !== product.image) {
+    console.warn(
+      `[shopProducts] Preview mismatch for ${product.id}:`,
+      product.image,
+      printAsset.previewImage
+    );
+  }
+
+  return {
+    ...product,
+    previewImage: printAsset?.previewImage || product.image,
+    printAsset,
+  };
+});
 
 const Shop = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
@@ -195,8 +214,18 @@ const Shop = () => {
       });
       return;
     }
+
+    if (!product.printAsset?.blobUrl) {
+      toast({
+        title: 'Fichier d\'impression manquant',
+        description: `Cette oeuvre n'est pas encore reliee a son master Vercel Blob. Fichier attendu : ${product.printAsset?.blobPathname || 'non configure'}`,
+        variant: 'destructive',
+      });
+      return;
+    }
+
     const finalPrice = getPriceBySize(product.price, size);
-    const imageUrl = window.location.origin + product.image;
+    const imageUrl = product.printAsset.blobUrl;
 
     setIsLoadingCheckout(true);
     try {
@@ -292,7 +321,7 @@ const Shop = () => {
                   {/* Image */}
                   <div className="aspect-[4/5] relative overflow-hidden">
                     <motion.img
-                      src={product.image}
+                      src={product.previewImage}
                       alt={product.title}
                       className="w-full h-full object-cover"
                       whileHover={{ scale: 1.05 }}
@@ -379,7 +408,7 @@ const Shop = () => {
                 {/* Image */}
                 <div className="aspect-square md:aspect-auto md:h-full">
                   <img
-                    src={selectedProduct.image}
+                    src={selectedProduct.previewImage}
                     alt={selectedProduct.title}
                     className="w-full h-full object-cover"
                   />
@@ -504,3 +533,4 @@ const Shop = () => {
 };
 
 export default Shop;
+

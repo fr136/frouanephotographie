@@ -1,0 +1,74 @@
+{
+  "cal-001": {
+    "previewImage": "/Calanques/Calanque Sormiou 2.webp",
+    "sourceFilePath": "frontend/public/Calanques/Calanque Sormiou 2.webp",
+    "blobPathname": "masters/calanques/cal-001-sormiou-vue-panoramique.webp",
+    "blobUrl": ""
+  },
+  "cal-002": {
+    "previewImage": "/Calanques/Port de cassis.webp",
+    "sourceFilePath": "frontend/public/Calanques/Port de cassis.webp",
+    "blobPathname": "masters/calanques/cal-002-port-de-cassis.webp",
+    "blobUrl": ""
+  },
+  "cal-003": {
+    "previewImage": "/Calanques/Calanque des anglais.webp",
+    "sourceFilePath": "frontend/public/Calanques/Calanque des anglais.webp",
+    "blobPathname": "masters/calanques/cal-003-calanque-des-anglais.webp",
+    "blobUrl": ""
+  },
+  "cal-004": {
+    "previewImage": "/Calanques/Calanque Port d'alon Saint Cyr sur mer.webp",
+    "sourceFilePath": "frontend/public/Calanques/Calanque Port d'alon Saint Cyr sur mer.webp",
+    "blobPathname": "masters/calanques/cal-004-port-dalon.webp",
+    "blobUrl": ""
+  },
+  "cal-005": {
+    "previewImage": "/Calanques/Sormiou.webp",
+    "sourceFilePath": "frontend/public/Calanques/Sormiou.webp",
+    "blobPathname": "masters/calanques/cal-005-sormiou-au-crepuscule.webp",
+    "blobUrl": ""
+  },
+  "cal-006": {
+    "previewImage": "/Calanques/Calanque-agay.webp",
+    "sourceFilePath": "frontend/public/Calanques/Calanque-agay.webp",
+    "blobPathname": "masters/calanques/cal-006-calanque-agay.webp",
+    "blobUrl": ""
+  },
+  "sun-001": {
+    "previewImage": "/Sunset/Coucher de soleil La Ciotat éléphant routedes crêtes.webp",
+    "sourceFilePath": "frontend/public/Sunset/Coucher de soleil La Ciotat éléphant routedes crêtes.webp",
+    "blobPathname": "masters/sunset/sun-001-la-ciotat-route-des-cretes.webp",
+    "blobUrl": ""
+  },
+  "sun-002": {
+    "previewImage": "/Sunset/sunset fire la ciotat.webp",
+    "sourceFilePath": "frontend/public/Sunset/sunset fire la ciotat.webp",
+    "blobPathname": "masters/sunset/sun-002-ciel-de-feu.webp",
+    "blobUrl": ""
+  },
+  "sun-003": {
+    "previewImage": "/Sunset/Sunset catalans marseille.webp",
+    "sourceFilePath": "frontend/public/Sunset/Sunset catalans marseille.webp",
+    "blobPathname": "masters/sunset/sun-003-catalans-marseille.webp",
+    "blobUrl": ""
+  },
+  "sun-004": {
+    "previewImage": "/Sunset/sunset l'estaque Marseille.webp",
+    "sourceFilePath": "frontend/public/Sunset/sunset l'estaque Marseille.webp",
+    "blobPathname": "masters/sunset/sun-004-lestaque.webp",
+    "blobUrl": ""
+  },
+  "sun-005": {
+    "previewImage": "/Sunset/sunset port saintjean la ciotat.webp",
+    "sourceFilePath": "frontend/public/Sunset/sunset port saintjean la ciotat.webp",
+    "blobPathname": "masters/sunset/sun-005-port-saint-jean.webp",
+    "blobUrl": ""
+  },
+  "sun-006": {
+    "previewImage": "/Sunset/sunset serpent bain des dames marseille.webp",
+    "sourceFilePath": "frontend/public/Sunset/sunset serpent bain des dames marseille.webp",
+    "blobPathname": "masters/sunset/sun-006-bain-des-dames.webp",
+    "blobUrl": ""
+  }
+}
