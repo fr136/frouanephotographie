@@ -9,43 +9,37 @@ import '../styles/photography.css';
 
 const About = () => {
   const { photographer, services, faq } = mockData;
+  const aboutHeroImage = '/about/about-hero.jpg';
+  const aboutProfileImage = '/about/about-who-am-i.jpg';
+  const aboutMarseilleCalanquesImage = '/about/about-marseille-calanques.jpg';
+  const aboutCassisImage = '/about/about-cassis.jpg';
+  const aboutLaCiotatImage = '/about/about-la-ciotat.jpg';
+  const aboutVarImage = '/about/about-var.jpg';
 
   const travelJournals = [
     {
       id: 1,
       title: 'Marseille & Calanques',
       desc: 'Exploration des calanques sauvages aux eaux turquoise et falaises dorées. Ces criques secrètes offrent des panoramas uniques à quelques encablures de la ville.',
-      image: 'https://images.unsplash.com/photo-1672861864274-6b24d19b578d?w=800&q=80'
+      image: aboutMarseilleCalanquesImage
     },
     {
       id: 2,
       title: 'Cassis',
       desc: 'Village de pêcheurs niché au pied du Cap Canaille, Cassis mêle ports colorés et falaises vertigineuses. Chaque coucher de soleil y est une fête.',
-      image: 'https://images.unsplash.com/photo-1691325011849-de814c92dbbd?w=800&q=80'
+      image: aboutCassisImage
     },
     {
       id: 3,
       title: 'La Ciotat',
       desc: 'Entre vieille ville et calanques discrètes, La Ciotat révèle des paysages maritimes paisibles et des lumières dorées au crépuscule.',
-      image: 'https://images.unsplash.com/photo-1712103554238-aca4fda947df?w=800&q=80'
+      image: aboutLaCiotatImage
     },
     {
       id: 4,
-      title: 'Bandol',
-      desc: 'Station balnéaire conviviale, Bandol est entourée de plages, de pinèdes et d\u2019une mer aux reflets changeants. Un terrain de jeu idéal pour saisir l\u2019essence du littoral varois.',
-      image: 'https://images.unsplash.com/photo-1712227609859-2818504d07cb?w=800&q=80'
-    },
-    {
-      id: 5,
-      title: 'Sanary-sur-Mer',
-      desc: 'Port de carte postale, Sanary regorge de ruelles fleuries et de bateaux traditionnels. Ici, la Méditerranée se raconte à l\u2019aube comme au crépuscule.',
-      image: 'https://images.pexels.com/photos/34712669/pexels-photo-34712669.jpeg'
-    },
-    {
-      id: 6,
-      title: 'Le Var côtier',
-      desc: 'De la route des Crêtes aux plages sauvages, le littoral varois offre une diversité de paysages où ciel et mer se rencontrent à l\u2019infini.',
-      image: 'https://images.unsplash.com/photo-1627041193914-66f1cf8fbf4f?w=800&q=80'
+      title: 'VAR',
+      desc: 'De Bandol à Sanary, jusqu’aux criques plus secrètes du littoral varois, le Var offre une Méditerranée lumineuse, minérale et toujours changeante.',
+      image: aboutVarImage
     }
   ];
 
@@ -61,9 +55,9 @@ const About = () => {
       <section
         className="relative min-h-[80vh] flex items-center justify-center"
         style={{
-          backgroundImage: "url('https://images.unsplash.com/photo-1672861864274-6b24d19b578d?w=1400&q=80')",
+          backgroundImage: `url('${aboutHeroImage}')`,
           backgroundSize: 'cover',
-          backgroundPosition: 'center',
+          backgroundPosition: 'center 62%',
           backgroundAttachment: 'fixed',
         }}
       >
@@ -126,8 +120,9 @@ const About = () => {
             <FadeInOnScroll direction="left">
               <div className="image-container aspect-[3/4] rounded-sm overflow-hidden">
                 <img
-                  src="https://images.unsplash.com/photo-1672861864274-6b24d19b578d?w=800&q=80" loading="lazy"
-                  alt="Portrait Franck Rouane"
+                  src={aboutProfileImage}
+                  loading="lazy"
+                  alt="Paysage méditerranéen photographié par Franck Rouane"
                   className="image-zoom"
                 />
               </div>
@@ -140,7 +135,7 @@ const About = () => {
                   Photographe depuis l'enfance, ma passion est née de l'envie de capturer les paysages du quotidien pour les partager et les revivre.
                 </p>
                 <p className="body-large mb-4">
-                  Basé à Marseille, je navigue régulièrement vers Cassis, La Ciotat, Bandol, Sanary et le Var pour photographier leurs paysages maritimes.
+                  Basé à Marseille, je navigue régulièrement vers Cassis, La Ciotat et le Var, entre Bandol, Sanary et les criques plus discrètes, pour photographier leurs paysages maritimes.
                 </p>
                 <p className="body-large mb-4">
                   Convaincu que la Méditerranée regorge d'endroits "pépites", je préfère révéler ces trésors proches plutôt que de partir aux Maldives ou aux Seychelles.
@@ -154,7 +149,7 @@ const About = () => {
                       <MapPin size={20} className="text-[var(--color-gold)]" />
                       <span className="font-semibold">Localisation</span>
                     </div>
-                    <p className="caption">Marseille, Cassis, La Ciotat, Bandol, Sanary, Var</p>
+                    <p className="caption">Marseille, Cassis, La Ciotat, Var</p>
                   </div>
                   <div>
                     <div className="flex items-center gap-2 mb-2">
