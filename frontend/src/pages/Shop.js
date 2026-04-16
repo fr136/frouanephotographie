@@ -6,6 +6,7 @@ import { checkoutAPI } from '../services/api';
 import SEOHead from '../components/SEOHead';
 import { toast } from '../hooks/use-toast';
 import printAssetCatalog from '../data/printAssetCatalog.json';
+import { getPhotoTitleFromPath } from '../data/photoTitles';
 import '../styles/photography.css';
 
 // Produits basés sur vos vraies photos
@@ -163,6 +164,7 @@ const shopProducts = baseShopProducts.map((product) => {
 
   return {
     ...product,
+    title: getPhotoTitleFromPath(product.image, product.title),
     previewImage: printAsset?.previewImage || product.image,
     printAsset,
   };

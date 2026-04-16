@@ -7,6 +7,7 @@ import { useInView } from "react-intersection-observer";
 
 import { collectionsAPI } from "../services/api";
 import { getCollectionBySlug } from "../data/collectionsData";
+import { getPhotoTitle } from "../data/photoTitles";
 import { useCart } from "../context/CartContext";
 import { FadeInOnScroll, StaggerContainer, StaggerItem } from "../components/ScrollAnimations";
 import CinemaMode from "../components/CinemaMode";
@@ -124,7 +125,7 @@ const buildGalleryData = (slug) => {
   const folder = alias === "calanques" ? "Calanques" : "Sunset";
   const photos = gallery.photos.map((photo, index) => ({
     id: `${alias}-${index + 1}`,
-    title: photo.title,
+    title: getPhotoTitle(photo.file, photo.title),
     imageUrl: `/${folder}/${photo.file}`,
     featured: photo.featured,
     collectionId: alias,

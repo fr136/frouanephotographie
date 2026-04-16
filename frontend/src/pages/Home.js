@@ -67,14 +67,6 @@ const safeCollections = Array.isArray(collections)
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: 'easeOut' }}
         >
-          <motion.p 
-            className="section-subtitle text-white mb-4"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.3 }}
-          >
-            {photographer.specialty}
-          </motion.p>
           <motion.h1 
             className="hero-title mb-6"
             initial={{ opacity: 0, y: 20 }}
@@ -175,7 +167,9 @@ const safeCollections = Array.isArray(collections)
                 <div className="p-6">
                   <p className="caption mb-2">{photo.location?.name || 'Côte d\'Azur'}</p>
                   <h3 className="font-display text-xl font-semibold mb-3">{photo.title}</h3>
-                  <p className="body-text text-sm mb-4">{photo.caption || 'Photographie maritime'}</p>
+                  {photo.caption ? (
+                    <p className="body-text text-sm mb-4">{photo.caption}</p>
+                  ) : null}
                   <div className="flex items-center justify-between">
                     <span className="text-2xl font-semibold text-[var(--color-gold)]">À partir de 180€</span>
                     <span className="caption">Édition limitée</span>

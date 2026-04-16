@@ -3,6 +3,7 @@ import { MapContainer, TileLayer, Marker, useMap } from 'react-leaflet';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, MapPin, Camera, ExternalLink } from 'lucide-react';
 import L from 'leaflet';
+import { getPhotoTitleFromPath } from '../data/photoTitles';
 import 'leaflet/dist/leaflet.css';
 
 // Custom marker icon
@@ -43,8 +44,8 @@ const photoLocations = [
     coordinates: [43.2101, 5.4192],
     collection: 'calanques',
     photos: [
-      { title: 'Sormiou - Vue Panoramique', image: '/Calanques/Calanque Sormiou 2.webp' },
-      { title: 'Sormiou au Crépuscule', image: '/Calanques/Sormiou.webp' },
+      { title: getPhotoTitleFromPath('/Calanques/Calanque Sormiou 2.webp', 'Calanque de Sormiou'), image: '/Calanques/Calanque Sormiou 2.webp' },
+      { title: getPhotoTitleFromPath('/Calanques/Sormiou.webp', 'Calanque de Sormiou'), image: '/Calanques/Sormiou.webp' },
     ],
     description: 'La plus grande calanque de Marseille, accessible en voiture (l\'été sur réservation) ou à pied depuis le col de la Gineste.',
   },
@@ -54,8 +55,8 @@ const photoLocations = [
     coordinates: [43.2073, 5.4269],
     collection: 'calanques',
     photos: [
-      { title: 'Calanque des Anglais', image: '/Calanques/Calanque des anglais.webp' },
-      { title: 'Les Anglais - Crépuscule', image: '/Calanques/Calanque des anglais 4.webp' },
+      { title: getPhotoTitleFromPath('/Calanques/Calanque des anglais.webp', 'Calanque des Anglais'), image: '/Calanques/Calanque des anglais.webp' },
+      { title: getPhotoTitleFromPath('/Calanques/Calanque des anglais 4.webp', 'Calanque des Anglais'), image: '/Calanques/Calanque des anglais 4.webp' },
     ],
     description: 'Une petite crique intimiste au pied des falaises calcaires, idéale pour la plongée.',
   },
@@ -65,7 +66,7 @@ const photoLocations = [
     coordinates: [43.2144, 5.5375],
     collection: 'calanques',
     photos: [
-      { title: 'Port de Cassis', image: '/Calanques/Port de cassis.webp' },
+      { title: getPhotoTitleFromPath('/Calanques/Port de cassis.webp', 'Port de Cassis'), image: '/Calanques/Port de cassis.webp' },
     ],
     description: 'Le pittoresque port de Cassis, point de départ pour les excursions en bateau vers les calanques.',
   },
@@ -75,7 +76,7 @@ const photoLocations = [
     coordinates: [43.1612, 5.6983],
     collection: 'calanques',
     photos: [
-      { title: 'Port d\'Alon', image: '/Calanques/Calanque Port d\'alon Saint Cyr sur mer.webp' },
+      { title: getPhotoTitleFromPath('/Calanques/Calanque Port d\'alon Saint Cyr sur mer.webp', 'Calanque de Port d\'Alon'), image: '/Calanques/Calanque Port d\'alon Saint Cyr sur mer.webp' },
     ],
     description: 'Entre Saint-Cyr-sur-Mer et Bandol, une calanque préservée au cœur d\'une forêt de pins.',
   },
@@ -85,7 +86,7 @@ const photoLocations = [
     coordinates: [43.4308, 6.8631],
     collection: 'calanques',
     photos: [
-      { title: 'Calanque Agay', image: '/Calanques/Calanque-agay.webp' },
+      { title: getPhotoTitleFromPath('/Calanques/Calanque-agay.webp', 'Agay'), image: '/Calanques/Calanque-agay.webp' },
     ],
     description: 'Les roches rouges de l\'Estérel plongent dans les eaux bleu intense de la Méditerranée.',
   },
@@ -96,8 +97,8 @@ const photoLocations = [
     coordinates: [43.1975, 5.6089],
     collection: 'sunset',
     photos: [
-      { title: 'La Ciotat - Route des Crêtes', image: '/Sunset/Coucher de soleil La Ciotat éléphant routedes crêtes.webp' },
-      { title: 'Ciel de Feu', image: '/Sunset/sunset fire la ciotat.webp' },
+      { title: getPhotoTitleFromPath('/Sunset/Coucher de soleil La Ciotat éléphant routedes crêtes.webp', 'Route des Crêtes, La Ciotat'), image: '/Sunset/Coucher de soleil La Ciotat éléphant routedes crêtes.webp' },
+      { title: getPhotoTitleFromPath('/Sunset/sunset fire la ciotat.webp', 'La Ciotat'), image: '/Sunset/sunset fire la ciotat.webp' },
     ],
     description: 'La mythique route des crêtes offre des vues spectaculaires sur le bec de l\'Aigle et le rocher de l\'éléphant.',
   },
@@ -107,8 +108,8 @@ const photoLocations = [
     coordinates: [43.2878, 5.3546],
     collection: 'sunset',
     photos: [
-      { title: 'Catalans - Marseille', image: '/Sunset/Sunset catalans marseille.webp' },
-      { title: 'Plage des Catalans', image: '/Sunset/Sunset catalans.webp' },
+      { title: getPhotoTitleFromPath('/Sunset/Sunset catalans marseille.webp', 'Plage des Catalans, Marseille'), image: '/Sunset/Sunset catalans marseille.webp' },
+      { title: getPhotoTitleFromPath('/Sunset/Sunset catalans.webp', 'Plage des Catalans, Marseille'), image: '/Sunset/Sunset catalans.webp' },
     ],
     description: 'La plage emblématique de Marseille, à deux pas du Vieux-Port.',
   },
@@ -118,7 +119,7 @@ const photoLocations = [
     coordinates: [43.3614, 5.3089],
     collection: 'sunset',
     photos: [
-      { title: 'L\'Estaque', image: '/Sunset/sunset l\'estaque Marseille.jpg' },
+      { title: getPhotoTitleFromPath('/Sunset/sunset l\'estaque Marseille.webp', 'L\'Estaque, Marseille'), image: '/Sunset/sunset l\'estaque Marseille.webp' },
     ],
     description: 'Ce quartier cher à Cézanne et Braque offre des couchers de soleil uniques sur la rade de Marseille.',
   },
@@ -128,7 +129,7 @@ const photoLocations = [
     coordinates: [43.1740, 5.6044],
     collection: 'sunset',
     photos: [
-      { title: 'Port Saint-Jean', image: '/Sunset/sunset port saintjean la ciotat.webp' },
+      { title: getPhotoTitleFromPath('/Sunset/sunset port saintjean la ciotat.webp', 'Port Saint-Jean, La Ciotat'), image: '/Sunset/sunset port saintjean la ciotat.webp' },
     ],
     description: 'Un petit port pittoresque au pied des falaises, idéal pour les couchers de soleil.',
   },
@@ -138,7 +139,7 @@ const photoLocations = [
     coordinates: [43.2933, 5.3458],
     collection: 'sunset',
     photos: [
-      { title: 'Bain des Dames', image: '/Sunset/sunset serpent bain des dames marseille.webp' },
+      { title: getPhotoTitleFromPath('/Sunset/sunset serpent bain des dames marseille.webp', 'Bain des Dames, Marseille'), image: '/Sunset/sunset serpent bain des dames marseille.webp' },
     ],
     description: 'Site de baignade historique avec sa sculpture de serpent emblématique.',
   },
