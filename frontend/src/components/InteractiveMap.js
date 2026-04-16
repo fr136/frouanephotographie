@@ -52,7 +52,7 @@ const photoLocations = [
   {
     id: 'loc-2',
     name: 'Calanque des Anglais',
-    coordinates: [43.2073, 5.4269],
+    coordinates: [43.42737, 6.87978],
     collection: 'calanques',
     photos: [
       { title: getPhotoTitleFromPath('/Calanques/Calanque des anglais.webp', 'Calanque des Anglais'), image: '/Calanques/Calanque des anglais.webp' },
