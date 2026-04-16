@@ -11,6 +11,9 @@ import '../styles/photography.css';
 
 const Contact = () => {
   const { photographer } = mockData;
+  const contactHeroImage = '/contact/contact-hero.jpg';
+  const contactIllustrationImage = '/contact/contact-illustration.jpg';
+  const contactCtaImage = '/contact/contact-cta.jpg';
 
   const [formData, setFormData] = useState({
     name: '',
@@ -69,7 +72,7 @@ const handleSubmit = async (e) => {
       <section
         className="relative min-h-[70vh] flex items-center justify-center"
         style={{
-          backgroundImage: "url('https://images.unsplash.com/photo-1712227609859-2818504d07cb?w=1400&q=80')",
+          backgroundImage: `url('${contactHeroImage}')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundAttachment: 'fixed',
@@ -126,7 +129,7 @@ const handleSubmit = async (e) => {
                 <h2 className="section-title mb-6">Coordonnées</h2>
                 <div className="gold-line mb-8"></div>
                 <p className="body-large mb-8">
-                  N'hésitez pas à me contacter pour toute question concernant mes œuvres, une commande personnalisée, ou simplement pour discuter de photographie maritime.
+                  N'hésitez pas à me contacter pour toute question concernant mes œuvres, une commande personnalisée, ou simplement pour discuter de paysages méditerranéens.
                 </p>
 
                 <div className="space-y-6">
@@ -166,7 +169,8 @@ const handleSubmit = async (e) => {
               <FadeInOnScroll delay={0.3}>
                 <div className="mt-12 image-container aspect-[4/3] rounded-sm overflow-hidden">
                   <img
-                    src="https://images.unsplash.com/photo-1712227609859-2818504d07cb?w=800&q=80" loading="lazy"
+                    src={contactIllustrationImage}
+                    loading="lazy"
                     alt="Paysage méditerranéen"
                     className="image-zoom"
                   />
@@ -357,7 +361,7 @@ const handleSubmit = async (e) => {
       <section
         className="relative py-32"
         style={{
-          backgroundImage: 'url(https://images.unsplash.com/photo-1627041193914-66f1cf8fbf4f?w=1400&q=80)',
+          backgroundImage: `url('${contactCtaImage}')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundAttachment: 'fixed',
