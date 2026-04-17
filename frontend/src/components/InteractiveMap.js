@@ -51,14 +51,14 @@ const photoLocations = [
   },
   {
     id: 'loc-2',
-    name: 'Calanque des Anglais',
+    name: 'Calanque des Anglais, Agay',
     coordinates: [43.42737, 6.87978],
     collection: 'calanques',
     photos: [
       { title: getPhotoTitleFromPath('/Calanques/Calanque des anglais.webp', 'Calanque des Anglais'), image: '/Calanques/Calanque des anglais.webp' },
       { title: getPhotoTitleFromPath('/Calanques/Calanque des anglais 4.webp', 'Calanque des Anglais'), image: '/Calanques/Calanque des anglais 4.webp' },
     ],
-    description: 'Une petite crique intimiste au pied des falaises calcaires, idéale pour la plongée.',
+    description: 'À Agay, cette crique bordée de roches rouges offre une eau limpide et une lumière très graphique sur l’Estérel.',
   },
   {
     id: 'loc-3',
@@ -79,16 +79,6 @@ const photoLocations = [
       { title: getPhotoTitleFromPath('/Calanques/Calanque Port d\'alon Saint Cyr sur mer.webp', 'Calanque de Port d\'Alon'), image: '/Calanques/Calanque Port d\'alon Saint Cyr sur mer.webp' },
     ],
     description: 'Entre Saint-Cyr-sur-Mer et Bandol, une calanque préservée au cœur d\'une forêt de pins.',
-  },
-  {
-    id: 'loc-5',
-    name: 'Agay',
-    coordinates: [43.4308, 6.8631],
-    collection: 'calanques',
-    photos: [
-      { title: getPhotoTitleFromPath('/Calanques/Calanque-agay.webp', 'Agay'), image: '/Calanques/Calanque-agay.webp' },
-    ],
-    description: 'Les roches rouges de l\'Estérel plongent dans les eaux bleu intense de la Méditerranée.',
   },
   // SUNSET
   {
@@ -298,6 +288,7 @@ const InteractiveMap = ({ isOpen, onClose, initialCollection = 'all' }) => {
         <AnimatePresence>
           {selectedLocation && (
             <motion.div
+              key={selectedLocation.id}
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
@@ -317,7 +308,7 @@ const InteractiveMap = ({ isOpen, onClose, initialCollection = 'all' }) => {
                   <p className="text-white/60 text-sm uppercase tracking-wider">Photos de ce lieu</p>
                   {selectedLocation.photos.map((photo, index) => (
                     <motion.div
-                      key={index}
+                      key={photo.image}
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: index * 0.1 }}
