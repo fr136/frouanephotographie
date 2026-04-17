@@ -33,6 +33,11 @@ backend/.env
 **/config/secrets.json
 **/prodigi-key.txt
 
+# Secret cleanup tooling
+secrets-to-remove.txt
+repo-mirror.git/
+bfg*.jar
+
 # Logs
 *.log
 logs/
