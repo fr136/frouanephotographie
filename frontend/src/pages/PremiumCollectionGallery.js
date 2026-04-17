@@ -486,6 +486,7 @@ const GalleryItem = ({ photo, index, isFeatured, onClick, onWishlist, inWishlist
           src={photo.imageUrl}
           alt={photo.title}
           eager={index < 4}
+          wrapperStyle={{ position: 'absolute', inset: 0, width: '100%', height: '100%' }}
         />
         
         {/* Featured badge */}
