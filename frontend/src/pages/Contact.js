@@ -22,30 +22,73 @@ const Contact = () => {
     subject: '',
     message: ''
   });
+  const [loading, setLoading] = useState(false);
+  const [errors, setErrors] = useState({});
+
+  // ── Validation ─────────────────────────────────────────────────────────────
+  const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+  const PHONE_RE = /^[+]?[\d\s\-().]{6,20}$/;
+  const MSG_MAX  = 2000;
+
+  const stripHtml = (str) => str.replace(/<[^>]*>/g, '').replace(/[<>]/g, '');
+
+  const validate = (data) => {
+    const e = {};
+    if (!data.name.trim() || data.name.trim().length < 2)
+      e.name = 'Le nom doit contenir au moins 2 caractères.';
+    if (data.name.trim().length > 100)
+      e.name = 'Le nom ne peut pas dépasser 100 caractères.';
+    if (!EMAIL_RE.test(data.email))
+      e.email = 'Adresse email invalide.';
+    if (data.phone && !PHONE_RE.test(data.phone))
+      e.phone = 'Format de téléphone invalide.';
+    if (!data.subject)
+      e.subject = 'Veuillez sélectionner un sujet.';
+    if (!data.message.trim() || data.message.trim().length < 10)
+      e.message = 'Le message doit contenir au moins 10 caractères.';
+    if (data.message.length > MSG_MAX)
+      e.message = `Le message ne peut pas dépasser ${MSG_MAX} caractères.`;
+    return e;
+  };
 
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+    if (errors[name]) setErrors(prev => ({ ...prev, [name]: undefined }));
   };
-  
-const handleSubmit = async (e) => {
-  e.preventDefault();
-  try {
-     toast({
-      title: 'Message envoyé !',
-      description: 'Merci pour votre message. Je vous répondrai dans les plus brefs délais.'
-    });
-    setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
-  } catch (error) {
-    toast({
-      title: 'Erreur',
-      description: 'Impossible d\'envoyer le message. Veuillez réessayer.',
-      variant: 'destructive'
-    });
-  }
-};
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const validation = validate(formData);
+    if (Object.keys(validation).length > 0) {
+      setErrors(validation);
+      return;
+    }
+    setLoading(true);
+    try {
+      const sanitized = {
+        ...formData,
+        name:    formData.name.trim().slice(0, 100),
+        message: stripHtml(formData.message).slice(0, MSG_MAX),
+        phone:   formData.phone.trim().slice(0, 20),
+      };
+      await contactAPI.submit(sanitized);
+      toast({
+        title: 'Message envoyé !',
+        description: 'Merci pour votre message. Je vous répondrai dans les plus brefs délais.'
+      });
+      setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
+      setErrors({});
+    } catch {
+      toast({
+        title: 'Erreur',
+        description: 'Impossible d\'envoyer le message. Veuillez réessayer.',
+        variant: 'destructive'
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const reassurance = [
     { icon: Image, text: 'Tirages Fine Art sur papier Hahnemühle' },
@@ -184,65 +227,59 @@ const handleSubmit = async (e) => {
                 <h2 className="section-title mb-6">Envoyez-moi un message</h2>
                 <div className="gold-line mb-8"></div>
 
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form onSubmit={handleSubmit} className="space-y-6" noValidate>
                   <div>
-                    <label htmlFor="name" className="block font-semibold mb-2">
-                      Nom complet *
-                    </label>
+                    <label htmlFor="name" className="block font-semibold mb-2">Nom complet *</label>
                     <input
                       type="text"
                       id="name"
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[var(--color-gold)] focus:border-transparent transition-all"
+                      maxLength={100}
+                      className={`w-full px-4 py-3 border focus:outline-none focus:ring-2 focus:ring-[var(--color-gold)] focus:border-transparent transition-all ${errors.name ? 'border-red-400' : 'border-gray-300'}`}
                       placeholder="Votre nom"
                     />
+                    {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name}</p>}
                   </div>
 
                   <div>
-                    <label htmlFor="email" className="block font-semibold mb-2">
-                      Adresse email *
-                    </label>
+                    <label htmlFor="email" className="block font-semibold mb-2">Adresse email *</label>
                     <input
                       type="email"
                       id="email"
                       name="email"
                       value={formData.email}
                       onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[var(--color-gold)] focus:border-transparent transition-all"
+                      className={`w-full px-4 py-3 border focus:outline-none focus:ring-2 focus:ring-[var(--color-gold)] focus:border-transparent transition-all ${errors.email ? 'border-red-400' : 'border-gray-300'}`}
                       placeholder="votre@email.com"
                     />
+                    {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
                   </div>
 
                   <div>
-                    <label htmlFor="phone" className="block font-semibold mb-2">
-                      Téléphone (optionnel)
-                    </label>
+                    <label htmlFor="phone" className="block font-semibold mb-2">Téléphone (optionnel)</label>
                     <input
                       type="tel"
                       id="phone"
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[var(--color-gold)] focus:border-transparent transition-all"
-                      placeholder="06 12 34 56 78"
+                      maxLength={20}
+                      className={`w-full px-4 py-3 border focus:outline-none focus:ring-2 focus:ring-[var(--color-gold)] focus:border-transparent transition-all ${errors.phone ? 'border-red-400' : 'border-gray-300'}`}
+                      placeholder="+33 6 12 34 56 78"
                     />
+                    {errors.phone && <p className="text-red-500 text-xs mt-1">{errors.phone}</p>}
                   </div>
 
                   <div>
-                    <label htmlFor="subject" className="block font-semibold mb-2">
-                      Sujet *
-                    </label>
+                    <label htmlFor="subject" className="block font-semibold mb-2">Sujet *</label>
                     <select
                       id="subject"
                       name="subject"
                       value={formData.subject}
                       onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[var(--color-gold)] focus:border-transparent transition-all"
+                      className={`w-full px-4 py-3 border focus:outline-none focus:ring-2 focus:ring-[var(--color-gold)] focus:border-transparent transition-all ${errors.subject ? 'border-red-400' : 'border-gray-300'}`}
                     >
                       <option value="">-- Sélectionner un sujet --</option>
                       <option value="Commande tirage">Commande tirage</option>
@@ -250,30 +287,40 @@ const handleSubmit = async (e) => {
                       <option value="Renseignements">Renseignements</option>
                       <option value="Collaboration">Collaboration</option>
                     </select>
+                    {errors.subject && <p className="text-red-500 text-xs mt-1">{errors.subject}</p>}
                   </div>
 
                   <div>
-                    <label htmlFor="message" className="block font-semibold mb-2">
-                      Message *
-                    </label>
+                    <label htmlFor="message" className="block font-semibold mb-2">Message *</label>
                     <textarea
                       id="message"
                       name="message"
                       value={formData.message}
                       onChange={handleChange}
-                      required
+                      maxLength={MSG_MAX}
                       rows={6}
-                      className="w-full px-4 py-3 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[var(--color-gold)] focus:border-transparent resize-none transition-all"
+                      className={`w-full px-4 py-3 border focus:outline-none focus:ring-2 focus:ring-[var(--color-gold)] focus:border-transparent resize-none transition-all ${errors.message ? 'border-red-400' : 'border-gray-300'}`}
                       placeholder="Votre message..."
                     />
+                    <div className="flex justify-between items-center mt-1">
+                      {errors.message
+                        ? <p className="text-red-500 text-xs">{errors.message}</p>
+                        : <span />}
+                      <span className={`text-xs ${formData.message.length > MSG_MAX * 0.9 ? 'text-orange-500' : 'text-gray-400'}`}>
+                        {formData.message.length}/{MSG_MAX}
+                      </span>
+                    </div>
                   </div>
 
                   <button
                     type="submit"
-                    className="btn-gold w-full inline-flex items-center justify-center gap-2"
+                    disabled={loading}
+                    className="btn-gold w-full inline-flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed"
                   >
-                    <Send size={18} />
-                    Envoyer ma demande
+                    {loading
+                      ? <span className="inline-block w-4 h-4 border-2 border-white/40 border-t-white rounded-full animate-spin" />
+                      : <Send size={18} />}
+                    {loading ? 'Envoi en cours…' : 'Envoyer ma demande'}
                   </button>
                 </form>
 

@@ -24,6 +24,7 @@ import {
   Film,
   Play,
 } from "lucide-react";
+import LazyImage from "../components/LazyImage";
 
 import "../styles/photography.css";
 import "../styles/premium-gallery.css";
@@ -34,9 +35,9 @@ const COLLECTION_THEMES = {
     id: 'calanques',
     theme: 'collection-calanques',
     title: 'Calanques',
-    subtitle: 'Méditerranée Sauvage',
+    subtitle: 'La Beauté de notre Méditerranée',
     tagline: 'Entre ciel et mer, là où la roche blanche rencontre le turquoise infini',
-    description: 'Explorez les fjords méditerranéens, ces joyaux minéraux sculptés par le temps où la lumière joue avec les eaux cristallines.',
+    description: 'Explorez les criques, ces joyaux minéraux sculptés par le temps où la lumière joue avec les eaux cristallines.',
     quote: "Les Calanques sont un sanctuaire de lumière, un endroit où le temps semble suspendu entre les falaises blanches et l'azur profond.",
     coverImage: '/Calanques/Cover.jpg',
     atmosphere: ['Lumineux', 'Minéral', 'Méditerranéen'],
@@ -481,10 +482,10 @@ const GalleryItem = ({ photo, index, isFeatured, onClick, onWishlist, inWishlist
       data-testid={`gallery-item-${photo.id}`}
     >
       <div className="gallery-item-inner">
-        <img 
-          src={photo.imageUrl} 
+        <LazyImage
+          src={photo.imageUrl}
           alt={photo.title}
-          loading={index < 4 ? "eager" : "lazy"}
+          eager={index < 4}
         />
         
         {/* Featured badge */}
@@ -543,8 +544,8 @@ const EcologySection = ({ ecology, collection }) => {
     sunset: {
       title: 'Respecter le littoral',
       intro: "Ces couchers de soleil que je capture, c'est la Méditerranée dans toute sa splendeur. Mais derrière la beauté, il y a un écosystème fragile qui mérite notre respect.",
-      quote: "« Le soleil se couche sur la même mer depuis des millénaires. À nous de faire en sorte qu'il continue de le faire. »",
-      quoteAuthor: "Pêcheur de La Ciotat",
+      quote: "« Ces spots, on les a trouvés un matin en marchant seul dans le silence. Si tu balances les coordonnées GPS, dans deux ans il reste des canettes et du bruit. Certaines beautés, ça se mérite — et ça se tait. »",
+      quoteAuthor: "Habitant des côtes, La Ciotat",
       conseils: [
         { titre: 'Pas de feu sur la côte', description: "Le risque d'incendie est permanent. Un mégot mal éteint peut ravager des hectares de garrigue." },
         { titre: 'Respectez la faune', description: "Au crépuscule, les oiseaux marins regagnent leurs nids. Évitez le bruit et les flashs." },

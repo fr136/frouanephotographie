@@ -10,10 +10,32 @@ dist/
 /.next/
 /out/
 
-# Environment
+# Environment — secrets (never commit)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env.production
 *.env
 *.env.*
+backend/.env
 !.env.example
+!backend/.env.example
+
+# Certificates & keys
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Sensitive config
+**/config/secrets.json
+**/prodigi-key.txt
+
+# Logs
+*.log
+logs/
 
 # IDE
 .idea/

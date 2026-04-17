@@ -73,7 +73,7 @@ const photoLocations = [
   {
     id: 'loc-4',
     name: 'Calanque de Port d\'Alon',
-    coordinates: [43.1612, 5.6983],
+    coordinates: [43.149, 5.712],
     collection: 'calanques',
     photos: [
       { title: getPhotoTitleFromPath('/Calanques/Calanque Port d\'alon Saint Cyr sur mer.webp', 'Calanque de Port d\'Alon'), image: '/Calanques/Calanque Port d\'alon Saint Cyr sur mer.webp' },
@@ -94,7 +94,7 @@ const photoLocations = [
   {
     id: 'loc-6',
     name: 'La Ciotat - Route des Crêtes',
-    coordinates: [43.1975, 5.6089],
+    coordinates: [43.215270, 5.552392],
     collection: 'sunset',
     photos: [
       { title: getPhotoTitleFromPath('/Sunset/Coucher de soleil La Ciotat éléphant routedes crêtes.webp', 'Route des Crêtes, La Ciotat'), image: '/Sunset/Coucher de soleil La Ciotat éléphant routedes crêtes.webp' },
@@ -126,7 +126,7 @@ const photoLocations = [
   {
     id: 'loc-9',
     name: 'Port Saint-Jean, La Ciotat',
-    coordinates: [43.1740, 5.6044],
+    coordinates: [43.186421, 5.628465],
     collection: 'sunset',
     photos: [
       { title: getPhotoTitleFromPath('/Sunset/sunset port saintjean la ciotat.webp', 'Port Saint-Jean, La Ciotat'), image: '/Sunset/sunset port saintjean la ciotat.webp' },
@@ -136,7 +136,7 @@ const photoLocations = [
   {
     id: 'loc-10',
     name: 'Bain des Dames',
-    coordinates: [43.2933, 5.3458],
+    coordinates: [43.23995, 5.36246],
     collection: 'sunset',
     photos: [
       { title: getPhotoTitleFromPath('/Sunset/sunset serpent bain des dames marseille.webp', 'Bain des Dames, Marseille'), image: '/Sunset/sunset serpent bain des dames marseille.webp' },

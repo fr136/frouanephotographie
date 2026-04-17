@@ -7,7 +7,7 @@ export const collectionsData = [
     subtitle: "Les joyaux cachés de la côte",
     slug: "calanques-marseille",
     category: "calanques",
-    description: "Explorez la beauté sauvage des calanques, ces fjords méditerranéens où la roche blanche plonge dans les eaux turquoise cristallines. Un écosystème unique et fragile à préserver.",
+    description: "Explorez la beauté sauvage des calanques, ces criques où la roche blanche plonge dans les eaux turquoise cristallines. Un écosystème unique et fragile à préserver.",
     
     // Contenu enrichi
     anecdote: "Les Calanques sont nées il y a 120 millions d'années, lorsque la mer a envahi les vallées creusées par les rivières. Ce labyrinthe de calcaire blanc cache des grottes sous-marines et des criques secrètes accessibles seulement par la mer. Chaque lever de soleil révèle une palette de couleurs changeantes sur ces falaises majestueuses.",

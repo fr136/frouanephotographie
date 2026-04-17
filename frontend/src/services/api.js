@@ -24,7 +24,9 @@ async function apiCall(url, options = {}) {
     }
     return data;
   } catch (error) {
-    console.error(`API error [${url}]:`, error);
+    if (process.env.NODE_ENV === 'development') {
+      console.error(`API error [${url}]:`, error);
+    }
     throw error;
   }
 }
@@ -84,8 +86,9 @@ export const prodigiAPI = {
 export const contactAPI = {
   submit: async ({ name, email, phone, subject, message }) => {
     if (!BACKEND_URL) {
-      // Fallback local si pas de backend
-      console.log('Contact form (no backend):', { name, email, subject });
+      if (process.env.NODE_ENV === 'development') {
+        console.log('Contact form (no backend) — dev only');
+      }
       return { success: true, message: 'Message enregistré localement' };
     }
     return apiCall(`${API}/contact`, {
@@ -103,7 +106,9 @@ export const contactAPI = {
 export const newsletterAPI = {
   subscribe: async (email) => {
     if (!BACKEND_URL) {
-      console.log('Newsletter subscribe (no backend):', email);
+      if (process.env.NODE_ENV === 'development') {
+        console.log('Newsletter subscribe (no backend) — dev only');
+      }
       return { success: true, message: 'Inscription enregistrée localement' };
     }
     return apiCall(`${API}/newsletter/subscribe`, {
@@ -151,7 +156,7 @@ export const checkoutAPI = {
 const LOCAL_COLLECTIONS = [
   {
     id: 'calanques',
-    title: 'Marseille',
+    title: 'Calanques',
     subtitle: 'Les Calanques',
     description: 'Découvrez la beauté sauvage des Calanques de Marseille à La Ciotat.',
     category: 'calanques',

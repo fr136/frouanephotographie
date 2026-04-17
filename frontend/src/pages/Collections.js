@@ -28,7 +28,7 @@ const Collections = () => {
 
   const categories = [
     { id: "all", label: "Toutes" },
-    { id: "calanques", label: "Marseille" },
+    { id: "calanques", label: "Calanques" },
     { id: "sunset", label: "Couchers de Soleil" },
   ];
 
@@ -53,7 +53,7 @@ const Collections = () => {
       />
       {/* HERO */}
       <section className="pt-32 pb-16 text-white relative overflow-hidden" style={{
-        backgroundImage: "url(/Calanques/Calanque Port d'alon Saint Cyr sur mer.webp)",
+        backgroundImage: "url(/Calanques/Cover.jpg)",
         backgroundSize: "cover",
         backgroundPosition: "center"
       }}>
@@ -83,7 +83,7 @@ const Collections = () => {
 
       {/* GRID */}
       <section className="py-16 container-photo">
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 gap-8">
           {filteredCollections.map((collection) => (
             <div
               key={collection.id}
