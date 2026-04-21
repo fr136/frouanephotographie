@@ -30,7 +30,8 @@
     "start": "craco start",
     "build": "cross-env CI=false craco build",
     "test": "craco test",
-    "upload:blob-masters": "node ./scripts/upload-print-assets.mjs"
+    "upload:blob-masters": "node ./scripts/upload-print-assets.mjs",
+    "upload:blob-product": "node ./scripts/upload-print-assets.mjs"
   },
   "browserslist": {
     "production": [

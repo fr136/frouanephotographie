@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
-import { ShoppingCart, Eye, Heart, X, CreditCard } from 'lucide-react';
+import React, { useEffect, useState } from 'react';
+import { Eye, Heart, X, CreditCard } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useSearchParams } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import { checkoutAPI } from '../services/api';
 import SEOHead from '../components/SEOHead';
@@ -175,7 +176,8 @@ const Shop = () => {
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [selectedSize, setSelectedSize] = useState(null);
   const [isLoadingCheckout, setIsLoadingCheckout] = useState(false);
-  const { addToCart, addToWishlist, isInWishlist } = useCart();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const { addToWishlist, isInWishlist } = useCart();
 
   const categories = [
     { id: 'all', label: 'Tous les tirages' },
@@ -187,24 +189,38 @@ const Shop = () => {
     ? shopProducts
     : shopProducts.filter((p) => p.category === selectedCategory);
 
+  const isBlobUrlPublic = (blobUrl) => {
+    try {
+      const parsed = new URL(blobUrl);
+      return ['http:', 'https:'].includes(parsed.protocol) && !['localhost', '127.0.0.1', '0.0.0.0'].includes(parsed.hostname);
+    } catch {
+      return false;
+    }
+  };
+
+  const isProductSellable = (product) => isBlobUrlPublic(product?.printAsset?.blobUrl);
+
+  useEffect(() => {
+    if (searchParams.get('checkout') !== 'cancelled') {
+      return;
+    }
+
+    toast({
+      title: 'Paiement annulé',
+      description: 'Votre paiement n’a pas été finalisé. Aucun débit n’a été effectué.',
+      variant: 'destructive',
+    });
+
+    const nextParams = new URLSearchParams(searchParams);
+    nextParams.delete('checkout');
+    setSearchParams(nextParams, { replace: true });
+  }, [searchParams, setSearchParams]);
+
   const getPriceBySize = (basePrice, size) => {
     if (size?.includes('100x150')) return basePrice + 150;
     if (size?.includes('70x105')) return basePrice + 80;
     if (size?.includes('50x75')) return basePrice + 40;
     return basePrice;
-  };
-
-  const handleAddToCart = (product, size) => {
-    if (!size) {
-      alert('Veuillez sélectionner un format');
-      return;
-    }
-    const finalPrice = getPriceBySize(product.price, size);
-    addToCart({
-      ...product,
-      selectedSize: size,
-      finalPrice
-    });
   };
 
   const handleBuyNow = async (product, size) => {
@@ -217,26 +233,21 @@ const Shop = () => {
       return;
     }
 
-    if (!product.printAsset?.blobUrl) {
+    if (!isProductSellable(product)) {
       toast({
-        title: 'Fichier d\'impression manquant',
-        description: `Cette oeuvre n'est pas encore reliee a son master Vercel Blob. Fichier attendu : ${product.printAsset?.blobPathname || 'non configure'}`,
+        title: 'Tirage indisponible',
+        description: `Cette oeuvre n'a pas encore d'URL publique Vercel Blob valide. Produit concerne : ${product.id}.`,
         variant: 'destructive',
       });
       return;
     }
 
-    const finalPrice = getPriceBySize(product.price, size);
-    const imageUrl = product.printAsset.blobUrl;
-
     setIsLoadingCheckout(true);
     try {
       const session = await checkoutAPI.createSession([
         {
-          title: product.title,
+          product_id: product.id,
           size,
-          image_url: imageUrl,
-          price: finalPrice * 100, // en centimes
           quantity: 1,
         },
       ]);
@@ -244,7 +255,7 @@ const Shop = () => {
     } catch (err) {
       toast({
         title: 'Paiement indisponible',
-        description: 'Le service de paiement est momentanément indisponible. Veuillez réessayer plus tard.',
+        description: err.message || 'Le service de paiement est momentanément indisponible. Veuillez réessayer plus tard.',
         variant: 'destructive',
       });
       setIsLoadingCheckout(false);
@@ -461,28 +472,25 @@ const Shop = () => {
                     <p className="text-gray-400 text-sm">{selectedProduct.edition}</p>
                   </div>
 
-                  {/* Add to cart */}
-                  <button
-                    onClick={() => {
-                      handleAddToCart(selectedProduct, selectedSize);
-                      setSelectedProduct(null);
-                      setSelectedSize(null);
-                    }}
-                    className="w-full bg-black text-white py-4 font-medium uppercase tracking-wider hover:bg-[var(--color-gold)] transition-colors flex items-center justify-center gap-2"
-                  >
-                    <ShoppingCart size={20} />
-                    Ajouter au panier
-                  </button>
-
                   {/* Acheter maintenant */}
                   <button
                     onClick={() => handleBuyNow(selectedProduct, selectedSize)}
-                    disabled={isLoadingCheckout}
-                    className="w-full mt-3 border-2 border-black text-black py-4 font-medium uppercase tracking-wider hover:bg-black hover:text-white transition-colors flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                    disabled={isLoadingCheckout || !isProductSellable(selectedProduct)}
+                    className="w-full border-2 border-black text-black py-4 font-medium uppercase tracking-wider hover:bg-black hover:text-white transition-colors flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     <CreditCard size={20} />
-                    {isLoadingCheckout ? 'Redirection en cours…' : 'Acheter maintenant'}
+                    {isLoadingCheckout
+                      ? 'Redirection en cours…'
+                      : isProductSellable(selectedProduct)
+                      ? 'Acheter maintenant'
+                      : 'Tirage indisponible'}
                   </button>
+
+                  <p className="mt-3 text-sm text-gray-500">
+                    {isProductSellable(selectedProduct)
+                      ? 'Le tunnel MVP passe par le paiement direct. Le panier multi-articles reste masqué tant qu\'il n\'est pas relié à un checkout réel.'
+                      : 'Ce tirage ne peut pas être vendu tant qu\'une URL publique Vercel Blob réelle n\'est pas enregistrée pour ce produit.'}
+                  </p>
 
                   {/* Info */}
                   <div className="mt-6 pt-6 border-t border-gray-100 text-sm text-gray-500">

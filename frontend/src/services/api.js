@@ -126,7 +126,7 @@ export const newsletterAPI = {
 export const checkoutAPI = {
   /**
    * Créer une session Stripe Checkout
-   * @param {Array} items - [{ title, size, image_url, price (centimes), quantity }]
+   * @param {Array} items - [{ product_id?, size, image_url?, quantity }]
    * @param {string} customerEmail - optionnel
    * @returns {Object} { session_id, url }
    */

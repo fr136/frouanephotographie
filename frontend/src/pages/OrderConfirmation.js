@@ -1,10 +1,50 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { CheckCircle, AlertCircle, Mail, ShoppingBag } from 'lucide-react';
 import { checkoutAPI } from '../services/api';
 import SEOHead from '../components/SEOHead';
 import '../styles/photography.css';
+
+const shouldPollOrderStatus = (sessionData) => {
+  return sessionData?.status === 'paid' && (!sessionData?.order_status || sessionData.order_status === 'checkout_created');
+};
+
+const getOrderPresentation = (session) => {
+  if (session?.order_status === 'submitted_to_prodigi') {
+    return {
+      icon: CheckCircle,
+      iconClassName: 'text-green-500',
+      heading: 'Commande confirmee',
+      message: "Votre paiement a ete accepte et la commande a bien ete transmise a l'atelier d'impression.",
+      orderLabel: 'Transmise a Prodigi',
+      orderClassName: 'text-green-600',
+      tone: 'success',
+    };
+  }
+
+  if (session?.order_status === 'prodigi_failed') {
+    return {
+      icon: AlertCircle,
+      iconClassName: 'text-red-500',
+      heading: 'Paiement recu, commande bloquee',
+      message: "Le paiement a ete accepte mais la commande d'impression n'a pas ete transmise. Ne repassez pas commande.",
+      orderLabel: 'Echec de transmission',
+      orderClassName: 'text-red-600',
+      tone: 'error',
+    };
+  }
+
+  return {
+    icon: AlertCircle,
+    iconClassName: 'text-[var(--color-gold)]',
+    heading: 'Paiement confirme',
+    message: "Votre paiement est confirme. La commande d'impression est en cours de finalisation.",
+    orderLabel: 'Finalisation en cours',
+    orderClassName: 'text-[var(--color-gold)]',
+    tone: 'pending',
+  };
+};
 
 const OrderConfirmation = () => {
   const [searchParams] = useSearchParams();
@@ -15,15 +55,50 @@ const OrderConfirmation = () => {
 
   useEffect(() => {
     if (!sessionId) {
-      setErreur('Aucune session de paiement trouvée.');
+      setErreur('Aucune session de paiement trouvee.');
       setChargement(false);
       return;
     }
-    checkoutAPI
-      .getSession(sessionId)
-      .then((data) => setSession(data))
-      .catch(() => setErreur('Impossible de récupérer les détails de votre commande.'))
-      .finally(() => setChargement(false));
+
+    let isCancelled = false;
+    let timeoutId;
+    let pollAttempts = 0;
+
+    const loadSession = async () => {
+      try {
+        const data = await checkoutAPI.getSession(sessionId);
+        if (isCancelled) {
+          return;
+        }
+
+        setSession(data);
+        setErreur(null);
+
+        if (shouldPollOrderStatus(data) && pollAttempts < 5) {
+          pollAttempts += 1;
+          timeoutId = window.setTimeout(loadSession, 2000);
+          return;
+        }
+
+        setChargement(false);
+      } catch {
+        if (isCancelled) {
+          return;
+        }
+
+        setErreur('Impossible de recuperer les details de votre commande.');
+        setChargement(false);
+      }
+    };
+
+    loadSession();
+
+    return () => {
+      isCancelled = true;
+      if (timeoutId) {
+        window.clearTimeout(timeoutId);
+      }
+    };
   }, [sessionId]);
 
   const formaterMontant = (montant, devise = 'eur') => {
@@ -33,15 +108,17 @@ const OrderConfirmation = () => {
     }).format(montant / 100);
   };
 
+  const orderPresentation = session ? getOrderPresentation(session) : null;
+  const StatusIcon = orderPresentation?.icon || CheckCircle;
+
   return (
     <div className="bg-white min-h-screen">
       <SEOHead
         title="Confirmation de commande"
-        description="Votre commande de tirage d'art a bien été enregistrée. Merci pour votre confiance."
+        description="Verification du paiement et du statut de commande de votre tirage d'art."
         url="/commande/confirmation"
       />
 
-      {/* Hero */}
       <section className="pt-32 pb-20 bg-[#1a1a1a] text-white">
         <div className="container-photo text-center">
           <motion.div
@@ -60,11 +137,8 @@ const OrderConfirmation = () => {
         </div>
       </section>
 
-      {/* Contenu */}
       <section className="py-20">
         <div className="container-photo" style={{ maxWidth: '640px', marginLeft: 'auto', marginRight: 'auto' }}>
-
-          {/* Chargement */}
           {chargement && (
             <div className="text-center py-16">
               <div
@@ -78,11 +152,10 @@ const OrderConfirmation = () => {
                   animation: 'spin 0.8s linear infinite',
                 }}
               />
-              <p className="text-gray-500">Chargement de votre commande…</p>
+              <p className="text-gray-500">Verification de votre commande...</p>
             </div>
           )}
 
-          {/* Erreur */}
           {!chargement && erreur && (
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -95,12 +168,11 @@ const OrderConfirmation = () => {
               </h2>
               <p className="text-gray-500 mb-8">{erreur}</p>
               <Link to="/boutique" className="btn-gold">
-                Retour à la boutique
+                Retour a la boutique
               </Link>
             </motion.div>
           )}
 
-          {/* Succès */}
           {!chargement && session && (
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -108,35 +180,32 @@ const OrderConfirmation = () => {
               transition={{ duration: 0.6 }}
               className="text-center"
             >
-              <CheckCircle className="mx-auto mb-6 text-green-500" size={80} />
+              <StatusIcon className={`mx-auto mb-6 ${orderPresentation.iconClassName}`} size={80} />
 
               <h2 className="font-display text-3xl font-semibold mb-4">
-                Merci pour votre commande !
+                {orderPresentation.heading}
               </h2>
               <p className="text-gray-600 mb-8" style={{ maxWidth: '440px', margin: '0 auto 2rem' }}>
-                Votre paiement a été accepté. Vous recevrez une confirmation par e-mail dans quelques instants.
+                {orderPresentation.message}
               </p>
 
               <div className="w-16 h-0.5 bg-[var(--color-gold)] mx-auto mb-8"></div>
 
-              {/* Récapitulatif */}
               <div className="bg-gray-50 p-8 mb-8 text-left">
                 <h3 className="font-display text-xl font-semibold mb-6 text-center">
-                  Récapitulatif
+                  Recapitulatif
                 </h3>
                 <div>
-                  {/* Statut */}
                   <div className="flex items-center justify-between py-3 border-b border-gray-200">
                     <div className="flex items-center gap-3">
                       <CheckCircle size={18} className="text-green-500" />
                       <span className="text-gray-700">Statut du paiement</span>
                     </div>
                     <span className="font-medium text-green-600">
-                      {session.status === 'paid' ? 'Confirmé' : session.status}
+                      {session.status === 'paid' ? 'Confirme' : session.status}
                     </span>
                   </div>
 
-                  {/* Email */}
                   {session.customer_email && (
                     <div className="flex items-center justify-between py-3 border-b border-gray-200">
                       <div className="flex items-center gap-3">
@@ -149,10 +218,28 @@ const OrderConfirmation = () => {
                     </div>
                   )}
 
-                  {/* Montant */}
+                  <div className="flex items-center justify-between py-3 border-b border-gray-200">
+                    <div className="flex items-center gap-3">
+                      <ShoppingBag size={18} className="text-[var(--color-gold)]" />
+                      <span className="text-gray-700">Statut de commande</span>
+                    </div>
+                    <span className={`font-medium ${orderPresentation.orderClassName}`}>
+                      {orderPresentation.orderLabel}
+                    </span>
+                  </div>
+
+                  {session.prodigi_order_id && (
+                    <div className="flex items-center justify-between py-3 border-b border-gray-200">
+                      <span className="text-gray-700">Reference Prodigi</span>
+                      <span className="font-medium text-gray-900 text-sm">
+                        {session.prodigi_order_id}
+                      </span>
+                    </div>
+                  )}
+
                   {session.amount_total != null && (
                     <div className="flex items-center justify-between py-3">
-                      <span className="text-gray-700 font-medium">Total payé</span>
+                      <span className="text-gray-700 font-medium">Total paye</span>
                       <span className="text-2xl font-semibold text-[var(--color-gold)]">
                         {formaterMontant(session.amount_total, session.currency)}
                       </span>
@@ -161,16 +248,48 @@ const OrderConfirmation = () => {
                 </div>
               </div>
 
-              {/* Message livraison */}
-              <div className="bg-[#1a1a1a] text-white p-6 mb-8 text-sm text-left">
-                <p className="font-display text-base font-semibold mb-2">
-                  Votre tirage est en préparation
-                </p>
-                <p className="text-gray-400">
-                  Franck prépare personnellement votre tirage Fine Art. Comptez 5 à 10 jours ouvrés
-                  pour la livraison en France. Un e-mail de suivi vous sera envoyé à l'expédition.
-                </p>
-              </div>
+              {orderPresentation.tone === 'success' && (
+                <div className="bg-[#1a1a1a] text-white p-6 mb-8 text-sm text-left">
+                  <p className="font-display text-base font-semibold mb-2">
+                    Votre tirage est en preparation
+                  </p>
+                  <p className="text-gray-400">
+                    La commande est bien partie chez l'atelier. Comptez 5 a 10 jours ouvres pour la livraison en France.
+                    Un e-mail de suivi vous sera envoye a l'expedition.
+                  </p>
+                </div>
+              )}
+
+              {orderPresentation.tone === 'pending' && (
+                <div className="bg-[#1a1a1a] text-white p-6 mb-8 text-sm text-left">
+                  <p className="font-display text-base font-semibold mb-2">
+                    Verification en cours
+                  </p>
+                  <p className="text-gray-400">
+                    Stripe a confirme le paiement. Le statut d'impression est encore en attente de retour.
+                    Rechargez cette page dans quelques secondes si necessaire.
+                  </p>
+                </div>
+              )}
+
+              {orderPresentation.tone === 'error' && (
+                <div className="bg-red-50 border border-red-200 text-red-900 p-6 mb-8 text-sm text-left">
+                  <p className="font-display text-base font-semibold mb-2">
+                    Intervention manuelle requise
+                  </p>
+                  <p className="mb-3">
+                    Le paiement a ete recu, mais la commande n'a pas ete transmise a l'atelier. Ne repassez pas commande.
+                  </p>
+                  {session.order_error && (
+                    <p className="mb-3 text-red-700">
+                      Detail technique: {session.order_error}
+                    </p>
+                  )}
+                  <Link to="/contact" className="btn-outline inline-flex items-center gap-2">
+                    Contacter le support
+                  </Link>
+                </div>
+              )}
 
               <Link
                 to="/boutique"
