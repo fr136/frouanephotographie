@@ -299,6 +299,187 @@ body {
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
 
+.collections-preview-breakout {
+  width: 100%;
+  padding: 0 clamp(0.75rem, 1.5vw, 1.5rem);
+}
+
+.collections-preview-grid {
+  display: grid;
+  width: 100%;
+  gap: clamp(0.85rem, 1.5vw, 1.25rem);
+}
+
+.collections-preview-card {
+  position: relative;
+  min-height: 520px;
+  overflow: hidden;
+  background: #111111;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 26px 70px rgba(0, 0, 0, 0.08);
+  isolation: isolate;
+  transition: transform 0.45s ease, box-shadow 0.45s ease;
+}
+
+.collections-preview-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 34px 82px rgba(0, 0, 0, 0.12);
+}
+
+.collections-preview-media,
+.collections-preview-overlay,
+.collections-preview-hoverveil {
+  position: absolute;
+  inset: 0;
+}
+
+.collections-preview-media {
+  background-size: cover;
+  background-position: center;
+  transform: scale(1);
+  transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.collections-preview-card:hover .collections-preview-media {
+  transform: scale(1.04);
+}
+
+.collections-preview-overlay {
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.08) 0%,
+    rgba(0, 0, 0, 0.22) 38%,
+    rgba(0, 0, 0, 0.82) 100%
+  );
+}
+
+.collections-preview-hoverveil {
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.03) 0%,
+    rgba(0, 0, 0, 0.12) 32%,
+    rgba(0, 0, 0, 0.34) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.collections-preview-card:hover .collections-preview-hoverveil {
+  opacity: 1;
+}
+
+.collections-preview-content {
+  position: relative;
+  z-index: 1;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: clamp(1.75rem, 3vw, 2.75rem);
+  color: var(--color-white);
+}
+
+.collections-preview-kicker {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+}
+
+.collections-preview-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 4vw, 4rem);
+  font-weight: 600;
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  max-width: 10ch;
+}
+
+.collections-preview-card--secondary .collections-preview-title,
+.collections-preview-card--tertiary .collections-preview-title {
+  font-size: clamp(2rem, 3vw, 2.85rem);
+  max-width: 13ch;
+}
+
+.collections-preview-label {
+  margin-top: 1rem;
+  max-width: 30rem;
+  font-size: 0.98rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.76);
+}
+
+.collections-preview-actions {
+  margin-top: 2rem;
+}
+
+.collections-preview-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: fit-content;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-white);
+  text-decoration: none;
+  transition: color 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
+}
+
+.collections-preview-card:hover .collections-preview-cta {
+  color: var(--color-gold);
+}
+
+@media (min-width: 768px) {
+  .collections-preview-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .collections-preview-card--featured {
+    grid-column: span 2;
+    min-height: 700px;
+  }
+
+  .collections-preview-card--secondary,
+  .collections-preview-card--tertiary {
+    min-height: 580px;
+  }
+
+  .collections-preview-cta {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  .collections-preview-card:hover .collections-preview-cta {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (min-width: 1280px) {
+  .collections-preview-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-auto-rows: 1fr;
+  }
+
+  .collections-preview-card--featured {
+    grid-column: span 1;
+    min-height: 780px;
+  }
+
+  .collections-preview-card--secondary,
+  .collections-preview-card--tertiary {
+    grid-column: span 1;
+    min-height: 780px;
+  }
+}
+
 /* Responsive Spacing */
 @media (max-width: 768px) {
   :root {

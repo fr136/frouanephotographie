@@ -1,16 +1,13 @@
 import React from 'react';
 import './App.css';
-import 'leaflet/dist/leaflet.css';
 import { BrowserRouter, Routes, Route, useLocation, Navigate, Link } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import { HelmetProvider } from 'react-helmet-async';
 import { CartProvider } from './context/CartContext';
-import { ThemeProvider } from './context/ThemeContext';
 import usePageTracking from './hooks/useAnalytics';
 import useImageProtection from './hooks/useImageProtection';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import NewsletterPopup from './components/NewsletterPopup';
 import AudioPlayer from './components/AudioPlayer';
 import { CustomCursor, SmoothScrollProvider, PageTransition } from './components/PremiumEffects';
 import Home from './pages/Home';
@@ -25,7 +22,6 @@ import Confidentialite from './pages/Confidentialite';
 import OrderConfirmation from './pages/OrderConfirmation';
 import { Toaster } from './components/ui/toaster';
 import './styles/photography.css';
-import './styles/dark-mode.css';
 
 // Page 404
 const NotFound = () => (
@@ -76,7 +72,6 @@ const AppContent = () => {
         <AnimatedRoutes />
       </main>
       <Footer />
-      <NewsletterPopup />
       <AudioPlayer />
       <Toaster />
     </>
@@ -86,18 +81,16 @@ const AppContent = () => {
 function App() {
   return (
     <HelmetProvider>
-      <ThemeProvider>
-        <SmoothScrollProvider>
-          <div className="App">
-            <CustomCursor />
-            <BrowserRouter>
-              <CartProvider>
-                <AppContent />
-              </CartProvider>
-            </BrowserRouter>
-          </div>
-        </SmoothScrollProvider>
-      </ThemeProvider>
+      <SmoothScrollProvider>
+        <div className="App">
+          <CustomCursor />
+          <BrowserRouter>
+            <CartProvider>
+              <AppContent />
+            </CartProvider>
+          </BrowserRouter>
+        </div>
+      </SmoothScrollProvider>
     </HelmetProvider>
   );
 }

@@ -1,243 +1,112 @@
-import React, { useEffect, useState } from 'react';
-import { Eye, Heart, X, CreditCard } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { useSearchParams } from 'react-router-dom';
-import { useCart } from '../context/CartContext';
-import { checkoutAPI } from '../services/api';
-import SEOHead from '../components/SEOHead';
-import { toast } from '../hooks/use-toast';
-import printAssetCatalog from '../data/printAssetCatalog.json';
-import { getPhotoTitleFromPath } from '../data/photoTitles';
-import '../styles/photography.css';
+import React, { useEffect, useMemo, useState } from "react";
+import { CreditCard, Eye, Heart, X } from "lucide-react";
+import { AnimatePresence, motion } from "framer-motion";
+import { useSearchParams } from "react-router-dom";
+import { useCart } from "../context/CartContext";
+import { checkoutAPI } from "../services/api";
+import SEOHead from "../components/SEOHead";
+import { toast } from "../hooks/use-toast";
+import productCatalog from "../data/productCatalog.json";
+import printAssetCatalog from "../data/printAssetCatalog.json";
+import "../styles/photography.css";
 
-// Produits basés sur vos vraies photos
-const baseShopProducts = [
-  // CALANQUES
-  {
-    id: 'cal-001',
-    title: 'Sormiou - Vue Panoramique',
-    category: 'calanques',
-    location: 'Calanque de Sormiou, Marseille',
-    image: '/Calanques/Calanque Sormiou 2.webp',
-    description: 'Vue panoramique sur la calanque de Sormiou, joyau des calanques marseillaises. Les eaux turquoise contrastent avec les falaises calcaires.',
-    price: 150,
-    sizes: ['30x45 cm', '50x75 cm', '70x105 cm'],
-    edition: 'Édition limitée 1/25',
-    featured: true
-  },
-  {
-    id: 'cal-002',
-    title: 'Port de Cassis',
-    category: 'calanques',
-    location: 'Cassis, Bouches-du-Rhône',
-    image: '/Calanques/Port de cassis.webp',
-    description: 'Le pittoresque port de Cassis au petit matin, quand les pêcheurs préparent leurs filets.',
-    price: 120,
-    sizes: ['30x45 cm', '50x75 cm', '70x105 cm'],
-    edition: 'Édition limitée 1/25'
-  },
-  {
-    id: 'cal-003',
-    title: 'Calanque des Anglais',
-    category: 'calanques',
-    location: 'Calanque des Anglais, Marseille',
-    image: '/Calanques/Calanque des anglais.webp',
-    description: "Une crique secrète aux eaux cristallines, accessible uniquement à pied. L'essence même de la Méditerranée sauvage.",
-    price: 130,
-    sizes: ['30x45 cm', '50x75 cm', '70x105 cm'],
-    edition: 'Édition limitée 1/25'
-  },
-  {
-    id: 'cal-004',
-    title: "Port d'Alon",
-    category: 'calanques',
-    location: 'Saint-Cyr-sur-Mer',
-    image: '/Calanques/Calanque Port d\'alon Saint Cyr sur mer.webp',
-    description: 'La calanque de Port d\'Alon, entre pins et rochers, offre un panorama exceptionnel sur la côte.',
-    price: 140,
-    sizes: ['30x45 cm', '50x75 cm', '70x105 cm'],
-    edition: 'Édition limitée 1/25'
-  },
-  {
-    id: 'cal-005',
-    title: 'Sormiou au Crépuscule',
-    category: 'calanques',
-    location: 'Calanque de Sormiou, Marseille',
-    image: '/Calanques/Sormiou.webp',
-    description: 'Les dernières lueurs du jour embrasent les falaises de Sormiou dans une symphonie de couleurs.',
-    price: 160,
-    sizes: ['30x45 cm', '50x75 cm', '70x105 cm'],
-    edition: 'Édition limitée 1/20',
-    featured: true
-  },
-  {
-    id: 'cal-006',
-    title: 'Calanque Agay',
-    category: 'calanques',
-    location: 'Agay, Var',
-    image: '/Calanques/Calanque-agay.webp',
-    description: 'Les roches rouges d\'Agay plongent dans les eaux bleu intense de la Méditerranée.',
-    price: 130,
-    sizes: ['30x45 cm', '50x75 cm', '70x105 cm'],
-    edition: 'Édition limitée 1/25'
-  },
-  // SUNSET
-  {
-    id: 'sun-001',
-    title: 'La Ciotat - Route des Crêtes',
-    category: 'sunset',
-    location: 'La Ciotat, Bouches-du-Rhône',
-    image: '/Sunset/Coucher de soleil La Ciotat éléphant routedes crêtes.webp',
-    description: 'Le rocher de l\'éléphant se découpe sur un ciel embrasé, vu depuis la mythique route des crêtes.',
-    price: 180,
-    sizes: ['30x45 cm', '50x75 cm', '70x105 cm', '100x150 cm'],
-    edition: 'Édition limitée 1/15',
-    featured: true
-  },
-  {
-    id: 'sun-002',
-    title: 'Ciel de Feu',
-    category: 'sunset',
-    location: 'La Ciotat, Bouches-du-Rhône',
-    image: '/Sunset/sunset fire la ciotat.webp',
-    description: 'Quand le ciel de La Ciotat s\'embrase, offrant un spectacle pyrotechnique naturel.',
-    price: 170,
-    sizes: ['30x45 cm', '50x75 cm', '70x105 cm'],
-    edition: 'Édition limitée 1/15',
-    featured: true
-  },
-  {
-    id: 'sun-003',
-    title: 'Catalans - Marseille',
-    category: 'sunset',
-    location: 'Plage des Catalans, Marseille',
-    image: '/Sunset/Sunset catalans marseille.webp',
-    description: 'Le soleil plonge dans la Méditerranée devant la plage emblématique des Catalans.',
-    price: 140,
-    sizes: ['30x45 cm', '50x75 cm', '70x105 cm'],
-    edition: 'Édition limitée 1/20'
-  },
-  {
-    id: 'sun-004',
-    title: "L'Estaque",
-    category: 'sunset',
-    location: "L'Estaque, Marseille",
-    image: '/Sunset/sunset l\'estaque Marseille.webp',
-    description: 'L\'Estaque, ce quartier cher à Cézanne, baigné dans la lumière dorée du soir.',
-    price: 150,
-    sizes: ['30x45 cm', '50x75 cm', '70x105 cm'],
-    edition: 'Édition limitée 1/20'
-  },
-  {
-    id: 'sun-005',
-    title: 'Port Saint-Jean',
-    category: 'sunset',
-    location: 'La Ciotat, Bouches-du-Rhône',
-    image: '/Sunset/sunset port saintjean la ciotat.webp',
-    description: 'Les bateaux du port Saint-Jean se balancent doucement sous un ciel de feu.',
-    price: 130,
-    sizes: ['30x45 cm', '50x75 cm', '70x105 cm'],
-    edition: 'Édition limitée 1/25'
-  },
-  {
-    id: 'sun-006',
-    title: 'Bain des Dames',
-    category: 'sunset',
-    location: 'Marseille',
-    image: '/Sunset/sunset serpent bain des dames marseille.webp',
-    description: 'Le serpent de pierre du Bain des Dames se dessine sur le coucher de soleil marseillais.',
-    price: 140,
-    sizes: ['30x45 cm', '50x75 cm', '70x105 cm'],
-    edition: 'Édition limitée 1/20'
-  }
-];
+const CATEGORY_LABELS = {
+  calanques: "Calanques & littoral méditerranéen",
+  sunset: "Couchers de soleil",
+  sunrise: "Lever de soleil",
+};
 
-const shopProducts = baseShopProducts.map((product) => {
-  const printAsset = printAssetCatalog[product.id] || null;
+const shopProducts = Object.entries(productCatalog).map(([id, product]) => {
+  const printAsset = printAssetCatalog[id] || null;
 
-  if (printAsset && printAsset.previewImage !== product.image) {
-    console.warn(
-      `[shopProducts] Preview mismatch for ${product.id}:`,
-      product.image,
-      printAsset.previewImage
-    );
+  if (printAsset && printAsset.previewImage !== product.asset_path) {
+    console.warn(`[shopProducts] Preview mismatch for ${id}:`, product.asset_path, printAsset.previewImage);
   }
 
   return {
-    ...product,
-    title: getPhotoTitleFromPath(product.image, product.title),
-    previewImage: printAsset?.previewImage || product.image,
+    id,
+    title: product.title,
+    category: product.category,
+    location: product.location,
+    image: product.asset_path,
+    price: product.base_price_eur,
+    sizes: product.sizes,
+    edition: product.edition_label,
+    featured: Boolean(product.featured),
+    previewImage: printAsset?.previewImage || product.asset_path,
     printAsset,
   };
 });
 
+const isProductSellable = (product) =>
+  Boolean(product?.previewImage && product?.printAsset?.sourceFilePath);
+
 const Shop = () => {
-  const [selectedCategory, setSelectedCategory] = useState('all');
+  const [selectedCategory, setSelectedCategory] = useState("all");
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [selectedSize, setSelectedSize] = useState(null);
   const [isLoadingCheckout, setIsLoadingCheckout] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
   const { addToWishlist, isInWishlist } = useCart();
 
-  const categories = [
-    { id: 'all', label: 'Tous les tirages' },
-    { id: 'calanques', label: 'Calanques' },
-    { id: 'sunset', label: 'Couchers de Soleil' }
-  ];
+  const sellableProducts = useMemo(() => shopProducts.filter(isProductSellable), []);
 
-  const filteredProducts = selectedCategory === 'all'
-    ? shopProducts
-    : shopProducts.filter((p) => p.category === selectedCategory);
+  const categories = useMemo(() => {
+    const dynamicCategories = Object.entries(CATEGORY_LABELS)
+      .filter(([id]) => sellableProducts.some((product) => product.category === id))
+      .map(([id, label]) => ({ id, label }));
 
-  const isBlobUrlPublic = (blobUrl) => {
-    try {
-      const parsed = new URL(blobUrl);
-      return ['http:', 'https:'].includes(parsed.protocol) && !['localhost', '127.0.0.1', '0.0.0.0'].includes(parsed.hostname);
-    } catch {
-      return false;
-    }
-  };
+    return [{ id: "all", label: "Tous les tirages" }, ...dynamicCategories];
+  }, [sellableProducts]);
 
-  const isProductSellable = (product) => isBlobUrlPublic(product?.printAsset?.blobUrl);
+  const filteredProducts = selectedCategory === "all"
+    ? sellableProducts
+    : sellableProducts.filter((product) => product.category === selectedCategory);
 
   useEffect(() => {
-    if (searchParams.get('checkout') !== 'cancelled') {
+    if (!categories.some((category) => category.id === selectedCategory)) {
+      setSelectedCategory("all");
+    }
+  }, [categories, selectedCategory]);
+
+  useEffect(() => {
+    if (searchParams.get("checkout") !== "cancelled") {
       return;
     }
 
     toast({
-      title: 'Paiement annulé',
-      description: 'Votre paiement n’a pas été finalisé. Aucun débit n’a été effectué.',
-      variant: 'destructive',
+      title: "Paiement annulé",
+      description: "Votre paiement n'a pas été finalisé. Aucun débit n'a été effectué.",
+      variant: "destructive",
     });
 
     const nextParams = new URLSearchParams(searchParams);
-    nextParams.delete('checkout');
+    nextParams.delete("checkout");
     setSearchParams(nextParams, { replace: true });
   }, [searchParams, setSearchParams]);
 
   const getPriceBySize = (basePrice, size) => {
-    if (size?.includes('100x150')) return basePrice + 150;
-    if (size?.includes('70x105')) return basePrice + 80;
-    if (size?.includes('50x75')) return basePrice + 40;
+    if (size?.includes("100x150")) return basePrice + 150;
+    if (size?.includes("70x105")) return basePrice + 80;
+    if (size?.includes("50x75")) return basePrice + 40;
     return basePrice;
   };
 
   const handleBuyNow = async (product, size) => {
     if (!size) {
       toast({
-        title: 'Format requis',
-        description: 'Veuillez sélectionner un format avant de procéder au paiement.',
-        variant: 'destructive',
+        title: "Format requis",
+        description: "Veuillez sélectionner un format avant de procéder au paiement.",
+        variant: "destructive",
       });
       return;
     }
 
     if (!isProductSellable(product)) {
       toast({
-        title: 'Tirage indisponible',
-        description: `Cette oeuvre n'a pas encore d'URL publique Vercel Blob valide. Produit concerne : ${product.id}.`,
-        variant: 'destructive',
+        title: "Tirage indisponible",
+        description: "Ce tirage n'est pas encore prêt à être commandé.",
+        variant: "destructive",
       });
       return;
     }
@@ -254,9 +123,9 @@ const Shop = () => {
       window.location.href = session.url;
     } catch (err) {
       toast({
-        title: 'Paiement indisponible',
-        description: err.message || 'Le service de paiement est momentanément indisponible. Veuillez réessayer plus tard.',
-        variant: 'destructive',
+        title: "Paiement indisponible",
+        description: err.message || "Le service de paiement est momentanément indisponible. Veuillez réessayer plus tard.",
+        variant: "destructive",
       });
       setIsLoadingCheckout(false);
     }
@@ -264,20 +133,20 @@ const Shop = () => {
 
   return (
     <div className="bg-white">
-      <SEOHead 
+      <SEOHead
         title="Boutique"
-        description="Tirages d'art en édition limitée de la Méditerranée. Calanques, couchers de soleil. Papier Fine Art, numérotés et signés. Livraison France & Europe."
+        description="Tirages d'art en édition limitée de la Méditerranée. Chaque photographie visible dans les collections est disponible au tirage."
         url="/boutique"
       />
-      {/* Hero */}
-      <section 
+
+      <section
         className="pt-32 pb-20 bg-cover bg-center relative min-h-[50vh] flex items-center"
         style={{
-          backgroundImage: `url('/Sunset/Cover.JPEG')`,
+          backgroundImage: "url('/Sunset/Cover.JPEG')",
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70"></div>
-        
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70" />
+
         <div className="container-photo text-center relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -285,140 +154,138 @@ const Shop = () => {
             transition={{ duration: 0.8 }}
           >
             <p className="text-[var(--color-gold)] text-sm uppercase tracking-widest mb-4">Boutique</p>
-            <h1 className="font-display text-4xl md:text-6xl font-semibold text-white mb-6">
-              Tirages d'Art
-            </h1>
-            <div className="w-16 h-0.5 bg-[var(--color-gold)] mx-auto mb-6"></div>
+            <h1 className="font-display text-4xl md:text-6xl font-semibold text-white mb-6">Tirages d'art</h1>
+            <div className="w-16 h-0.5 bg-[var(--color-gold)] mx-auto mb-6" />
             <p className="text-gray-300 text-lg max-w-2xl mx-auto">
-              Chaque tirage est numéroté, signé et imprimé sur papier Fine Art de qualité muséale. 
-              Des œuvres uniques issues de mes collections Calanques et Couchers de Soleil.
+              Toutes les photographies visibles dans les collections sont disponibles au tirage.
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Filter */}
       <section className="py-8 bg-gray-50 sticky top-0 z-40 border-b border-gray-200">
         <div className="container-photo">
           <div className="flex flex-wrap gap-3 justify-center">
-            {categories.map((cat) => (
+            {categories.map((category) => (
               <button
-                key={cat.id}
-                onClick={() => setSelectedCategory(cat.id)}
+                key={category.id}
+                onClick={() => setSelectedCategory(category.id)}
                 className={`px-6 py-2.5 text-sm font-medium uppercase tracking-wider transition-all rounded-sm ${
-                  selectedCategory === cat.id
-                    ? 'bg-black text-white'
-                    : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200'
+                  selectedCategory === category.id
+                    ? "bg-black text-white"
+                    : "bg-white text-gray-700 hover:bg-gray-100 border border-gray-200"
                 }`}
               >
-                {cat.label}
+                {category.label}
               </button>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Products Grid */}
       <section className="py-16">
         <div className="container-photo">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredProducts.map((product, index) => (
-              <motion.div 
-                key={product.id} 
-                className="group"
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-              >
-                <div className="bg-white border border-gray-100 rounded-sm overflow-hidden hover:shadow-xl transition-shadow duration-300">
-                  {/* Image */}
-                  <div className="aspect-[4/5] relative overflow-hidden">
-                    <motion.img
-                      src={product.previewImage}
-                      alt={product.title}
-                      className="w-full h-full object-cover"
-                      whileHover={{ scale: 1.05 }}
-                      transition={{ duration: 0.5 }}
-                    />
-                    
-                    {/* Badges */}
-                    {product.featured && (
-                      <div className="absolute top-4 left-4 bg-[var(--color-gold)] text-white px-3 py-1 text-xs font-semibold uppercase tracking-wider">
-                        Coup de cœur
-                      </div>
-                    )}
-                    
-                    {/* Wishlist */}
-                    <button 
-                      onClick={() => addToWishlist(product.id)}
-                      className="absolute top-4 right-4 p-2 bg-white/90 backdrop-blur-sm rounded-full hover:bg-white transition-colors"
-                    >
-                      <Heart 
-                        size={18} 
-                        fill={isInWishlist(product.id) ? "#C9A961" : "none"} 
-                        stroke={isInWishlist(product.id) ? "#C9A961" : "currentColor"}
+          {filteredProducts.length > 0 ? (
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {filteredProducts.map((product, index) => (
+                <motion.div
+                  key={product.id}
+                  className="group"
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                >
+                  <div className="bg-white border border-gray-100 rounded-sm overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                    <div className="aspect-[4/5] relative overflow-hidden">
+                      <motion.img
+                        src={product.previewImage}
+                        alt={product.title}
+                        className="w-full h-full object-cover"
+                        whileHover={{ scale: 1.05 }}
+                        transition={{ duration: 0.5 }}
                       />
-                    </button>
 
-                    {/* Quick view overlay */}
-                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                      <button 
-                        onClick={() => setSelectedProduct(product)}
-                        className="bg-white text-black px-6 py-3 font-medium uppercase tracking-wider text-sm flex items-center gap-2 hover:bg-[var(--color-gold)] hover:text-white transition-colors"
+                      {product.featured ? (
+                        <div className="absolute top-4 left-4 bg-[var(--color-gold)] text-white px-3 py-1 text-xs font-semibold uppercase tracking-wider">
+                          Coup de coeur
+                        </div>
+                      ) : null}
+
+                      <button
+                        onClick={() => addToWishlist(product.id)}
+                        className="absolute top-4 right-4 p-2 bg-white/90 backdrop-blur-sm rounded-full hover:bg-white transition-colors"
                       >
-                        <Eye size={18} />
-                        Voir Détails
+                        <Heart
+                          size={18}
+                          fill={isInWishlist(product.id) ? "#C9A961" : "none"}
+                          stroke={isInWishlist(product.id) ? "#C9A961" : "currentColor"}
+                        />
                       </button>
-                    </div>
-                  </div>
 
-                  {/* Info */}
-                  <div className="p-6">
-                    <p className="text-gray-500 text-xs uppercase tracking-wider mb-2">{product.location}</p>
-                    <h3 className="font-display text-xl font-semibold mb-2">{product.title}</h3>
-                    <p className="text-gray-600 text-sm mb-4 line-clamp-2">{product.description}</p>
-                    
-                    <div className="flex items-center justify-between pt-4 border-t border-gray-100">
-                      <div>
-                        <p className="text-2xl font-semibold text-[var(--color-gold)]">
-                          {product.price}€
-                        </p>
-                        <p className="text-gray-400 text-xs">{product.edition}</p>
+                      <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <button
+                          onClick={() => setSelectedProduct(product)}
+                          className="bg-white text-black px-6 py-3 font-medium uppercase tracking-wider text-sm flex items-center gap-2 hover:bg-[var(--color-gold)] hover:text-white transition-colors"
+                        >
+                          <Eye size={18} />
+                          Voir les détails
+                        </button>
                       </div>
-                      <button 
-                        onClick={() => setSelectedProduct(product)}
-                        className="bg-black text-white px-4 py-2 text-sm font-medium hover:bg-[var(--color-gold)] transition-colors"
-                      >
-                        Commander
-                      </button>
+                    </div>
+
+                    <div className="p-6">
+                      <p className="text-gray-500 text-xs uppercase tracking-wider mb-2">{product.location}</p>
+                      <h3 className="font-display text-xl font-semibold mb-5">{product.title}</h3>
+
+                      <div className="flex items-center justify-between pt-4 border-t border-gray-100">
+                        <div>
+                          <p className="text-2xl font-semibold text-[var(--color-gold)]">{product.price}€</p>
+                          <p className="text-gray-400 text-xs">{product.edition}</p>
+                        </div>
+                        <button
+                          onClick={() => setSelectedProduct(product)}
+                          className="bg-black text-white px-4 py-2 text-sm font-medium hover:bg-[var(--color-gold)] transition-colors"
+                        >
+                          Commander
+                        </button>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+                </motion.div>
+              ))}
+            </div>
+          ) : (
+            <div className="border border-gray-200 bg-gray-50 px-8 py-16 text-center">
+              <p className="text-sm uppercase tracking-[0.22em] text-[var(--color-gray-500)] mb-4">Boutique en préparation</p>
+              <h2 className="font-display text-3xl text-[var(--color-gray-900)] mb-4">Aucun tirage achetable pour le moment</h2>
+              <p className="text-[var(--color-gray-600)] max-w-2xl mx-auto">
+                La boutique reste masquée tant que les fichiers haute définition nécessaires à la vente ne sont pas tous prêts.
+              </p>
+            </div>
+          )}
         </div>
       </section>
 
-      {/* Product Modal */}
       <AnimatePresence>
-        {selectedProduct && (
+        {selectedProduct ? (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80"
-            onClick={() => { setSelectedProduct(null); setSelectedSize(null); }}
+            onClick={() => {
+              setSelectedProduct(null);
+              setSelectedSize(null);
+            }}
           >
             <motion.div
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
               className="bg-white max-w-4xl w-full max-h-[90vh] overflow-y-auto rounded-sm"
-              onClick={(e) => e.stopPropagation()}
+              onClick={(event) => event.stopPropagation()}
             >
               <div className="grid md:grid-cols-2">
-                {/* Image */}
                 <div className="aspect-square md:aspect-auto md:h-full">
                   <img
                     src={selectedProduct.previewImage}
@@ -427,24 +294,20 @@ const Shop = () => {
                   />
                 </div>
 
-                {/* Details */}
                 <div className="p-8 flex flex-col">
-                  <button 
-                    onClick={() => { setSelectedProduct(null); setSelectedSize(null); }}
+                  <button
+                    onClick={() => {
+                      setSelectedProduct(null);
+                      setSelectedSize(null);
+                    }}
                     className="absolute top-4 right-4 p-2 hover:bg-gray-100 rounded-full"
                   >
                     <X size={24} />
                   </button>
 
-                  <p className="text-gray-500 text-xs uppercase tracking-wider mb-2">
-                    {selectedProduct.location}
-                  </p>
-                  <h2 className="font-display text-3xl font-semibold mb-4">
-                    {selectedProduct.title}
-                  </h2>
-                  <p className="text-gray-600 mb-6">{selectedProduct.description}</p>
+                  <p className="text-gray-500 text-xs uppercase tracking-wider mb-2">{selectedProduct.location}</p>
+                  <h2 className="font-display text-3xl font-semibold mb-6">{selectedProduct.title}</h2>
 
-                  {/* Size selection */}
                   <div className="mb-6">
                     <p className="font-medium mb-3">Sélectionnez un format :</p>
                     <div className="flex flex-wrap gap-2">
@@ -454,8 +317,8 @@ const Shop = () => {
                           onClick={() => setSelectedSize(size)}
                           className={`px-4 py-2 border transition-all ${
                             selectedSize === size
-                              ? 'border-[var(--color-gold)] bg-[var(--color-gold)]/10 text-[var(--color-gold)]'
-                              : 'border-gray-200 hover:border-gray-400'
+                              ? "border-[var(--color-gold)] bg-[var(--color-gold)]/10 text-[var(--color-gold)]"
+                              : "border-gray-200 hover:border-gray-400"
                           }`}
                         >
                           {size}
@@ -464,7 +327,6 @@ const Shop = () => {
                     </div>
                   </div>
 
-                  {/* Price */}
                   <div className="mb-6">
                     <p className="text-3xl font-semibold text-[var(--color-gold)]">
                       {getPriceBySize(selectedProduct.price, selectedSize)}€
@@ -472,7 +334,6 @@ const Shop = () => {
                     <p className="text-gray-400 text-sm">{selectedProduct.edition}</p>
                   </div>
 
-                  {/* Acheter maintenant */}
                   <button
                     onClick={() => handleBuyNow(selectedProduct, selectedSize)}
                     disabled={isLoadingCheckout || !isProductSellable(selectedProduct)}
@@ -480,61 +341,51 @@ const Shop = () => {
                   >
                     <CreditCard size={20} />
                     {isLoadingCheckout
-                      ? 'Redirection en cours…'
+                      ? "Redirection en cours..."
                       : isProductSellable(selectedProduct)
-                      ? 'Acheter maintenant'
-                      : 'Tirage indisponible'}
+                        ? "Acheter maintenant"
+                        : "Tirage indisponible"}
                   </button>
 
                   <p className="mt-3 text-sm text-gray-500">
-                    {isProductSellable(selectedProduct)
-                      ? 'Le tunnel MVP passe par le paiement direct. Le panier multi-articles reste masqué tant qu\'il n\'est pas relié à un checkout réel.'
-                      : 'Ce tirage ne peut pas être vendu tant qu\'une URL publique Vercel Blob réelle n\'est pas enregistrée pour ce produit.'}
+                    Le paiement passe directement par Stripe puis la commande est transmise à l'impression.
                   </p>
 
-                  {/* Info */}
-                  <div className="mt-6 pt-6 border-t border-gray-100 text-sm text-gray-500">
-                    <p>✓ Tirage numéroté et signé</p>
-                    <p>✓ Papier Fine Art 100% coton</p>
-                    <p>✓ Certificat d'authenticité</p>
-                    <p>✓ Livraison sécurisée</p>
+                  <div className="mt-6 pt-6 border-t border-gray-100 text-sm text-gray-500 space-y-2">
+                    <p>Tirage numéroté et signé</p>
+                    <p>Papier Fine Art 100% coton</p>
+                    <p>Certificat d'authenticité</p>
+                    <p>Livraison sécurisée</p>
                   </div>
                 </div>
               </div>
             </motion.div>
           </motion.div>
-        )}
+        ) : null}
       </AnimatePresence>
 
-      {/* Info Section */}
       <section className="py-20 bg-[#1a1a1a] text-white">
         <div className="container-photo">
           <div className="max-w-4xl mx-auto text-center mb-16">
-            <h2 className="font-display text-3xl font-semibold mb-4">Qualité & Authenticité</h2>
-            <div className="w-16 h-0.5 bg-[var(--color-gold)] mx-auto"></div>
+            <h2 className="font-display text-3xl font-semibold mb-4">Qualité & authenticité</h2>
+            <div className="w-16 h-0.5 bg-[var(--color-gold)] mx-auto" />
           </div>
-          
+
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="text-center p-6">
-              <div className="text-[var(--color-gold)] text-4xl mb-4">🎨</div>
-              <h3 className="font-display text-lg font-semibold mb-2">Papier Fine Art</h3>
-              <p className="text-gray-400 text-sm">100% coton, sans acide, qualité muséale</p>
-            </div>
-            <div className="text-center p-6">
-              <div className="text-[var(--color-gold)] text-4xl mb-4">✍️</div>
-              <h3 className="font-display text-lg font-semibold mb-2">Signé & Numéroté</h3>
-              <p className="text-gray-400 text-sm">Chaque tirage est unique et authentifié</p>
-            </div>
-            <div className="text-center p-6">
-              <div className="text-[var(--color-gold)] text-4xl mb-4">📜</div>
-              <h3 className="font-display text-lg font-semibold mb-2">Certificat</h3>
-              <p className="text-gray-400 text-sm">Certificat d'authenticité fourni</p>
-            </div>
-            <div className="text-center p-6">
-              <div className="text-[var(--color-gold)] text-4xl mb-4">📦</div>
-              <h3 className="font-display text-lg font-semibold mb-2">Livraison Sécurisée</h3>
-              <p className="text-gray-400 text-sm">Emballage renforcé, France & Europe</p>
-            </div>
+            {[
+              { marker: "01", title: "Papier Fine Art", text: "100% coton, sans acide, qualité muséale" },
+              { marker: "02", title: "Signé & numéroté", text: "Chaque tirage est préparé dans une édition limitée" },
+              { marker: "03", title: "Certificat", text: "Certificat d'authenticité fourni avec le tirage" },
+              { marker: "04", title: "Livraison sécurisée", text: "Emballage renforcé, France et Europe" },
+            ].map((item) => (
+              <div key={item.marker} className="text-center p-6">
+                <div className="inline-flex h-14 w-14 items-center justify-center rounded-full border border-[var(--color-gold)] text-[var(--color-gold)] text-sm tracking-[0.2em] mb-4">
+                  {item.marker}
+                </div>
+                <h3 className="font-display text-lg font-semibold mb-2">{item.title}</h3>
+                <p className="text-gray-400 text-sm">{item.text}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -543,4 +394,3 @@ const Shop = () => {
 };
 
 export default Shop;
-

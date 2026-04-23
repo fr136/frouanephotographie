@@ -77,3 +77,4 @@ originals_backup/
 
 # Temp
 temp_repo/
+.env*.local

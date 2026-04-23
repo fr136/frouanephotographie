@@ -1,6 +1,6 @@
-"""
+﻿"""
 Backend Franck Rouane Photographie
-- Proxy sécurisé vers Prodigi API v4 (quotes, orders, status)
+- Proxy sÃ©curisÃ© vers Prodigi API v4 (quotes, orders, status)
 - Stripe Checkout (paiement avant commande Prodigi)
 - Formulaire de contact (stockage + email optionnel)
 - Newsletter (stockage)
@@ -25,7 +25,7 @@ from urllib.parse import urlparse
 ROOT_DIR = Path(__file__).parent
 load_dotenv(ROOT_DIR / '.env')
 
-# ─── Config ───
+# â”€â”€â”€ Config â”€â”€â”€
 MONGO_URL = os.environ.get('MONGO_URL', '')
 DB_NAME = os.environ.get('DB_NAME', 'frouane_photo')
 PRODIGI_API_KEY = os.environ.get('PRODIGI_API_KEY', '')
@@ -36,6 +36,7 @@ FRONTEND_URL = os.environ.get('FRONTEND_URL', 'http://localhost:3000')
 CORS_ORIGINS = os.environ.get('CORS_ORIGINS', 'http://localhost:3000').split(',')
 BLOB_READ_WRITE_TOKEN = os.environ.get('BLOB_READ_WRITE_TOKEN', '')
 PRINT_ASSET_CATALOG_PATH = ROOT_DIR.parent / 'frontend' / 'src' / 'data' / 'printAssetCatalog.json'
+PRODUCT_CATALOG_PATH = ROOT_DIR.parent / 'frontend' / 'src' / 'data' / 'productCatalog.json'
 
 PRODIGI_BASE_URL = (
     'https://api.prodigi.com' if PRODIGI_ENV == 'live'
@@ -51,13 +52,13 @@ try:
         stripe = stripe_lib
         logging.info("Stripe configured")
 except ImportError:
-    logging.warning("stripe package not installed — payment disabled")
+    logging.warning("stripe package not installed â€” payment disabled")
 
-# ─── MongoDB ───
+# â”€â”€â”€ MongoDB â”€â”€â”€
 client = None
 db = None
 
-# ─── App ───
+# â”€â”€â”€ App â”€â”€â”€
 app = FastAPI(title="Franck Rouane Photographie API")
 api = APIRouter(prefix="/api")
 
@@ -65,7 +66,7 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 
-# ─── Startup / Shutdown ───
+# â”€â”€â”€ Startup / Shutdown â”€â”€â”€
 @app.on_event("startup")
 async def startup():
     global client, db
@@ -74,7 +75,7 @@ async def startup():
         db = client[DB_NAME]
         logger.info("MongoDB connected")
     else:
-        logger.warning("MONGO_URL not set — DB features disabled")
+        logger.warning("MONGO_URL not set â€” DB features disabled")
 
 
 @app.on_event("shutdown")
@@ -83,11 +84,11 @@ async def shutdown():
         client.close()
 
 
-# ═══════════════════════════════════════════
-#  PRODIGI — SKU Mapping
-# ═══════════════════════════════════════════
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+#  PRODIGI â€” SKU Mapping
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 
-# Enhanced Matte Art Paper (GLOBAL-FAP) — giclée, 200gsm, qualité muséale
+# Enhanced Matte Art Paper (GLOBAL-FAP) â€” giclÃ©e, 200gsm, qualitÃ© musÃ©ale
 PRODIGI_SKUS = {
     '30x45 cm': 'GLOBAL-FAP-12x18',
     '50x75 cm': 'GLOBAL-FAP-20x30',
@@ -102,80 +103,21 @@ SIZE_PRICE_OFFSETS = {
     '100x150 cm': 150,
 }
 
-PRODUCT_CATALOG = {
-    'cal-001': {
-        'title': 'Sormiou - Vue Panoramique',
-        'base_price_eur': 150,
-        'sizes': ['30x45 cm', '50x75 cm', '70x105 cm'],
-        'asset_path': '/Calanques/Calanque Sormiou 2.webp',
-    },
-    'cal-002': {
-        'title': 'Port de Cassis',
-        'base_price_eur': 120,
-        'sizes': ['30x45 cm', '50x75 cm', '70x105 cm'],
-        'asset_path': '/Calanques/Port de cassis.webp',
-    },
-    'cal-003': {
-        'title': 'Calanque des Anglais',
-        'base_price_eur': 130,
-        'sizes': ['30x45 cm', '50x75 cm', '70x105 cm'],
-        'asset_path': '/Calanques/Calanque des anglais.webp',
-    },
-    'cal-004': {
-        'title': "Port d'Alon",
-        'base_price_eur': 140,
-        'sizes': ['30x45 cm', '50x75 cm', '70x105 cm'],
-        'asset_path': "/Calanques/Calanque Port d'alon Saint Cyr sur mer.webp",
-    },
-    'cal-005': {
-        'title': 'Sormiou au Crepuscule',
-        'base_price_eur': 160,
-        'sizes': ['30x45 cm', '50x75 cm', '70x105 cm'],
-        'asset_path': '/Calanques/Sormiou.webp',
-    },
-    'cal-006': {
-        'title': 'Calanque Agay',
-        'base_price_eur': 130,
-        'sizes': ['30x45 cm', '50x75 cm', '70x105 cm'],
-        'asset_path': '/Calanques/Calanque-agay.webp',
-    },
-    'sun-001': {
-        'title': 'La Ciotat - Route des Cretes',
-        'base_price_eur': 180,
-        'sizes': ['30x45 cm', '50x75 cm', '70x105 cm', '100x150 cm'],
-        'asset_path': '/Sunset/Coucher de soleil La Ciotat éléphant routedes crêtes.webp',
-    },
-    'sun-002': {
-        'title': 'Ciel de Feu',
-        'base_price_eur': 170,
-        'sizes': ['30x45 cm', '50x75 cm', '70x105 cm'],
-        'asset_path': '/Sunset/sunset fire la ciotat.webp',
-    },
-    'sun-003': {
-        'title': 'Catalans - Marseille',
-        'base_price_eur': 140,
-        'sizes': ['30x45 cm', '50x75 cm', '70x105 cm'],
-        'asset_path': '/Sunset/Sunset catalans marseille.webp',
-    },
-    'sun-004': {
-        'title': "L'Estaque",
-        'base_price_eur': 150,
-        'sizes': ['30x45 cm', '50x75 cm', '70x105 cm'],
-        'asset_path': "/Sunset/sunset l'estaque Marseille.webp",
-    },
-    'sun-005': {
-        'title': 'Port Saint-Jean',
-        'base_price_eur': 130,
-        'sizes': ['30x45 cm', '50x75 cm', '70x105 cm'],
-        'asset_path': '/Sunset/sunset port saintjean la ciotat.webp',
-    },
-    'sun-006': {
-        'title': 'Bain des Dames',
-        'base_price_eur': 140,
-        'sizes': ['30x45 cm', '50x75 cm', '70x105 cm'],
-        'asset_path': '/Sunset/sunset serpent bain des dames marseille.webp',
-    },
-}
+def load_product_catalog() -> dict:
+    try:
+        raw_catalog = json.loads(PRODUCT_CATALOG_PATH.read_text(encoding='utf8'))
+    except FileNotFoundError as exc:
+        raise RuntimeError("Catalogue produit introuvable") from exc
+    except json.JSONDecodeError as exc:
+        raise RuntimeError("Catalogue produit invalide") from exc
+
+    if not isinstance(raw_catalog, dict):
+        raise RuntimeError("Catalogue produit invalide")
+
+    return raw_catalog
+
+
+PRODUCT_CATALOG = load_product_catalog()
 
 ORDER_STATUS_CACHE: Dict[str, Dict[str, Optional[str]]] = {}
 
@@ -202,6 +144,35 @@ def load_print_asset_catalog() -> dict:
         raise HTTPException(status_code=500, detail="Catalogue Vercel Blob invalide")
 
 
+def build_public_asset_url(path_or_url: str) -> str:
+    candidate = (path_or_url or '').strip()
+
+    if not candidate:
+        return ''
+
+    if is_public_http_url(candidate):
+        return candidate
+
+    if candidate.startswith('/'):
+        absolute_url = f"{FRONTEND_URL.rstrip('/')}{candidate}"
+        if is_public_http_url(absolute_url):
+            return absolute_url
+
+    return ''
+
+
+def resolve_product_asset_url(product: dict, asset: dict) -> str:
+    for candidate in (
+        (asset.get('blobUrl') or '').strip(),
+        build_public_asset_url(asset.get('previewImage') or ''),
+        build_public_asset_url(product.get('asset_path') or ''),
+    ):
+        if is_public_http_url(candidate):
+            return candidate
+
+    return ''
+
+
 def get_catalog_product(product_id: str) -> dict:
     product = PRODUCT_CATALOG.get(product_id)
     if not product:
@@ -210,21 +181,26 @@ def get_catalog_product(product_id: str) -> dict:
 
 
 def get_product_print_asset(product_id: str) -> dict:
+    product = get_catalog_product(product_id)
     asset = load_print_asset_catalog().get(product_id)
 
     if not asset:
         raise HTTPException(status_code=500, detail=f"Catalogue Blob manquant pour {product_id}")
 
-    blob_url = (asset.get('blobUrl') or '').strip()
-    if not blob_url:
-        if not BLOB_READ_WRITE_TOKEN:
-            raise HTTPException(status_code=503, detail="Vercel Blob non configure")
-        raise HTTPException(status_code=503, detail=f"URL Blob manquante pour {product_id}")
+    if not (asset.get('sourceFilePath') or '').strip():
+        raise HTTPException(status_code=500, detail=f"sourceFilePath manquant pour {product_id}")
 
-    if not is_public_http_url(blob_url):
-        raise HTTPException(status_code=503, detail=f"URL Blob invalide pour {product_id}")
+    if not (asset.get('previewImage') or product.get('asset_path') or '').strip():
+        raise HTTPException(status_code=500, detail=f"previewImage manquant pour {product_id}")
 
-    return asset
+    resolved_url = resolve_product_asset_url(product, asset)
+    if not resolved_url:
+        raise HTTPException(status_code=503, detail=f"URL d'impression introuvable pour {product_id}")
+
+    return {
+        **asset,
+        'resolvedUrl': resolved_url,
+    }
 
 
 def get_catalog_product_from_image_url(image_url: str) -> tuple[str, dict]:
@@ -233,10 +209,19 @@ def get_catalog_product_from_image_url(image_url: str) -> tuple[str, dict]:
     print_assets = load_print_asset_catalog()
 
     for product_id, asset in print_assets.items():
+        product = PRODUCT_CATALOG.get(product_id)
         blob_url = (asset.get('blobUrl') or '').strip()
         blob_path = f"/{(asset.get('blobPathname') or '').lstrip('/')}".rstrip('/')
+        preview_image = (asset.get('previewImage') or '').rstrip('/')
+        resolved_url = resolve_product_asset_url(product or {}, asset) if product else ''
 
-        if blob_url == image_url or blob_path == image_path:
+        if (
+            blob_url == image_url
+            or resolved_url == image_url
+            or blob_path == image_path
+            or preview_image == image_path
+            or (product or {}).get('asset_path', '').rstrip('/') == image_path
+        ):
             return product_id, get_catalog_product(product_id)
 
     for product_id, product in PRODUCT_CATALOG.items():
@@ -317,9 +302,96 @@ def read_obj_value(obj, key: str, default=None):
     return getattr(obj, key, default)
 
 
-# ═══════════════════════════════════════════
-#  PRODIGI — Quote
-# ═══════════════════════════════════════════
+def get_checkout_customer_email(session, fallback: Optional[str] = None) -> Optional[str]:
+    customer_details = read_obj_value(session, "customer_details", {}) or {}
+    return (
+        read_obj_value(customer_details, "email")
+        or read_obj_value(session, "customer_email")
+        or fallback
+    )
+
+
+async def upsert_checkout_record(
+    session_id: str,
+    *,
+    order_status: str,
+    payment_status: Optional[str] = None,
+    customer_email: Optional[str] = None,
+    amount_total: Optional[int] = None,
+    currency: Optional[str] = None,
+    items: Optional[list] = None,
+    prodigi_order_id: Optional[str] = None,
+    order_error: Optional[str] = None,
+) -> None:
+    if not db:
+        return
+
+    now = datetime.now(timezone.utc).isoformat()
+    set_fields = {
+        "status": order_status,
+        "updated_at": now,
+    }
+
+    if payment_status is not None:
+        set_fields["payment_status"] = payment_status
+
+    if customer_email is not None:
+        set_fields["customer_email"] = customer_email
+
+    if amount_total is not None:
+        set_fields["amount_total"] = amount_total
+        set_fields["amount"] = amount_total
+
+    if currency is not None:
+        set_fields["currency"] = currency
+
+    if items is not None:
+        set_fields["items"] = items
+
+    if prodigi_order_id is not None:
+        set_fields["prodigi_order_id"] = prodigi_order_id
+
+    if order_error is not None:
+        set_fields["prodigi_error"] = order_error[:500]
+
+    await db.orders.update_one(
+        {"stripe_session_id": session_id},
+        {
+            "$set": set_fields,
+            "$setOnInsert": {
+                "stripe_session_id": session_id,
+                "created_at": now,
+            },
+        },
+        upsert=True,
+    )
+
+
+async def get_checkout_record(session_id: str) -> Optional[dict]:
+    if not db:
+        return None
+
+    return await db.orders.find_one(
+        {"stripe_session_id": session_id},
+        sort=[("updated_at", -1), ("created_at", -1)],
+    )
+
+
+def serialize_checkout_record(record: dict) -> dict:
+    return {
+        "status": record.get("payment_status") or "unpaid",
+        "customer_email": record.get("customer_email"),
+        "amount_total": record.get("amount_total", record.get("amount")),
+        "currency": record.get("currency"),
+        "order_status": record.get("status"),
+        "prodigi_order_id": record.get("prodigi_order_id"),
+        "order_error": record.get("prodigi_error"),
+    }
+
+
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+#  PRODIGI â€” Quote
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 
 class QuoteRequest(BaseModel):
     sku: str = Field(..., description="Prodigi SKU or size label like '30x45 cm'")
@@ -389,9 +461,9 @@ async def get_prodigi_quote(req: QuoteRequest):
     )
 
 
-# ═══════════════════════════════════════════
-#  PRODIGI — Create Order
-# ═══════════════════════════════════════════
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+#  PRODIGI â€” Create Order
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 
 class OrderAddress(BaseModel):
     line1: str
@@ -411,7 +483,7 @@ class OrderRecipient(BaseModel):
 
 class OrderItemRequest(BaseModel):
     sku: str = Field(..., description="Size label or Prodigi SKU")
-    image_url: str = Field(..., description="URL publique de l'image haute résolution")
+    image_url: str = Field(..., description="URL publique de l'image haute rÃ©solution")
     copies: int = Field(default=1)
     merchant_reference: Optional[str] = None
 
@@ -431,7 +503,7 @@ class OrderResponse(BaseModel):
 
 @api.post("/prodigi/orders", response_model=OrderResponse)
 async def create_prodigi_order(req: CreateOrderRequest):
-    """Créer une commande de tirage via Prodigi."""
+    """CrÃ©er une commande de tirage via Prodigi."""
     if not PRODIGI_API_KEY:
         raise HTTPException(status_code=503, detail="Prodigi non configure")
 
@@ -508,9 +580,9 @@ async def create_prodigi_order(req: CreateOrderRequest):
     )
 
 
-# ═══════════════════════════════════════════
-#  PRODIGI — Order Status
-# ═══════════════════════════════════════════
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+#  PRODIGI â€” Order Status
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 
 @api.get("/prodigi/orders/{order_id}")
 async def get_order_status(order_id: str):
@@ -537,9 +609,9 @@ async def get_order_status(order_id: str):
     }
 
 
-# ═══════════════════════════════════════════
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 #  CONTACT
-# ═══════════════════════════════════════════
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 
 class ContactMessage(BaseModel):
     name: str
@@ -567,14 +639,14 @@ async def submit_contact(msg: ContactMessage):
         await db.contact_messages.insert_one(doc)
         logger.info(f"Contact message saved: {msg.name} <{msg.email}>")
     else:
-        logger.info(f"Contact message (no DB): {msg.name} <{msg.email}> — {msg.subject}")
+        logger.info(f"Contact message (no DB): {msg.name} <{msg.email}> â€” {msg.subject}")
 
     return {"success": True, "message": "Message reçu"}
 
 
-# ═══════════════════════════════════════════
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 #  NEWSLETTER
-# ═══════════════════════════════════════════
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 
 class NewsletterSubscription(BaseModel):
     email: EmailStr
@@ -595,9 +667,9 @@ async def subscribe_newsletter(sub: NewsletterSubscription):
     return {"success": True, "message": "Inscription confirmée"}
 
 
-# ═══════════════════════════════════════════
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 #  STRIPE CHECKOUT
-# ═══════════════════════════════════════════
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 
 class CheckoutItem(BaseModel):
     product_id: Optional[str] = None
@@ -615,7 +687,7 @@ class CheckoutRequest(BaseModel):
 
 @api.post("/checkout/create-session")
 async def create_checkout_session(req: CheckoutRequest):
-    """Créer une session Stripe Checkout."""
+    """CrÃ©er une session Stripe Checkout."""
     if not stripe:
         raise HTTPException(status_code=503, detail="Paiement non configure")
     if not PRODIGI_API_KEY:
@@ -638,15 +710,15 @@ async def create_checkout_session(req: CheckoutRequest):
 
         unit_amount = get_checkout_unit_amount(product_id, item.size)
         print_asset = get_product_print_asset(product_id)
-        image_url = print_asset['blobUrl']
+        image_url = print_asset['resolvedUrl']
 
         line_items.append({
             "price_data": {
                 "currency": "eur",
                 "unit_amount": unit_amount,
                 "product_data": {
-                    "name": f"{product['title']} — {item.size}",
-                    "description": f"Tirage Fine Art, édition limitée",
+                    "name": f"{product['title']} â€” {item.size}",
+                    "description": "Tirage Fine Art, édition limitée",
                     "images": [image_url],
                 },
             },
@@ -684,6 +756,15 @@ async def create_checkout_session(req: CheckoutRequest):
             },
         )
         update_checkout_status_cache(session.id, order_status="checkout_created")
+        await upsert_checkout_record(
+            session.id,
+            order_status="checkout_created",
+            payment_status=read_obj_value(session, "payment_status") or "unpaid",
+            customer_email=req.customer_email,
+            amount_total=read_obj_value(session, "amount_total"),
+            currency=read_obj_value(session, "currency"),
+            items=metadata_items,
+        )
         return {"session_id": session.id, "url": session.url}
 
     except Exception as e:
@@ -693,49 +774,71 @@ async def create_checkout_session(req: CheckoutRequest):
 
 @api.get("/checkout/session/{session_id}")
 async def get_checkout_session(session_id: str):
-    """Récupérer les détails d'une session Checkout (confirmation page)."""
+    """RÃ©cupÃ©rer les dÃ©tails d'une session Checkout (confirmation page)."""
     if not stripe:
         raise HTTPException(status_code=503, detail="Paiement non configure")
+    normalized_session_id = session_id.strip()
+    if not normalized_session_id:
+        raise HTTPException(status_code=400, detail="session_id invalide")
+
+    db_order = await get_checkout_record(normalized_session_id)
+
     try:
-        session = stripe.checkout.Session.retrieve(session_id)
-        metadata = session.get("metadata", {}) or {}
-        order_status = metadata.get("order_status")
-        prodigi_order_id = metadata.get("prodigi_order_id")
-        order_error = metadata.get("order_error")
-        customer_details = read_obj_value(session, "customer_details", {}) or {}
+        session = stripe.checkout.Session.retrieve(normalized_session_id)
+    except stripe.error.InvalidRequestError as exc:
+        logger.warning("Stripe session retrieve invalid request for %s: %s", normalized_session_id, exc)
+        if db_order:
+            logger.warning("Using DB fallback for checkout session %s after Stripe invalid request", normalized_session_id)
+            return serialize_checkout_record(db_order)
+        detail = getattr(exc, "user_message", None) or "Session Stripe introuvable"
+        raise HTTPException(status_code=404, detail=detail)
+    except stripe.error.StripeError as exc:
+        logger.exception("Stripe session retrieve failed for %s", normalized_session_id)
+        if db_order:
+            logger.warning("Using DB fallback for checkout session %s after Stripe error", normalized_session_id)
+            return serialize_checkout_record(db_order)
+        detail = getattr(exc, "user_message", None) or "Erreur Stripe lors de la recuperation de la session"
+        raise HTTPException(status_code=502, detail=detail)
+    except Exception:
+        logger.exception("Unexpected checkout session retrieval failure for %s", normalized_session_id)
+        if db_order:
+            logger.warning("Using DB fallback for checkout session %s after unexpected error", normalized_session_id)
+            return serialize_checkout_record(db_order)
+        raise HTTPException(status_code=500, detail="Erreur interne lors de la recuperation de la session")
 
-        cached_order = ORDER_STATUS_CACHE.get(session_id)
-        if cached_order:
-            order_status = cached_order.get("order_status") or order_status
-            prodigi_order_id = cached_order.get("prodigi_order_id") or prodigi_order_id
-            order_error = cached_order.get("order_error") or order_error
+    metadata = read_obj_value(session, "metadata", {}) or {}
+    order_status = metadata.get("order_status") or (db_order or {}).get("status") or "checkout_created"
+    prodigi_order_id = metadata.get("prodigi_order_id") or (db_order or {}).get("prodigi_order_id")
+    order_error = metadata.get("order_error") or (db_order or {}).get("prodigi_error")
 
-        if db:
-            db_order = await db.orders.find_one({"stripe_session_id": session_id})
-            if db_order:
-                order_status = db_order.get("status", order_status)
-                prodigi_order_id = db_order.get("prodigi_order_id", prodigi_order_id)
-                order_error = db_order.get("prodigi_error", order_error)
+    cached_order = ORDER_STATUS_CACHE.get(normalized_session_id)
+    if cached_order:
+        order_status = cached_order.get("order_status") or order_status
+        prodigi_order_id = cached_order.get("prodigi_order_id") or prodigi_order_id
+        order_error = cached_order.get("order_error") or order_error
 
-        return {
-            "status": read_obj_value(session, "payment_status"),
-            "customer_email": read_obj_value(customer_details, "email"),
-            "amount_total": read_obj_value(session, "amount_total"),
-            "currency": read_obj_value(session, "currency"),
-            "order_status": order_status,
-            "prodigi_order_id": prodigi_order_id,
-            "order_error": order_error,
-        }
-    except Exception as e:
-        raise HTTPException(status_code=404, detail="Session introuvable")
+    if db_order:
+        order_status = db_order.get("status", order_status)
+        prodigi_order_id = db_order.get("prodigi_order_id", prodigi_order_id)
+        order_error = db_order.get("prodigi_error", order_error)
+
+    return {
+        "status": read_obj_value(session, "payment_status") or (db_order or {}).get("payment_status") or "unpaid",
+        "customer_email": get_checkout_customer_email(session, fallback=(db_order or {}).get("customer_email")),
+        "amount_total": read_obj_value(session, "amount_total") or (db_order or {}).get("amount_total") or (db_order or {}).get("amount"),
+        "currency": read_obj_value(session, "currency") or (db_order or {}).get("currency"),
+        "order_status": order_status,
+        "prodigi_order_id": prodigi_order_id,
+        "order_error": order_error,
+    }
 
 
 @app.post("/webhook/stripe")
 async def stripe_webhook(request: Request):
     """
-    Webhook Stripe : déclenché après paiement réussi.
-    Crée automatiquement la commande Prodigi.
-    Cet endpoint est sur app (pas api) pour éviter le prefix /api.
+    Webhook Stripe : dÃ©clenchÃ© aprÃ¨s paiement rÃ©ussi.
+    CrÃ©e automatiquement la commande Prodigi.
+    Cet endpoint est sur app (pas api) pour Ã©viter le prefix /api.
     """
     if not stripe or not STRIPE_WEBHOOK_SECRET:
         return JSONResponse(status_code=400, content={"error": "Webhook not configured"})
@@ -753,7 +856,7 @@ async def stripe_webhook(request: Request):
         session = event["data"]["object"]
         logger.info(f"Payment completed: {session['id']}")
 
-        # Extraire les données
+        # Extraire les donnÃ©es
         shipping = session.get("shipping_details", {})
         address = shipping.get("address", {})
         items_json = session.get("metadata", {}).get("items", "[]")
@@ -775,6 +878,16 @@ async def stripe_webhook(request: Request):
                 order_status="prodigi_failed",
                 order_error="Aucun article valide dans la session Stripe",
             )
+            await upsert_checkout_record(
+                session["id"],
+                order_status="prodigi_failed",
+                payment_status=session.get("payment_status") or "paid",
+                customer_email=get_checkout_customer_email(session),
+                amount_total=session.get("amount_total"),
+                currency=session.get("currency"),
+                items=items_data,
+                order_error="Aucun article valide dans la session Stripe",
+            )
             return JSONResponse(status_code=200, content={"received": True})
 
         if not PRODIGI_API_KEY:
@@ -789,9 +902,19 @@ async def stripe_webhook(request: Request):
                 order_status="prodigi_failed",
                 order_error="Prodigi non configure",
             )
+            await upsert_checkout_record(
+                session["id"],
+                order_status="prodigi_failed",
+                payment_status=session.get("payment_status") or "paid",
+                customer_email=get_checkout_customer_email(session),
+                amount_total=session.get("amount_total"),
+                currency=session.get("currency"),
+                items=items_data,
+                order_error="Prodigi non configure",
+            )
             return JSONResponse(status_code=200, content={"received": True})
 
-        # Créer la commande Prodigi
+        # CrÃ©er la commande Prodigi
         if items_data and PRODIGI_API_KEY:
             prodigi_items = []
             for item in items_data:
@@ -806,6 +929,16 @@ async def stripe_webhook(request: Request):
                         session["id"],
                         session.get("metadata", {}),
                         order_status="prodigi_failed",
+                        order_error="URL image d'impression invalide",
+                    )
+                    await upsert_checkout_record(
+                        session["id"],
+                        order_status="prodigi_failed",
+                        payment_status=session.get("payment_status") or "paid",
+                        customer_email=get_checkout_customer_email(session),
+                        amount_total=session.get("amount_total"),
+                        currency=session.get("currency"),
+                        items=items_data,
                         order_error="URL image d'impression invalide",
                     )
                     return JSONResponse(status_code=200, content={"received": True})
@@ -823,7 +956,7 @@ async def stripe_webhook(request: Request):
                 "merchantReference": f"stripe-{session['id'][:20]}",
                 "recipient": {
                     "name": shipping.get("name", ""),
-                    "email": session.get("customer_details", {}).get("email"),
+                    "email": get_checkout_customer_email(session),
                     "address": {
                         "line1": address.get("line1", ""),
                         "line2": address.get("line2"),
@@ -860,19 +993,16 @@ async def stripe_webhook(request: Request):
                     order_status="submitted_to_prodigi",
                     prodigi_order_id=prodigi_order.get("id"),
                 )
-
-                # Sauvegarder en DB
-                if db:
-                    await db.orders.insert_one({
-                        "stripe_session_id": session["id"],
-                        "prodigi_order_id": prodigi_order.get("id"),
-                        "customer_email": session.get("customer_details", {}).get("email"),
-                        "amount": session.get("amount_total"),
-                        "currency": session.get("currency"),
-                        "status": "submitted_to_prodigi",
-                        "created_at": datetime.now(timezone.utc).isoformat(),
-                        "items": items_data,
-                    })
+                await upsert_checkout_record(
+                    session["id"],
+                    order_status="submitted_to_prodigi",
+                    payment_status=session.get("payment_status") or "paid",
+                    customer_email=get_checkout_customer_email(session),
+                    amount_total=session.get("amount_total"),
+                    currency=session.get("currency"),
+                    items=items_data,
+                    prodigi_order_id=prodigi_order.get("id"),
+                )
             else:
                 logger.error(f"Prodigi order failed: {resp.text}")
                 update_checkout_status_cache(
@@ -886,21 +1016,23 @@ async def stripe_webhook(request: Request):
                     order_status="prodigi_failed",
                     order_error=resp.text,
                 )
-                if db:
-                    await db.orders.insert_one({
-                        "stripe_session_id": session["id"],
-                        "prodigi_error": resp.text,
-                        "status": "prodigi_failed",
-                        "created_at": datetime.now(timezone.utc).isoformat(),
-                        "items": items_data,
-                    })
+                await upsert_checkout_record(
+                    session["id"],
+                    order_status="prodigi_failed",
+                    payment_status=session.get("payment_status") or "paid",
+                    customer_email=get_checkout_customer_email(session),
+                    amount_total=session.get("amount_total"),
+                    currency=session.get("currency"),
+                    items=items_data,
+                    order_error=resp.text,
+                )
 
     return JSONResponse(status_code=200, content={"received": True})
 
 
-# ═══════════════════════════════════════════
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 #  HEALTH
-# ═══════════════════════════════════════════
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 
 @api.get("/health")
 async def health():
@@ -912,7 +1044,7 @@ async def health():
     }
 
 
-# ─── Mount & CORS ───
+# â”€â”€â”€ Mount & CORS â”€â”€â”€
 app.include_router(api)
 
 app.add_middleware(
@@ -922,3 +1054,4 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+

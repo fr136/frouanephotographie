@@ -11,6 +11,18 @@ const shouldPollOrderStatus = (sessionData) => {
 };
 
 const getOrderPresentation = (session) => {
+  if (session?.status && session.status !== 'paid') {
+    return {
+      icon: AlertCircle,
+      iconClassName: 'text-[var(--color-gold)]',
+      heading: 'Session de paiement detectee',
+      message: "La session Stripe existe bien, mais le paiement n'est pas encore marque comme confirme.",
+      orderLabel: 'En attente de paiement',
+      orderClassName: 'text-[var(--color-gold)]',
+      tone: 'pending',
+    };
+  }
+
   if (session?.order_status === 'submitted_to_prodigi') {
     return {
       icon: CheckCircle,
@@ -48,7 +60,7 @@ const getOrderPresentation = (session) => {
 
 const OrderConfirmation = () => {
   const [searchParams] = useSearchParams();
-  const sessionId = searchParams.get('session_id');
+  const sessionId = (searchParams.get('session_id') || '').trim();
   const [session, setSession] = useState(null);
   const [chargement, setChargement] = useState(true);
   const [erreur, setErreur] = useState(null);
@@ -71,6 +83,10 @@ const OrderConfirmation = () => {
           return;
         }
 
+        if (process.env.NODE_ENV === 'development') {
+          console.log('Order confirmation session loaded', { sessionId, data });
+        }
+
         setSession(data);
         setErreur(null);
 
@@ -81,12 +97,13 @@ const OrderConfirmation = () => {
         }
 
         setChargement(false);
-      } catch {
+      } catch (error) {
         if (isCancelled) {
           return;
         }
 
-        setErreur('Impossible de recuperer les details de votre commande.');
+        setSession(null);
+        setErreur(error?.message || 'Impossible de recuperer les details de votre commande.');
         setChargement(false);
       }
     };

@@ -1,6 +1,8 @@
+import { getAllCollections, getCollectionBySlug } from "../data/collectionsData";
+
 /**
- * API Service — Franck Rouane Photographie
- * 
+ * API Service â€” Franck Rouane Photographie
+ *
  * Endpoints:
  *  - Prodigi (via backend proxy) : quotes, orders, status
  *  - Contact : formulaire
@@ -8,34 +10,63 @@
  *  - Collections : données locales (pas de backend nécessaire)
  */
 
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || '';
-const API = `${BACKEND_URL}/api`;
+export const API_BASE_URL = (
+  process.env.REACT_APP_BACKEND_URL || "http://127.0.0.1:8000"
+).replace(/\/+$/, "");
 
-// ─── Helper ───
-async function apiCall(url, options = {}) {
+function buildApiUrl(path) {
+  const normalizedPath = path.startsWith("/") ? path : `/${path}`;
+  return new URL(`/api${normalizedPath}`, `${API_BASE_URL}/`).toString();
+}
+
+if (process.env.NODE_ENV === "development") {
+  console.log("API BASE URL =", API_BASE_URL);
+}
+
+// Helper
+async function apiCall(path, options = {}) {
+  const url = /^https?:\/\//i.test(path) ? path : buildApiUrl(path);
+
   try {
     const response = await fetch(url, {
-      headers: { 'Content-Type': 'application/json', ...options.headers },
+      headers: { "Content-Type": "application/json", ...options.headers },
       ...options,
     });
-    const data = await response.json();
-    if (!response.ok) {
-      throw new Error(data.detail || `Erreur ${response.status}`);
+    const contentType = response.headers.get("content-type") || "";
+    const rawBody = await response.text();
+    let data = null;
+
+    if (rawBody) {
+      if (!contentType.includes("application/json")) {
+        const bodyPreview = rawBody.slice(0, 120).replace(/\s+/g, " ").trim();
+        throw new Error(
+          `Reponse non JSON recue depuis ${response.url} (status ${response.status}, content-type ${
+            contentType || "inconnu"
+          }). Apercu: ${bodyPreview}`
+        );
+      }
+
+      try {
+        data = JSON.parse(rawBody);
+      } catch {
+        throw new Error(`JSON invalide recu depuis ${response.url}`);
+      }
     }
-    return data;
+
+    if (!response.ok) {
+      throw new Error(data?.detail || `Erreur ${response.status}`);
+    }
+
+    return data ?? {};
   } catch (error) {
-    if (process.env.NODE_ENV === 'development') {
+    if (process.env.NODE_ENV === "development") {
       console.error(`API error [${url}]:`, error);
     }
     throw error;
   }
 }
 
-
-// ═══════════════════════════════════════════
-//  PRODIGI — Print on Demand
-// ═══════════════════════════════════════════
-
+// PRODIGI — Print on Demand
 export const prodigiAPI = {
   /**
    * Obtenir un devis pour un tirage
@@ -43,9 +74,9 @@ export const prodigiAPI = {
    * @param {string} countryCode - Code ISO pays (défaut: "FR")
    * @param {string} shippingMethod - "Budget", "Standard", "Express"
    */
-  getQuote: async (sku, countryCode = 'FR', shippingMethod = 'Standard') => {
-    return apiCall(`${API}/prodigi/quote`, {
-      method: 'POST',
+  getQuote: async (sku, countryCode = "FR", shippingMethod = "Standard") => {
+    return apiCall("/prodigi/quote", {
+      method: "POST",
       body: JSON.stringify({
         sku,
         country_code: countryCode,
@@ -63,8 +94,8 @@ export const prodigiAPI = {
    * @param {string} orderData.merchant_reference
    */
   createOrder: async (orderData) => {
-    return apiCall(`${API}/prodigi/orders`, {
-      method: 'POST',
+    return apiCall("/prodigi/orders", {
+      method: "POST",
       body: JSON.stringify(orderData),
     });
   },
@@ -74,55 +105,31 @@ export const prodigiAPI = {
    * @param {string} orderId - ID Prodigi (ex: "ord_840796")
    */
   getOrderStatus: async (orderId) => {
-    return apiCall(`${API}/prodigi/orders/${orderId}`);
+    return apiCall(`/prodigi/orders/${encodeURIComponent(orderId)}`);
   },
 };
 
-
-// ═══════════════════════════════════════════
-//  CONTACT
-// ═══════════════════════════════════════════
-
+// CONTACT
 export const contactAPI = {
   submit: async ({ name, email, phone, subject, message }) => {
-    if (!BACKEND_URL) {
-      if (process.env.NODE_ENV === 'development') {
-        console.log('Contact form (no backend) — dev only');
-      }
-      return { success: true, message: 'Message enregistré localement' };
-    }
-    return apiCall(`${API}/contact`, {
-      method: 'POST',
+    return apiCall("/contact", {
+      method: "POST",
       body: JSON.stringify({ name, email, phone, subject, message }),
     });
   },
 };
 
-
-// ═══════════════════════════════════════════
-//  NEWSLETTER
-// ═══════════════════════════════════════════
-
+// NEWSLETTER
 export const newsletterAPI = {
   subscribe: async (email) => {
-    if (!BACKEND_URL) {
-      if (process.env.NODE_ENV === 'development') {
-        console.log('Newsletter subscribe (no backend) — dev only');
-      }
-      return { success: true, message: 'Inscription enregistrée localement' };
-    }
-    return apiCall(`${API}/newsletter/subscribe`, {
-      method: 'POST',
+    return apiCall("/newsletter/subscribe", {
+      method: "POST",
       body: JSON.stringify({ email }),
     });
   },
 };
 
-
-// ═══════════════════════════════════════════
-//  CHECKOUT (Stripe)
-// ═══════════════════════════════════════════
-
+// CHECKOUT (Stripe)
 export const checkoutAPI = {
   /**
    * Créer une session Stripe Checkout
@@ -131,11 +138,8 @@ export const checkoutAPI = {
    * @returns {Object} { session_id, url }
    */
   createSession: async (items, customerEmail = null) => {
-    if (!BACKEND_URL) {
-      throw new Error('Backend non configuré — paiement impossible');
-    }
-    return apiCall(`${API}/checkout/create-session`, {
-      method: 'POST',
+    return apiCall("/checkout/create-session", {
+      method: "POST",
       body: JSON.stringify({ items, customer_email: customerEmail }),
     });
   },
@@ -144,64 +148,21 @@ export const checkoutAPI = {
    * Récupérer les détails d'une session (page confirmation)
    */
   getSession: async (sessionId) => {
-    return apiCall(`${API}/checkout/session/${sessionId}`);
+    return apiCall(`/checkout/session/${encodeURIComponent(sessionId)}`);
   },
 };
 
-
-// ═══════════════════════════════════════════
-//  COLLECTIONS (données locales, pas de backend)
-// ═══════════════════════════════════════════
-
-const LOCAL_COLLECTIONS = [
-  {
-    id: 'calanques',
-    title: 'Calanques',
-    subtitle: 'Les Calanques',
-    description: 'Découvrez la beauté sauvage des Calanques de Marseille à La Ciotat.',
-    category: 'calanques',
-    slug: 'calanques',
-    image: '/Calanques/Cover.jpg',
-    photoCount: 31,
-  },
-  {
-    id: 'sunset',
-    title: 'Couchers de Soleil',
-    subtitle: 'Golden Hour',
-    description: 'Une sélection des plus beaux couchers de soleil de la région.',
-    category: 'sunset',
-    slug: 'sunset',
-    image: '/Sunset/Cover.JPEG',
-    photoCount: 11,
-  },
-];
-
+// COLLECTIONS (données locales, pas de backend)
 export const collectionsAPI = {
   getAll: async () => {
-    // Si backend configuré, tenter API d'abord
-    if (BACKEND_URL) {
-      try {
-        const data = await apiCall(`${API}/collections`);
-        const arr = Array.isArray(data) ? data : data?.collections || data?.data || [];
-        if (arr.length > 0) return arr;
-      } catch {
-        // fallback local
-      }
-    }
-    return LOCAL_COLLECTIONS;
+    return getAllCollections();
   },
 
   getBySlug: async (slug) => {
-    return LOCAL_COLLECTIONS.find((c) => c.slug === slug) || null;
+    return getCollectionBySlug(slug);
   },
 };
 
-export const photosAPI = {
-  getAll: async () => ({ photos: [] }),
-  getById: async () => null,
-};
-
 export const healthCheck = async () => {
-  if (!BACKEND_URL) return { status: 'no-backend' };
-  return apiCall(`${API}/health`);
+  return apiCall("/health");
 };

@@ -1,20 +1,34 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { Instagram, Facebook, Mail } from 'lucide-react';
-import '../styles/photography.css';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { Instagram, Facebook, Mail } from "lucide-react";
+import { newsletterAPI } from "../services/api";
+import "../styles/photography.css";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const [newsletterEmail, setNewsletterEmail] = useState("");
+  const [newsletterStatus, setNewsletterStatus] = useState(null);
+
+  const handleNewsletterSubmit = async (event) => {
+    event.preventDefault();
+    if (!newsletterEmail) return;
+    try {
+      await newsletterAPI.subscribe(newsletterEmail);
+      setNewsletterStatus("ok");
+      setNewsletterEmail("");
+    } catch {
+      setNewsletterStatus("error");
+    }
+  };
 
   return (
     <footer className="bg-black text-white">
       <div className="container-photo py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-          {/* Brand */}
           <div>
             <h3 className="font-display text-2xl font-semibold mb-4">Franck Rouane</h3>
             <p className="text-gray-400 text-sm leading-relaxed">
-              Photographe de paysage maritime passionné par la beauté de la Méditerranée.
+              Photographe de paysage maritime ancré dans le littoral méditerranéen.
             </p>
             <div className="flex space-x-4 mt-6">
               <a
@@ -45,7 +59,6 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Navigation */}
           <div>
             <h4 className="font-semibold text-sm uppercase tracking-wider mb-4">Navigation</h4>
             <ul className="space-y-2">
@@ -66,7 +79,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link to="/a-propos" className="text-gray-400 hover:text-[var(--color-gold)] transition-colors text-sm">
-                  À Propos
+                  À propos
                 </Link>
               </li>
               <li>
@@ -77,53 +90,69 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Collections */}
           <div>
             <h4 className="font-semibold text-sm uppercase tracking-wider mb-4">Collections</h4>
             <ul className="space-y-2">
               <li>
                 <Link to="/collections/calanques" className="text-gray-400 hover:text-[var(--color-gold)] transition-colors text-sm">
-                  Calanques
+                  Calanques & littoral méditerranéen
                 </Link>
               </li>
               <li>
-                <Link to="/collections/sunset" className="text-gray-400 hover:text-[var(--color-gold)] transition-colors text-sm">
-                  Couchers de Soleil
+                <Link
+                  to="/collections/couchers-de-soleil"
+                  className="text-gray-400 hover:text-[var(--color-gold)] transition-colors text-sm"
+                >
+                  Couchers de soleil
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/collections/lever-de-soleil"
+                  className="text-gray-400 hover:text-[var(--color-gold)] transition-colors text-sm"
+                >
+                  Lever de soleil
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Newsletter */}
           <div>
             <h4 className="font-semibold text-sm uppercase tracking-wider mb-4">Newsletter</h4>
-            <p className="text-gray-400 text-sm mb-4">
-              Recevez les dernières actualités et nouvelles collections.
-            </p>
-            <form className="flex flex-col space-y-2" onSubmit={(e) => e.preventDefault()}>
-              <input
-                type="email"
-                placeholder="Votre email"
-                className="px-4 py-2 bg-white text-black text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-gold)]"
-              />
-              <button
-                type="submit"
-                className="px-4 py-2 bg-[var(--color-gold)] text-white text-sm font-semibold uppercase tracking-wider hover:bg-[var(--color-gold-dark)] transition-colors"
-              >
-                S'inscrire
-              </button>
+            <p className="text-gray-400 text-sm mb-4">Recevez les dernières actualités et nouvelles collections.</p>
+            <form className="flex flex-col space-y-2" onSubmit={handleNewsletterSubmit}>
+              {newsletterStatus === "ok" ? (
+                <p className="text-sm text-[var(--color-gold)]">Inscription confirmée.</p>
+              ) : (
+                <>
+                  <input
+                    type="email"
+                    placeholder="Votre email"
+                    value={newsletterEmail}
+                    onChange={(e) => setNewsletterEmail(e.target.value)}
+                    required
+                    className="px-4 py-2 bg-white text-black text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-gold)]"
+                  />
+                  <button
+                    type="submit"
+                    className="px-4 py-2 bg-[var(--color-gold)] text-white text-sm font-semibold uppercase tracking-wider hover:bg-[var(--color-gold-dark)] transition-colors"
+                  >
+                    S'inscrire
+                  </button>
+                  {newsletterStatus === "error" && (
+                    <p className="text-xs text-red-400">Une erreur est survenue, réessayez.</p>
+                  )}
+                </>
+              )}
             </form>
           </div>
         </div>
 
-        {/* Bottom Bar */}
         <div className="mt-12 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-400 text-sm">
-            © {currentYear} Franck Rouane Photographie. Tous droits réservés.
-          </p>
+          <p className="text-gray-400 text-sm">© {currentYear} Franck Rouane Photographie. Tous droits réservés.</p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <Link to="/mentions-legales" className="text-gray-400 hover:text-[var(--color-gold)] text-sm transition-colors">
-              Mentions Légales
+              Mentions légales
             </Link>
             <Link to="/cgv" className="text-gray-400 hover:text-[var(--color-gold)] text-sm transition-colors">
               CGV

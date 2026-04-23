@@ -1,334 +1,480 @@
-// Données enrichies des collections avec sensibilisation écologique
+import { getPhotoTitle } from "./photoTitles";
+import productCatalog from "./productCatalog.json";
 
-export const collectionsData = [
+const PRODUCT_ID_BY_ASSET_PATH = Object.entries(productCatalog).reduce((mapping, [productId, product]) => {
+  mapping[product.asset_path] = productId;
+  return mapping;
+}, {});
+
+const createPhoto = (file, options = {}) => ({
+  file,
+  featured: false,
+  ...options,
+});
+
+const RAW_COLLECTIONS = [
   {
-    id: "calanques-marseille",
-    title: "Calanques de Marseille",
-    subtitle: "Les joyaux cachés de la côte",
-    slug: "calanques-marseille",
+    id: "calanques",
+    slug: "calanques",
+    legacySlugs: ["calanques-marseille"],
     category: "calanques",
-    description: "Explorez la beauté sauvage des calanques, ces criques où la roche blanche plonge dans les eaux turquoise cristallines. Un écosystème unique et fragile à préserver.",
-    
-    // Contenu enrichi
-    anecdote: "Les Calanques sont nées il y a 120 millions d'années, lorsque la mer a envahi les vallées creusées par les rivières. Ce labyrinthe de calcaire blanc cache des grottes sous-marines et des criques secrètes accessibles seulement par la mer. Chaque lever de soleil révèle une palette de couleurs changeantes sur ces falaises majestueuses.",
-    
-    story: "Un matin d'avril, alors que le mistral soufflait encore, j'ai attendu trois heures que la lumière parfaite caresse les falaises de Sormiou. Le silence était absolu, seul le cri d'un goéland rompait la quiétude. C'est dans ces moments de patience que naissent les plus belles images, quand la nature accepte de révéler son âme.",
-    
-    photographyTips: [
-      "🌅 Privilégiez l'aube (6h-8h) pour éviter la foule et profiter d'une lumière dorée magique",
-      "📸 Utilisez un filtre polarisant pour intensifier le bleu turquoise de l'eau",
-      "🎯 Les meilleures vues : Sugiton (rocher du Torpilleur), En-Vau (plage), Sormiou (hauteurs)",
-      "⛰️ Pensez grand-angle (16-35mm) pour capturer l'immensité, téléobjectif (70-200mm) pour les détails"
-    ],
-    
+    theme: "collection-calanques",
+    assetFolder: "Calanques",
+    title: "Calanques & littoral méditerranéen",
+    subtitle: "Marseille, Cassis et littoral sud",
+    description:
+      "Sormiou, Sugiton, En-Vau et d'autres secteurs côtiers entre Marseille, Cassis et le Var.",
+    tagline:
+      "Marseille, les calanques, la côte entre Cassis et Bandol.",
+    quote:
+      "La lumière de la Méditerranée, les falaises, l'odeur de la garrigue. Il suffit d'y être tôt.",
+    coverImage: "/Calanques/Cover hero.jpg",
+    image: "/Calanques/calanque-sormiou01.webp",
+    atmosphere: ["Roche blanche", "Eaux turquoise", "Garrigue"],
+    anchor: "Marseille, Cassis, Saint-Cyr-sur-Mer, Bandol, Var",
     ecology: {
-      status: "Parc National depuis 2012 - Zone hautement protégée",
-      protectedSpecies: [
+      eyebrow: "Observation du terrain",
+      title: "Les paysages minéraux restent précis dans le regard, fragiles sur le terrain",
+      intro:
+        "Entre Marseille, les Calanques et le littoral sud, les lieux photographiés restent très identifiables. On y retrouve aussi des sentiers sollicités, des déchets visibles et une pression régulière sur le bord de mer.",
+      observations: [
         {
-          name: "Aigle de Bonelli",
-          status: "En danger critique d'extinction",
-          description: "Moins de 30 couples nicheurs en France. Ce rapace majestueux chasse dans les calanques. Ne jamais s'approcher des falaises durant la période de nidification (février-juillet).",
-          icon: "🦅"
+          title: "Sentiers et accès sensibles",
+          description:
+            "Sugiton, Sormiou, En-Vau n'encaissent pas tous la même fréquentation, mais les mêmes mécanismes reviennent vite : raccourcis, piétinement, élargissement des traces.",
         },
         {
-          name: "Posidonie (Posidonia oceanica)",
-          status: "Espèce protégée - Patrimoine mondial",
-          description: "Poumon de la Méditerranée, ces herbiers produisent 20L d'oxygène par jour et par m². Ils abritent 25% de la biodiversité marine méditerranéenne. Ne jamais jeter l'ancre sur un herbier !",
-          icon: "🌱"
+          title: "Déchets légers persistants",
+          description:
+            "Mégots, emballages, plastique léger ou restes de pique-nique restent parmi les signes les plus visibles autour des accès et des anses.",
         },
         {
-          name: "Puffin yelkouan",
-          status: "Vulnérable",
-          description: "Oiseau marin emblématique nichant dans les grottes. Sensible à la pollution lumineuse et sonore.",
-          icon: "🐦"
+          title: "Milieu marin vulnérable",
+          description:
+            "Depuis le rivage, la fragilité du bord de mer reste lisible : pression humaine continue, anses saturées et pollution flottante dans certains secteurs.",
         },
-        {
-          name: "Mérou brun",
-          status: "Espèce protégée",
-          description: "Poisson curieux qui peut vivre 50 ans. Sa population se reconstruit grâce à la protection. Observation uniquement, jamais de pêche.",
-          icon: "🐟"
-        }
       ],
-      
-      threats: [
-        {
-          title: "Surfréquentation estivale",
-          description: "Plus de 2 millions de visiteurs/an. Les sentiers s'érodent, la faune est dérangée, les déchets s'accumulent.",
-          impact: "🔴 Critique",
-          icon: "👥"
-        },
-        {
-          title: "Pollution marine",
-          description: "Plastiques, mégots, crèmes solaires chimiques détruisent l'écosystème marin. Un mégot pollue 500L d'eau pendant 12 ans.",
-          impact: "🔴 Critique", 
-          icon: "🗑️"
-        },
-        {
-          title: "Ancrage sauvage",
-          description: "Les ancres des bateaux arrachent les herbiers de posidonie qui mettent 100 ans à se reconstituer.",
-          impact: "🔴 Critique",
-          icon: "⚓"
-        },
-        {
-          title: "Incendies",
-          description: "Climat méditerranéen + sécheresse + négligence humaine = risque maximal. La garrigue met 30 ans à se régénérer.",
-          impact: "🔴 Critique",
-          icon: "🔥"
-        }
+      documentaryPlaceholders: [],
+      actions: [
+        "Nommer précisément un lieu n'oblige pas à en faire un spot surexposé.",
+        "Rester sur les tracés existants limite une partie de l'usure visible sur place.",
+        "Photographier un site peut aussi servir à documenter ce qu'il encaisse.",
       ],
-      
-      respectGuidelines: [
-        "✅ Venez hors saison (avril-mai, septembre-octobre) pour préserver les lieux",
-        "✅ Restez sur les sentiers balisés - L'érosion détruit la flore endémique",
-        "✅ Ramener TOUS vos déchets - Même organiques (pelures d'orange = 2 ans de décomposition)",
-        "✅ Crème solaire minérale uniquement - Les filtres chimiques tuent le corail et la posidonie",
-        "✅ Pas de musique, respect du silence - Les oiseaux nicheurs sont ultra-sensibles",
-        "✅ Réservation obligatoire l'été (juillet-août) - Limitez votre impact",
-        "❌ Zéro cueillette de plantes, coquillages, roches",
-        "❌ Interdiction absolue de feu (mai-septembre) sous peine d'amende + prison",
-        "❌ Pas de camping sauvage - Aires dédiées uniquement",
-        "❌ Pas de drones sans autorisation - Dérangement de la faune protégée"
+      closing:
+        "La photographie montre ici la lumière et les reliefs, mais elle sert aussi à garder une trace fidèle de lieux déjà fragiles.",
+      references: [
+        { label: "Parc national des Calanques" },
+        { label: "Littoral sud méditerranéen" },
+        { label: "Littoral Var-Méditerranée" },
       ],
-      
-      positiveActions: [
-        "🌊 Participez aux clean-ups organisés par le Parc National (calendrier sur leur site)",
-        "♻️ Utilisez les poubelles de tri en sortant du parc",
-        "🚶 Préférez les navettes maritimes ou vélo plutôt que la voiture",
-        "📚 Éduquez votre entourage sur la fragilité de cet écosystème",
-        "💚 Soutenez les associations locales de protection (Parc National, LPO, SOS Grand Bleu)"
-      ]
     },
-    
-    bestPeriods: {
-      ideal: "Avril-Mai & Septembre-Octobre",
-      avoid: "Juillet-Août (canicule, affluence, restrictions d'accès)",
-      photography: "Mars-Avril pour les fleurs, Septembre pour les lumières dorées"
-    },
-    
-    practicalInfo: {
-      access: "Bus 21 depuis Marseille, parking Luminy (complet dès 8h l'été)",
-      difficulty: "Randonnées moyennes à difficiles, dénivelé important",
-      duration: "4h à 8h selon les calanques",
-      water: "Aucun point d'eau - Prévoir 2L/personne minimum",
-      rescue: "☎️ 196 (secours en mer), 112 (urgence)",
-      regulations: "Massif fermé en cas d'alerte rouge incendie - Vérifier Météo France"
-    }
-  },
-  
-  {
-    id: "ports-cote-azur",
-    title: "Ports de la Côte d'Azur",
-    subtitle: "L'élégance maritime menacée",
-    slug: "ports-cote-azur",
-    category: "ports",
-    description: "Des petits ports de pêche authentiques aux marinas prestigieuses, découvrez le charme intemporel de nos havres maritimes. Mais derrière la carte postale, un équilibre fragile entre tradition et bétonisation.",
-    
-    anecdote: "Cassis, Sanary, Villefranche... Ces ports ont vu passer les Phéniciens, les Grecs, les Romains. Aujourd'hui, les pointus traditionnels côtoient les yachts de luxe. Chaque port raconte l'histoire d'un village qui résiste ou se transforme face au tourisme de masse. Les pêcheurs partent à 4h du matin, rentrent à 11h. Si vous voulez capturer l'authenticité, c'est à l'aube qu'il faut être là.",
-    
-    story: "À Cassis, un vieux pêcheur m'a raconté qu'il y a 40 ans, on comptait 80 pointus. Aujourd'hui, il en reste 15. Les loyers ont explosé, les fils ne reprennent plus le métier. 'Les touristes veulent voir des bateaux de pêche, mais ils ne veulent plus manger du poisson local, trop cher', m'a-t-il dit avec amertume. Cette photo de son bateau au lever du soleil, c'est peut-être le dernier témoignage d'un monde qui disparaît.",
-    
-    photographyTips: [
-      "🌅 Lever du soleil (5h30-7h) : retour des pêcheurs, lumière rasante sur les façades colorées",
-      "🌊 Marée basse pour les reflets dans l'eau calme",
-      "📸 50mm f/1.8 pour isoler les détails, 24mm pour les panoramas de port",
-      "🎨 Cassis (authentique), Villefranche (pittoresque), Saint-Jean-Cap-Ferrat (luxueux)"
+    subcollections: [
+      {
+        id: "sormiou",
+        slug: "sormiou",
+        title: "Sormiou",
+        location: "Marseille",
+        description:
+          "La calanque la plus accessible depuis Marseille. Eaux turquoise, falaises calcaires, fréquentation élevée.",
+        coverFile: "calanque-sormiou01.webp",
+        spotTags: ["Marseille", "calanque", "falaises"],
+        photos: [
+          createPhoto("calanque-sormiou01.webp", { featured: true }),
+          createPhoto("calanque-sormiou02.webp"),
+          createPhoto("calanque-sormiou03.webp"),
+          createPhoto("calanque-sormiou04.webp"),
+          createPhoto("calanque-sormiou05.webp"),
+          createPhoto("calanque-sormiou06.webp", { featured: true }),
+        ],
+      },
+      {
+        id: "sugiton",
+        slug: "sugiton",
+        title: "Sugiton",
+        location: "Marseille",
+        description:
+          "Accessible à pied depuis Luminy. Moins fréquentée que Sormiou, plus sauvage, lumière plus directe.",
+        coverFile: "sugiton01.jpeg",
+        spotTags: ["Marseille", "sugiton", "calcaire"],
+        photos: [createPhoto("sugiton01.jpeg", { featured: true }), createPhoto("sugiton02.jpg")],
+      },
+      {
+        id: "en-vau",
+        slug: "en-vau",
+        title: "En-Vau",
+        location: "Calanques",
+        description:
+          "Encaissée entre deux falaises, accessible à pied ou par la mer. Souvent citée comme la plus belle du massif.",
+        coverFile: "calanque-en-vau02.jpeg",
+        spotTags: ["en-vau", "calanque", "falaises"],
+        photos: [createPhoto("calanque-en-vau02.jpeg", { featured: true })],
+      },
+      {
+        id: "port-de-cassis",
+        slug: "port-de-cassis",
+        title: "Port de Cassis",
+        location: "Cassis",
+        description:
+          "Le port marque la limite orientale des calanques. Entre voiliers et Cap Canaille en fond, composition naturellement équilibrée.",
+        coverFile: "port-de-cassis01.webp",
+        spotTags: ["cassis", "port", "littoral"],
+        photos: [createPhoto("port-de-cassis01.webp", { featured: true })],
+      },
+      {
+        id: "port-d-alon",
+        slug: "port-d-alon",
+        title: "Port d'Alon",
+        location: "Saint-Cyr-sur-Mer",
+        description:
+          "Petite calanque entre Bandol et Saint-Cyr-sur-Mer. Ambiance intime, eaux remarquablement claires.",
+        coverFile: "calanque-port-d-alon01.webp",
+        spotTags: ["port-d-alon", "saint-cyr-sur-mer", "crique"],
+        photos: [
+          createPhoto("calanque-port-d-alon01.webp", { featured: true }),
+          createPhoto("calanque-port-d-alon02.webp"),
+          createPhoto("calanque-port-d-alon03.webp"),
+          createPhoto("calanque-port-d-alon04.webp"),
+        ],
+      },
+      {
+        id: "cap-canaille",
+        slug: "cap-canaille",
+        title: "Cap Canaille",
+        location: "Route des Crêtes",
+        description:
+          "Le Cap Canaille domine Cassis à 362 mètres. Depuis la Route des Crêtes, la vue porte loin sur la côte.",
+        coverFile: "cap-canaille01.webp",
+        spotTags: ["cap-canaille", "falaises", "route des crêtes"],
+        photos: [createPhoto("cap-canaille01.webp"), createPhoto("cap-canaille02.jpg")],
+      },
+      {
+        id: "la-madrague",
+        slug: "la-madrague",
+        title: "La Madrague",
+        location: "Saint-Cyr-sur-Mer",
+        description:
+          "Petit port de plaisance à Saint-Cyr-sur-Mer, à l'entrée de la baie des Lecques.",
+        coverFile: "la-madrague-saint-cyr-sur-mer01.webp",
+        spotTags: ["la madrague", "saint-cyr-sur-mer", "littoral sud"],
+        photos: [createPhoto("la-madrague-saint-cyr-sur-mer01.webp")],
+      },
+      {
+        id: "bandol",
+        slug: "bandol",
+        title: "Bandol",
+        location: "Bandol",
+        description:
+          "Station balnéaire entre Sanary et La Ciotat. Lumière du Var, port animé, végétation méditerranéenne.",
+        coverFile: "bougainvillier-bandol01.jpg",
+        spotTags: ["bandol", "bougainvillier", "ville littorale"],
+        photos: [createPhoto("bougainvillier-bandol01.jpg")],
+      },
+      {
+        id: "beaucours",
+        slug: "beaucours",
+        title: "Beaucours",
+        location: "Beaucours",
+        description:
+          "Plage de sable fin face à l'île des Embiez, dans le Var. Eaux calmes, lumière douce en fin de journée.",
+        coverFile: "plage-beaucours01.webp",
+        spotTags: ["beaucours", "plage", "littoral"],
+        photos: [createPhoto("plage-beaucours01.webp"), createPhoto("plage-beaucours02.webp")],
+      },
+      {
+        id: "la-fossette",
+        slug: "la-fossette",
+        title: "La Fossette",
+        location: "Plage de la Fossette",
+        description:
+          "Plage abritée au Lavandou. Sable, pins maritimes, eaux peu profondes. Un coin tranquille du littoral varois.",
+        coverFile: "plage-la-fossette01.webp",
+        spotTags: ["la-fossette", "plage", "var"],
+        photos: [
+          createPhoto("plage-la-fossette01.webp"),
+          createPhoto("plage-la-fossette02.webp"),
+          createPhoto("plage-la-fossette03.webp"),
+        ],
+      },
+      {
+        id: "portissol",
+        slug: "portissol",
+        title: "Portissol",
+        location: "Plage de Portissol",
+        description:
+          "Plage de Portissol à Sanary-sur-Mer. Eau claire, falaises dorées, atmosphère préservée.",
+        coverFile: "plage-portissol01.webp",
+        spotTags: ["portissol", "plage", "littoral"],
+        photos: [createPhoto("plage-portissol01.webp")],
+      },
+      {
+        id: "calanque-des-anglais",
+        slug: "calanque-des-anglais",
+        title: "Calanque des Anglais",
+        location: "Agay",
+        description:
+          "Site naturel dans le massif de l'Estérel, près d'Agay. Roche rouge, eau transparente, accès par sentier.",
+        coverFile: "calanque-des-anglais01.webp",
+        spotTags: ["agay", "calanque", "estérel"],
+        photos: [createPhoto("calanque-des-anglais01.webp")],
+      },
     ],
-    
-    ecology: {
-      status: "Écosystème côtier sous haute pression urbanistique",
-      protectedSpecies: [
-        {
-          name: "Grande nacre (Pinna nobilis)",
-          status: "En danger critique - Quasi-éteinte",
-          description: "Plus grand coquillage de Méditerranée (jusqu'à 1m20). Épidémie de parasite en 2016 : 99% de mortalité. Survie de l'espèce en jeu.",
-          icon: "🐚"
-        },
-        {
-          name: "Hippocampe moucheté",
-          status: "Protégé",
-          description: "Vit dans les herbiers peu profonds près des ports. Indicateur de qualité de l'eau.",
-          icon: "🐎"
-        },
-        {
-          name: "Corb (poisson)",
-          status: "Surpêché",
-          description: "Poisson emblématique de la pêche traditionnelle. Stocks en chute libre.",
-          icon: "🐠"
-        }
-      ],
-      
-      threats: [
-        {
-          title: "Bétonisation du littoral",
-          description: "86% du littoral français artificialisé. Chaque nouveau port de plaisance détruit des zones de frai.",
-          impact: "🔴 Critique",
-          icon: "🏗️"
-        },
-        {
-          title: "Pollution des eaux portuaires",
-          description: "Hydrocarbures, peintures antifouling toxiques, eaux noires des bateaux. Les ports sont des zones mortes pour la vie marine.",
-          impact: "🔴 Critique",
-          icon: "🛢️"
-        },
-        {
-          title: "Surpêche et pêche illégale",
-          description: "Stocks de poissons en effondrement. Tailles minimales non respectées. Pêche de loisir non régulée.",
-          impact: "🔴 Critique",
-          icon: "🎣"
-        },
-        {
-          title: "Tourisme de masse",
-          description: "Villages saturés l'été. Hausse des loyers = départ des locaux. Perte d'authenticité et de culture maritime.",
-          impact: "🟠 Élevé",
-          icon: "🚢"
-        }
-      ],
-      
-      respectGuidelines: [
-        "✅ Consommez du poisson local de pêche durable - Cherchez le label MSC ou Pavillon France",
-        "✅ Respectez les tailles minimales de capture (bar 42cm, daurade 23cm, etc.)",
-        "✅ Visitez hors-saison - Les villages retrouvent leur âme en automne/hiver",
-        "✅ Soutenez les petits commerces locaux plutôt que les chaînes",
-        "✅ Ne jetez RIEN dans l'eau - Même biodégradable (pelures, mégots, etc.)",
-        "❌ Ne nourrissez pas les poissons et oiseaux - Perturbation de la chaîne alimentaire",
-        "❌ Pas de pêche dans les zones interdites (herbiers, réserves)",
-        "❌ Pas d'achat de coquillages vivants pour décoration",
-        "❌ Refusez le plastique à usage unique sur les terrasses",
-        "❌ Ne marchez pas sur les rochers à marée basse - Vous écrasez des centaines d'organismes"
-      ],
-      
-      positiveActions: [
-        "🐟 Achetez directement aux pêcheurs à leur retour (vente à quai)",
-        "♻️ Participez aux opérations 'Ports propres' - Nettoyage des fonds marins",
-        "🚲 Privilégiez vélo/bus - Parkings saturés = pollution",
-        "📸 Partagez la beauté pour sensibiliser, pas pour faire venir plus de monde",
-        "💙 Soutenez les associations: Clean My Calanques, Longitude 181, Wings of the Ocean"
-      ]
-    },
-    
-    bestPeriods: {
-      ideal: "Mai-Juin & Septembre-Octobre",
-      avoid: "Juillet-Août (foule, chaleur, authenticité perdue)",
-      photography: "Automne pour les lumières chaudes et les villages paisibles"
-    }
   },
-  
   {
-    id: "couchers-soleil",
-    title: "Couchers de Soleil",
-    subtitle: "L'or fragile de la Méditerranée",
-    slug: "couchers-soleil",
+    id: "sunset",
+    slug: "couchers-de-soleil",
+    legacySlugs: ["sunset", "couchers-soleil"],
     category: "sunset",
-    description: "Ces moments magiques où le ciel s'embrase et la mer se pare de mille reflets dorés. Mais combien de couchers de soleil verront nos enfants si nous ne protégeons pas ce littoral ?",
-    
-    anecdote: "Un coucher de soleil sur la Méditerranée n'est jamais le même. La poussière du Sahara colore le ciel en rose, les embruns créent des halos, le mistral nettoie l'atmosphère pour un orange éclatant. Les anciens marins savaient lire le ciel : 'Ciel rouge le soir, espoir. Ciel rouge le matin, chagrin.' J'ai photographié plus de 500 couchers de soleil. Chacun unique. Chacun éphémère.",
-    
-    story: "Cap d'Antibes, juin 2023. Je photographie le coucher de soleil depuis 10 ans au même endroit. Cette année, j'ai remarqué quelque chose d'inquiétant : la ligne d'horizon est brouillée par la pollution atmosphérique, même en été. Les couleurs sont moins éclatantes. Le changement climatique et la pollution modifient même la beauté de nos crépuscules.",
-    
-    photographyTips: [
-      "🌅 Golden hour : 30 min avant le coucher jusqu'à 20 min après",
-      "📸 Mode manuel : ISO 100-400, f/8-11, vitesse adaptée (1/125 à 1/500)",
-      "🎨 Sous-exposez de -1 EV pour saturer les couleurs",
-      "🏖️ Meilleurs spots : Calanque de Sormiou, Cap d'Antibes, Plage de l'Estaque"
+    theme: "collection-sunset",
+    assetFolder: "Sunset",
+    title: "Couchers de soleil",
+    subtitle: "Marseille et La Ciotat",
+    description:
+      "La Ciotat et Marseille. Deux rivages différents, la même lumière de fin de journée sur la Méditerranée.",
+    tagline:
+      "La Ciotat et Marseille, deux rivages différents, la même lumière de fin de journée.",
+    quote:
+      "Entre la Route des Crêtes et la plage des Catalans, le soleil descend sur le même horizon.",
+    coverImage: "/Sunset/Cover.JPEG",
+    image: "/Sunset/Cover.JPEG",
+    atmosphere: ["La Ciotat", "Marseille", "Lumière rasante"],
+    anchor: "Marseille, La Ciotat",
+    ecology: {
+      eyebrow: "Observation du terrain",
+      title: "Le soir reste spectaculaire, les rivages restent sensibles",
+      intro:
+        "À Marseille comme à La Ciotat, le coucher de soleil attire du monde. Les mêmes fins de journée laissent aussi apparaître stationnement saturé, déchets visibles et pression continue sur le bord de mer.",
+      observations: [
+        {
+          title: "Concentration des usages",
+          description:
+            "Les mêmes points de vue reviennent vite : route des Crêtes, Catalans, Bain des Dames, Port Saint-Jean, L'Estaque.",
+        },
+        {
+          title: "Traces de fin de journée",
+          description:
+            "Canettes, mégots et emballages abandonnés restent parmi les marqueurs les plus lisibles après le départ des visiteurs.",
+        },
+        {
+          title: "Milieu marin sous tension",
+          description:
+            "Même quand la lumière adoucit le paysage, le littoral continue d'absorber bruit, surfréquentation et pollution diffuse.",
+        },
+      ],
+      documentaryPlaceholders: [],
+      actions: [
+        "Un bon point de vue n'efface pas ce que le lieu supporte en fin de journée.",
+        "Ces points de vue sont très fréquentés. Ce que la photo montre beau, le terrain l'absorbe en quantité.",
+        "Montrer un rivage peut rester compatible avec une diffusion mesurée.",
+      ],
+      closing:
+        "Ces images de soirée gardent leur puissance visuelle, mais elles restent liées à des sites côtiers déjà très sollicités.",
+      references: [
+        { label: "Littoral marseillais" },
+        { label: "La Ciotat" },
+        { label: "Route des Crêtes" },
+      ],
+    },
+    subcollections: [
+      {
+        id: "la-ciotat",
+        slug: "la-ciotat",
+        title: "La Ciotat",
+        location: "Route des Crêtes, Port Saint-Jean et baie",
+        description:
+          "Route des Crêtes, Port Saint-Jean et baie de La Ciotat. Lumière rasante sur la mer en fin de journée.",
+        coverFile: "Coucher de soleil La Ciotat éléphant routedes crêtes.webp",
+        spotTags: ["La Ciotat", "Route des Crêtes", "Port Saint-Jean"],
+        photos: [
+          createPhoto("Coucher de soleil La Ciotat éléphant routedes crêtes.webp", { featured: true }),
+          createPhoto("sunset fire la ciotat.webp", { featured: true }),
+          createPhoto("Sunset La Ciotat1.webp"),
+          createPhoto("Sunset fire la ciotat 4.webp"),
+          createPhoto("sunset fire  la ciotat.webp"),
+          createPhoto("sunset fire la ciotat 3.jpg"),
+          createPhoto("sunset port saintjean la ciotat.webp"),
+        ],
+      },
+      {
+        id: "marseille",
+        slug: "marseille",
+        title: "Marseille",
+        location: "Catalans, L'Estaque, Bain des Dames",
+        description:
+          "Catalans, L'Estaque, Bain des Dames. Marseille face à la mer, en fin de journée.",
+        coverFile: "Sunset catalans marseille.webp",
+        spotTags: ["Marseille", "Catalans", "L'Estaque"],
+        photos: [
+          createPhoto("Sunset catalans marseille.webp"),
+          createPhoto("Sunset catalans.webp"),
+          createPhoto("sunset l'estaque Marseille.webp"),
+          createPhoto("sunset serpent bain des dames marseille.webp"),
+        ],
+      },
     ],
-    
-    ecology: {
-      status: "Paysages côtiers menacés par le changement climatique",
-      protectedSpecies: [
-        {
-          name: "Tortue caouanne",
-          status: "En danger",
-          description: "Vient pondre sur certaines plages la nuit. La pollution lumineuse des fronts de mer désoriente les bébés tortues qui vont vers les lumières au lieu de la mer.",
-          icon: "🐢"
-        }
-      ],
-      
-      threats: [
-        {
-          title: "Pollution lumineuse",
-          description: "Les fronts de mer illuminés toute la nuit perturbent la faune nocturne et gaspillent l'énergie. Biodiversité marine en danger.",
-          impact: "🔴 Critique",
-          icon: "💡"
-        },
-        {
-          title: "Montée des eaux",
-          description: "+20cm depuis 1900. Prévision : +1m d'ici 2100. Les plages où vous photographiez disparaîtront.",
-          impact: "🔴 Critique",
-          icon: "🌊"
-        },
-        {
-          title: "Érosion côtière",
-          description: "Le littoral recule de 50cm à 2m par an. Bétonisation + tempêtes + montée des eaux = disparition des plages.",
-          impact: "🔴 Critique",
-          icon: "🏖️"
-        },
-        {
-          title: "Pollution atmosphérique et plastique",
-          description: "Microplastiques dans l'air, dans l'eau, dans les poissons. Visibilité réduite, santé menacée.",
-          impact: "🟠 Élevé",
-          icon: "🌫️"
-        }
-      ],
-      
-      respectGuidelines: [
-        "✅ Éteignez vos éclairages inutiles en bord de mer la nuit",
-        "✅ Ramassez les déchets même s'ils ne sont pas les vôtres",
-        "✅ Préférez les transports doux pour accéder aux plages",
-        "✅ Sensibilisez sur le changement climatique à travers vos photos",
-        "❌ Pas de feu de camp sur les plages (amendes + dégâts écologiques)",
-        "❌ Ne dérangez pas la faune au crépuscule (période d'alimentation)",
-        "❌ Pas de drones près des colonies d'oiseaux marins"
-      ],
-      
-      positiveActions: [
-        "🌍 Réduisez votre empreinte carbone - Le changement climatique détruit ces paysages",
-        "🔦 Utilisez des lampes rouges la nuit (moins perturbantes pour la faune)",
-        "📸 Documentez l'érosion côtière - Vos photos sont des archives scientifiques",
-        "🗳️ Votez pour des politiques environnementales ambitieuses"
-      ]
-    }
   },
-  
   {
-    id: "cote-sauvage",
-    title: "Côte Sauvage",
-    subtitle: "Derniers remparts face à l'urbanisation",
-    slug: "cote-sauvage",
-    category: "wild",
-    description: "Les falaises abruptes, les vagues qui se brisent, la nature dans toute sa force et sa majesté. Ces portions de littoral préservées sont les derniers sanctuaires d'une Méditerranée authentique.",
-    
+    id: "sunrise",
+    slug: "lever-de-soleil",
+    legacySlugs: ["sunrise"],
+    category: "sunrise",
+    theme: "collection-sunrise",
+    assetFolder: "Sunrise",
+    title: "Lever de soleil",
+    subtitle: "La Ciotat",
+    description:
+      "Six photographies, un seul lieu. La Ciotat au premier soleil, avant la chaleur et le bruit.",
+    tagline:
+      "Six photographies, un seul lieu. La Ciotat au premier soleil.",
+    quote:
+      "La Ciotat, avant le bruit. La mer, la lumière, et rien d'autre.",
+    coverImage: "/Sunrise/lever-de-soleil-laciotat01.jpg",
+    image: "/Sunrise/lever-de-soleil-laciotat01.jpg",
+    atmosphere: ["La Ciotat", "Aube", "Lumière douce"],
+    anchor: "La Ciotat",
     ecology: {
-      threats: [
+      eyebrow: "Observation du terrain",
+      title: "Le calme de l'aube n'annule pas la fragilité du rivage",
+      intro:
+        "À La Ciotat, les premières lumières donnent une lecture plus calme du littoral. Elles n'effacent ni la vulnérabilité du milieu marin ni la pression qui revient ensuite sur les accès.",
+      observations: [
         {
-          title: "Projets immobiliers illégaux",
-          description: "Constructions sauvages, lotissements sur le littoral. Loi Littoral bafouée.",
-          impact: "🔴 Critique",
-          icon: "🏠"
-        }
+          title: "Littoral plus silencieux, pas moins fragile",
+          description:
+            "L'aube change l'ambiance du site, pas la sensibilité du milieu marin ni la capacité du rivage à encaisser les usages.",
+        },
+        {
+          title: "Beauté documentaire",
+          description:
+            "Le lever de soleil montre une face plus calme du même territoire. Cela peut renforcer la lecture photographique sans gommer le réel.",
+        },
+        {
+          title: "Pression différée",
+          description:
+            "Le moment photographié est paisible, mais il appartient au même littoral que les heures de saturation plus tardives.",
+        },
       ],
-      respectGuidelines: [
-        "✅ Signalez les constructions illégales sur le littoral",
-        "✅ Respectez la propriété du Conservatoire du littoral",
-        "❌ Aucun prélèvement de roches, coquillages, plantes"
-      ]
-    }
-  }
+      documentaryPlaceholders: [],
+      actions: [
+        "L'aube rend le littoral plus silencieux, pas moins vulnérable.",
+        "Le lever de soleil peut montrer la beauté du site sans sortir du réel local.",
+        "La photographie peut aussi garder trace d'un littoral fragile.",
+      ],
+      closing:
+        "À La Ciotat, l'aube rend le paysage très lisible. Elle rend aussi sa fragilité plus calme, mais pas moins réelle.",
+      references: [{ label: "La Ciotat" }, { label: "Littoral méditerranéen" }, { label: "Lever de soleil" }],
+    },
+    subcollections: [],
+    photos: [
+      createPhoto("lever-de-soleil-laciotat01.jpg", { featured: true }),
+      createPhoto("lever-de-soleil-laciotat02.jpg", { featured: true }),
+      createPhoto("lever-de-soleil-laciotat03.jpg"),
+      createPhoto("lever-de-soleil-laciotat04.jpg"),
+      createPhoto("lever-de-soleil-laciotat05.jpg"),
+      createPhoto("lever-de-soleil-laciotat06.jpg"),
+    ],
+  },
 ];
 
-// Mapping des slugs pour correspondance
-const SLUG_MAPPING = {
-  'calanques': 'calanques-marseille',
-  'calanques-marseille': 'calanques-marseille',
-  'sunset': 'couchers-soleil',
-  'couchers-soleil': 'couchers-soleil',
+const SLUG_MAPPING = RAW_COLLECTIONS.reduce((mapping, collection) => {
+  mapping[collection.slug] = collection.slug;
+  mapping[collection.id] = collection.slug;
+  (collection.legacySlugs || []).forEach((legacySlug) => {
+    mapping[legacySlug] = collection.slug;
+  });
+  return mapping;
+}, {});
+
+const hasSubcollections = (collection) => collection.subcollections.length > 0;
+
+const getCollectionTotalPhotoCount = (collection) =>
+  hasSubcollections(collection)
+    ? collection.subcollections.reduce((total, subcollection) => total + subcollection.photos.length, 0)
+    : (collection.photos || []).length;
+
+const buildSubcollectionSummary = (collection, subcollection) => ({
+  id: subcollection.id,
+  slug: subcollection.slug,
+  title: subcollection.title,
+  location: subcollection.location,
+  description: subcollection.description,
+  coverImage: `/${collection.assetFolder}/${subcollection.coverFile}`,
+  photoCount: subcollection.photos.length,
+  spotTags: subcollection.spotTags || [],
+});
+
+const buildCollectionSummary = (collection) => ({
+  id: collection.id,
+  slug: collection.slug,
+  legacySlugs: [...collection.legacySlugs],
+  category: collection.category,
+  theme: collection.theme,
+  title: collection.title,
+  subtitle: collection.subtitle,
+  description: collection.description,
+  tagline: collection.tagline,
+  quote: collection.quote,
+  coverImage: collection.coverImage,
+  image: collection.image,
+  atmosphere: [...collection.atmosphere],
+  anchor: collection.anchor,
+  photoCount: getCollectionTotalPhotoCount(collection),
+  subcollectionCount: collection.subcollections.length,
+  hasSubcollections: hasSubcollections(collection),
+  subcollections: collection.subcollections.map((subcollection) =>
+    buildSubcollectionSummary(collection, subcollection)
+  ),
+  ecology: {
+    ...collection.ecology,
+    observations: collection.ecology.observations.map((item) => ({ ...item })),
+    documentaryPlaceholders: [...collection.ecology.documentaryPlaceholders],
+    actions: [...collection.ecology.actions],
+    references: collection.ecology.references.map((reference) => ({ ...reference })),
+  },
+});
+
+const resolveCollection = (slug) => {
+  const normalizedSlug = SLUG_MAPPING[slug] || slug;
+  return RAW_COLLECTIONS.find((collection) => collection.slug === normalizedSlug) || null;
 };
 
-// Fonction helper pour récupérer une collection par slug
+const buildGalleryPhoto = (collection, photo, index, subcollection = null) => ({
+  id: subcollection ? `${collection.id}-${subcollection.id}-${index + 1}` : `${collection.id}-direct-${index + 1}`,
+  title: getPhotoTitle(photo.file, photo.title || subcollection?.title || collection.title),
+  imageUrl: `/${collection.assetFolder}/${photo.file}`,
+  featured: Boolean(photo.featured),
+  collectionId: collection.id,
+  subcollectionId: subcollection?.id || null,
+  subcollectionSlug: subcollection?.slug || "",
+  subcollectionTitle: subcollection?.title || "",
+  groupLabel: subcollection?.title || collection.anchor,
+  location: subcollection?.location || collection.anchor,
+  productId: PRODUCT_ID_BY_ASSET_PATH[`/${collection.assetFolder}/${photo.file}`] || null,
+});
+
+export const collectionsData = RAW_COLLECTIONS.map((collection) => buildCollectionSummary(collection));
+
 export const getCollectionBySlug = (slug) => {
-  const mappedSlug = SLUG_MAPPING[slug] || slug;
-  return collectionsData.find(c => c.slug === mappedSlug);
+  const collection = resolveCollection(slug);
+  return collection ? buildCollectionSummary(collection) : null;
 };
 
-export const getAllCollections = () => {
-  return collectionsData;
+export const getCollectionGalleryBySlug = (slug) => {
+  const collection = resolveCollection(slug);
+
+  if (!collection) {
+    return null;
+  }
+
+  const photos = hasSubcollections(collection)
+    ? collection.subcollections.flatMap((subcollection) =>
+        subcollection.photos.map((photo, index) => buildGalleryPhoto(collection, photo, index, subcollection))
+      )
+    : (collection.photos || []).map((photo, index) => buildGalleryPhoto(collection, photo, index));
+
+  return {
+    collection: buildCollectionSummary(collection),
+    photos,
+  };
 };
+
+export const getAllCollections = () => RAW_COLLECTIONS.map((collection) => buildCollectionSummary(collection));

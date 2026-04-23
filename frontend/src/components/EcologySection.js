@@ -1,164 +1,103 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
-import { ArrowRight, ExternalLink } from 'lucide-react';
-import { FadeInOnScroll } from './ScrollAnimations';
+import React from "react";
+import { Link } from "react-router-dom";
+import { ArrowRight, MapPin } from "lucide-react";
+import { FadeInOnScroll } from "./ScrollAnimations";
 
 const EcologySection = () => {
-  const facts = [
+  const fieldNotes = [
     {
-      stat: '3 millions',
-      label: 'de visiteurs par an dans les Calanques',
-      source: 'Parc National des Calanques, 2023'
+      title: "Sentiers fragilisés",
+      description:
+        "Autour de Marseille et dans les Calanques, les raccourcis et les passages répétés élargissent les traces et fatiguent vite les sols secs.",
     },
     {
-      stat: '20 000 ha',
-      label: "d'espace protégé terre et mer",
-      source: 'Parc National des Calanques'
+      title: "Déchets visibles",
+      description:
+        "Mégots, canettes, plastique léger ou restes de pique-nique reviennent souvent sur les accès, dans les anses et en bord de mer.",
     },
     {
-      stat: '140+',
-      label: 'espèces protégées recensées',
-      source: 'IUCN Méditerranée'
-    }
-  ];
-
-  const conseils = [
-    {
-      titre: 'Évitez les heures de pointe',
-      description: "Entre juin et août, partez à l'aube ou en fin d'après-midi. Les locaux le savent : c'est là que la lumière est la plus belle, et qu'on a la calanque pour soi."
+      title: "Pression touristique",
+      description:
+        "Sormiou, les accès des Calanques et plusieurs points du littoral méditerranéen encaissent les mêmes pics de fréquentation, surtout aux heures les plus photogéniques.",
     },
     {
-      titre: 'Restez sur les sentiers',
-      description: "Les raccourcis abîment les sols fragiles. La garrigue met des décennies à se reconstituer. Et entre nous, les sentiers officiels offrent les plus beaux points de vue."
+      title: "Milieu marin vulnérable",
+      description:
+        "Depuis le rivage, on voit aussi ce que la carte postale montre moins : déchets flottants, anses sous pression et bord de mer qui absorbe beaucoup.",
     },
-    {
-      titre: 'Remportez tout',
-      description: "Même les peaux de fruits, même les mégots. Un mégot, c'est 500 litres d'eau polluée et 12 ans pour se décomposer. Ici, on laisse que des traces de pas."
-    },
-    {
-      titre: 'Crème solaire minérale',
-      description: "Les filtres chimiques (oxybenzone, octinoxate) détruisent les herbiers de posidonie. Ces herbiers, c'est 50% de l'oxygène de la Méditerranée. Pas rien, quoi."
-    }
   ];
 
   return (
-    <section className="py-24 bg-[#1a1a1a] text-white overflow-hidden">
+    <section className="py-24 bg-[#f3eee6] text-[var(--color-gray-900)] overflow-hidden">
       <div className="container-photo">
-        {/* Header */}
         <FadeInOnScroll>
           <div className="max-w-3xl mx-auto text-center mb-16">
-            <p className="text-[var(--color-gold)] text-sm uppercase tracking-widest mb-4">
-              Engagement
-            </p>
+            <p className="text-[var(--color-gold)] text-sm uppercase tracking-[0.3em] mb-4">Regard local</p>
             <h2 className="font-display text-4xl md:text-5xl font-semibold mb-6">
-              Préserver notre littoral
+              Montrer la beauté, sans oublier la fragilité
             </h2>
-            <div className="w-16 h-0.5 bg-[var(--color-gold)] mx-auto mb-8"></div>
-            <p className="text-gray-400 text-lg leading-relaxed">
-              Ces paysages que je photographie, ce sont ceux où j'ai grandi. Entre les criques de Sormiou 
-              et les falaises de La Ciotat, j'ai vu le surtourisme transformer nos coins secrets. 
-              Aujourd'hui, photographier ces lieux, c'est aussi témoigner de leur fragilité.
+            <div className="w-16 h-0.5 bg-[var(--color-gold)] mx-auto mb-8" />
+            <p className="text-[var(--color-gray-700)] text-lg leading-relaxed">
+              Quand je photographie Marseille, les Calanques ou le littoral méditerranéen, je cherche la lumière, les
+              lignes et le calme. Mais je vois aussi des sentiers fragilisés, des déchets, des accès saturés et un
+              milieu marin qui reste vulnérable.
             </p>
           </div>
         </FadeInOnScroll>
 
-        {/* Stats */}
-        <FadeInOnScroll delay={0.1}>
-          <div className="grid md:grid-cols-3 gap-8 mb-20">
-            {facts.map((fact, index) => (
-              <motion.div
-                key={index}
-                className="text-center p-8 border border-white/10 rounded-sm hover:border-[var(--color-gold)]/30 transition-colors duration-300"
-                whileHover={{ y: -5 }}
-              >
-                <div className="font-display text-4xl md:text-5xl font-semibold text-[var(--color-gold)] mb-2">
-                  {fact.stat}
-                </div>
-                <p className="text-white mb-2">{fact.label}</p>
-                <p className="text-gray-500 text-xs italic">{fact.source}</p>
-              </motion.div>
-            ))}
-          </div>
-        </FadeInOnScroll>
+        <div className="grid xl:grid-cols-[1.05fr_0.95fr] gap-8 items-start">
+          <FadeInOnScroll delay={0.1}>
+            <div className="bg-white border border-[#e6ddcf] p-8 md:p-10 shadow-[0_20px_60px_rgba(0,0,0,0.04)]">
+              <div className="flex items-center gap-3 text-[var(--color-gold)] mb-6">
+                <MapPin size={18} />
+                <span className="text-xs uppercase tracking-[0.28em]">Marseille • Calanques • Littoral méditerranéen</span>
+              </div>
 
-        {/* Quote */}
-        <FadeInOnScroll delay={0.2}>
-          <div className="max-w-4xl mx-auto mb-20 px-8 py-12 border-l-2 border-[var(--color-gold)] bg-white/5">
-            <p className="font-display text-2xl md:text-3xl italic text-white/90 mb-6">
-              « Les Calanques, c'est pas un parc d'attractions. C'est un sanctuaire. 
-              Chaque été, on ramasse des tonnes de déchets, on soigne des goélands mazoutés, 
-              on replante des pins d'Alep. Venez, mais venez avec respect. »
-            </p>
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-0.5 bg-[var(--color-gold)]"></div>
-              <p className="text-gray-400">
-                Bénévole, Association des Calanques de Marseille
+              <p className="font-display text-3xl md:text-4xl leading-tight text-[var(--color-gray-900)] mb-8">
+                La photographie garde la trace d'un lieu, y compris quand ce lieu commence à s'abîmer.
               </p>
-            </div>
-          </div>
-        </FadeInOnScroll>
 
-        {/* Conseils */}
+              <div className="grid md:grid-cols-2 gap-5">
+                {fieldNotes.map((note) => (
+                  <article key={note.title} className="border border-[#ebe4d7] bg-[#fcfaf6] p-6">
+                    <h3 className="font-display text-xl text-[var(--color-gray-900)] mb-3">{note.title}</h3>
+                    <p className="text-[var(--color-gray-600)] leading-relaxed">{note.description}</p>
+                  </article>
+                ))}
+              </div>
+            </div>
+          </FadeInOnScroll>
+
+          <FadeInOnScroll delay={0.2}>
+            <article className="relative min-h-[480px] overflow-hidden border border-[#e6ddcf] shadow-[0_20px_60px_rgba(0,0,0,0.04)]">
+              <div
+                className="absolute inset-0 bg-cover bg-center"
+                style={{ backgroundImage: "url('/Calanques/Cover hero.jpg')" }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/25 to-transparent" />
+              <div className="relative z-10 h-full flex flex-col justify-end p-8 text-white">
+                <p className="text-[var(--color-gold)] text-xs uppercase tracking-[0.28em] mb-3">Calanque de Sormiou</p>
+                <h3 className="font-display text-3xl font-semibold mb-3">Marseille</h3>
+                <p className="text-white/85 max-w-md">
+                  Une belle image n'annule pas ce qu'elle contourne. Elle peut aussi rappeler la pression qui s'exerce
+                  sur les accès, les sentiers et le bord de mer.
+                </p>
+              </div>
+            </article>
+          </FadeInOnScroll>
+        </div>
+
         <FadeInOnScroll delay={0.3}>
-          <div className="mb-16">
-            <h3 className="font-display text-2xl font-semibold text-center mb-12">
-              Visiter en conscience
-            </h3>
-            <div className="grid md:grid-cols-2 gap-6">
-              {conseils.map((conseil, index) => (
-                <motion.div
-                  key={index}
-                  className="p-6 bg-white/5 rounded-sm border border-white/5 hover:border-[var(--color-gold)]/20 transition-all duration-300"
-                  whileHover={{ x: 5 }}
-                >
-                  <h4 className="font-display text-lg font-semibold text-white mb-3">
-                    {conseil.titre}
-                  </h4>
-                  <p className="text-gray-400 leading-relaxed">
-                    {conseil.description}
-                  </p>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </FadeInOnScroll>
-
-        {/* Sources & CTA */}
-        <FadeInOnScroll delay={0.4}>
-          <div className="text-center">
-            <div className="flex flex-wrap justify-center gap-6 mb-10 text-sm">
-              <a 
-                href="http://www.calanques-parcnational.fr" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-gray-500 hover:text-[var(--color-gold)] transition-colors"
-              >
-                Parc National des Calanques <ExternalLink size={14} />
-              </a>
-              <a 
-                href="https://www.mio.osupytheas.fr" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-gray-500 hover:text-[var(--color-gold)] transition-colors"
-              >
-                Institut Méditerranéen d'Océanologie <ExternalLink size={14} />
-              </a>
-              <a 
-                href="https://www.marseille.fr/environnement" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-gray-500 hover:text-[var(--color-gold)] transition-colors"
-              >
-                Ville de Marseille - Environnement <ExternalLink size={14} />
-              </a>
-            </div>
-            
-            <Link 
-              to="/collections" 
-              className="inline-flex items-center gap-3 px-8 py-4 bg-transparent border border-[var(--color-gold)] text-[var(--color-gold)] hover:bg-[var(--color-gold)] hover:text-black font-medium rounded-sm transition-all duration-300"
+          <div className="mt-12 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 border-t border-[#e1d7c7] pt-8">
+            <p className="text-[var(--color-gray-600)] max-w-3xl">
+              Ici, la photographie ne sert pas seulement à montrer un paysage méditerranéen réussi. Elle peut aussi
+              témoigner de ce qui change, de ce qui se fragilise et de ce qui mérite encore d'être regardé avec soin.
+            </p>
+            <Link
+              to="/collections"
+              className="inline-flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.18em] text-[var(--color-gray-900)] hover:text-[var(--color-gold)] transition-colors"
             >
-              Découvrir les collections
+              Explorer les collections
               <ArrowRight size={18} />
             </Link>
           </div>

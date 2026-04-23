@@ -1,6 +1,6 @@
 /**
  * Données statiques du site — Franck Rouane Photographie
- * 
+ *
  * Utilisé par : Home.js, About.js, Contact.js
  * Les collections sont gérées par services/api.js et data/collectionsData.js
  * Les produits boutique sont dans pages/Shop.js
@@ -17,79 +17,63 @@ export const mockData = {
     social: {
       instagram: "https://www.instagram.com/frouanephotographie",
       facebook: "https://www.facebook.com/frouanephotographie",
-    }
+    },
   },
-
-  testimonials: [
-    {
-      id: 1,
-      name: "Sophie Martin",
-      location: "Marseille",
-      text: "Les photographies de Franck ont transformé mon intérieur. Chaque jour, je voyage à travers ses images des calanques. Un travail d'une qualité exceptionnelle.",
-      rating: 5
-    },
-    {
-      id: 2,
-      name: "Jean-Pierre Dubois",
-      location: "Nice",
-      text: "En tant que collectionneur de photographie d'art, je suis impressionné par la sensibilité et la maîtrise technique de Franck. Ses tirages sont magnifiques.",
-      rating: 5
-    },
-    {
-      id: 3,
-      name: "Marie Leclerc",
-      location: "Cannes",
-      text: "J'ai offert un tirage à mes parents pour leur anniversaire. Ils sont tombés sous le charme de cette vue sur la Méditerranée. Merci Franck!",
-      rating: 5
-    }
-  ],
 
   services: [
     {
       id: 1,
       title: "Tirages d'Art",
-      description: "Photographies en édition limitée, numérotées et signées, imprimées sur papier Fine Art de qualité muséale.",
-      icon: "image"
+      description:
+        "Photographies en édition limitée, numérotées et signées, imprimées sur papier Fine Art de qualité muséale.",
+      icon: "image",
     },
     {
       id: 2,
       title: "Commandes Personnalisées",
-      description: "Créations sur mesure pour votre intérieur ou votre entreprise. Nous discutons ensemble de vos besoins spécifiques.",
-      icon: "palette"
+      description:
+        "Créations sur mesure pour votre intérieur ou votre entreprise. Nous discutons ensemble de vos besoins spécifiques.",
+      icon: "palette",
     },
     {
       id: 3,
       title: "Expositions & Galeries",
-      description: "Collaborations avec des galeries d'art et organisation d'expositions pour présenter mes œuvres au public.",
-      icon: "gallery-horizontal"
-    }
+      description:
+        "Collaborations avec des galeries d'art et organisation d'expositions pour présenter mes œuvres au public.",
+      icon: "gallery-horizontal",
+    },
   ],
 
   faq: [
     {
       id: 1,
       question: "Quels sont les formats disponibles pour les tirages ?",
-      answer: "Je propose plusieurs formats adaptés à tous les intérieurs : 30x45 cm, 50x75 cm, 70x105 cm et 100x150 cm. Chaque format est soigneusement choisi pour respecter les proportions et l'impact visuel de l'image."
+      answer:
+        "Je propose plusieurs formats adaptés à tous les intérieurs : 30x45 cm, 50x75 cm, 70x105 cm et 100x150 cm. Chaque format est soigneusement choisi pour respecter les proportions et l'impact visuel de l'image.",
     },
     {
       id: 2,
       question: "Sur quel support sont imprimées les photographies ?",
-      answer: "Tous mes tirages sont réalisés sur papier Enhanced Matte Art 200gsm, de qualité muséale, via impression giclée. Ce papier garantit une durabilité exceptionnelle et un rendu fidèle des couleurs."
+      answer:
+        "Tous mes tirages sont réalisés sur papier Enhanced Matte Art 200gsm, de qualité muséale, via impression giclée. Ce papier garantit une durabilité exceptionnelle et un rendu fidèle des couleurs.",
     },
     {
       id: 3,
       question: "Qu'est-ce qu'une édition limitée ?",
-      answer: "Chaque photographie est imprimée en nombre limité (10 à 25 exemplaires selon l'image), numérotée et signée. Cette rareté garantit l'exclusivité et la valeur de votre acquisition."
+      answer:
+        "Chaque photographie est imprimée en nombre limité (10 à 25 exemplaires selon l'image), numérotée et signée. Cette rareté garantit l'exclusivité et la valeur de votre acquisition.",
     },
     {
       id: 4,
       question: "Proposez-vous un service d'encadrement ?",
-      answer: "Oui, je peux vous conseiller et vous mettre en relation avec des encadreurs professionnels qui sauront mettre en valeur votre tirage avec un encadrement de qualité muséale."
+      answer:
+        "Oui, je peux vous conseiller et vous mettre en relation avec des encadreurs professionnels qui sauront mettre en valeur votre tirage avec un encadrement de qualité muséale.",
     },
     {
       id: 5,
       question: "Puis-je commander une photographie d'un lieu spécifique ?",
-      answer: "Absolument. Je prends des commandes personnalisées. Contactez-moi pour discuter de votre projet et nous verrons ensemble comment le concrétiser."
-    }
-  ]
+      answer:
+        "Absolument. Je prends des commandes personnalisées. Contactez-moi pour discuter de votre projet et nous verrons ensemble comment le concrétiser.",
+    },
+  ],
 };

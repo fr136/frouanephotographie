@@ -74,7 +74,7 @@ const About = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3 }}
           >
-            L'Artiste
+            Photographe
           </motion.p>
           <motion.h1
             className="hero-title mb-6"
@@ -170,8 +170,8 @@ const About = () => {
         <div className="container-photo">
           <FadeInOnScroll>
             <div className="max-w-4xl mx-auto text-center">
-              <p className="section-subtitle text-white mb-4">Vision</p>
-              <h2 className="section-title text-white mb-6">Ma philosophie artistique</h2>
+              <p className="section-subtitle text-white mb-4">Approche</p>
+              <h2 className="section-title text-white mb-6">Ce que je cherche en photographiant</h2>
               <div className="gold-line mx-auto mb-10"></div>
             </div>
           </FadeInOnScroll>
@@ -258,7 +258,7 @@ const About = () => {
           <FadeInOnScroll>
             <div className="text-center mb-16">
               <p className="section-subtitle mb-4">Prestations</p>
-              <h2 className="section-title mb-6">Mes Services</h2>
+              <h2 className="section-title mb-6">Tirages, commandes et expositions</h2>
               <div className="gold-line mx-auto"></div>
             </div>
           </FadeInOnScroll>
@@ -309,7 +309,7 @@ const About = () => {
       <section
         className="relative py-32"
         style={{
-          backgroundImage: 'url(https://images.unsplash.com/photo-1758769523560-d060d8326fd8?w=1400&q=80)',
+          backgroundImage: "url('/Calanques/cap-canaille01.webp')",
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundAttachment: 'fixed',
@@ -318,12 +318,12 @@ const About = () => {
         <div className="absolute inset-0 bg-black/50"></div>
         <div className="relative z-10 container-photo text-center text-white">
           <FadeInOnScroll>
-            <h2 className="section-title text-white mb-6">Travaillons Ensemble</h2>
+            <h2 className="section-title text-white mb-6">Un projet, une commande ?</h2>
             <p className="text-xl mb-8 max-w-2xl mx-auto">
-              Vous avez un projet photographique en tête ? Une commande spéciale ? N'hésitez pas à me contacter pour en discuter.
+              Commande personnalisée, format spécifique ou question sur un tirage — je suis disponible par email ou via le formulaire de contact.
             </p>
             <Link to="/contact" className="btn-gold">
-              Me Contacter
+              Me contacter
             </Link>
           </FadeInOnScroll>
         </div>

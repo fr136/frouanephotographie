@@ -111,7 +111,7 @@ export const trackContent = {
   // Newsletter signup
   newsletterSignup: (email) => {
     trackEvent('newsletter_signup', {
-      method: 'popup'
+      method: 'newsletter'
     });
   },
 
