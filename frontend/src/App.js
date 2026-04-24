@@ -19,7 +19,11 @@ import Contact from './pages/Contact';
 import MentionsLegales from './pages/MentionsLegales';
 import CGV from './pages/CGV';
 import Confidentialite from './pages/Confidentialite';
+import ConditionsGeneralesVente from './pages/ConditionsGeneralesVente';
+import PolitiqueConfidentialite from './pages/PolitiqueConfidentialite';
+import PolitiqueCookies from './pages/PolitiqueCookies';
 import OrderConfirmation from './pages/OrderConfirmation';
+import CookieBanner from './components/CookieBanner';
 import { Toaster } from './components/ui/toaster';
 import './styles/photography.css';
 
@@ -52,8 +56,11 @@ const AnimatedRoutes = () => {
         <Route path="/blog" element={<Navigate to="/a-propos" replace />} />
         <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
         <Route path="/mentions-legales" element={<PageTransition><MentionsLegales /></PageTransition>} />
-        <Route path="/cgv" element={<PageTransition><CGV /></PageTransition>} />
-        <Route path="/confidentialite" element={<PageTransition><Confidentialite /></PageTransition>} />
+        <Route path="/conditions-generales-de-vente" element={<PageTransition><ConditionsGeneralesVente /></PageTransition>} />
+        <Route path="/politique-confidentialite" element={<PageTransition><PolitiqueConfidentialite /></PageTransition>} />
+        <Route path="/politique-cookies" element={<PageTransition><PolitiqueCookies /></PageTransition>} />
+        <Route path="/cgv" element={<Navigate to="/conditions-generales-de-vente" replace />} />
+        <Route path="/confidentialite" element={<Navigate to="/politique-confidentialite" replace />} />
         <Route path="/commande/confirmation" element={<PageTransition><OrderConfirmation /></PageTransition>} />
         <Route path="*" element={<PageTransition><NotFound /></PageTransition>} />
       </Routes>
@@ -74,6 +81,7 @@ const AppContent = () => {
       <Footer />
       <AudioPlayer />
       <Toaster />
+      <CookieBanner />
     </>
   );
 };

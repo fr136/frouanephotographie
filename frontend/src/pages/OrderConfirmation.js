@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { CheckCircle, AlertCircle, Mail, ShoppingBag } from 'lucide-react';
 import { checkoutAPI } from '../services/api';
 import SEOHead from '../components/SEOHead';
+import { trackPurchase } from '../utils/analytics';
 import '../styles/photography.css';
 
 const shouldPollOrderStatus = (sessionData) => {
@@ -64,6 +65,18 @@ const OrderConfirmation = () => {
   const [session, setSession] = useState(null);
   const [chargement, setChargement] = useState(true);
   const [erreur, setErreur] = useState(null);
+  const purchaseTracked = useRef(false);
+
+  useEffect(() => {
+    if (!chargement && session?.status === 'paid' && !purchaseTracked.current) {
+      purchaseTracked.current = true;
+      trackPurchase({
+        transactionId: sessionId,
+        value: session.amount_total != null ? session.amount_total / 100 : null,
+        currency: session.currency,
+      });
+    }
+  }, [chargement, session, sessionId]);
 
   useEffect(() => {
     if (!sessionId) {

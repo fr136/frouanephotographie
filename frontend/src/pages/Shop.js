@@ -6,6 +6,7 @@ import { useCart } from "../context/CartContext";
 import { checkoutAPI } from "../services/api";
 import SEOHead from "../components/SEOHead";
 import { toast } from "../hooks/use-toast";
+import { trackViewItem, trackBeginCheckout } from "../utils/analytics";
 import productCatalog from "../data/productCatalog.json";
 import printAssetCatalog from "../data/printAssetCatalog.json";
 import "../styles/photography.css";
@@ -46,6 +47,7 @@ const Shop = () => {
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [selectedSize, setSelectedSize] = useState(null);
   const [isLoadingCheckout, setIsLoadingCheckout] = useState(false);
+  const [isCGVAccepted, setIsCGVAccepted] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
   const { addToWishlist, isInWishlist } = useCart();
 
@@ -68,6 +70,14 @@ const Shop = () => {
       setSelectedCategory("all");
     }
   }, [categories, selectedCategory]);
+
+  useEffect(() => {
+    setIsCGVAccepted(false);
+    setSelectedSize(null);
+    if (selectedProduct) {
+      trackViewItem(selectedProduct);
+    }
+  }, [selectedProduct]);
 
   useEffect(() => {
     if (searchParams.get("checkout") !== "cancelled") {
@@ -110,6 +120,12 @@ const Shop = () => {
       });
       return;
     }
+
+    const price = getPriceBySize(product.price, size);
+    trackBeginCheckout(
+      [{ id: product.id, title: product.title, price, quantity: 1 }],
+      price
+    );
 
     setIsLoadingCheckout(true);
     try {
@@ -334,9 +350,31 @@ const Shop = () => {
                     <p className="text-gray-400 text-sm">{selectedProduct.edition}</p>
                   </div>
 
+                  <div className="mb-4">
+                    <label className="flex items-start gap-2 text-sm text-gray-600 cursor-pointer select-none">
+                      <input
+                        type="checkbox"
+                        checked={isCGVAccepted}
+                        onChange={(e) => setIsCGVAccepted(e.target.checked)}
+                        className="mt-0.5 cursor-pointer flex-shrink-0"
+                      />
+                      <span>
+                        J'ai lu et j'accepte les{' '}
+                        <a
+                          href="/conditions-generales-de-vente"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="underline hover:text-[var(--color-gold)]"
+                        >
+                          Conditions Générales de Vente
+                        </a>.
+                      </span>
+                    </label>
+                  </div>
+
                   <button
                     onClick={() => handleBuyNow(selectedProduct, selectedSize)}
-                    disabled={isLoadingCheckout || !isProductSellable(selectedProduct)}
+                    disabled={isLoadingCheckout || !isProductSellable(selectedProduct) || !isCGVAccepted}
                     className="w-full border-2 border-black text-black py-4 font-medium uppercase tracking-wider hover:bg-black hover:text-white transition-colors flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     <CreditCard size={20} />
@@ -357,6 +395,10 @@ const Shop = () => {
                     <p>Certificat d'authenticité</p>
                     <p>Livraison sécurisée</p>
                   </div>
+
+                  <p className="mt-4 text-xs text-gray-400 italic" style={{ opacity: 0.7 }}>
+                    Tirage produit à la demande. Délais de production et livraison indiqués avant paiement.
+                  </p>
                 </div>
               </div>
             </motion.div>

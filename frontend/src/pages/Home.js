@@ -8,7 +8,6 @@ import { FadeInOnScroll, StaggerContainer, StaggerItem } from "../components/Scr
 import CollectionsPreview from "../components/CollectionsPreview";
 import EcologySection from "../components/EcologySection";
 import InteractiveMap, { MapButton } from "../components/InteractiveMap";
-import ReviewsSection from "../components/ReviewsSection";
 import SEOHead from "../components/SEOHead";
 import "../styles/photography.css";
 
@@ -177,8 +176,6 @@ const Home = () => {
           </StaggerContainer>
         </div>
       </section>
-
-      <ReviewsSection email={photographer.email} />
 
       <section
         className="relative py-32"
