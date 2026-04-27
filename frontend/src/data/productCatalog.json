@@ -1,19 +1,4 @@
 {
-  "cal-001": {
-    "title": "Calanque de Sormiou",
-    "category": "calanques",
-    "collection_slug": "calanques",
-    "subcollection_slug": "sormiou",
-    "location": "Sormiou, Marseille",
-    "asset_path": "/Calanques/calanque-sormiou01.webp",
-    "base_price_eur": 150,
-    "sizes": [
-      "30x40 cm"
-    ],
-    "edition_label": "Édition limitée 1/25",
-    "featured": true,
-    "pricing_source": "cal-001"
-  },
   "cal-007": {
     "title": "Calanque de Sormiou",
     "category": "calanques",
@@ -21,52 +6,7 @@
     "subcollection_slug": "sormiou",
     "location": "Sormiou, Marseille",
     "asset_path": "/Calanques/calanque-sormiou02.webp",
-    "base_price_eur": 150,
-    "sizes": [
-      "20x30 cm"
-    ],
-    "edition_label": "Édition limitée 1/25",
-    "featured": true,
-    "pricing_source": "cal-001"
-  },
-  "cal-008": {
-    "title": "Calanque de Sormiou",
-    "category": "calanques",
-    "collection_slug": "calanques",
-    "subcollection_slug": "sormiou",
-    "location": "Sormiou, Marseille",
-    "asset_path": "/Calanques/calanque-sormiou03.webp",
-    "base_price_eur": 150,
-    "sizes": [
-      "30x40 cm"
-    ],
-    "edition_label": "Édition limitée 1/25",
-    "featured": true,
-    "pricing_source": "cal-001"
-  },
-  "cal-009": {
-    "title": "Calanque de Sormiou",
-    "category": "calanques",
-    "collection_slug": "calanques",
-    "subcollection_slug": "sormiou",
-    "location": "Sormiou, Marseille",
-    "asset_path": "/Calanques/calanque-sormiou04.webp",
-    "base_price_eur": 150,
-    "sizes": [
-      "30x40 cm"
-    ],
-    "edition_label": "Édition limitée 1/25",
-    "featured": true,
-    "pricing_source": "cal-001"
-  },
-  "cal-010": {
-    "title": "Calanque de Sormiou",
-    "category": "calanques",
-    "collection_slug": "calanques",
-    "subcollection_slug": "sormiou",
-    "location": "Sormiou, Marseille",
-    "asset_path": "/Calanques/calanque-sormiou05.webp",
-    "base_price_eur": 150,
+    "base_price_eur": 49,
     "sizes": [
       "20x30 cm"
     ],
@@ -81,12 +21,12 @@
     "subcollection_slug": "sormiou",
     "location": "Sormiou, Marseille",
     "asset_path": "/Calanques/calanque-sormiou06.webp",
-    "base_price_eur": 150,
+    "base_price_eur": 49,
     "sizes": [
       "20x30 cm"
     ],
     "edition_label": "Édition limitée 1/25",
-    "featured": true,
+    "featured": false,
     "pricing_source": "cal-001"
   },
   "cal-005": {
@@ -96,7 +36,7 @@
     "subcollection_slug": "sugiton",
     "location": "Sugiton, Marseille",
     "asset_path": "/Calanques/sugiton01.jpeg",
-    "base_price_eur": 160,
+    "base_price_eur": 79,
     "sizes": [
       "30x45 cm",
       "40x60 cm"
@@ -112,13 +52,13 @@
     "subcollection_slug": "sugiton",
     "location": "Sugiton, Marseille",
     "asset_path": "/Calanques/sugiton02.jpg",
-    "base_price_eur": 160,
+    "base_price_eur": 79,
     "sizes": [
       "30x45 cm",
       "40x60 cm"
     ],
     "edition_label": "Édition limitée 1/20",
-    "featured": true,
+    "featured": false,
     "pricing_source": "cal-005"
   },
   "cal-006": {
@@ -128,7 +68,7 @@
     "subcollection_slug": "en-vau",
     "location": "En-Vau",
     "asset_path": "/Calanques/calanque-en-vau02.jpeg",
-    "base_price_eur": 130,
+    "base_price_eur": 79,
     "sizes": [
       "30x45 cm",
       "40x60 cm"
@@ -144,7 +84,7 @@
     "subcollection_slug": "port-de-cassis",
     "location": "Cassis, Bouches-du-Rhône",
     "asset_path": "/Calanques/port-de-cassis01.webp",
-    "base_price_eur": 120,
+    "base_price_eur": 69,
     "sizes": [
       "30x40 cm"
     ],
@@ -159,7 +99,7 @@
     "subcollection_slug": "port-d-alon",
     "location": "Saint-Cyr-sur-Mer",
     "asset_path": "/Calanques/calanque-port-d-alon01.webp",
-    "base_price_eur": 140,
+    "base_price_eur": 49,
     "sizes": [
       "20x30 cm"
     ],
@@ -174,7 +114,7 @@
     "subcollection_slug": "port-d-alon",
     "location": "Saint-Cyr-sur-Mer",
     "asset_path": "/Calanques/calanque-port-d-alon02.webp",
-    "base_price_eur": 140,
+    "base_price_eur": 69,
     "sizes": [
       "30x40 cm"
     ],
@@ -189,7 +129,7 @@
     "subcollection_slug": "port-d-alon",
     "location": "Saint-Cyr-sur-Mer",
     "asset_path": "/Calanques/calanque-port-d-alon03.webp",
-    "base_price_eur": 140,
+    "base_price_eur": 69,
     "sizes": [
       "30x40 cm"
     ],
@@ -204,7 +144,7 @@
     "subcollection_slug": "port-d-alon",
     "location": "Saint-Cyr-sur-Mer",
     "asset_path": "/Calanques/calanque-port-d-alon04.webp",
-    "base_price_eur": 140,
+    "base_price_eur": 49,
     "sizes": [
       "20x30 cm"
     ],
@@ -219,7 +159,7 @@
     "subcollection_slug": "cap-canaille",
     "location": "Route des Crêtes",
     "asset_path": "/Calanques/cap-canaille01.webp",
-    "base_price_eur": 140,
+    "base_price_eur": 69,
     "sizes": [
       "30x40 cm"
     ],
@@ -234,7 +174,7 @@
     "subcollection_slug": "cap-canaille",
     "location": "Route des Crêtes",
     "asset_path": "/Calanques/cap-canaille02.jpg",
-    "base_price_eur": 140,
+    "base_price_eur": 79,
     "sizes": [
       "30x45 cm",
       "40x60 cm"
@@ -250,7 +190,7 @@
     "subcollection_slug": "la-madrague",
     "location": "Saint-Cyr-sur-Mer",
     "asset_path": "/Calanques/la-madrague-saint-cyr-sur-mer01.webp",
-    "base_price_eur": 140,
+    "base_price_eur": 69,
     "sizes": [
       "30x40 cm"
     ],
@@ -265,7 +205,7 @@
     "subcollection_slug": "bandol",
     "location": "Bandol",
     "asset_path": "/Calanques/bougainvillier-bandol01.jpg",
-    "base_price_eur": 140,
+    "base_price_eur": 49,
     "sizes": [
       "20x30 cm"
     ],
@@ -280,7 +220,7 @@
     "subcollection_slug": "beaucours",
     "location": "Beaucours",
     "asset_path": "/Calanques/plage-beaucours01.webp",
-    "base_price_eur": 140,
+    "base_price_eur": 69,
     "sizes": [
       "30x40 cm"
     ],
@@ -295,7 +235,7 @@
     "subcollection_slug": "beaucours",
     "location": "Beaucours",
     "asset_path": "/Calanques/plage-beaucours02.webp",
-    "base_price_eur": 140,
+    "base_price_eur": 79,
     "sizes": [
       "30x45 cm",
       "40x60 cm"
@@ -311,7 +251,7 @@
     "subcollection_slug": "la-fossette",
     "location": "Plage de la Fossette",
     "asset_path": "/Calanques/plage-la-fossette01.webp",
-    "base_price_eur": 140,
+    "base_price_eur": 69,
     "sizes": [
       "30x40 cm"
     ],
@@ -326,7 +266,7 @@
     "subcollection_slug": "la-fossette",
     "location": "Plage de la Fossette",
     "asset_path": "/Calanques/plage-la-fossette02.webp",
-    "base_price_eur": 140,
+    "base_price_eur": 69,
     "sizes": [
       "30x40 cm"
     ],
@@ -341,7 +281,7 @@
     "subcollection_slug": "la-fossette",
     "location": "Plage de la Fossette",
     "asset_path": "/Calanques/plage-la-fossette03.webp",
-    "base_price_eur": 140,
+    "base_price_eur": 49,
     "sizes": [
       "20x30 cm"
     ],
@@ -356,7 +296,7 @@
     "subcollection_slug": "portissol",
     "location": "Plage de Portissol",
     "asset_path": "/Calanques/plage-portissol01.webp",
-    "base_price_eur": 140,
+    "base_price_eur": 69,
     "sizes": [
       "30x40 cm"
     ],
@@ -371,7 +311,7 @@
     "subcollection_slug": "la-ciotat",
     "location": "La Ciotat, Bouches-du-Rhône",
     "asset_path": "/Sunset/Coucher de soleil La Ciotat éléphant routedes crêtes.webp",
-    "base_price_eur": 180,
+    "base_price_eur": 49,
     "sizes": [
       "20x30 cm"
     ],
@@ -386,7 +326,7 @@
     "subcollection_slug": "la-ciotat",
     "location": "La Ciotat, Bouches-du-Rhône",
     "asset_path": "/Sunset/sunset fire la ciotat.webp",
-    "base_price_eur": 170,
+    "base_price_eur": 49,
     "sizes": [
       "20x30 cm"
     ],
@@ -401,7 +341,7 @@
     "subcollection_slug": "la-ciotat",
     "location": "La Ciotat, Bouches-du-Rhône",
     "asset_path": "/Sunset/Sunset La Ciotat1.webp",
-    "base_price_eur": 170,
+    "base_price_eur": 69,
     "sizes": [
       "30x40 cm"
     ],
@@ -416,27 +356,12 @@
     "subcollection_slug": "la-ciotat",
     "location": "La Ciotat, Bouches-du-Rhône",
     "asset_path": "/Sunset/Sunset fire la ciotat 4.webp",
-    "base_price_eur": 170,
+    "base_price_eur": 49,
     "sizes": [
       "20x30 cm"
     ],
     "edition_label": "Édition limitée 1/15",
-    "featured": true,
-    "pricing_source": "sun-002"
-  },
-  "sun-009": {
-    "title": "La Ciotat au coucher du soleil",
-    "category": "sunset",
-    "collection_slug": "couchers-de-soleil",
-    "subcollection_slug": "la-ciotat",
-    "location": "La Ciotat, Bouches-du-Rhône",
-    "asset_path": "/Sunset/sunset fire  la ciotat.webp",
-    "base_price_eur": 170,
-    "sizes": [
-      "20x30 cm"
-    ],
-    "edition_label": "Édition limitée 1/15",
-    "featured": true,
+    "featured": false,
     "pricing_source": "sun-002"
   },
   "sun-005": {
@@ -446,7 +371,7 @@
     "subcollection_slug": "la-ciotat",
     "location": "La Ciotat, Bouches-du-Rhône",
     "asset_path": "/Sunset/sunset port saintjean la ciotat.webp",
-    "base_price_eur": 130,
+    "base_price_eur": 69,
     "sizes": [
       "30x40 cm"
     ],
@@ -461,7 +386,7 @@
     "subcollection_slug": "marseille",
     "location": "Plage des Catalans, Marseille",
     "asset_path": "/Sunset/Sunset catalans marseille.webp",
-    "base_price_eur": 140,
+    "base_price_eur": 49,
     "sizes": [
       "20x30 cm"
     ],
@@ -476,7 +401,7 @@
     "subcollection_slug": "marseille",
     "location": "Plage des Catalans, Marseille",
     "asset_path": "/Sunset/Sunset catalans.webp",
-    "base_price_eur": 140,
+    "base_price_eur": 69,
     "sizes": [
       "30x40 cm"
     ],
@@ -491,7 +416,7 @@
     "subcollection_slug": "marseille",
     "location": "L'Estaque, Marseille",
     "asset_path": "/Sunset/sunset l'estaque Marseille.webp",
-    "base_price_eur": 150,
+    "base_price_eur": 69,
     "sizes": [
       "30x40 cm"
     ],
@@ -506,7 +431,7 @@
     "subcollection_slug": "marseille",
     "location": "Marseille",
     "asset_path": "/Sunset/sunset serpent bain des dames marseille.webp",
-    "base_price_eur": 140,
+    "base_price_eur": 69,
     "sizes": [
       "30x40 cm"
     ],
@@ -521,7 +446,7 @@
     "subcollection_slug": "",
     "location": "La Ciotat",
     "asset_path": "/Sunrise/lever-de-soleil-laciotat01.jpg",
-    "base_price_eur": 170,
+    "base_price_eur": 79,
     "sizes": [
       "30x45 cm",
       "40x60 cm",
@@ -538,7 +463,7 @@
     "subcollection_slug": "",
     "location": "La Ciotat",
     "asset_path": "/Sunrise/lever-de-soleil-laciotat02.jpg",
-    "base_price_eur": 170,
+    "base_price_eur": 79,
     "sizes": [
       "30x45 cm",
       "40x60 cm"
@@ -554,7 +479,7 @@
     "subcollection_slug": "",
     "location": "La Ciotat",
     "asset_path": "/Sunrise/lever-de-soleil-laciotat03.jpg",
-    "base_price_eur": 170,
+    "base_price_eur": 79,
     "sizes": [
       "30x45 cm",
       "40x60 cm"
@@ -570,7 +495,7 @@
     "subcollection_slug": "",
     "location": "La Ciotat",
     "asset_path": "/Sunrise/lever-de-soleil-laciotat05.jpg",
-    "base_price_eur": 170,
+    "base_price_eur": 49,
     "sizes": [
       "20x30 cm"
     ],
@@ -585,7 +510,7 @@
     "subcollection_slug": "",
     "location": "La Ciotat",
     "asset_path": "/Sunrise/lever-de-soleil-laciotat06.jpg",
-    "base_price_eur": 170,
+    "base_price_eur": 79,
     "sizes": [
       "30x45 cm",
       "40x60 cm"

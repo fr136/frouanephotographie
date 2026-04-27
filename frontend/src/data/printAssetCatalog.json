@@ -1,49 +1,9 @@
 {
-  "cal-001": {
-    "previewImage": "/Calanques/calanque-sormiou01.webp",
-    "sourceFilePath": "frontend/public/Calanques/calanque-sormiou01.webp",
-    "blobPathname": "prints/cal-001.webp",
-    "blobUrl": "https://ewjkgu0bxvj594ap.public.blob.vercel-storage.com/prints/cal-001.webp",
-    "collectionId": "calanques",
-    "collectionSlug": "calanques",
-    "subcollectionSlug": "sormiou",
-    "location": "Sormiou, Marseille"
-  },
   "cal-007": {
     "previewImage": "/Calanques/calanque-sormiou02.webp",
     "sourceFilePath": "frontend/public/Calanques/calanque-sormiou02.webp",
     "blobPathname": "prints/cal-007.webp",
     "blobUrl": "https://ewjkgu0bxvj594ap.public.blob.vercel-storage.com/prints/cal-007.webp",
-    "collectionId": "calanques",
-    "collectionSlug": "calanques",
-    "subcollectionSlug": "sormiou",
-    "location": "Sormiou, Marseille"
-  },
-  "cal-008": {
-    "previewImage": "/Calanques/calanque-sormiou03.webp",
-    "sourceFilePath": "frontend/public/Calanques/calanque-sormiou03.webp",
-    "blobPathname": "prints/cal-008.webp",
-    "blobUrl": "https://ewjkgu0bxvj594ap.public.blob.vercel-storage.com/prints/cal-008.webp",
-    "collectionId": "calanques",
-    "collectionSlug": "calanques",
-    "subcollectionSlug": "sormiou",
-    "location": "Sormiou, Marseille"
-  },
-  "cal-009": {
-    "previewImage": "/Calanques/calanque-sormiou04.webp",
-    "sourceFilePath": "frontend/public/Calanques/calanque-sormiou04.webp",
-    "blobPathname": "prints/cal-009.webp",
-    "blobUrl": "https://ewjkgu0bxvj594ap.public.blob.vercel-storage.com/prints/cal-009.webp",
-    "collectionId": "calanques",
-    "collectionSlug": "calanques",
-    "subcollectionSlug": "sormiou",
-    "location": "Sormiou, Marseille"
-  },
-  "cal-010": {
-    "previewImage": "/Calanques/calanque-sormiou05.webp",
-    "sourceFilePath": "frontend/public/Calanques/calanque-sormiou05.webp",
-    "blobPathname": "prints/cal-010.webp",
-    "blobUrl": "https://ewjkgu0bxvj594ap.public.blob.vercel-storage.com/prints/cal-010.webp",
     "collectionId": "calanques",
     "collectionSlug": "calanques",
     "subcollectionSlug": "sormiou",
@@ -274,16 +234,6 @@
     "sourceFilePath": "frontend/public/Sunset/Sunset fire la ciotat 4.webp",
     "blobPathname": "prints/sun-008.webp",
     "blobUrl": "https://ewjkgu0bxvj594ap.public.blob.vercel-storage.com/prints/sun-008.webp",
-    "collectionId": "sunset",
-    "collectionSlug": "couchers-de-soleil",
-    "subcollectionSlug": "la-ciotat",
-    "location": "La Ciotat, Bouches-du-Rhône"
-  },
-  "sun-009": {
-    "previewImage": "/Sunset/sunset fire  la ciotat.webp",
-    "sourceFilePath": "frontend/public/Sunset/sunset fire  la ciotat.webp",
-    "blobPathname": "prints/sun-009.webp",
-    "blobUrl": "https://ewjkgu0bxvj594ap.public.blob.vercel-storage.com/prints/sun-009.webp",
     "collectionId": "sunset",
     "collectionSlug": "couchers-de-soleil",
     "subcollectionSlug": "la-ciotat",
