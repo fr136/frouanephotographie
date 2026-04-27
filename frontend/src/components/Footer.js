@@ -154,22 +154,16 @@ const Footer = () => {
             <Link to="/mentions-legales" className="text-gray-400 hover:text-[var(--color-gold)] text-sm transition-colors">
               Mentions légales
             </Link>
-            <Link to="/cgv" className="text-gray-400 hover:text-[var(--color-gold)] text-sm transition-colors">
+            <Link to="/conditions-generales-de-vente" className="text-gray-400 hover:text-[var(--color-gold)] text-sm transition-colors">
               CGV
             </Link>
-            <Link to="/confidentialite" className="text-gray-400 hover:text-[var(--color-gold)] text-sm transition-colors">
+            <Link to="/politique-confidentialite" className="text-gray-400 hover:text-[var(--color-gold)] text-sm transition-colors">
               Confidentialité
             </Link>
+            <Link to="/politique-cookies" className="text-gray-400 hover:text-[var(--color-gold)] text-sm transition-colors">
+              Cookies
+            </Link>
           </div>
-        </div>
-        <div className="mt-4 text-center" style={{ fontSize: '0.75rem', opacity: 0.6 }}>
-          <Link to="/mentions-legales" className="text-gray-400 hover:underline transition-all">Mentions légales</Link>
-          <span className="text-gray-600 mx-2">·</span>
-          <Link to="/conditions-generales-de-vente" className="text-gray-400 hover:underline transition-all">CGV</Link>
-          <span className="text-gray-600 mx-2">·</span>
-          <Link to="/politique-confidentialite" className="text-gray-400 hover:underline transition-all">Confidentialité</Link>
-          <span className="text-gray-600 mx-2">·</span>
-          <Link to="/politique-cookies" className="text-gray-400 hover:underline transition-all">Cookies</Link>
         </div>
       </div>
     </footer>

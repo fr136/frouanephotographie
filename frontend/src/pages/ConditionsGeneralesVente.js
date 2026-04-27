@@ -23,15 +23,15 @@ const ConditionsGeneralesVente = () => {
           <div className="max-w-3xl mx-auto">
 
             <p className="body-text mb-8 text-gray-500 text-sm">
-              Dernière mise à jour : [DATE DE DERNIÈRE MISE À JOUR À COMPLÉTER]
+              Dernière mise à jour : 27 avril 2026
             </p>
 
             <h2 className="font-display text-2xl font-semibold mb-4">Article 1 — Identification du vendeur</h2>
             <p className="body-text mb-6">
               Franck Rouane — Photographe indépendant<br />
-              SIRET : [SIRET À COMPLÉTER]<br />
-              Adresse : [ADRESSE PROFESSIONNELLE À COMPLÉTER]<br />
-              Email : [EMAIL À COMPLÉTER]<br />
+              SIRET : [À COMPLÉTER]<br />
+              Adresse : [À COMPLÉTER]<br />
+              Email : rouanefra@live.fr<br />
               Site : frouanephotographie.com
             </p>
 
@@ -78,7 +78,7 @@ const ConditionsGeneralesVente = () => {
 
             <h2 className="font-display text-2xl font-semibold mb-4 mt-10">Article 9 — Réclamations et service après-vente</h2>
             <p className="body-text mb-6">
-              Pour toute réclamation (tirage endommagé, non-conformité), contactez : [EMAIL À COMPLÉTER]. Le Vendeur s'engage à répondre dans un délai de 48 heures ouvrées. En cas de tirage endommagé à la livraison, des photos du colis et du tirage seront demandées pour traitement.
+              Pour toute réclamation (tirage endommagé, non-conformité), contactez : rouanefra@live.fr. Le Vendeur s'engage à répondre dans un délai de 48 heures ouvrées. En cas de tirage endommagé à la livraison, des photos du colis et du tirage seront demandées pour traitement.
             </p>
 
             <h2 className="font-display text-2xl font-semibold mb-4 mt-10">Article 10 — Données personnelles</h2>
@@ -92,7 +92,7 @@ const ConditionsGeneralesVente = () => {
 
             <h2 className="font-display text-2xl font-semibold mb-4 mt-10">Article 11 — Droit applicable et litiges</h2>
             <p className="body-text mb-6">
-              Les présentes CGV sont soumises au droit français. En cas de litige, une solution amiable sera recherchée en priorité. À défaut, les tribunaux compétents seront ceux du ressort de [ADRESSE PROFESSIONNELLE À COMPLÉTER]. L'Acheteur peut également recourir à la plateforme européenne de règlement en ligne des litiges : <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener noreferrer" className="underline hover:text-[var(--color-gold)]">ec.europa.eu/consumers/odr</a>.
+              Les présentes CGV sont soumises au droit français. En cas de litige, une solution amiable sera recherchée en priorité. À défaut, les tribunaux compétents seront ceux du ressort du domicile du vendeur. L'Acheteur peut également recourir à la plateforme européenne de règlement en ligne des litiges : <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener noreferrer" className="underline hover:text-[var(--color-gold)]">ec.europa.eu/consumers/odr</a>.
             </p>
 
           </div>

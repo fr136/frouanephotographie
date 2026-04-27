@@ -49,7 +49,7 @@ export const mockData = {
       id: 1,
       question: "Quels sont les formats disponibles pour les tirages ?",
       answer:
-        "Je propose plusieurs formats adaptés à tous les intérieurs : 30x45 cm, 50x75 cm, 70x105 cm et 100x150 cm. Chaque format est soigneusement choisi pour respecter les proportions et l'impact visuel de l'image.",
+        "Je propose plusieurs formats adaptés à chaque image et chaque intérieur : 20x30 cm, 30x40 cm, 30x45 cm, 40x60 cm et 50x70 cm selon la résolution disponible. Chaque format est sélectionné pour garantir une qualité d'impression optimale.",
     },
     {
       id: 2,

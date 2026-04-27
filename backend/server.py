@@ -90,17 +90,19 @@ async def shutdown():
 
 # Enhanced Matte Art Paper (GLOBAL-FAP) â€” giclÃ©e, 200gsm, qualitÃ© musÃ©ale
 PRODIGI_SKUS = {
+    '20x30 cm': 'GLOBAL-FAP-8x12',
+    '30x40 cm': 'GLOBAL-FAP-12x16',
     '30x45 cm': 'GLOBAL-FAP-12x18',
-    '50x75 cm': 'GLOBAL-FAP-20x30',
-    '70x105 cm': 'GLOBAL-FAP-28x42',
-    '100x150 cm': 'GLOBAL-FAP-40x60',
+    '40x60 cm': 'GLOBAL-FAP-16x24',
+    '50x70 cm': 'GLOBAL-FAP-20x28',
 }
 
 SIZE_PRICE_OFFSETS = {
+    '20x30 cm': 0,
+    '30x40 cm': 0,
     '30x45 cm': 0,
-    '50x75 cm': 40,
-    '70x105 cm': 80,
-    '100x150 cm': 150,
+    '40x60 cm': 40,
+    '50x70 cm': 90,
 }
 
 def load_product_catalog() -> dict:

@@ -1,0 +1,158 @@
+{
+  "cal-001": {
+    "previewImage": "/Calanques/calanque-sormiou01.webp",
+    "sourceFilePath": "frontend/public/Calanques/calanque-sormiou01.webp"
+  },
+  "cal-007": {
+    "previewImage": "/Calanques/calanque-sormiou02.webp",
+    "sourceFilePath": "frontend/public/Calanques/calanque-sormiou02.webp"
+  },
+  "cal-008": {
+    "previewImage": "/Calanques/calanque-sormiou03.webp",
+    "sourceFilePath": "frontend/public/Calanques/calanque-sormiou03.webp"
+  },
+  "cal-009": {
+    "previewImage": "/Calanques/calanque-sormiou04.webp",
+    "sourceFilePath": "frontend/public/Calanques/calanque-sormiou04.webp"
+  },
+  "cal-010": {
+    "previewImage": "/Calanques/calanque-sormiou05.webp",
+    "sourceFilePath": "frontend/public/Calanques/calanque-sormiou05.webp"
+  },
+  "cal-011": {
+    "previewImage": "/Calanques/calanque-sormiou06.webp",
+    "sourceFilePath": "frontend/public/Calanques/calanque-sormiou06.webp"
+  },
+  "cal-005": {
+    "previewImage": "/Calanques/sugiton01.jpeg",
+    "sourceFilePath": "frontend/public/Calanques/sugiton01.jpeg"
+  },
+  "cal-012": {
+    "previewImage": "/Calanques/sugiton02.jpg",
+    "sourceFilePath": "frontend/public/Calanques/sugiton02.jpg"
+  },
+  "cal-006": {
+    "previewImage": "/Calanques/calanque-en-vau02.jpeg",
+    "sourceFilePath": "frontend/public/Calanques/calanque-en-vau02.jpeg"
+  },
+  "cal-002": {
+    "previewImage": "/Calanques/port-de-cassis01.webp",
+    "sourceFilePath": "frontend/public/Calanques/port-de-cassis01.webp"
+  },
+  "cal-004": {
+    "previewImage": "/Calanques/calanque-port-d-alon01.webp",
+    "sourceFilePath": "frontend/public/Calanques/calanque-port-d-alon01.webp"
+  },
+  "cal-014": {
+    "previewImage": "/Calanques/calanque-port-d-alon02.webp",
+    "sourceFilePath": "frontend/public/Calanques/calanque-port-d-alon02.webp"
+  },
+  "cal-015": {
+    "previewImage": "/Calanques/calanque-port-d-alon03.webp",
+    "sourceFilePath": "frontend/public/Calanques/calanque-port-d-alon03.webp"
+  },
+  "cal-016": {
+    "previewImage": "/Calanques/calanque-port-d-alon04.webp",
+    "sourceFilePath": "frontend/public/Calanques/calanque-port-d-alon04.webp"
+  },
+  "cal-017": {
+    "previewImage": "/Calanques/cap-canaille01.webp",
+    "sourceFilePath": "frontend/public/Calanques/cap-canaille01.webp"
+  },
+  "cal-018": {
+    "previewImage": "/Calanques/cap-canaille02.jpg",
+    "sourceFilePath": "frontend/public/Calanques/cap-canaille02.jpg"
+  },
+  "cal-019": {
+    "previewImage": "/Calanques/la-madrague-saint-cyr-sur-mer01.webp",
+    "sourceFilePath": "frontend/public/Calanques/la-madrague-saint-cyr-sur-mer01.webp"
+  },
+  "cal-020": {
+    "previewImage": "/Calanques/bougainvillier-bandol01.jpg",
+    "sourceFilePath": "frontend/public/Calanques/bougainvillier-bandol01.jpg"
+  },
+  "cal-021": {
+    "previewImage": "/Calanques/plage-beaucours01.webp",
+    "sourceFilePath": "frontend/public/Calanques/plage-beaucours01.webp"
+  },
+  "cal-022": {
+    "previewImage": "/Calanques/plage-beaucours02.webp",
+    "sourceFilePath": "frontend/public/Calanques/plage-beaucours02.webp"
+  },
+  "cal-023": {
+    "previewImage": "/Calanques/plage-la-fossette01.webp",
+    "sourceFilePath": "frontend/public/Calanques/plage-la-fossette01.webp"
+  },
+  "cal-024": {
+    "previewImage": "/Calanques/plage-la-fossette02.webp",
+    "sourceFilePath": "frontend/public/Calanques/plage-la-fossette02.webp"
+  },
+  "cal-025": {
+    "previewImage": "/Calanques/plage-la-fossette03.webp",
+    "sourceFilePath": "frontend/public/Calanques/plage-la-fossette03.webp"
+  },
+  "cal-026": {
+    "previewImage": "/Calanques/plage-portissol01.webp",
+    "sourceFilePath": "frontend/public/Calanques/plage-portissol01.webp"
+  },
+  "sun-001": {
+    "previewImage": "/Sunset/Coucher de soleil La Ciotat éléphant routedes crêtes.webp",
+    "sourceFilePath": "frontend/public/Sunset/Coucher de soleil La Ciotat éléphant routedes crêtes.webp"
+  },
+  "sun-002": {
+    "previewImage": "/Sunset/sunset fire la ciotat.webp",
+    "sourceFilePath": "frontend/public/Sunset/sunset fire la ciotat.webp"
+  },
+  "sun-007": {
+    "previewImage": "/Sunset/Sunset La Ciotat1.webp",
+    "sourceFilePath": "frontend/public/Sunset/Sunset La Ciotat1.webp"
+  },
+  "sun-008": {
+    "previewImage": "/Sunset/Sunset fire la ciotat 4.webp",
+    "sourceFilePath": "frontend/public/Sunset/Sunset fire la ciotat 4.webp"
+  },
+  "sun-009": {
+    "previewImage": "/Sunset/sunset fire  la ciotat.webp",
+    "sourceFilePath": "frontend/public/Sunset/sunset fire  la ciotat.webp"
+  },
+  "sun-005": {
+    "previewImage": "/Sunset/sunset port saintjean la ciotat.webp",
+    "sourceFilePath": "frontend/public/Sunset/sunset port saintjean la ciotat.webp"
+  },
+  "sun-003": {
+    "previewImage": "/Sunset/Sunset catalans marseille.webp",
+    "sourceFilePath": "frontend/public/Sunset/Sunset catalans marseille.webp"
+  },
+  "sun-011": {
+    "previewImage": "/Sunset/Sunset catalans.webp",
+    "sourceFilePath": "frontend/public/Sunset/Sunset catalans.webp"
+  },
+  "sun-004": {
+    "previewImage": "/Sunset/sunset l'estaque Marseille.webp",
+    "sourceFilePath": "frontend/public/Sunset/sunset l'estaque Marseille.webp"
+  },
+  "sun-006": {
+    "previewImage": "/Sunset/sunset serpent bain des dames marseille.webp",
+    "sourceFilePath": "frontend/public/Sunset/sunset serpent bain des dames marseille.webp"
+  },
+  "sunrise-001": {
+    "previewImage": "/Sunrise/lever-de-soleil-laciotat01.jpg",
+    "sourceFilePath": "frontend/public/Sunrise/lever-de-soleil-laciotat01.jpg"
+  },
+  "sunrise-002": {
+    "previewImage": "/Sunrise/lever-de-soleil-laciotat02.jpg",
+    "sourceFilePath": "frontend/public/Sunrise/lever-de-soleil-laciotat02.jpg"
+  },
+  "sunrise-003": {
+    "previewImage": "/Sunrise/lever-de-soleil-laciotat03.jpg",
+    "sourceFilePath": "frontend/public/Sunrise/lever-de-soleil-laciotat03.jpg"
+  },
+  "sunrise-005": {
+    "previewImage": "/Sunrise/lever-de-soleil-laciotat05.jpg",
+    "sourceFilePath": "frontend/public/Sunrise/lever-de-soleil-laciotat05.jpg"
+  },
+  "sunrise-006": {
+    "previewImage": "/Sunrise/lever-de-soleil-laciotat06.jpg",
+    "sourceFilePath": "frontend/public/Sunrise/lever-de-soleil-laciotat06.jpg"
+  }
+}

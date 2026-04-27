@@ -16,8 +16,8 @@ const getOrderPresentation = (session) => {
     return {
       icon: AlertCircle,
       iconClassName: 'text-[var(--color-gold)]',
-      heading: 'Session de paiement detectee',
-      message: "La session Stripe existe bien, mais le paiement n'est pas encore marque comme confirme.",
+      heading: 'Session de paiement détectée',
+      message: "La session Stripe existe bien, mais le paiement n'est pas encore marqué comme confirmé.",
       orderLabel: 'En attente de paiement',
       orderClassName: 'text-[var(--color-gold)]',
       tone: 'pending',
@@ -28,9 +28,9 @@ const getOrderPresentation = (session) => {
     return {
       icon: CheckCircle,
       iconClassName: 'text-green-500',
-      heading: 'Commande confirmee',
-      message: "Votre paiement a ete accepte et la commande a bien ete transmise a l'atelier d'impression.",
-      orderLabel: 'Transmise a Prodigi',
+      heading: 'Commande confirmée',
+      message: "Votre paiement a été accepté et la commande a bien été transmise à l'atelier d'impression.",
+      orderLabel: 'Transmise à Prodigi',
       orderClassName: 'text-green-600',
       tone: 'success',
     };
@@ -40,9 +40,9 @@ const getOrderPresentation = (session) => {
     return {
       icon: AlertCircle,
       iconClassName: 'text-red-500',
-      heading: 'Paiement recu, commande bloquee',
-      message: "Le paiement a ete accepte mais la commande d'impression n'a pas ete transmise. Ne repassez pas commande.",
-      orderLabel: 'Echec de transmission',
+      heading: 'Paiement reçu, commande bloquée',
+      message: "Le paiement a été accepté mais la commande d'impression n'a pas été transmise. Ne repassez pas commande.",
+      orderLabel: 'Échec de transmission',
       orderClassName: 'text-red-600',
       tone: 'error',
     };
@@ -51,8 +51,8 @@ const getOrderPresentation = (session) => {
   return {
     icon: AlertCircle,
     iconClassName: 'text-[var(--color-gold)]',
-    heading: 'Paiement confirme',
-    message: "Votre paiement est confirme. La commande d'impression est en cours de finalisation.",
+    heading: 'Paiement confirmé',
+    message: "Votre paiement est confirmé. La commande d'impression est en cours de finalisation.",
     orderLabel: 'Finalisation en cours',
     orderClassName: 'text-[var(--color-gold)]',
     tone: 'pending',
@@ -80,7 +80,7 @@ const OrderConfirmation = () => {
 
   useEffect(() => {
     if (!sessionId) {
-      setErreur('Aucune session de paiement trouvee.');
+      setErreur('Aucune session de paiement trouvée.');
       setChargement(false);
       return;
     }
@@ -116,7 +116,7 @@ const OrderConfirmation = () => {
         }
 
         setSession(null);
-        setErreur(error?.message || 'Impossible de recuperer les details de votre commande.');
+        setErreur(error?.message || 'Impossible de récupérer les détails de votre commande.');
         setChargement(false);
       }
     };
@@ -145,7 +145,7 @@ const OrderConfirmation = () => {
     <div className="bg-white min-h-screen">
       <SEOHead
         title="Confirmation de commande"
-        description="Verification du paiement et du statut de commande de votre tirage d'art."
+        description="Vérification du paiement et du statut de commande de votre tirage d'art."
         url="/commande/confirmation"
       />
 
@@ -182,7 +182,7 @@ const OrderConfirmation = () => {
                   animation: 'spin 0.8s linear infinite',
                 }}
               />
-              <p className="text-gray-500">Verification de votre commande...</p>
+              <p className="text-gray-500">Vérification de votre commande...</p>
             </div>
           )}
 
@@ -198,7 +198,7 @@ const OrderConfirmation = () => {
               </h2>
               <p className="text-gray-500 mb-8">{erreur}</p>
               <Link to="/boutique" className="btn-gold">
-                Retour a la boutique
+                Retour à la boutique
               </Link>
             </motion.div>
           )}
@@ -223,7 +223,7 @@ const OrderConfirmation = () => {
 
               <div className="bg-gray-50 p-8 mb-8 text-left">
                 <h3 className="font-display text-xl font-semibold mb-6 text-center">
-                  Recapitulatif
+                  Récapitulatif
                 </h3>
                 <div>
                   <div className="flex items-center justify-between py-3 border-b border-gray-200">
@@ -232,7 +232,7 @@ const OrderConfirmation = () => {
                       <span className="text-gray-700">Statut du paiement</span>
                     </div>
                     <span className="font-medium text-green-600">
-                      {session.status === 'paid' ? 'Confirme' : session.status}
+                      {session.status === 'paid' ? 'Confirmé' : session.status}
                     </span>
                   </div>
 
@@ -260,7 +260,7 @@ const OrderConfirmation = () => {
 
                   {session.prodigi_order_id && (
                     <div className="flex items-center justify-between py-3 border-b border-gray-200">
-                      <span className="text-gray-700">Reference Prodigi</span>
+                      <span className="text-gray-700">Référence Prodigi</span>
                       <span className="font-medium text-gray-900 text-sm">
                         {session.prodigi_order_id}
                       </span>
@@ -269,7 +269,7 @@ const OrderConfirmation = () => {
 
                   {session.amount_total != null && (
                     <div className="flex items-center justify-between py-3">
-                      <span className="text-gray-700 font-medium">Total paye</span>
+                      <span className="text-gray-700 font-medium">Total payé</span>
                       <span className="text-2xl font-semibold text-[var(--color-gold)]">
                         {formaterMontant(session.amount_total, session.currency)}
                       </span>
@@ -281,11 +281,11 @@ const OrderConfirmation = () => {
               {orderPresentation.tone === 'success' && (
                 <div className="bg-[#1a1a1a] text-white p-6 mb-8 text-sm text-left">
                   <p className="font-display text-base font-semibold mb-2">
-                    Votre tirage est en preparation
+                    Votre tirage est en préparation
                   </p>
                   <p className="text-gray-400">
-                    La commande est bien partie chez l'atelier. Comptez 5 a 10 jours ouvres pour la livraison en France.
-                    Un e-mail de suivi vous sera envoye a l'expedition.
+                    La commande est bien partie chez l'atelier. Comptez 5 à 10 jours ouvrés pour la livraison en France.
+                    Un e-mail de suivi vous sera envoyé à l'expédition.
                   </p>
                 </div>
               )}
@@ -293,11 +293,11 @@ const OrderConfirmation = () => {
               {orderPresentation.tone === 'pending' && (
                 <div className="bg-[#1a1a1a] text-white p-6 mb-8 text-sm text-left">
                   <p className="font-display text-base font-semibold mb-2">
-                    Verification en cours
+                    Vérification en cours
                   </p>
                   <p className="text-gray-400">
-                    Stripe a confirme le paiement. Le statut d'impression est encore en attente de retour.
-                    Rechargez cette page dans quelques secondes si necessaire.
+                    Stripe a confirmé le paiement. Le statut d'impression est encore en attente de retour.
+                    Rechargez cette page dans quelques secondes si nécessaire.
                   </p>
                 </div>
               )}
@@ -308,11 +308,11 @@ const OrderConfirmation = () => {
                     Intervention manuelle requise
                   </p>
                   <p className="mb-3">
-                    Le paiement a ete recu, mais la commande n'a pas ete transmise a l'atelier. Ne repassez pas commande.
+                    Le paiement a été reçu, mais la commande n'a pas été transmise à l'atelier. Ne repassez pas commande.
                   </p>
                   {session.order_error && (
                     <p className="mb-3 text-red-700">
-                      Detail technique: {session.order_error}
+                      Détail technique : {session.order_error}
                     </p>
                   )}
                   <Link to="/contact" className="btn-outline inline-flex items-center gap-2">

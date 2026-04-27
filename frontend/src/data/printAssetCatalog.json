@@ -239,16 +239,6 @@
     "subcollectionSlug": "portissol",
     "location": "Plage de Portissol"
   },
-  "cal-003": {
-    "previewImage": "/Calanques/calanque-des-anglais01.webp",
-    "sourceFilePath": "frontend/public/Calanques/calanque-des-anglais01.webp",
-    "blobPathname": "prints/cal-003.webp",
-    "blobUrl": "https://ewjkgu0bxvj594ap.public.blob.vercel-storage.com/prints/cal-003.webp",
-    "collectionId": "calanques",
-    "collectionSlug": "calanques",
-    "subcollectionSlug": "calanque-des-anglais",
-    "location": "Agay"
-  },
   "sun-001": {
     "previewImage": "/Sunset/Coucher de soleil La Ciotat éléphant routedes crêtes.webp",
     "sourceFilePath": "frontend/public/Sunset/Coucher de soleil La Ciotat éléphant routedes crêtes.webp",
@@ -294,16 +284,6 @@
     "sourceFilePath": "frontend/public/Sunset/sunset fire  la ciotat.webp",
     "blobPathname": "prints/sun-009.webp",
     "blobUrl": "https://ewjkgu0bxvj594ap.public.blob.vercel-storage.com/prints/sun-009.webp",
-    "collectionId": "sunset",
-    "collectionSlug": "couchers-de-soleil",
-    "subcollectionSlug": "la-ciotat",
-    "location": "La Ciotat, Bouches-du-Rhône"
-  },
-  "sun-010": {
-    "previewImage": "/Sunset/sunset fire la ciotat 3.jpg",
-    "sourceFilePath": "frontend/public/Sunset/sunset fire la ciotat 3.jpg",
-    "blobPathname": "prints/sun-010.jpg",
-    "blobUrl": "https://ewjkgu0bxvj594ap.public.blob.vercel-storage.com/prints/sun-010.jpg",
     "collectionId": "sunset",
     "collectionSlug": "couchers-de-soleil",
     "subcollectionSlug": "la-ciotat",
@@ -384,16 +364,6 @@
     "sourceFilePath": "frontend/public/Sunrise/lever-de-soleil-laciotat03.jpg",
     "blobPathname": "prints/sunrise-003.jpg",
     "blobUrl": "https://ewjkgu0bxvj594ap.public.blob.vercel-storage.com/prints/sunrise-003.jpg",
-    "collectionId": "sunrise",
-    "collectionSlug": "lever-de-soleil",
-    "subcollectionSlug": "",
-    "location": "La Ciotat"
-  },
-  "sunrise-004": {
-    "previewImage": "/Sunrise/lever-de-soleil-laciotat04.jpg",
-    "sourceFilePath": "frontend/public/Sunrise/lever-de-soleil-laciotat04.jpg",
-    "blobPathname": "prints/sunrise-004.jpg",
-    "blobUrl": "https://ewjkgu0bxvj594ap.public.blob.vercel-storage.com/prints/sunrise-004.jpg",
     "collectionId": "sunrise",
     "collectionSlug": "lever-de-soleil",
     "subcollectionSlug": "",

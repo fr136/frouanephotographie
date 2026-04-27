@@ -8,7 +8,7 @@ import SEOHead from "../components/SEOHead";
 import { toast } from "../hooks/use-toast";
 import { trackViewItem, trackBeginCheckout } from "../utils/analytics";
 import productCatalog from "../data/productCatalog.json";
-import printAssetCatalog from "../data/printAssetCatalog.json";
+import printAssetCatalog from "../data/printAssetCatalogDisplay.json";
 import "../styles/photography.css";
 
 const CATEGORY_LABELS = {
@@ -96,9 +96,8 @@ const Shop = () => {
   }, [searchParams, setSearchParams]);
 
   const getPriceBySize = (basePrice, size) => {
-    if (size?.includes("100x150")) return basePrice + 150;
-    if (size?.includes("70x105")) return basePrice + 80;
-    if (size?.includes("50x75")) return basePrice + 40;
+    if (size?.includes("50x70")) return basePrice + 90;
+    if (size?.includes("40x60")) return basePrice + 40;
     return basePrice;
   };
 

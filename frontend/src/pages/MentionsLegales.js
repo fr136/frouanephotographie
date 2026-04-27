@@ -23,15 +23,15 @@ const MentionsLegales = () => {
           <div className="max-w-3xl mx-auto">
 
             <p className="body-text mb-8 text-gray-500 text-sm">
-              Dernière mise à jour : [DATE DE DERNIÈRE MISE À JOUR À COMPLÉTER]
+              Dernière mise à jour : 27 avril 2026
             </p>
 
             <h2 className="font-display text-2xl font-semibold mb-4">Éditeur du site</h2>
             <p className="body-text mb-6">
               Franck Rouane — Photographe indépendant<br />
-              SIRET : [SIRET À COMPLÉTER]<br />
-              Adresse : [ADRESSE PROFESSIONNELLE À COMPLÉTER]<br />
-              Email : [EMAIL À COMPLÉTER]<br />
+              SIRET : [À COMPLÉTER]<br />
+              Adresse : [À COMPLÉTER]<br />
+              Email : rouanefra@live.fr<br />
               Responsable de la publication : Franck Rouane
             </p>
 

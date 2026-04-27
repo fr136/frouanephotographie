@@ -23,15 +23,15 @@ const PolitiqueConfidentialite = () => {
           <div className="max-w-3xl mx-auto">
 
             <p className="body-text mb-8 text-gray-500 text-sm">
-              Dernière mise à jour : [DATE DE DERNIÈRE MISE À JOUR À COMPLÉTER]
+              Dernière mise à jour : 27 avril 2026
             </p>
 
             <h2 className="font-display text-2xl font-semibold mb-4">Responsable du traitement</h2>
             <p className="body-text mb-6">
               Franck Rouane — Photographe indépendant<br />
-              SIRET : [SIRET À COMPLÉTER]<br />
-              Adresse : [ADRESSE PROFESSIONNELLE À COMPLÉTER]<br />
-              Email : [EMAIL À COMPLÉTER]
+              SIRET : [À COMPLÉTER]<br />
+              Adresse : [À COMPLÉTER]<br />
+              Email : rouanefra@live.fr
             </p>
 
             <h2 className="font-display text-2xl font-semibold mb-4 mt-10">Données collectées</h2>
@@ -106,7 +106,7 @@ const PolitiqueConfidentialite = () => {
               <li>Droit de retirer votre consentement à tout moment</li>
             </ul>
             <p className="body-text mb-6">
-              Pour exercer ces droits, contactez : [EMAIL À COMPLÉTER]. Vous disposez également du droit d'introduire une réclamation auprès de la CNIL (<a href="https://www.cnil.fr" target="_blank" rel="noopener noreferrer" className="underline hover:text-[var(--color-gold)]">www.cnil.fr</a>).
+              Pour exercer ces droits, contactez : rouanefra@live.fr. Vous disposez également du droit d'introduire une réclamation auprès de la CNIL (<a href="https://www.cnil.fr" target="_blank" rel="noopener noreferrer" className="underline hover:text-[var(--color-gold)]">www.cnil.fr</a>).
             </p>
 
             <h2 className="font-display text-2xl font-semibold mb-4 mt-10">Cookies</h2>

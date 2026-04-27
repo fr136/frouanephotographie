@@ -28,7 +28,7 @@ const PolitiqueCookies = () => {
           <div className="max-w-3xl mx-auto">
 
             <p className="body-text mb-8 text-gray-500 text-sm">
-              Dernière mise à jour : [DATE DE DERNIÈRE MISE À JOUR À COMPLÉTER]
+              Dernière mise à jour : 27 avril 2026
             </p>
 
             <h2 className="font-display text-2xl font-semibold mb-4">Qu'est-ce qu'un cookie ?</h2>
@@ -111,7 +111,7 @@ const PolitiqueCookies = () => {
 
             <h2 className="font-display text-2xl font-semibold mb-4 mt-10">Contact</h2>
             <p className="body-text mb-6">
-              Pour toute question relative à l'utilisation des cookies sur ce site, contactez : [EMAIL À COMPLÉTER].
+              Pour toute question relative à l'utilisation des cookies sur ce site, contactez : rouanefra@live.fr.
             </p>
 
           </div>
