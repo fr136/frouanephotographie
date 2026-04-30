@@ -96,7 +96,12 @@ const RAW_COLLECTIONS = [
           "Accessible à pied depuis Luminy. Moins fréquentée que Sormiou, plus sauvage, lumière plus directe.",
         coverFile: "sugiton01.jpeg",
         spotTags: ["Marseille", "sugiton", "calcaire"],
-        photos: [createPhoto("sugiton01.jpeg", { featured: true }), createPhoto("sugiton02.jpg")],
+        photos: [
+          createPhoto("sugiton01.jpeg", { featured: true }),
+          createPhoto("sugiton02.jpg"),
+          createPhoto("sugiton03.webp"),
+          createPhoto("sugiton04.webp"),
+        ],
       },
       {
         id: "en-vau",

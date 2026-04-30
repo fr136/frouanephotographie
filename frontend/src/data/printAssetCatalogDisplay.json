@@ -75,6 +75,14 @@
     "previewImage": "/Calanques/plage-la-fossette03.webp",
     "sourceFilePath": "frontend/public/Calanques/plage-la-fossette03.webp"
   },
+  "cal-027": {
+    "previewImage": "/Calanques/sugiton03.webp",
+    "sourceFilePath": "frontend/public/Calanques/sugiton03.webp"
+  },
+  "cal-028": {
+    "previewImage": "/Calanques/sugiton04.webp",
+    "sourceFilePath": "frontend/public/Calanques/sugiton04.webp"
+  },
   "cal-026": {
     "previewImage": "/Calanques/plage-portissol01.webp",
     "sourceFilePath": "frontend/public/Calanques/plage-portissol01.webp"

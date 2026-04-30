@@ -289,6 +289,38 @@
     "featured": false,
     "pricing_source": "default-calanques"
   },
+  "cal-027": {
+    "title": "Sugiton",
+    "category": "calanques",
+    "collection_slug": "calanques",
+    "subcollection_slug": "sugiton",
+    "location": "Sugiton, Marseille",
+    "asset_path": "/Calanques/sugiton03.webp",
+    "base_price_eur": 79,
+    "sizes": [
+      "30x45 cm",
+      "40x60 cm"
+    ],
+    "edition_label": "Édition limitée 1/20",
+    "featured": false,
+    "pricing_source": "cal-005"
+  },
+  "cal-028": {
+    "title": "Sugiton",
+    "category": "calanques",
+    "collection_slug": "calanques",
+    "subcollection_slug": "sugiton",
+    "location": "Sugiton, Marseille",
+    "asset_path": "/Calanques/sugiton04.webp",
+    "base_price_eur": 79,
+    "sizes": [
+      "30x45 cm",
+      "40x60 cm"
+    ],
+    "edition_label": "Édition limitée 1/20",
+    "featured": false,
+    "pricing_source": "cal-005"
+  },
   "cal-026": {
     "title": "Plage de Portissol",
     "category": "calanques",

@@ -24,6 +24,8 @@ const PHOTO_TITLES = {
   "port-de-cassis01.webp": "Port de Cassis",
   "sugiton01.jpeg": "Sugiton",
   "sugiton02.jpg": "Sugiton",
+  "sugiton03.webp": "Sugiton",
+  "sugiton04.webp": "Sugiton",
   "Coucher de soleil La Ciotat éléphant routedes crêtes.webp": "Route des Crêtes, La Ciotat",
   "sunset fire la ciotat.webp": "La Ciotat au coucher du soleil",
   "Sunset La Ciotat1.webp": "La Ciotat au coucher du soleil",
