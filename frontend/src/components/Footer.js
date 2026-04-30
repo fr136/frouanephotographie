@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { Instagram, Facebook, Mail } from "lucide-react";
+import { Instagram, Facebook, Youtube, Mail } from "lucide-react";
 import { newsletterAPI } from "../services/api";
 import "../styles/photography.css";
 
@@ -48,6 +48,15 @@ const Footer = () => {
                 aria-label="Facebook"
               >
                 <Facebook size={20} />
+              </a>
+              <a
+                href="https://www.youtube.com/@FRCRMLN13"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-[var(--color-gold)] transition-colors"
+                aria-label="Chaîne YouTube"
+              >
+                <Youtube size={20} />
               </a>
               <a
                 href="mailto:rouanefra@live.fr"

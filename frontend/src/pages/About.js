@@ -143,6 +143,17 @@ const About = () => {
                 <p className="body-large">
                   Mer de plusieurs continents et cultures, la Méditerranée est riche en histoire et en diversité de paysages que je m'attache à immortaliser.
                 </p>
+                <p className="body-large mt-4">
+                  Retrouvez mes captures vidéo de la Côte d'Azur sur ma{' '}
+                  <a
+                    href="https://www.youtube.com/@FRCRMLN13"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[var(--color-gold)] underline hover:opacity-75 transition-opacity"
+                  >
+                    chaîne YouTube
+                  </a>.
+                </p>
                 <div className="grid grid-cols-2 gap-6 mt-8">
                   <div>
                     <div className="flex items-center gap-2 mb-2">
