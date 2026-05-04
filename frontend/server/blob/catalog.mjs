@@ -8,7 +8,7 @@ const __dirname = path.dirname(__filename);
 
 export const frontendRoot = path.resolve(__dirname, '..', '..');
 export const repoRoot = path.resolve(frontendRoot, '..');
-export const catalogPath = path.join(frontendRoot, 'src', 'data', 'printAssetCatalog.json');
+export const catalogPath = path.join(repoRoot, 'server', 'catalog', 'printAssetCatalog.private.json');
 export const backendEnvPath = path.join(repoRoot, 'backend', '.env');
 
 function parseDotEnv(rawContent) {

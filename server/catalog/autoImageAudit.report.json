@@ -1,0 +1,94 @@
+{
+  "summary": {
+    "scannedImages": 42,
+    "sellableProducts": 36,
+    "imagesWithoutProduct": 6,
+    "productsWithoutImage": 0,
+    "imagesTooSmall": 0,
+    "gradeCounts": {
+      "A": 16,
+      "B": 20,
+      "C": 6,
+      "WEB ONLY": 0
+    }
+  },
+  "imagesWithoutProduct": [
+    {
+      "file": "calanque-des-anglais01.png",
+      "relativePath": "calanque-des-anglais01.png",
+      "width": 3200,
+      "height": 2400,
+      "grade": "C",
+      "allowedFormats": [
+        "30x45"
+      ],
+      "matchedProductIds": []
+    },
+    {
+      "file": "calanque-sormiou01.png",
+      "relativePath": "calanque-sormiou01.png",
+      "width": 4800,
+      "height": 6400,
+      "grade": "A",
+      "allowedFormats": [
+        "30x45",
+        "50x75",
+        "70x105"
+      ],
+      "matchedProductIds": []
+    },
+    {
+      "file": "calanque-sormiou03.png",
+      "relativePath": "calanque-sormiou03.png",
+      "width": 4800,
+      "height": 6400,
+      "grade": "A",
+      "allowedFormats": [
+        "30x45",
+        "50x75",
+        "70x105"
+      ],
+      "matchedProductIds": []
+    },
+    {
+      "file": "calanque-sormiou04.png",
+      "relativePath": "calanque-sormiou04.png",
+      "width": 4800,
+      "height": 6400,
+      "grade": "A",
+      "allowedFormats": [
+        "30x45",
+        "50x75",
+        "70x105"
+      ],
+      "matchedProductIds": []
+    },
+    {
+      "file": "calanque-sormiou05.png",
+      "relativePath": "calanque-sormiou05.png",
+      "width": 4800,
+      "height": 3600,
+      "grade": "B",
+      "allowedFormats": [
+        "30x45",
+        "50x75"
+      ],
+      "matchedProductIds": []
+    },
+    {
+      "file": "Cover.png",
+      "relativePath": "Cover.png",
+      "width": 8190,
+      "height": 7088,
+      "grade": "A",
+      "allowedFormats": [
+        "30x45",
+        "50x75",
+        "70x105"
+      ],
+      "matchedProductIds": []
+    }
+  ],
+  "productsWithoutImage": [],
+  "imagesTooSmall": []
+}

@@ -74,6 +74,11 @@ yarn-error.log*
 
 # Image optimization backup
 originals_backup/
+print-master/
+private-print/
+server/catalog/printAssetCatalog.private.local.json
+*.png
+*.PNG
 
 # Temp
 temp_repo/

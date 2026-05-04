@@ -1,146 +1,867 @@
 {
   "cal-007": {
     "previewImage": "/Calanques/calanque-sormiou02.webp",
-    "sourceFilePath": "frontend/public/Calanques/calanque-sormiou02.webp"
+    "grade": "C",
+    "allowedFormats": [
+      "30x45"
+    ],
+    "allowedSupports": [
+      "poster"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39
+      }
+    }
   },
   "cal-011": {
     "previewImage": "/Calanques/calanque-sormiou06.webp",
-    "sourceFilePath": "frontend/public/Calanques/calanque-sormiou06.webp"
+    "grade": "C",
+    "allowedFormats": [
+      "30x45"
+    ],
+    "allowedSupports": [
+      "poster"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39
+      }
+    }
   },
   "cal-005": {
     "previewImage": "/Calanques/sugiton01.jpeg",
-    "sourceFilePath": "frontend/public/Calanques/sugiton01.jpeg"
+    "grade": "A",
+    "allowedFormats": [
+      "30x45",
+      "50x75",
+      "70x105"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas",
+      "frame"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39,
+        "50x75": 59,
+        "70x105": 89
+      },
+      "canvas": {
+        "30x45": 69,
+        "50x75": 119,
+        "70x105": 179
+      },
+      "frame": {
+        "30x45": 99,
+        "50x75": 149,
+        "70x105": 229
+      }
+    }
   },
   "cal-012": {
     "previewImage": "/Calanques/sugiton02.jpg",
-    "sourceFilePath": "frontend/public/Calanques/sugiton02.jpg"
+    "grade": "A",
+    "allowedFormats": [
+      "30x45",
+      "50x75",
+      "70x105"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas",
+      "frame"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39,
+        "50x75": 59,
+        "70x105": 89
+      },
+      "canvas": {
+        "30x45": 69,
+        "50x75": 119,
+        "70x105": 179
+      },
+      "frame": {
+        "30x45": 99,
+        "50x75": 149,
+        "70x105": 229
+      }
+    }
   },
   "cal-006": {
     "previewImage": "/Calanques/calanque-en-vau02.jpeg",
-    "sourceFilePath": "frontend/public/Calanques/calanque-en-vau02.jpeg"
+    "grade": "A",
+    "allowedFormats": [
+      "30x45",
+      "50x75",
+      "70x105"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas",
+      "frame"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39,
+        "50x75": 59,
+        "70x105": 89
+      },
+      "canvas": {
+        "30x45": 69,
+        "50x75": 119,
+        "70x105": 179
+      },
+      "frame": {
+        "30x45": 99,
+        "50x75": 149,
+        "70x105": 229
+      }
+    }
   },
   "cal-002": {
     "previewImage": "/Calanques/port-de-cassis01.webp",
-    "sourceFilePath": "frontend/public/Calanques/port-de-cassis01.webp"
+    "grade": "B",
+    "allowedFormats": [
+      "30x45",
+      "50x75"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39,
+        "50x75": 59
+      },
+      "canvas": {
+        "30x45": 69,
+        "50x75": 119
+      }
+    }
   },
   "cal-004": {
     "previewImage": "/Calanques/calanque-port-d-alon01.webp",
-    "sourceFilePath": "frontend/public/Calanques/calanque-port-d-alon01.webp"
+    "grade": "B",
+    "allowedFormats": [
+      "30x45",
+      "50x75"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39,
+        "50x75": 59
+      },
+      "canvas": {
+        "30x45": 69,
+        "50x75": 119
+      }
+    }
   },
   "cal-014": {
     "previewImage": "/Calanques/calanque-port-d-alon02.webp",
-    "sourceFilePath": "frontend/public/Calanques/calanque-port-d-alon02.webp"
+    "grade": "B",
+    "allowedFormats": [
+      "30x45",
+      "50x75"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39,
+        "50x75": 59
+      },
+      "canvas": {
+        "30x45": 69,
+        "50x75": 119
+      }
+    }
   },
   "cal-015": {
     "previewImage": "/Calanques/calanque-port-d-alon03.webp",
-    "sourceFilePath": "frontend/public/Calanques/calanque-port-d-alon03.webp"
+    "grade": "B",
+    "allowedFormats": [
+      "30x45",
+      "50x75"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39,
+        "50x75": 59
+      },
+      "canvas": {
+        "30x45": 69,
+        "50x75": 119
+      }
+    }
   },
   "cal-016": {
     "previewImage": "/Calanques/calanque-port-d-alon04.webp",
-    "sourceFilePath": "frontend/public/Calanques/calanque-port-d-alon04.webp"
+    "grade": "B",
+    "allowedFormats": [
+      "30x45",
+      "50x75"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39,
+        "50x75": 59
+      },
+      "canvas": {
+        "30x45": 69,
+        "50x75": 119
+      }
+    }
   },
   "cal-017": {
     "previewImage": "/Calanques/cap-canaille01.webp",
-    "sourceFilePath": "frontend/public/Calanques/cap-canaille01.webp"
+    "grade": "B",
+    "allowedFormats": [
+      "30x45",
+      "50x75"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39,
+        "50x75": 59
+      },
+      "canvas": {
+        "30x45": 69,
+        "50x75": 119
+      }
+    }
   },
   "cal-018": {
     "previewImage": "/Calanques/cap-canaille02.jpg",
-    "sourceFilePath": "frontend/public/Calanques/cap-canaille02.jpg"
+    "grade": "A",
+    "allowedFormats": [
+      "30x45",
+      "50x75",
+      "70x105"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas",
+      "frame"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39,
+        "50x75": 59,
+        "70x105": 89
+      },
+      "canvas": {
+        "30x45": 69,
+        "50x75": 119,
+        "70x105": 179
+      },
+      "frame": {
+        "30x45": 99,
+        "50x75": 149,
+        "70x105": 229
+      }
+    }
   },
   "cal-019": {
     "previewImage": "/Calanques/la-madrague-saint-cyr-sur-mer01.webp",
-    "sourceFilePath": "frontend/public/Calanques/la-madrague-saint-cyr-sur-mer01.webp"
+    "grade": "B",
+    "allowedFormats": [
+      "30x45",
+      "50x75"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39,
+        "50x75": 59
+      },
+      "canvas": {
+        "30x45": 69,
+        "50x75": 119
+      }
+    }
   },
   "cal-020": {
     "previewImage": "/Calanques/bougainvillier-bandol01.jpg",
-    "sourceFilePath": "frontend/public/Calanques/bougainvillier-bandol01.jpg"
+    "grade": "C",
+    "allowedFormats": [
+      "30x45"
+    ],
+    "allowedSupports": [
+      "poster"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39
+      }
+    }
   },
   "cal-021": {
     "previewImage": "/Calanques/plage-beaucours01.webp",
-    "sourceFilePath": "frontend/public/Calanques/plage-beaucours01.webp"
+    "grade": "B",
+    "allowedFormats": [
+      "30x45",
+      "50x75"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39,
+        "50x75": 59
+      },
+      "canvas": {
+        "30x45": 69,
+        "50x75": 119
+      }
+    }
   },
   "cal-022": {
     "previewImage": "/Calanques/plage-beaucours02.webp",
-    "sourceFilePath": "frontend/public/Calanques/plage-beaucours02.webp"
+    "grade": "A",
+    "allowedFormats": [
+      "30x45",
+      "50x75",
+      "70x105"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas",
+      "frame"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39,
+        "50x75": 59,
+        "70x105": 89
+      },
+      "canvas": {
+        "30x45": 69,
+        "50x75": 119,
+        "70x105": 179
+      },
+      "frame": {
+        "30x45": 99,
+        "50x75": 149,
+        "70x105": 229
+      }
+    }
   },
   "cal-023": {
     "previewImage": "/Calanques/plage-la-fossette01.webp",
-    "sourceFilePath": "frontend/public/Calanques/plage-la-fossette01.webp"
+    "grade": "B",
+    "allowedFormats": [
+      "30x45",
+      "50x75"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39,
+        "50x75": 59
+      },
+      "canvas": {
+        "30x45": 69,
+        "50x75": 119
+      }
+    }
   },
   "cal-024": {
     "previewImage": "/Calanques/plage-la-fossette02.webp",
-    "sourceFilePath": "frontend/public/Calanques/plage-la-fossette02.webp"
+    "grade": "B",
+    "allowedFormats": [
+      "30x45",
+      "50x75"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39,
+        "50x75": 59
+      },
+      "canvas": {
+        "30x45": 69,
+        "50x75": 119
+      }
+    }
   },
   "cal-025": {
     "previewImage": "/Calanques/plage-la-fossette03.webp",
-    "sourceFilePath": "frontend/public/Calanques/plage-la-fossette03.webp"
+    "grade": "B",
+    "allowedFormats": [
+      "30x45",
+      "50x75"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39,
+        "50x75": 59
+      },
+      "canvas": {
+        "30x45": 69,
+        "50x75": 119
+      }
+    }
   },
   "cal-027": {
     "previewImage": "/Calanques/sugiton03.webp",
-    "sourceFilePath": "frontend/public/Calanques/sugiton03.webp"
+    "grade": "B",
+    "allowedFormats": [
+      "30x45",
+      "50x75"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39,
+        "50x75": 59
+      },
+      "canvas": {
+        "30x45": 69,
+        "50x75": 119
+      }
+    }
   },
   "cal-028": {
     "previewImage": "/Calanques/sugiton04.webp",
-    "sourceFilePath": "frontend/public/Calanques/sugiton04.webp"
+    "grade": "B",
+    "allowedFormats": [
+      "30x45",
+      "50x75"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39,
+        "50x75": 59
+      },
+      "canvas": {
+        "30x45": 69,
+        "50x75": 119
+      }
+    }
   },
   "cal-026": {
     "previewImage": "/Calanques/plage-portissol01.webp",
-    "sourceFilePath": "frontend/public/Calanques/plage-portissol01.webp"
+    "grade": "A",
+    "allowedFormats": [
+      "30x45",
+      "50x75",
+      "70x105"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas",
+      "frame"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39,
+        "50x75": 59,
+        "70x105": 89
+      },
+      "canvas": {
+        "30x45": 69,
+        "50x75": 119,
+        "70x105": 179
+      },
+      "frame": {
+        "30x45": 99,
+        "50x75": 149,
+        "70x105": 229
+      }
+    }
   },
   "sun-001": {
     "previewImage": "/Sunset/Coucher de soleil La Ciotat éléphant routedes crêtes.webp",
-    "sourceFilePath": "frontend/public/Sunset/Coucher de soleil La Ciotat éléphant routedes crêtes.webp"
+    "grade": "C",
+    "allowedFormats": [
+      "30x45"
+    ],
+    "allowedSupports": [
+      "poster"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39
+      }
+    }
   },
   "sun-002": {
     "previewImage": "/Sunset/sunset fire la ciotat.webp",
-    "sourceFilePath": "frontend/public/Sunset/sunset fire la ciotat.webp"
+    "grade": "B",
+    "allowedFormats": [
+      "30x45",
+      "50x75"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39,
+        "50x75": 59
+      },
+      "canvas": {
+        "30x45": 69,
+        "50x75": 119
+      }
+    }
   },
   "sun-007": {
     "previewImage": "/Sunset/Sunset La Ciotat1.webp",
-    "sourceFilePath": "frontend/public/Sunset/Sunset La Ciotat1.webp"
+    "grade": "B",
+    "allowedFormats": [
+      "30x45",
+      "50x75"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39,
+        "50x75": 59
+      },
+      "canvas": {
+        "30x45": 69,
+        "50x75": 119
+      }
+    }
   },
   "sun-008": {
     "previewImage": "/Sunset/Sunset fire la ciotat 4.webp",
-    "sourceFilePath": "frontend/public/Sunset/Sunset fire la ciotat 4.webp"
+    "grade": "B",
+    "allowedFormats": [
+      "30x45",
+      "50x75"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39,
+        "50x75": 59
+      },
+      "canvas": {
+        "30x45": 69,
+        "50x75": 119
+      }
+    }
   },
   "sun-005": {
     "previewImage": "/Sunset/sunset port saintjean la ciotat.webp",
-    "sourceFilePath": "frontend/public/Sunset/sunset port saintjean la ciotat.webp"
+    "grade": "B",
+    "allowedFormats": [
+      "30x45",
+      "50x75"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39,
+        "50x75": 59
+      },
+      "canvas": {
+        "30x45": 69,
+        "50x75": 119
+      }
+    }
   },
   "sun-003": {
     "previewImage": "/Sunset/Sunset catalans marseille.webp",
-    "sourceFilePath": "frontend/public/Sunset/Sunset catalans marseille.webp"
+    "grade": "B",
+    "allowedFormats": [
+      "30x45",
+      "50x75"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39,
+        "50x75": 59
+      },
+      "canvas": {
+        "30x45": 69,
+        "50x75": 119
+      }
+    }
   },
   "sun-011": {
     "previewImage": "/Sunset/Sunset catalans.webp",
-    "sourceFilePath": "frontend/public/Sunset/Sunset catalans.webp"
+    "grade": "B",
+    "allowedFormats": [
+      "30x45",
+      "50x75"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39,
+        "50x75": 59
+      },
+      "canvas": {
+        "30x45": 69,
+        "50x75": 119
+      }
+    }
   },
   "sun-004": {
     "previewImage": "/Sunset/sunset l'estaque Marseille.webp",
-    "sourceFilePath": "frontend/public/Sunset/sunset l'estaque Marseille.webp"
+    "grade": "A",
+    "allowedFormats": [
+      "30x45",
+      "50x75",
+      "70x105"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas",
+      "frame"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39,
+        "50x75": 59,
+        "70x105": 89
+      },
+      "canvas": {
+        "30x45": 69,
+        "50x75": 119,
+        "70x105": 179
+      },
+      "frame": {
+        "30x45": 99,
+        "50x75": 149,
+        "70x105": 229
+      }
+    }
   },
   "sun-006": {
     "previewImage": "/Sunset/sunset serpent bain des dames marseille.webp",
-    "sourceFilePath": "frontend/public/Sunset/sunset serpent bain des dames marseille.webp"
+    "grade": "A",
+    "allowedFormats": [
+      "30x45",
+      "50x75",
+      "70x105"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas",
+      "frame"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39,
+        "50x75": 59,
+        "70x105": 89
+      },
+      "canvas": {
+        "30x45": 69,
+        "50x75": 119,
+        "70x105": 179
+      },
+      "frame": {
+        "30x45": 99,
+        "50x75": 149,
+        "70x105": 229
+      }
+    }
   },
   "sunrise-001": {
     "previewImage": "/Sunrise/lever-de-soleil-laciotat01.jpg",
-    "sourceFilePath": "frontend/public/Sunrise/lever-de-soleil-laciotat01.jpg"
+    "grade": "A",
+    "allowedFormats": [
+      "30x45",
+      "50x75",
+      "70x105"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas",
+      "frame"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39,
+        "50x75": 59,
+        "70x105": 89
+      },
+      "canvas": {
+        "30x45": 69,
+        "50x75": 119,
+        "70x105": 179
+      },
+      "frame": {
+        "30x45": 99,
+        "50x75": 149,
+        "70x105": 229
+      }
+    }
   },
   "sunrise-002": {
     "previewImage": "/Sunrise/lever-de-soleil-laciotat02.jpg",
-    "sourceFilePath": "frontend/public/Sunrise/lever-de-soleil-laciotat02.jpg"
+    "grade": "A",
+    "allowedFormats": [
+      "30x45",
+      "50x75",
+      "70x105"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas",
+      "frame"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39,
+        "50x75": 59,
+        "70x105": 89
+      },
+      "canvas": {
+        "30x45": 69,
+        "50x75": 119,
+        "70x105": 179
+      },
+      "frame": {
+        "30x45": 99,
+        "50x75": 149,
+        "70x105": 229
+      }
+    }
   },
   "sunrise-003": {
     "previewImage": "/Sunrise/lever-de-soleil-laciotat03.jpg",
-    "sourceFilePath": "frontend/public/Sunrise/lever-de-soleil-laciotat03.jpg"
+    "grade": "A",
+    "allowedFormats": [
+      "30x45",
+      "50x75",
+      "70x105"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas",
+      "frame"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39,
+        "50x75": 59,
+        "70x105": 89
+      },
+      "canvas": {
+        "30x45": 69,
+        "50x75": 119,
+        "70x105": 179
+      },
+      "frame": {
+        "30x45": 99,
+        "50x75": 149,
+        "70x105": 229
+      }
+    }
   },
   "sunrise-005": {
     "previewImage": "/Sunrise/lever-de-soleil-laciotat05.jpg",
-    "sourceFilePath": "frontend/public/Sunrise/lever-de-soleil-laciotat05.jpg"
+    "grade": "C",
+    "allowedFormats": [
+      "30x45"
+    ],
+    "allowedSupports": [
+      "poster"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39
+      }
+    }
   },
   "sunrise-006": {
     "previewImage": "/Sunrise/lever-de-soleil-laciotat06.jpg",
-    "sourceFilePath": "frontend/public/Sunrise/lever-de-soleil-laciotat06.jpg"
+    "grade": "A",
+    "allowedFormats": [
+      "30x45",
+      "50x75",
+      "70x105"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas",
+      "frame"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39,
+        "50x75": 59,
+        "70x105": 89
+      },
+      "canvas": {
+        "30x45": 69,
+        "50x75": 119,
+        "70x105": 179
+      },
+      "frame": {
+        "30x45": 99,
+        "50x75": 149,
+        "70x105": 229
+      }
+    }
   }
 }

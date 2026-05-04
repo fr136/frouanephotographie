@@ -89,7 +89,7 @@ export const prodigiAPI = {
    * Créer une commande de tirage
    * @param {Object} orderData
    * @param {Object} orderData.recipient - { name, email, phone, address: { line1, line2, postal_code, country_code, city, state } }
-   * @param {Array} orderData.items - [{ sku, image_url, copies, merchant_reference }]
+   * @param {Array} orderData.items - [{ product_id, format, support, copies, merchant_reference }]
    * @param {string} orderData.shipping_method
    * @param {string} orderData.merchant_reference
    */
@@ -133,7 +133,7 @@ export const newsletterAPI = {
 export const checkoutAPI = {
   /**
    * Créer une session Stripe Checkout
-   * @param {Array} items - [{ product_id?, size, image_url?, quantity }]
+   * @param {Array} items - [{ product_id, support, size, quantity }]
    * @param {string} customerEmail - optionnel
    * @returns {Object} { session_id, url }
    */

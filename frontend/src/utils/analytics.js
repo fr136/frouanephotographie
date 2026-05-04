@@ -90,7 +90,7 @@ export const trackAddToCart = (product, quantity = 1) => {
 /**
  * Début checkout — déclenché dans handleBuyNow, juste avant la redirection Stripe.
  * cartItems : [{ id, title, price, quantity }]
- * value : montant total calculé (getPriceBySize)
+ * value : montant total calcule cote boutique
  */
 export const trackBeginCheckout = (cartItems, value) => {
   if (!isReady()) return;

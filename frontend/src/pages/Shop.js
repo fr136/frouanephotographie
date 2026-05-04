@@ -7,44 +7,63 @@ import { checkoutAPI } from "../services/api";
 import SEOHead from "../components/SEOHead";
 import { toast } from "../hooks/use-toast";
 import { trackViewItem, trackBeginCheckout } from "../utils/analytics";
-import productCatalog from "../data/productCatalog.json";
-import printAssetCatalog from "../data/printAssetCatalogDisplay.json";
+import publicProductCatalog from "../data/publicProductCatalog.json";
 import "../styles/photography.css";
 
 const CATEGORY_LABELS = {
   calanques: "Calanques & littoral méditerranéen",
-  sunset: "Couchers de soleil",
-  sunrise: "Lever de soleil",
+  "couchers-de-soleil": "Couchers de soleil",
+  "lever-de-soleil": "Lever de soleil",
 };
 
-const shopProducts = Object.entries(productCatalog).map(([id, product]) => {
-  const printAsset = printAssetCatalog[id] || null;
+const SUPPORT_LABELS = {
+  poster: "Affiche Fine Art",
+  canvas: "Toile imprimée",
+  frame: "Tableau encadré",
+};
 
-  if (printAsset && printAsset.previewImage !== product.asset_path) {
-    console.warn(`[shopProducts] Preview mismatch for ${id}:`, product.asset_path, printAsset.previewImage);
-  }
+const SUPPORT_DESCRIPTIONS = {
+  poster: "Tirage photo haute qualité sur papier mat premium, livré sans cadre.",
+  canvas: "Photo imprimée sur toile, rendu mural prêt à accrocher selon disponibilité Prodigi.",
+  frame: "Tirage encadré prêt à accrocher, finition premium.",
+};
 
+const ALL_SUPPORTS = ["poster", "canvas", "frame"];
+const ALL_FORMATS = ["30x45", "50x75", "70x105"];
+
+const getProductStartingPrice = (pricing = {}) => {
+  const prices = Object.values(pricing).flatMap((supportPricing) =>
+    Object.values(supportPricing || {})
+  );
+  return prices.length ? Math.min(...prices) : 0;
+};
+
+const shopProducts = publicProductCatalog.map((product) => {
   return {
-    id,
+    id: product.id,
     title: product.title,
-    category: product.category,
-    location: product.location,
-    image: product.asset_path,
-    price: product.base_price_eur,
-    sizes: product.sizes,
-    edition: product.edition_label,
-    featured: Boolean(product.featured),
-    previewImage: printAsset?.previewImage || product.asset_path,
-    printAsset,
+    category: product.collection,
+    location: "",
+    image: product.previewImage,
+    price: getProductStartingPrice(product.pricing),
+    sizes: product.allowedFormats,
+    supports: product.allowedSupports,
+    supportDetails: product.supportDetails || {},
+    grade: product.grade,
+    edition: "Edition limitee",
+    featured: false,
+    previewImage: product.previewImage,
+    pricing: product.pricing || {},
   };
 });
 
 const isProductSellable = (product) =>
-  Boolean(product?.previewImage && product?.printAsset?.sourceFilePath);
+  Boolean(product?.previewImage && product?.sizes?.length && product?.supports?.length);
 
 const Shop = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [selectedProduct, setSelectedProduct] = useState(null);
+  const [selectedSupport, setSelectedSupport] = useState(null);
   const [selectedSize, setSelectedSize] = useState(null);
   const [isLoadingCheckout, setIsLoadingCheckout] = useState(false);
   const [isCGVAccepted, setIsCGVAccepted] = useState(false);
@@ -73,6 +92,7 @@ const Shop = () => {
 
   useEffect(() => {
     setIsCGVAccepted(false);
+    setSelectedSupport(selectedProduct?.supports?.[0] || null);
     setSelectedSize(null);
     if (selectedProduct) {
       trackViewItem(selectedProduct);
@@ -95,16 +115,17 @@ const Shop = () => {
     setSearchParams(nextParams, { replace: true });
   }, [searchParams, setSearchParams]);
 
-  const getPriceBySize = (basePrice, size) => {
-    if (size?.includes("50x70")) return basePrice + 90;
-    if (size?.includes("40x60")) return basePrice + 40;
-    return basePrice;
+  const getPrice = (product, support, size) => {
+    if (support && size && product?.pricing?.[support]?.[size]) {
+      return product.pricing[support][size];
+    }
+    return product?.price || 0;
   };
 
-  const handleBuyNow = async (product, size) => {
-    if (!size) {
+  const handleBuyNow = async (product, support, size) => {
+    if (!support || !size) {
       toast({
-        title: "Format requis",
+        title: "Selection requise",
         description: "Veuillez sélectionner un format avant de procéder au paiement.",
         variant: "destructive",
       });
@@ -120,7 +141,7 @@ const Shop = () => {
       return;
     }
 
-    const price = getPriceBySize(product.price, size);
+    const price = getPrice(product, support, size);
     trackBeginCheckout(
       [{ id: product.id, title: product.title, price, quantity: 1 }],
       price
@@ -131,6 +152,7 @@ const Shop = () => {
       const session = await checkoutAPI.createSession([
         {
           product_id: product.id,
+          support,
           size,
           quantity: 1,
         },
@@ -290,6 +312,7 @@ const Shop = () => {
             className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80"
             onClick={() => {
               setSelectedProduct(null);
+              setSelectedSupport(null);
               setSelectedSize(null);
             }}
           >
@@ -313,6 +336,7 @@ const Shop = () => {
                   <button
                     onClick={() => {
                       setSelectedProduct(null);
+                      setSelectedSupport(null);
                       setSelectedSize(null);
                     }}
                     className="absolute top-4 right-4 p-2 hover:bg-gray-100 rounded-full"
@@ -324,27 +348,60 @@ const Shop = () => {
                   <h2 className="font-display text-3xl font-semibold mb-6">{selectedProduct.title}</h2>
 
                   <div className="mb-6">
+                    <p className="font-medium mb-3">Selectionnez un support :</p>
+                    <div className="grid gap-2">
+                      {ALL_SUPPORTS.map((support) => {
+                        const isAllowed = selectedProduct.supports.includes(support);
+                        const supportDetail = selectedProduct.supportDetails[support] || {};
+                        return (
+                          <button
+                            key={support}
+                            onClick={() => isAllowed && setSelectedSupport(support)}
+                            disabled={!isAllowed}
+                            className={`px-4 py-3 border text-left transition-all disabled:opacity-40 disabled:cursor-not-allowed ${
+                              selectedSupport === support
+                                ? "border-[var(--color-gold)] bg-[var(--color-gold)]/10 text-[var(--color-gold)]"
+                                : "border-gray-200 hover:border-gray-400"
+                            }`}
+                          >
+                            <span className="block text-sm font-medium">
+                              {supportDetail.displayName || SUPPORT_LABELS[support] || support}
+                            </span>
+                            <span className="mt-1 block text-xs leading-relaxed text-gray-500">
+                              {supportDetail.description || SUPPORT_DESCRIPTIONS[support]}
+                            </span>
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
+
+                  <div className="mb-6">
                     <p className="font-medium mb-3">Sélectionnez un format :</p>
                     <div className="flex flex-wrap gap-2">
-                      {selectedProduct.sizes.map((size) => (
-                        <button
-                          key={size}
-                          onClick={() => setSelectedSize(size)}
-                          className={`px-4 py-2 border transition-all ${
-                            selectedSize === size
-                              ? "border-[var(--color-gold)] bg-[var(--color-gold)]/10 text-[var(--color-gold)]"
-                              : "border-gray-200 hover:border-gray-400"
-                          }`}
-                        >
-                          {size}
-                        </button>
-                      ))}
+                      {ALL_FORMATS.map((size) => {
+                        const isAllowed = selectedProduct.sizes.includes(size);
+                        return (
+                          <button
+                            key={size}
+                            onClick={() => isAllowed && setSelectedSize(size)}
+                            disabled={!isAllowed}
+                            className={`px-4 py-2 border transition-all disabled:opacity-40 disabled:cursor-not-allowed ${
+                              selectedSize === size
+                                ? "border-[var(--color-gold)] bg-[var(--color-gold)]/10 text-[var(--color-gold)]"
+                                : "border-gray-200 hover:border-gray-400"
+                            }`}
+                          >
+                            {size}
+                          </button>
+                        );
+                      })}
                     </div>
                   </div>
 
                   <div className="mb-6">
                     <p className="text-3xl font-semibold text-[var(--color-gold)]">
-                      {getPriceBySize(selectedProduct.price, selectedSize)}€
+                      {getPrice(selectedProduct, selectedSupport, selectedSize)}€
                     </p>
                     <p className="text-gray-400 text-sm">{selectedProduct.edition}</p>
                   </div>
@@ -372,8 +429,8 @@ const Shop = () => {
                   </div>
 
                   <button
-                    onClick={() => handleBuyNow(selectedProduct, selectedSize)}
-                    disabled={isLoadingCheckout || !isProductSellable(selectedProduct) || !isCGVAccepted}
+                    onClick={() => handleBuyNow(selectedProduct, selectedSupport, selectedSize)}
+                    disabled={isLoadingCheckout || !isProductSellable(selectedProduct) || !selectedSupport || !selectedSize || !isCGVAccepted}
                     className="w-full border-2 border-black text-black py-4 font-medium uppercase tracking-wider hover:bg-black hover:text-white transition-colors flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     <CreditCard size={20} />

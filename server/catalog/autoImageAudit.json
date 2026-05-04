@@ -1,0 +1,432 @@
+[
+  {
+    "file": "bougainvillier-bandol01.png",
+    "width": 2880,
+    "height": 3840,
+    "grade": "C",
+    "allowedFormats": [
+      "30x45"
+    ]
+  },
+  {
+    "file": "calanque-des-anglais01.png",
+    "width": 3200,
+    "height": 2400,
+    "grade": "C",
+    "allowedFormats": [
+      "30x45"
+    ]
+  },
+  {
+    "file": "calanque-en-vau02.png",
+    "width": 6048,
+    "height": 7560,
+    "grade": "A",
+    "allowedFormats": [
+      "30x45",
+      "50x75",
+      "70x105"
+    ]
+  },
+  {
+    "file": "calanque-port-d-alon01.png",
+    "width": 4800,
+    "height": 3470,
+    "grade": "B",
+    "allowedFormats": [
+      "30x45",
+      "50x75"
+    ]
+  },
+  {
+    "file": "calanque-port-d-alon02.png",
+    "width": 4800,
+    "height": 4380,
+    "grade": "B",
+    "allowedFormats": [
+      "30x45",
+      "50x75"
+    ]
+  },
+  {
+    "file": "calanque-port-d-alon03.png",
+    "width": 4800,
+    "height": 4542,
+    "grade": "B",
+    "allowedFormats": [
+      "30x45",
+      "50x75"
+    ]
+  },
+  {
+    "file": "calanque-port-d-alon04.png",
+    "width": 4800,
+    "height": 3814,
+    "grade": "B",
+    "allowedFormats": [
+      "30x45",
+      "50x75"
+    ]
+  },
+  {
+    "file": "calanque-sormiou01.png",
+    "width": 4800,
+    "height": 6400,
+    "grade": "A",
+    "allowedFormats": [
+      "30x45",
+      "50x75",
+      "70x105"
+    ]
+  },
+  {
+    "file": "calanque-sormiou02.png",
+    "width": 3200,
+    "height": 4268,
+    "grade": "C",
+    "allowedFormats": [
+      "30x45"
+    ]
+  },
+  {
+    "file": "calanque-sormiou03.png",
+    "width": 4800,
+    "height": 6400,
+    "grade": "A",
+    "allowedFormats": [
+      "30x45",
+      "50x75",
+      "70x105"
+    ]
+  },
+  {
+    "file": "calanque-sormiou04.png",
+    "width": 4800,
+    "height": 6400,
+    "grade": "A",
+    "allowedFormats": [
+      "30x45",
+      "50x75",
+      "70x105"
+    ]
+  },
+  {
+    "file": "calanque-sormiou05.png",
+    "width": 4800,
+    "height": 3600,
+    "grade": "B",
+    "allowedFormats": [
+      "30x45",
+      "50x75"
+    ]
+  },
+  {
+    "file": "calanque-sormiou06.png",
+    "width": 3200,
+    "height": 4352,
+    "grade": "C",
+    "allowedFormats": [
+      "30x45"
+    ]
+  },
+  {
+    "file": "cap-canaille01.png",
+    "width": 4800,
+    "height": 5566,
+    "grade": "B",
+    "allowedFormats": [
+      "30x45",
+      "50x75"
+    ]
+  },
+  {
+    "file": "cap-canaille02.png",
+    "width": 8064,
+    "height": 6048,
+    "grade": "A",
+    "allowedFormats": [
+      "30x45",
+      "50x75",
+      "70x105"
+    ]
+  },
+  {
+    "file": "Coucher de soleil La Ciotat éléphant routedes crêtes.png",
+    "width": 3200,
+    "height": 4266,
+    "grade": "C",
+    "allowedFormats": [
+      "30x45"
+    ]
+  },
+  {
+    "file": "Cover.png",
+    "width": 8190,
+    "height": 7088,
+    "grade": "A",
+    "allowedFormats": [
+      "30x45",
+      "50x75",
+      "70x105"
+    ]
+  },
+  {
+    "file": "la-madrague-saint-cyr-sur-mer01.png",
+    "width": 4800,
+    "height": 4458,
+    "grade": "B",
+    "allowedFormats": [
+      "30x45",
+      "50x75"
+    ]
+  },
+  {
+    "file": "lever-de-soleil-laciotat01.png",
+    "width": 13808,
+    "height": 7820,
+    "grade": "A",
+    "allowedFormats": [
+      "30x45",
+      "50x75",
+      "70x105"
+    ]
+  },
+  {
+    "file": "lever-de-soleil-laciotat02.png",
+    "width": 8064,
+    "height": 6048,
+    "grade": "A",
+    "allowedFormats": [
+      "30x45",
+      "50x75",
+      "70x105"
+    ]
+  },
+  {
+    "file": "lever-de-soleil-laciotat03.png",
+    "width": 8064,
+    "height": 6048,
+    "grade": "A",
+    "allowedFormats": [
+      "30x45",
+      "50x75",
+      "70x105"
+    ]
+  },
+  {
+    "file": "lever-de-soleil-laciotat05.png",
+    "width": 3840,
+    "height": 2880,
+    "grade": "C",
+    "allowedFormats": [
+      "30x45"
+    ]
+  },
+  {
+    "file": "lever-de-soleil-laciotat06.png",
+    "width": 6048,
+    "height": 8064,
+    "grade": "A",
+    "allowedFormats": [
+      "30x45",
+      "50x75",
+      "70x105"
+    ]
+  },
+  {
+    "file": "plage-beaucours01.png",
+    "width": 4800,
+    "height": 4800,
+    "grade": "B",
+    "allowedFormats": [
+      "30x45",
+      "50x75"
+    ]
+  },
+  {
+    "file": "plage-beaucours02.png",
+    "width": 7506,
+    "height": 6706,
+    "grade": "A",
+    "allowedFormats": [
+      "30x45",
+      "50x75",
+      "70x105"
+    ]
+  },
+  {
+    "file": "plage-la-fossette01.png",
+    "width": 4800,
+    "height": 5404,
+    "grade": "B",
+    "allowedFormats": [
+      "30x45",
+      "50x75"
+    ]
+  },
+  {
+    "file": "plage-la-fossette02.png",
+    "width": 4800,
+    "height": 4646,
+    "grade": "B",
+    "allowedFormats": [
+      "30x45",
+      "50x75"
+    ]
+  },
+  {
+    "file": "plage-la-fossette03.png",
+    "width": 4800,
+    "height": 3372,
+    "grade": "B",
+    "allowedFormats": [
+      "30x45",
+      "50x75"
+    ]
+  },
+  {
+    "file": "plage-portissol01.png",
+    "width": 7008,
+    "height": 5562,
+    "grade": "A",
+    "allowedFormats": [
+      "30x45",
+      "50x75",
+      "70x105"
+    ]
+  },
+  {
+    "file": "port-de-cassis01.png",
+    "width": 4800,
+    "height": 4094,
+    "grade": "B",
+    "allowedFormats": [
+      "30x45",
+      "50x75"
+    ]
+  },
+  {
+    "file": "sugiton01.png",
+    "width": 8064,
+    "height": 6048,
+    "grade": "A",
+    "allowedFormats": [
+      "30x45",
+      "50x75",
+      "70x105"
+    ]
+  },
+  {
+    "file": "sugiton02.png",
+    "width": 8064,
+    "height": 6048,
+    "grade": "A",
+    "allowedFormats": [
+      "30x45",
+      "50x75",
+      "70x105"
+    ]
+  },
+  {
+    "file": "sugiton03.png",
+    "width": 3600,
+    "height": 4800,
+    "grade": "B",
+    "allowedFormats": [
+      "30x45",
+      "50x75"
+    ]
+  },
+  {
+    "file": "sugiton04.png",
+    "width": 3600,
+    "height": 4800,
+    "grade": "B",
+    "allowedFormats": [
+      "30x45",
+      "50x75"
+    ]
+  },
+  {
+    "file": "Sunset catalans marseille.png",
+    "width": 4800,
+    "height": 3914,
+    "grade": "B",
+    "allowedFormats": [
+      "30x45",
+      "50x75"
+    ]
+  },
+  {
+    "file": "Sunset catalans.png",
+    "width": 4800,
+    "height": 4796,
+    "grade": "B",
+    "allowedFormats": [
+      "30x45",
+      "50x75"
+    ]
+  },
+  {
+    "file": "Sunset fire la ciotat 4.png",
+    "width": 4800,
+    "height": 3600,
+    "grade": "B",
+    "allowedFormats": [
+      "30x45",
+      "50x75"
+    ]
+  },
+  {
+    "file": "sunset fire la ciotat.png",
+    "width": 4800,
+    "height": 2998,
+    "grade": "B",
+    "allowedFormats": [
+      "30x45",
+      "50x75"
+    ]
+  },
+  {
+    "file": "sunset l'estaque Marseille.png",
+    "width": 4800,
+    "height": 6400,
+    "grade": "A",
+    "allowedFormats": [
+      "30x45",
+      "50x75",
+      "70x105"
+    ]
+  },
+  {
+    "file": "Sunset La Ciotat1.png",
+    "width": 4800,
+    "height": 4634,
+    "grade": "B",
+    "allowedFormats": [
+      "30x45",
+      "50x75"
+    ]
+  },
+  {
+    "file": "sunset port saintjean la ciotat.png",
+    "width": 4800,
+    "height": 4800,
+    "grade": "B",
+    "allowedFormats": [
+      "30x45",
+      "50x75"
+    ]
+  },
+  {
+    "file": "sunset serpent bain des dames marseille.png",
+    "width": 4800,
+    "height": 6400,
+    "grade": "A",
+    "allowedFormats": [
+      "30x45",
+      "50x75",
+      "70x105"
+    ]
+  }
+]

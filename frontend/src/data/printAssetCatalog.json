@@ -1,342 +1,867 @@
 {
   "cal-007": {
     "previewImage": "/Calanques/calanque-sormiou02.webp",
-    "sourceFilePath": "frontend/public/Calanques/calanque-sormiou02.webp",
-    "blobPathname": "prints/cal-007.webp",
-    "blobUrl": "https://ewjkgu0bxvj594ap.public.blob.vercel-storage.com/prints/cal-007.webp",
-    "collectionId": "calanques",
-    "collectionSlug": "calanques",
-    "subcollectionSlug": "sormiou",
-    "location": "Sormiou, Marseille"
+    "grade": "C",
+    "allowedFormats": [
+      "30x45"
+    ],
+    "allowedSupports": [
+      "poster"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39
+      }
+    }
   },
   "cal-011": {
     "previewImage": "/Calanques/calanque-sormiou06.webp",
-    "sourceFilePath": "frontend/public/Calanques/calanque-sormiou06.webp",
-    "blobPathname": "prints/cal-011.webp",
-    "blobUrl": "https://ewjkgu0bxvj594ap.public.blob.vercel-storage.com/prints/cal-011.webp",
-    "collectionId": "calanques",
-    "collectionSlug": "calanques",
-    "subcollectionSlug": "sormiou",
-    "location": "Sormiou, Marseille"
+    "grade": "C",
+    "allowedFormats": [
+      "30x45"
+    ],
+    "allowedSupports": [
+      "poster"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39
+      }
+    }
   },
   "cal-005": {
     "previewImage": "/Calanques/sugiton01.jpeg",
-    "sourceFilePath": "frontend/public/Calanques/sugiton01.jpeg",
-    "blobPathname": "prints/cal-005.webp",
-    "blobUrl": "https://ewjkgu0bxvj594ap.public.blob.vercel-storage.com/prints/cal-005.webp",
-    "collectionId": "calanques",
-    "collectionSlug": "calanques",
-    "subcollectionSlug": "sugiton",
-    "location": "Sugiton, Marseille"
+    "grade": "A",
+    "allowedFormats": [
+      "30x45",
+      "50x75",
+      "70x105"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas",
+      "frame"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39,
+        "50x75": 59,
+        "70x105": 89
+      },
+      "canvas": {
+        "30x45": 69,
+        "50x75": 119,
+        "70x105": 179
+      },
+      "frame": {
+        "30x45": 99,
+        "50x75": 149,
+        "70x105": 229
+      }
+    }
   },
   "cal-012": {
     "previewImage": "/Calanques/sugiton02.jpg",
-    "sourceFilePath": "frontend/public/Calanques/sugiton02.jpg",
-    "blobPathname": "prints/cal-012.jpg",
-    "blobUrl": "https://ewjkgu0bxvj594ap.public.blob.vercel-storage.com/prints/cal-012.jpg",
-    "collectionId": "calanques",
-    "collectionSlug": "calanques",
-    "subcollectionSlug": "sugiton",
-    "location": "Sugiton, Marseille"
+    "grade": "A",
+    "allowedFormats": [
+      "30x45",
+      "50x75",
+      "70x105"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas",
+      "frame"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39,
+        "50x75": 59,
+        "70x105": 89
+      },
+      "canvas": {
+        "30x45": 69,
+        "50x75": 119,
+        "70x105": 179
+      },
+      "frame": {
+        "30x45": 99,
+        "50x75": 149,
+        "70x105": 229
+      }
+    }
   },
   "cal-006": {
     "previewImage": "/Calanques/calanque-en-vau02.jpeg",
-    "sourceFilePath": "frontend/public/Calanques/calanque-en-vau02.jpeg",
-    "blobPathname": "prints/cal-006.webp",
-    "blobUrl": "https://ewjkgu0bxvj594ap.public.blob.vercel-storage.com/prints/cal-006.webp",
-    "collectionId": "calanques",
-    "collectionSlug": "calanques",
-    "subcollectionSlug": "en-vau",
-    "location": "En-Vau"
+    "grade": "A",
+    "allowedFormats": [
+      "30x45",
+      "50x75",
+      "70x105"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas",
+      "frame"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39,
+        "50x75": 59,
+        "70x105": 89
+      },
+      "canvas": {
+        "30x45": 69,
+        "50x75": 119,
+        "70x105": 179
+      },
+      "frame": {
+        "30x45": 99,
+        "50x75": 149,
+        "70x105": 229
+      }
+    }
   },
   "cal-002": {
     "previewImage": "/Calanques/port-de-cassis01.webp",
-    "sourceFilePath": "frontend/public/Calanques/port-de-cassis01.webp",
-    "blobPathname": "prints/cal-002.webp",
-    "blobUrl": "https://ewjkgu0bxvj594ap.public.blob.vercel-storage.com/prints/cal-002.webp",
-    "collectionId": "calanques",
-    "collectionSlug": "calanques",
-    "subcollectionSlug": "port-de-cassis",
-    "location": "Cassis, Bouches-du-Rhône"
+    "grade": "B",
+    "allowedFormats": [
+      "30x45",
+      "50x75"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39,
+        "50x75": 59
+      },
+      "canvas": {
+        "30x45": 69,
+        "50x75": 119
+      }
+    }
   },
   "cal-004": {
     "previewImage": "/Calanques/calanque-port-d-alon01.webp",
-    "sourceFilePath": "frontend/public/Calanques/calanque-port-d-alon01.webp",
-    "blobPathname": "prints/cal-004.webp",
-    "blobUrl": "https://ewjkgu0bxvj594ap.public.blob.vercel-storage.com/prints/cal-004.webp",
-    "collectionId": "calanques",
-    "collectionSlug": "calanques",
-    "subcollectionSlug": "port-d-alon",
-    "location": "Saint-Cyr-sur-Mer"
+    "grade": "B",
+    "allowedFormats": [
+      "30x45",
+      "50x75"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39,
+        "50x75": 59
+      },
+      "canvas": {
+        "30x45": 69,
+        "50x75": 119
+      }
+    }
   },
   "cal-014": {
     "previewImage": "/Calanques/calanque-port-d-alon02.webp",
-    "sourceFilePath": "frontend/public/Calanques/calanque-port-d-alon02.webp",
-    "blobPathname": "prints/cal-014.webp",
-    "blobUrl": "https://ewjkgu0bxvj594ap.public.blob.vercel-storage.com/prints/cal-014.webp",
-    "collectionId": "calanques",
-    "collectionSlug": "calanques",
-    "subcollectionSlug": "port-d-alon",
-    "location": "Saint-Cyr-sur-Mer"
+    "grade": "B",
+    "allowedFormats": [
+      "30x45",
+      "50x75"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39,
+        "50x75": 59
+      },
+      "canvas": {
+        "30x45": 69,
+        "50x75": 119
+      }
+    }
   },
   "cal-015": {
     "previewImage": "/Calanques/calanque-port-d-alon03.webp",
-    "sourceFilePath": "frontend/public/Calanques/calanque-port-d-alon03.webp",
-    "blobPathname": "prints/cal-015.webp",
-    "blobUrl": "https://ewjkgu0bxvj594ap.public.blob.vercel-storage.com/prints/cal-015.webp",
-    "collectionId": "calanques",
-    "collectionSlug": "calanques",
-    "subcollectionSlug": "port-d-alon",
-    "location": "Saint-Cyr-sur-Mer"
+    "grade": "B",
+    "allowedFormats": [
+      "30x45",
+      "50x75"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39,
+        "50x75": 59
+      },
+      "canvas": {
+        "30x45": 69,
+        "50x75": 119
+      }
+    }
   },
   "cal-016": {
     "previewImage": "/Calanques/calanque-port-d-alon04.webp",
-    "sourceFilePath": "frontend/public/Calanques/calanque-port-d-alon04.webp",
-    "blobPathname": "prints/cal-016.webp",
-    "blobUrl": "https://ewjkgu0bxvj594ap.public.blob.vercel-storage.com/prints/cal-016.webp",
-    "collectionId": "calanques",
-    "collectionSlug": "calanques",
-    "subcollectionSlug": "port-d-alon",
-    "location": "Saint-Cyr-sur-Mer"
+    "grade": "B",
+    "allowedFormats": [
+      "30x45",
+      "50x75"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39,
+        "50x75": 59
+      },
+      "canvas": {
+        "30x45": 69,
+        "50x75": 119
+      }
+    }
   },
   "cal-017": {
     "previewImage": "/Calanques/cap-canaille01.webp",
-    "sourceFilePath": "frontend/public/Calanques/cap-canaille01.webp",
-    "blobPathname": "prints/cal-017.webp",
-    "blobUrl": "https://ewjkgu0bxvj594ap.public.blob.vercel-storage.com/prints/cal-017.webp",
-    "collectionId": "calanques",
-    "collectionSlug": "calanques",
-    "subcollectionSlug": "cap-canaille",
-    "location": "Route des Crêtes"
+    "grade": "B",
+    "allowedFormats": [
+      "30x45",
+      "50x75"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39,
+        "50x75": 59
+      },
+      "canvas": {
+        "30x45": 69,
+        "50x75": 119
+      }
+    }
   },
   "cal-018": {
     "previewImage": "/Calanques/cap-canaille02.jpg",
-    "sourceFilePath": "frontend/public/Calanques/cap-canaille02.jpg",
-    "blobPathname": "prints/cal-018.jpg",
-    "blobUrl": "https://ewjkgu0bxvj594ap.public.blob.vercel-storage.com/prints/cal-018.jpg",
-    "collectionId": "calanques",
-    "collectionSlug": "calanques",
-    "subcollectionSlug": "cap-canaille",
-    "location": "Route des Crêtes"
+    "grade": "A",
+    "allowedFormats": [
+      "30x45",
+      "50x75",
+      "70x105"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas",
+      "frame"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39,
+        "50x75": 59,
+        "70x105": 89
+      },
+      "canvas": {
+        "30x45": 69,
+        "50x75": 119,
+        "70x105": 179
+      },
+      "frame": {
+        "30x45": 99,
+        "50x75": 149,
+        "70x105": 229
+      }
+    }
   },
   "cal-019": {
     "previewImage": "/Calanques/la-madrague-saint-cyr-sur-mer01.webp",
-    "sourceFilePath": "frontend/public/Calanques/la-madrague-saint-cyr-sur-mer01.webp",
-    "blobPathname": "prints/cal-019.webp",
-    "blobUrl": "https://ewjkgu0bxvj594ap.public.blob.vercel-storage.com/prints/cal-019.webp",
-    "collectionId": "calanques",
-    "collectionSlug": "calanques",
-    "subcollectionSlug": "la-madrague",
-    "location": "Saint-Cyr-sur-Mer"
+    "grade": "B",
+    "allowedFormats": [
+      "30x45",
+      "50x75"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39,
+        "50x75": 59
+      },
+      "canvas": {
+        "30x45": 69,
+        "50x75": 119
+      }
+    }
   },
   "cal-020": {
     "previewImage": "/Calanques/bougainvillier-bandol01.jpg",
-    "sourceFilePath": "frontend/public/Calanques/bougainvillier-bandol01.jpg",
-    "blobPathname": "prints/cal-020.jpg",
-    "blobUrl": "https://ewjkgu0bxvj594ap.public.blob.vercel-storage.com/prints/cal-020.jpg",
-    "collectionId": "calanques",
-    "collectionSlug": "calanques",
-    "subcollectionSlug": "bandol",
-    "location": "Bandol"
+    "grade": "C",
+    "allowedFormats": [
+      "30x45"
+    ],
+    "allowedSupports": [
+      "poster"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39
+      }
+    }
   },
   "cal-021": {
     "previewImage": "/Calanques/plage-beaucours01.webp",
-    "sourceFilePath": "frontend/public/Calanques/plage-beaucours01.webp",
-    "blobPathname": "prints/cal-021.webp",
-    "blobUrl": "https://ewjkgu0bxvj594ap.public.blob.vercel-storage.com/prints/cal-021.webp",
-    "collectionId": "calanques",
-    "collectionSlug": "calanques",
-    "subcollectionSlug": "beaucours",
-    "location": "Beaucours"
+    "grade": "B",
+    "allowedFormats": [
+      "30x45",
+      "50x75"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39,
+        "50x75": 59
+      },
+      "canvas": {
+        "30x45": 69,
+        "50x75": 119
+      }
+    }
   },
   "cal-022": {
     "previewImage": "/Calanques/plage-beaucours02.webp",
-    "sourceFilePath": "frontend/public/Calanques/plage-beaucours02.webp",
-    "blobPathname": "prints/cal-022.webp",
-    "blobUrl": "https://ewjkgu0bxvj594ap.public.blob.vercel-storage.com/prints/cal-022.webp",
-    "collectionId": "calanques",
-    "collectionSlug": "calanques",
-    "subcollectionSlug": "beaucours",
-    "location": "Beaucours"
+    "grade": "A",
+    "allowedFormats": [
+      "30x45",
+      "50x75",
+      "70x105"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas",
+      "frame"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39,
+        "50x75": 59,
+        "70x105": 89
+      },
+      "canvas": {
+        "30x45": 69,
+        "50x75": 119,
+        "70x105": 179
+      },
+      "frame": {
+        "30x45": 99,
+        "50x75": 149,
+        "70x105": 229
+      }
+    }
   },
   "cal-023": {
     "previewImage": "/Calanques/plage-la-fossette01.webp",
-    "sourceFilePath": "frontend/public/Calanques/plage-la-fossette01.webp",
-    "blobPathname": "prints/cal-023.webp",
-    "blobUrl": "https://ewjkgu0bxvj594ap.public.blob.vercel-storage.com/prints/cal-023.webp",
-    "collectionId": "calanques",
-    "collectionSlug": "calanques",
-    "subcollectionSlug": "la-fossette",
-    "location": "Plage de la Fossette"
+    "grade": "B",
+    "allowedFormats": [
+      "30x45",
+      "50x75"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39,
+        "50x75": 59
+      },
+      "canvas": {
+        "30x45": 69,
+        "50x75": 119
+      }
+    }
   },
   "cal-024": {
     "previewImage": "/Calanques/plage-la-fossette02.webp",
-    "sourceFilePath": "frontend/public/Calanques/plage-la-fossette02.webp",
-    "blobPathname": "prints/cal-024.webp",
-    "blobUrl": "https://ewjkgu0bxvj594ap.public.blob.vercel-storage.com/prints/cal-024.webp",
-    "collectionId": "calanques",
-    "collectionSlug": "calanques",
-    "subcollectionSlug": "la-fossette",
-    "location": "Plage de la Fossette"
+    "grade": "B",
+    "allowedFormats": [
+      "30x45",
+      "50x75"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39,
+        "50x75": 59
+      },
+      "canvas": {
+        "30x45": 69,
+        "50x75": 119
+      }
+    }
   },
   "cal-025": {
     "previewImage": "/Calanques/plage-la-fossette03.webp",
-    "sourceFilePath": "frontend/public/Calanques/plage-la-fossette03.webp",
-    "blobPathname": "prints/cal-025.webp",
-    "blobUrl": "https://ewjkgu0bxvj594ap.public.blob.vercel-storage.com/prints/cal-025.webp",
-    "collectionId": "calanques",
-    "collectionSlug": "calanques",
-    "subcollectionSlug": "la-fossette",
-    "location": "Plage de la Fossette"
+    "grade": "B",
+    "allowedFormats": [
+      "30x45",
+      "50x75"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39,
+        "50x75": 59
+      },
+      "canvas": {
+        "30x45": 69,
+        "50x75": 119
+      }
+    }
+  },
+  "cal-027": {
+    "previewImage": "/Calanques/sugiton03.webp",
+    "grade": "B",
+    "allowedFormats": [
+      "30x45",
+      "50x75"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39,
+        "50x75": 59
+      },
+      "canvas": {
+        "30x45": 69,
+        "50x75": 119
+      }
+    }
+  },
+  "cal-028": {
+    "previewImage": "/Calanques/sugiton04.webp",
+    "grade": "B",
+    "allowedFormats": [
+      "30x45",
+      "50x75"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39,
+        "50x75": 59
+      },
+      "canvas": {
+        "30x45": 69,
+        "50x75": 119
+      }
+    }
   },
   "cal-026": {
     "previewImage": "/Calanques/plage-portissol01.webp",
-    "sourceFilePath": "frontend/public/Calanques/plage-portissol01.webp",
-    "blobPathname": "prints/cal-026.webp",
-    "blobUrl": "https://ewjkgu0bxvj594ap.public.blob.vercel-storage.com/prints/cal-026.webp",
-    "collectionId": "calanques",
-    "collectionSlug": "calanques",
-    "subcollectionSlug": "portissol",
-    "location": "Plage de Portissol"
+    "grade": "A",
+    "allowedFormats": [
+      "30x45",
+      "50x75",
+      "70x105"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas",
+      "frame"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39,
+        "50x75": 59,
+        "70x105": 89
+      },
+      "canvas": {
+        "30x45": 69,
+        "50x75": 119,
+        "70x105": 179
+      },
+      "frame": {
+        "30x45": 99,
+        "50x75": 149,
+        "70x105": 229
+      }
+    }
   },
   "sun-001": {
     "previewImage": "/Sunset/Coucher de soleil La Ciotat éléphant routedes crêtes.webp",
-    "sourceFilePath": "frontend/public/Sunset/Coucher de soleil La Ciotat éléphant routedes crêtes.webp",
-    "blobPathname": "prints/sun-001.webp",
-    "blobUrl": "https://ewjkgu0bxvj594ap.public.blob.vercel-storage.com/prints/sun-001.webp",
-    "collectionId": "sunset",
-    "collectionSlug": "couchers-de-soleil",
-    "subcollectionSlug": "la-ciotat",
-    "location": "La Ciotat, Bouches-du-Rhône"
+    "grade": "C",
+    "allowedFormats": [
+      "30x45"
+    ],
+    "allowedSupports": [
+      "poster"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39
+      }
+    }
   },
   "sun-002": {
     "previewImage": "/Sunset/sunset fire la ciotat.webp",
-    "sourceFilePath": "frontend/public/Sunset/sunset fire la ciotat.webp",
-    "blobPathname": "prints/sun-002.webp",
-    "blobUrl": "https://ewjkgu0bxvj594ap.public.blob.vercel-storage.com/prints/sun-002.webp",
-    "collectionId": "sunset",
-    "collectionSlug": "couchers-de-soleil",
-    "subcollectionSlug": "la-ciotat",
-    "location": "La Ciotat, Bouches-du-Rhône"
+    "grade": "B",
+    "allowedFormats": [
+      "30x45",
+      "50x75"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39,
+        "50x75": 59
+      },
+      "canvas": {
+        "30x45": 69,
+        "50x75": 119
+      }
+    }
   },
   "sun-007": {
     "previewImage": "/Sunset/Sunset La Ciotat1.webp",
-    "sourceFilePath": "frontend/public/Sunset/Sunset La Ciotat1.webp",
-    "blobPathname": "prints/sun-007.webp",
-    "blobUrl": "https://ewjkgu0bxvj594ap.public.blob.vercel-storage.com/prints/sun-007.webp",
-    "collectionId": "sunset",
-    "collectionSlug": "couchers-de-soleil",
-    "subcollectionSlug": "la-ciotat",
-    "location": "La Ciotat, Bouches-du-Rhône"
+    "grade": "B",
+    "allowedFormats": [
+      "30x45",
+      "50x75"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39,
+        "50x75": 59
+      },
+      "canvas": {
+        "30x45": 69,
+        "50x75": 119
+      }
+    }
   },
   "sun-008": {
     "previewImage": "/Sunset/Sunset fire la ciotat 4.webp",
-    "sourceFilePath": "frontend/public/Sunset/Sunset fire la ciotat 4.webp",
-    "blobPathname": "prints/sun-008.webp",
-    "blobUrl": "https://ewjkgu0bxvj594ap.public.blob.vercel-storage.com/prints/sun-008.webp",
-    "collectionId": "sunset",
-    "collectionSlug": "couchers-de-soleil",
-    "subcollectionSlug": "la-ciotat",
-    "location": "La Ciotat, Bouches-du-Rhône"
+    "grade": "B",
+    "allowedFormats": [
+      "30x45",
+      "50x75"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39,
+        "50x75": 59
+      },
+      "canvas": {
+        "30x45": 69,
+        "50x75": 119
+      }
+    }
   },
   "sun-005": {
     "previewImage": "/Sunset/sunset port saintjean la ciotat.webp",
-    "sourceFilePath": "frontend/public/Sunset/sunset port saintjean la ciotat.webp",
-    "blobPathname": "prints/sun-005.webp",
-    "blobUrl": "https://ewjkgu0bxvj594ap.public.blob.vercel-storage.com/prints/sun-005.webp",
-    "collectionId": "sunset",
-    "collectionSlug": "couchers-de-soleil",
-    "subcollectionSlug": "la-ciotat",
-    "location": "La Ciotat, Bouches-du-Rhône"
+    "grade": "B",
+    "allowedFormats": [
+      "30x45",
+      "50x75"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39,
+        "50x75": 59
+      },
+      "canvas": {
+        "30x45": 69,
+        "50x75": 119
+      }
+    }
   },
   "sun-003": {
     "previewImage": "/Sunset/Sunset catalans marseille.webp",
-    "sourceFilePath": "frontend/public/Sunset/Sunset catalans marseille.webp",
-    "blobPathname": "prints/sun-003.webp",
-    "blobUrl": "https://ewjkgu0bxvj594ap.public.blob.vercel-storage.com/prints/sun-003.webp",
-    "collectionId": "sunset",
-    "collectionSlug": "couchers-de-soleil",
-    "subcollectionSlug": "marseille",
-    "location": "Plage des Catalans, Marseille"
+    "grade": "B",
+    "allowedFormats": [
+      "30x45",
+      "50x75"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39,
+        "50x75": 59
+      },
+      "canvas": {
+        "30x45": 69,
+        "50x75": 119
+      }
+    }
   },
   "sun-011": {
     "previewImage": "/Sunset/Sunset catalans.webp",
-    "sourceFilePath": "frontend/public/Sunset/Sunset catalans.webp",
-    "blobPathname": "prints/sun-011.webp",
-    "blobUrl": "https://ewjkgu0bxvj594ap.public.blob.vercel-storage.com/prints/sun-011.webp",
-    "collectionId": "sunset",
-    "collectionSlug": "couchers-de-soleil",
-    "subcollectionSlug": "marseille",
-    "location": "Plage des Catalans, Marseille"
+    "grade": "B",
+    "allowedFormats": [
+      "30x45",
+      "50x75"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39,
+        "50x75": 59
+      },
+      "canvas": {
+        "30x45": 69,
+        "50x75": 119
+      }
+    }
   },
   "sun-004": {
     "previewImage": "/Sunset/sunset l'estaque Marseille.webp",
-    "sourceFilePath": "frontend/public/Sunset/sunset l'estaque Marseille.webp",
-    "blobPathname": "prints/sun-004.webp",
-    "blobUrl": "https://ewjkgu0bxvj594ap.public.blob.vercel-storage.com/prints/sun-004.webp",
-    "collectionId": "sunset",
-    "collectionSlug": "couchers-de-soleil",
-    "subcollectionSlug": "marseille",
-    "location": "L'Estaque, Marseille"
+    "grade": "A",
+    "allowedFormats": [
+      "30x45",
+      "50x75",
+      "70x105"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas",
+      "frame"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39,
+        "50x75": 59,
+        "70x105": 89
+      },
+      "canvas": {
+        "30x45": 69,
+        "50x75": 119,
+        "70x105": 179
+      },
+      "frame": {
+        "30x45": 99,
+        "50x75": 149,
+        "70x105": 229
+      }
+    }
   },
   "sun-006": {
     "previewImage": "/Sunset/sunset serpent bain des dames marseille.webp",
-    "sourceFilePath": "frontend/public/Sunset/sunset serpent bain des dames marseille.webp",
-    "blobPathname": "prints/sun-006.webp",
-    "blobUrl": "https://ewjkgu0bxvj594ap.public.blob.vercel-storage.com/prints/sun-006.webp",
-    "collectionId": "sunset",
-    "collectionSlug": "couchers-de-soleil",
-    "subcollectionSlug": "marseille",
-    "location": "Marseille"
+    "grade": "A",
+    "allowedFormats": [
+      "30x45",
+      "50x75",
+      "70x105"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas",
+      "frame"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39,
+        "50x75": 59,
+        "70x105": 89
+      },
+      "canvas": {
+        "30x45": 69,
+        "50x75": 119,
+        "70x105": 179
+      },
+      "frame": {
+        "30x45": 99,
+        "50x75": 149,
+        "70x105": 229
+      }
+    }
   },
   "sunrise-001": {
     "previewImage": "/Sunrise/lever-de-soleil-laciotat01.jpg",
-    "sourceFilePath": "frontend/public/Sunrise/lever-de-soleil-laciotat01.jpg",
-    "blobPathname": "prints/sunrise-001.jpg",
-    "blobUrl": "https://ewjkgu0bxvj594ap.public.blob.vercel-storage.com/prints/sunrise-001.jpg",
-    "collectionId": "sunrise",
-    "collectionSlug": "lever-de-soleil",
-    "subcollectionSlug": "",
-    "location": "La Ciotat"
+    "grade": "A",
+    "allowedFormats": [
+      "30x45",
+      "50x75",
+      "70x105"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas",
+      "frame"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39,
+        "50x75": 59,
+        "70x105": 89
+      },
+      "canvas": {
+        "30x45": 69,
+        "50x75": 119,
+        "70x105": 179
+      },
+      "frame": {
+        "30x45": 99,
+        "50x75": 149,
+        "70x105": 229
+      }
+    }
   },
   "sunrise-002": {
     "previewImage": "/Sunrise/lever-de-soleil-laciotat02.jpg",
-    "sourceFilePath": "frontend/public/Sunrise/lever-de-soleil-laciotat02.jpg",
-    "blobPathname": "prints/sunrise-002.jpg",
-    "blobUrl": "https://ewjkgu0bxvj594ap.public.blob.vercel-storage.com/prints/sunrise-002.jpg",
-    "collectionId": "sunrise",
-    "collectionSlug": "lever-de-soleil",
-    "subcollectionSlug": "",
-    "location": "La Ciotat"
+    "grade": "A",
+    "allowedFormats": [
+      "30x45",
+      "50x75",
+      "70x105"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas",
+      "frame"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39,
+        "50x75": 59,
+        "70x105": 89
+      },
+      "canvas": {
+        "30x45": 69,
+        "50x75": 119,
+        "70x105": 179
+      },
+      "frame": {
+        "30x45": 99,
+        "50x75": 149,
+        "70x105": 229
+      }
+    }
   },
   "sunrise-003": {
     "previewImage": "/Sunrise/lever-de-soleil-laciotat03.jpg",
-    "sourceFilePath": "frontend/public/Sunrise/lever-de-soleil-laciotat03.jpg",
-    "blobPathname": "prints/sunrise-003.jpg",
-    "blobUrl": "https://ewjkgu0bxvj594ap.public.blob.vercel-storage.com/prints/sunrise-003.jpg",
-    "collectionId": "sunrise",
-    "collectionSlug": "lever-de-soleil",
-    "subcollectionSlug": "",
-    "location": "La Ciotat"
+    "grade": "A",
+    "allowedFormats": [
+      "30x45",
+      "50x75",
+      "70x105"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas",
+      "frame"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39,
+        "50x75": 59,
+        "70x105": 89
+      },
+      "canvas": {
+        "30x45": 69,
+        "50x75": 119,
+        "70x105": 179
+      },
+      "frame": {
+        "30x45": 99,
+        "50x75": 149,
+        "70x105": 229
+      }
+    }
   },
   "sunrise-005": {
     "previewImage": "/Sunrise/lever-de-soleil-laciotat05.jpg",
-    "sourceFilePath": "frontend/public/Sunrise/lever-de-soleil-laciotat05.jpg",
-    "blobPathname": "prints/sunrise-005.jpg",
-    "blobUrl": "https://ewjkgu0bxvj594ap.public.blob.vercel-storage.com/prints/sunrise-005.jpg",
-    "collectionId": "sunrise",
-    "collectionSlug": "lever-de-soleil",
-    "subcollectionSlug": "",
-    "location": "La Ciotat"
+    "grade": "C",
+    "allowedFormats": [
+      "30x45"
+    ],
+    "allowedSupports": [
+      "poster"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39
+      }
+    }
   },
   "sunrise-006": {
     "previewImage": "/Sunrise/lever-de-soleil-laciotat06.jpg",
-    "sourceFilePath": "frontend/public/Sunrise/lever-de-soleil-laciotat06.jpg",
-    "blobPathname": "prints/sunrise-006.jpg",
-    "blobUrl": "https://ewjkgu0bxvj594ap.public.blob.vercel-storage.com/prints/sunrise-006.jpg",
-    "collectionId": "sunrise",
-    "collectionSlug": "lever-de-soleil",
-    "subcollectionSlug": "",
-    "location": "La Ciotat"
+    "grade": "A",
+    "allowedFormats": [
+      "30x45",
+      "50x75",
+      "70x105"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas",
+      "frame"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39,
+        "50x75": 59,
+        "70x105": 89
+      },
+      "canvas": {
+        "30x45": 69,
+        "50x75": 119,
+        "70x105": 179
+      },
+      "frame": {
+        "30x45": 99,
+        "50x75": 149,
+        "70x105": 229
+      }
+    }
   }
 }

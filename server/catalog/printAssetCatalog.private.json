@@ -1,0 +1,903 @@
+{
+  "cal-007": {
+    "id": "cal-007",
+    "blobPath": "calanques/calanque-sormiou02.png",
+    "grade": "C",
+    "allowedFormats": [
+      "30x45"
+    ],
+    "allowedSupports": [
+      "poster"
+    ],
+    "prodigiSkuBySupportAndFormat": {
+      "poster": {
+        "30x45": null
+      }
+    }
+  },
+  "cal-011": {
+    "id": "cal-011",
+    "blobPath": "calanques/calanque-sormiou06.png",
+    "grade": "C",
+    "allowedFormats": [
+      "30x45"
+    ],
+    "allowedSupports": [
+      "poster"
+    ],
+    "prodigiSkuBySupportAndFormat": {
+      "poster": {
+        "30x45": null
+      }
+    }
+  },
+  "cal-005": {
+    "id": "cal-005",
+    "blobPath": "calanques/sugiton01.png",
+    "grade": "A",
+    "allowedFormats": [
+      "30x45",
+      "50x75",
+      "70x105"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas",
+      "frame"
+    ],
+    "prodigiSkuBySupportAndFormat": {
+      "poster": {
+        "30x45": null,
+        "50x75": null,
+        "70x105": null
+      },
+      "canvas": {
+        "30x45": null,
+        "50x75": null,
+        "70x105": null
+      },
+      "frame": {
+        "30x45": null,
+        "50x75": null,
+        "70x105": null
+      }
+    }
+  },
+  "cal-012": {
+    "id": "cal-012",
+    "blobPath": "calanques/sugiton02.png",
+    "grade": "A",
+    "allowedFormats": [
+      "30x45",
+      "50x75",
+      "70x105"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas",
+      "frame"
+    ],
+    "prodigiSkuBySupportAndFormat": {
+      "poster": {
+        "30x45": null,
+        "50x75": null,
+        "70x105": null
+      },
+      "canvas": {
+        "30x45": null,
+        "50x75": null,
+        "70x105": null
+      },
+      "frame": {
+        "30x45": null,
+        "50x75": null,
+        "70x105": null
+      }
+    }
+  },
+  "cal-006": {
+    "id": "cal-006",
+    "blobPath": "calanques/calanque-en-vau02.png",
+    "grade": "A",
+    "allowedFormats": [
+      "30x45",
+      "50x75",
+      "70x105"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas",
+      "frame"
+    ],
+    "prodigiSkuBySupportAndFormat": {
+      "poster": {
+        "30x45": null,
+        "50x75": null,
+        "70x105": null
+      },
+      "canvas": {
+        "30x45": null,
+        "50x75": null,
+        "70x105": null
+      },
+      "frame": {
+        "30x45": null,
+        "50x75": null,
+        "70x105": null
+      }
+    }
+  },
+  "cal-002": {
+    "id": "cal-002",
+    "blobPath": "calanques/port-de-cassis01.png",
+    "grade": "B",
+    "allowedFormats": [
+      "30x45",
+      "50x75"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas"
+    ],
+    "prodigiSkuBySupportAndFormat": {
+      "poster": {
+        "30x45": null,
+        "50x75": null
+      },
+      "canvas": {
+        "30x45": null,
+        "50x75": null
+      }
+    }
+  },
+  "cal-004": {
+    "id": "cal-004",
+    "blobPath": "calanques/calanque-port-d-alon01.png",
+    "grade": "B",
+    "allowedFormats": [
+      "30x45",
+      "50x75"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas"
+    ],
+    "prodigiSkuBySupportAndFormat": {
+      "poster": {
+        "30x45": null,
+        "50x75": null
+      },
+      "canvas": {
+        "30x45": null,
+        "50x75": null
+      }
+    }
+  },
+  "cal-014": {
+    "id": "cal-014",
+    "blobPath": "calanques/calanque-port-d-alon02.png",
+    "grade": "B",
+    "allowedFormats": [
+      "30x45",
+      "50x75"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas"
+    ],
+    "prodigiSkuBySupportAndFormat": {
+      "poster": {
+        "30x45": null,
+        "50x75": null
+      },
+      "canvas": {
+        "30x45": null,
+        "50x75": null
+      }
+    }
+  },
+  "cal-015": {
+    "id": "cal-015",
+    "blobPath": "calanques/calanque-port-d-alon03.png",
+    "grade": "B",
+    "allowedFormats": [
+      "30x45",
+      "50x75"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas"
+    ],
+    "prodigiSkuBySupportAndFormat": {
+      "poster": {
+        "30x45": null,
+        "50x75": null
+      },
+      "canvas": {
+        "30x45": null,
+        "50x75": null
+      }
+    }
+  },
+  "cal-016": {
+    "id": "cal-016",
+    "blobPath": "calanques/calanque-port-d-alon04.png",
+    "grade": "B",
+    "allowedFormats": [
+      "30x45",
+      "50x75"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas"
+    ],
+    "prodigiSkuBySupportAndFormat": {
+      "poster": {
+        "30x45": null,
+        "50x75": null
+      },
+      "canvas": {
+        "30x45": null,
+        "50x75": null
+      }
+    }
+  },
+  "cal-017": {
+    "id": "cal-017",
+    "blobPath": "calanques/cap-canaille01.png",
+    "grade": "B",
+    "allowedFormats": [
+      "30x45",
+      "50x75"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas"
+    ],
+    "prodigiSkuBySupportAndFormat": {
+      "poster": {
+        "30x45": null,
+        "50x75": null
+      },
+      "canvas": {
+        "30x45": null,
+        "50x75": null
+      }
+    }
+  },
+  "cal-018": {
+    "id": "cal-018",
+    "blobPath": "calanques/cap-canaille02.png",
+    "grade": "A",
+    "allowedFormats": [
+      "30x45",
+      "50x75",
+      "70x105"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas",
+      "frame"
+    ],
+    "prodigiSkuBySupportAndFormat": {
+      "poster": {
+        "30x45": null,
+        "50x75": null,
+        "70x105": null
+      },
+      "canvas": {
+        "30x45": null,
+        "50x75": null,
+        "70x105": null
+      },
+      "frame": {
+        "30x45": null,
+        "50x75": null,
+        "70x105": null
+      }
+    }
+  },
+  "cal-019": {
+    "id": "cal-019",
+    "blobPath": "calanques/la-madrague-saint-cyr-sur-mer01.png",
+    "grade": "B",
+    "allowedFormats": [
+      "30x45",
+      "50x75"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas"
+    ],
+    "prodigiSkuBySupportAndFormat": {
+      "poster": {
+        "30x45": null,
+        "50x75": null
+      },
+      "canvas": {
+        "30x45": null,
+        "50x75": null
+      }
+    }
+  },
+  "cal-020": {
+    "id": "cal-020",
+    "blobPath": "calanques/bougainvillier-bandol01.png",
+    "grade": "C",
+    "allowedFormats": [
+      "30x45"
+    ],
+    "allowedSupports": [
+      "poster"
+    ],
+    "prodigiSkuBySupportAndFormat": {
+      "poster": {
+        "30x45": null
+      }
+    }
+  },
+  "cal-021": {
+    "id": "cal-021",
+    "blobPath": "calanques/plage-beaucours01.png",
+    "grade": "B",
+    "allowedFormats": [
+      "30x45",
+      "50x75"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas"
+    ],
+    "prodigiSkuBySupportAndFormat": {
+      "poster": {
+        "30x45": null,
+        "50x75": null
+      },
+      "canvas": {
+        "30x45": null,
+        "50x75": null
+      }
+    }
+  },
+  "cal-022": {
+    "id": "cal-022",
+    "blobPath": "calanques/plage-beaucours02.png",
+    "grade": "A",
+    "allowedFormats": [
+      "30x45",
+      "50x75",
+      "70x105"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas",
+      "frame"
+    ],
+    "prodigiSkuBySupportAndFormat": {
+      "poster": {
+        "30x45": null,
+        "50x75": null,
+        "70x105": null
+      },
+      "canvas": {
+        "30x45": null,
+        "50x75": null,
+        "70x105": null
+      },
+      "frame": {
+        "30x45": null,
+        "50x75": null,
+        "70x105": null
+      }
+    }
+  },
+  "cal-023": {
+    "id": "cal-023",
+    "blobPath": "calanques/plage-la-fossette01.png",
+    "grade": "B",
+    "allowedFormats": [
+      "30x45",
+      "50x75"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas"
+    ],
+    "prodigiSkuBySupportAndFormat": {
+      "poster": {
+        "30x45": null,
+        "50x75": null
+      },
+      "canvas": {
+        "30x45": null,
+        "50x75": null
+      }
+    }
+  },
+  "cal-024": {
+    "id": "cal-024",
+    "blobPath": "calanques/plage-la-fossette02.png",
+    "grade": "B",
+    "allowedFormats": [
+      "30x45",
+      "50x75"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas"
+    ],
+    "prodigiSkuBySupportAndFormat": {
+      "poster": {
+        "30x45": null,
+        "50x75": null
+      },
+      "canvas": {
+        "30x45": null,
+        "50x75": null
+      }
+    }
+  },
+  "cal-025": {
+    "id": "cal-025",
+    "blobPath": "calanques/plage-la-fossette03.png",
+    "grade": "B",
+    "allowedFormats": [
+      "30x45",
+      "50x75"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas"
+    ],
+    "prodigiSkuBySupportAndFormat": {
+      "poster": {
+        "30x45": null,
+        "50x75": null
+      },
+      "canvas": {
+        "30x45": null,
+        "50x75": null
+      }
+    }
+  },
+  "cal-027": {
+    "id": "cal-027",
+    "blobPath": "calanques/sugiton03.png",
+    "grade": "B",
+    "allowedFormats": [
+      "30x45",
+      "50x75"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas"
+    ],
+    "prodigiSkuBySupportAndFormat": {
+      "poster": {
+        "30x45": null,
+        "50x75": null
+      },
+      "canvas": {
+        "30x45": null,
+        "50x75": null
+      }
+    }
+  },
+  "cal-028": {
+    "id": "cal-028",
+    "blobPath": "calanques/sugiton04.png",
+    "grade": "B",
+    "allowedFormats": [
+      "30x45",
+      "50x75"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas"
+    ],
+    "prodigiSkuBySupportAndFormat": {
+      "poster": {
+        "30x45": null,
+        "50x75": null
+      },
+      "canvas": {
+        "30x45": null,
+        "50x75": null
+      }
+    }
+  },
+  "cal-026": {
+    "id": "cal-026",
+    "blobPath": "calanques/plage-portissol01.png",
+    "grade": "A",
+    "allowedFormats": [
+      "30x45",
+      "50x75",
+      "70x105"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas",
+      "frame"
+    ],
+    "prodigiSkuBySupportAndFormat": {
+      "poster": {
+        "30x45": null,
+        "50x75": null,
+        "70x105": null
+      },
+      "canvas": {
+        "30x45": null,
+        "50x75": null,
+        "70x105": null
+      },
+      "frame": {
+        "30x45": null,
+        "50x75": null,
+        "70x105": null
+      }
+    }
+  },
+  "sun-001": {
+    "id": "sun-001",
+    "blobPath": "couchers-de-soleil/Coucher de soleil La Ciotat éléphant routedes crêtes.png",
+    "grade": "C",
+    "allowedFormats": [
+      "30x45"
+    ],
+    "allowedSupports": [
+      "poster"
+    ],
+    "prodigiSkuBySupportAndFormat": {
+      "poster": {
+        "30x45": null
+      }
+    }
+  },
+  "sun-002": {
+    "id": "sun-002",
+    "blobPath": "couchers-de-soleil/sunset fire la ciotat.png",
+    "grade": "B",
+    "allowedFormats": [
+      "30x45",
+      "50x75"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas"
+    ],
+    "prodigiSkuBySupportAndFormat": {
+      "poster": {
+        "30x45": null,
+        "50x75": null
+      },
+      "canvas": {
+        "30x45": null,
+        "50x75": null
+      }
+    }
+  },
+  "sun-007": {
+    "id": "sun-007",
+    "blobPath": "couchers-de-soleil/Sunset La Ciotat1.png",
+    "grade": "B",
+    "allowedFormats": [
+      "30x45",
+      "50x75"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas"
+    ],
+    "prodigiSkuBySupportAndFormat": {
+      "poster": {
+        "30x45": null,
+        "50x75": null
+      },
+      "canvas": {
+        "30x45": null,
+        "50x75": null
+      }
+    }
+  },
+  "sun-008": {
+    "id": "sun-008",
+    "blobPath": "couchers-de-soleil/Sunset fire la ciotat 4.png",
+    "grade": "B",
+    "allowedFormats": [
+      "30x45",
+      "50x75"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas"
+    ],
+    "prodigiSkuBySupportAndFormat": {
+      "poster": {
+        "30x45": null,
+        "50x75": null
+      },
+      "canvas": {
+        "30x45": null,
+        "50x75": null
+      }
+    }
+  },
+  "sun-005": {
+    "id": "sun-005",
+    "blobPath": "couchers-de-soleil/sunset port saintjean la ciotat.png",
+    "grade": "B",
+    "allowedFormats": [
+      "30x45",
+      "50x75"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas"
+    ],
+    "prodigiSkuBySupportAndFormat": {
+      "poster": {
+        "30x45": null,
+        "50x75": null
+      },
+      "canvas": {
+        "30x45": null,
+        "50x75": null
+      }
+    }
+  },
+  "sun-003": {
+    "id": "sun-003",
+    "blobPath": "couchers-de-soleil/Sunset catalans marseille.png",
+    "grade": "B",
+    "allowedFormats": [
+      "30x45",
+      "50x75"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas"
+    ],
+    "prodigiSkuBySupportAndFormat": {
+      "poster": {
+        "30x45": null,
+        "50x75": null
+      },
+      "canvas": {
+        "30x45": null,
+        "50x75": null
+      }
+    }
+  },
+  "sun-011": {
+    "id": "sun-011",
+    "blobPath": "couchers-de-soleil/Sunset catalans.png",
+    "grade": "B",
+    "allowedFormats": [
+      "30x45",
+      "50x75"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas"
+    ],
+    "prodigiSkuBySupportAndFormat": {
+      "poster": {
+        "30x45": null,
+        "50x75": null
+      },
+      "canvas": {
+        "30x45": null,
+        "50x75": null
+      }
+    }
+  },
+  "sun-004": {
+    "id": "sun-004",
+    "blobPath": "couchers-de-soleil/sunset l'estaque Marseille.png",
+    "grade": "A",
+    "allowedFormats": [
+      "30x45",
+      "50x75",
+      "70x105"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas",
+      "frame"
+    ],
+    "prodigiSkuBySupportAndFormat": {
+      "poster": {
+        "30x45": null,
+        "50x75": null,
+        "70x105": null
+      },
+      "canvas": {
+        "30x45": null,
+        "50x75": null,
+        "70x105": null
+      },
+      "frame": {
+        "30x45": null,
+        "50x75": null,
+        "70x105": null
+      }
+    }
+  },
+  "sun-006": {
+    "id": "sun-006",
+    "blobPath": "couchers-de-soleil/sunset serpent bain des dames marseille.png",
+    "grade": "A",
+    "allowedFormats": [
+      "30x45",
+      "50x75",
+      "70x105"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas",
+      "frame"
+    ],
+    "prodigiSkuBySupportAndFormat": {
+      "poster": {
+        "30x45": null,
+        "50x75": null,
+        "70x105": null
+      },
+      "canvas": {
+        "30x45": null,
+        "50x75": null,
+        "70x105": null
+      },
+      "frame": {
+        "30x45": null,
+        "50x75": null,
+        "70x105": null
+      }
+    }
+  },
+  "sunrise-001": {
+    "id": "sunrise-001",
+    "blobPath": "lever-de-soleil/lever-de-soleil-laciotat01.png",
+    "grade": "A",
+    "allowedFormats": [
+      "30x45",
+      "50x75",
+      "70x105"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas",
+      "frame"
+    ],
+    "prodigiSkuBySupportAndFormat": {
+      "poster": {
+        "30x45": null,
+        "50x75": null,
+        "70x105": null
+      },
+      "canvas": {
+        "30x45": null,
+        "50x75": null,
+        "70x105": null
+      },
+      "frame": {
+        "30x45": null,
+        "50x75": null,
+        "70x105": null
+      }
+    }
+  },
+  "sunrise-002": {
+    "id": "sunrise-002",
+    "blobPath": "lever-de-soleil/lever-de-soleil-laciotat02.png",
+    "grade": "A",
+    "allowedFormats": [
+      "30x45",
+      "50x75",
+      "70x105"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas",
+      "frame"
+    ],
+    "prodigiSkuBySupportAndFormat": {
+      "poster": {
+        "30x45": null,
+        "50x75": null,
+        "70x105": null
+      },
+      "canvas": {
+        "30x45": null,
+        "50x75": null,
+        "70x105": null
+      },
+      "frame": {
+        "30x45": null,
+        "50x75": null,
+        "70x105": null
+      }
+    }
+  },
+  "sunrise-003": {
+    "id": "sunrise-003",
+    "blobPath": "lever-de-soleil/lever-de-soleil-laciotat03.png",
+    "grade": "A",
+    "allowedFormats": [
+      "30x45",
+      "50x75",
+      "70x105"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas",
+      "frame"
+    ],
+    "prodigiSkuBySupportAndFormat": {
+      "poster": {
+        "30x45": null,
+        "50x75": null,
+        "70x105": null
+      },
+      "canvas": {
+        "30x45": null,
+        "50x75": null,
+        "70x105": null
+      },
+      "frame": {
+        "30x45": null,
+        "50x75": null,
+        "70x105": null
+      }
+    }
+  },
+  "sunrise-005": {
+    "id": "sunrise-005",
+    "blobPath": "lever-de-soleil/lever-de-soleil-laciotat05.png",
+    "grade": "C",
+    "allowedFormats": [
+      "30x45"
+    ],
+    "allowedSupports": [
+      "poster"
+    ],
+    "prodigiSkuBySupportAndFormat": {
+      "poster": {
+        "30x45": null
+      }
+    }
+  },
+  "sunrise-006": {
+    "id": "sunrise-006",
+    "blobPath": "lever-de-soleil/lever-de-soleil-laciotat06.png",
+    "grade": "A",
+    "allowedFormats": [
+      "30x45",
+      "50x75",
+      "70x105"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas",
+      "frame"
+    ],
+    "prodigiSkuBySupportAndFormat": {
+      "poster": {
+        "30x45": null,
+        "50x75": null,
+        "70x105": null
+      },
+      "canvas": {
+        "30x45": null,
+        "50x75": null,
+        "70x105": null
+      },
+      "frame": {
+        "30x45": null,
+        "50x75": null,
+        "70x105": null
+      }
+    }
+  }
+}

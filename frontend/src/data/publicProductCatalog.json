@@ -1,0 +1,1363 @@
+[
+  {
+    "id": "cal-007",
+    "title": "Calanque de Sormiou",
+    "collection": "calanques",
+    "previewImage": "/Calanques/calanque-sormiou02.webp",
+    "grade": "C",
+    "allowedFormats": [
+      "30x45"
+    ],
+    "allowedSupports": [
+      "poster"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39
+      }
+    },
+    "supportDetails": {
+      "poster": {
+        "displayName": "Affiche Fine Art",
+        "description": "Tirage photo haute qualité sur papier mat premium, livré sans cadre."
+      }
+    }
+  },
+  {
+    "id": "cal-011",
+    "title": "Calanque de Sormiou",
+    "collection": "calanques",
+    "previewImage": "/Calanques/calanque-sormiou06.webp",
+    "grade": "C",
+    "allowedFormats": [
+      "30x45"
+    ],
+    "allowedSupports": [
+      "poster"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39
+      }
+    },
+    "supportDetails": {
+      "poster": {
+        "displayName": "Affiche Fine Art",
+        "description": "Tirage photo haute qualité sur papier mat premium, livré sans cadre."
+      }
+    }
+  },
+  {
+    "id": "cal-005",
+    "title": "Sugiton",
+    "collection": "calanques",
+    "previewImage": "/Calanques/sugiton01.jpeg",
+    "grade": "A",
+    "allowedFormats": [
+      "30x45",
+      "50x75",
+      "70x105"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas",
+      "frame"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39,
+        "50x75": 59,
+        "70x105": 89
+      },
+      "canvas": {
+        "30x45": 69,
+        "50x75": 119,
+        "70x105": 179
+      },
+      "frame": {
+        "30x45": 99,
+        "50x75": 149,
+        "70x105": 229
+      }
+    },
+    "supportDetails": {
+      "poster": {
+        "displayName": "Affiche Fine Art",
+        "description": "Tirage photo haute qualité sur papier mat premium, livré sans cadre."
+      },
+      "canvas": {
+        "displayName": "Toile imprimée",
+        "description": "Photo imprimée sur toile, rendu mural prêt à accrocher selon disponibilité Prodigi."
+      },
+      "frame": {
+        "displayName": "Tableau encadré",
+        "description": "Tirage encadré prêt à accrocher, finition premium."
+      }
+    }
+  },
+  {
+    "id": "cal-012",
+    "title": "Sugiton",
+    "collection": "calanques",
+    "previewImage": "/Calanques/sugiton02.jpg",
+    "grade": "A",
+    "allowedFormats": [
+      "30x45",
+      "50x75",
+      "70x105"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas",
+      "frame"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39,
+        "50x75": 59,
+        "70x105": 89
+      },
+      "canvas": {
+        "30x45": 69,
+        "50x75": 119,
+        "70x105": 179
+      },
+      "frame": {
+        "30x45": 99,
+        "50x75": 149,
+        "70x105": 229
+      }
+    },
+    "supportDetails": {
+      "poster": {
+        "displayName": "Affiche Fine Art",
+        "description": "Tirage photo haute qualité sur papier mat premium, livré sans cadre."
+      },
+      "canvas": {
+        "displayName": "Toile imprimée",
+        "description": "Photo imprimée sur toile, rendu mural prêt à accrocher selon disponibilité Prodigi."
+      },
+      "frame": {
+        "displayName": "Tableau encadré",
+        "description": "Tirage encadré prêt à accrocher, finition premium."
+      }
+    }
+  },
+  {
+    "id": "cal-006",
+    "title": "Calanque d'En-Vau",
+    "collection": "calanques",
+    "previewImage": "/Calanques/calanque-en-vau02.jpeg",
+    "grade": "A",
+    "allowedFormats": [
+      "30x45",
+      "50x75",
+      "70x105"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas",
+      "frame"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39,
+        "50x75": 59,
+        "70x105": 89
+      },
+      "canvas": {
+        "30x45": 69,
+        "50x75": 119,
+        "70x105": 179
+      },
+      "frame": {
+        "30x45": 99,
+        "50x75": 149,
+        "70x105": 229
+      }
+    },
+    "supportDetails": {
+      "poster": {
+        "displayName": "Affiche Fine Art",
+        "description": "Tirage photo haute qualité sur papier mat premium, livré sans cadre."
+      },
+      "canvas": {
+        "displayName": "Toile imprimée",
+        "description": "Photo imprimée sur toile, rendu mural prêt à accrocher selon disponibilité Prodigi."
+      },
+      "frame": {
+        "displayName": "Tableau encadré",
+        "description": "Tirage encadré prêt à accrocher, finition premium."
+      }
+    }
+  },
+  {
+    "id": "cal-002",
+    "title": "Port de Cassis",
+    "collection": "calanques",
+    "previewImage": "/Calanques/port-de-cassis01.webp",
+    "grade": "B",
+    "allowedFormats": [
+      "30x45",
+      "50x75"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39,
+        "50x75": 59
+      },
+      "canvas": {
+        "30x45": 69,
+        "50x75": 119
+      }
+    },
+    "supportDetails": {
+      "poster": {
+        "displayName": "Affiche Fine Art",
+        "description": "Tirage photo haute qualité sur papier mat premium, livré sans cadre."
+      },
+      "canvas": {
+        "displayName": "Toile imprimée",
+        "description": "Photo imprimée sur toile, rendu mural prêt à accrocher selon disponibilité Prodigi."
+      }
+    }
+  },
+  {
+    "id": "cal-004",
+    "title": "Calanque de Port d'Alon",
+    "collection": "calanques",
+    "previewImage": "/Calanques/calanque-port-d-alon01.webp",
+    "grade": "B",
+    "allowedFormats": [
+      "30x45",
+      "50x75"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39,
+        "50x75": 59
+      },
+      "canvas": {
+        "30x45": 69,
+        "50x75": 119
+      }
+    },
+    "supportDetails": {
+      "poster": {
+        "displayName": "Affiche Fine Art",
+        "description": "Tirage photo haute qualité sur papier mat premium, livré sans cadre."
+      },
+      "canvas": {
+        "displayName": "Toile imprimée",
+        "description": "Photo imprimée sur toile, rendu mural prêt à accrocher selon disponibilité Prodigi."
+      }
+    }
+  },
+  {
+    "id": "cal-014",
+    "title": "Calanque de Port d'Alon",
+    "collection": "calanques",
+    "previewImage": "/Calanques/calanque-port-d-alon02.webp",
+    "grade": "B",
+    "allowedFormats": [
+      "30x45",
+      "50x75"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39,
+        "50x75": 59
+      },
+      "canvas": {
+        "30x45": 69,
+        "50x75": 119
+      }
+    },
+    "supportDetails": {
+      "poster": {
+        "displayName": "Affiche Fine Art",
+        "description": "Tirage photo haute qualité sur papier mat premium, livré sans cadre."
+      },
+      "canvas": {
+        "displayName": "Toile imprimée",
+        "description": "Photo imprimée sur toile, rendu mural prêt à accrocher selon disponibilité Prodigi."
+      }
+    }
+  },
+  {
+    "id": "cal-015",
+    "title": "Calanque de Port d'Alon",
+    "collection": "calanques",
+    "previewImage": "/Calanques/calanque-port-d-alon03.webp",
+    "grade": "B",
+    "allowedFormats": [
+      "30x45",
+      "50x75"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39,
+        "50x75": 59
+      },
+      "canvas": {
+        "30x45": 69,
+        "50x75": 119
+      }
+    },
+    "supportDetails": {
+      "poster": {
+        "displayName": "Affiche Fine Art",
+        "description": "Tirage photo haute qualité sur papier mat premium, livré sans cadre."
+      },
+      "canvas": {
+        "displayName": "Toile imprimée",
+        "description": "Photo imprimée sur toile, rendu mural prêt à accrocher selon disponibilité Prodigi."
+      }
+    }
+  },
+  {
+    "id": "cal-016",
+    "title": "Calanque de Port d'Alon",
+    "collection": "calanques",
+    "previewImage": "/Calanques/calanque-port-d-alon04.webp",
+    "grade": "B",
+    "allowedFormats": [
+      "30x45",
+      "50x75"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39,
+        "50x75": 59
+      },
+      "canvas": {
+        "30x45": 69,
+        "50x75": 119
+      }
+    },
+    "supportDetails": {
+      "poster": {
+        "displayName": "Affiche Fine Art",
+        "description": "Tirage photo haute qualité sur papier mat premium, livré sans cadre."
+      },
+      "canvas": {
+        "displayName": "Toile imprimée",
+        "description": "Photo imprimée sur toile, rendu mural prêt à accrocher selon disponibilité Prodigi."
+      }
+    }
+  },
+  {
+    "id": "cal-017",
+    "title": "Cap Canaille",
+    "collection": "calanques",
+    "previewImage": "/Calanques/cap-canaille01.webp",
+    "grade": "B",
+    "allowedFormats": [
+      "30x45",
+      "50x75"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39,
+        "50x75": 59
+      },
+      "canvas": {
+        "30x45": 69,
+        "50x75": 119
+      }
+    },
+    "supportDetails": {
+      "poster": {
+        "displayName": "Affiche Fine Art",
+        "description": "Tirage photo haute qualité sur papier mat premium, livré sans cadre."
+      },
+      "canvas": {
+        "displayName": "Toile imprimée",
+        "description": "Photo imprimée sur toile, rendu mural prêt à accrocher selon disponibilité Prodigi."
+      }
+    }
+  },
+  {
+    "id": "cal-018",
+    "title": "Cap Canaille",
+    "collection": "calanques",
+    "previewImage": "/Calanques/cap-canaille02.jpg",
+    "grade": "A",
+    "allowedFormats": [
+      "30x45",
+      "50x75",
+      "70x105"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas",
+      "frame"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39,
+        "50x75": 59,
+        "70x105": 89
+      },
+      "canvas": {
+        "30x45": 69,
+        "50x75": 119,
+        "70x105": 179
+      },
+      "frame": {
+        "30x45": 99,
+        "50x75": 149,
+        "70x105": 229
+      }
+    },
+    "supportDetails": {
+      "poster": {
+        "displayName": "Affiche Fine Art",
+        "description": "Tirage photo haute qualité sur papier mat premium, livré sans cadre."
+      },
+      "canvas": {
+        "displayName": "Toile imprimée",
+        "description": "Photo imprimée sur toile, rendu mural prêt à accrocher selon disponibilité Prodigi."
+      },
+      "frame": {
+        "displayName": "Tableau encadré",
+        "description": "Tirage encadré prêt à accrocher, finition premium."
+      }
+    }
+  },
+  {
+    "id": "cal-019",
+    "title": "La Madrague, Saint-Cyr-sur-Mer",
+    "collection": "calanques",
+    "previewImage": "/Calanques/la-madrague-saint-cyr-sur-mer01.webp",
+    "grade": "B",
+    "allowedFormats": [
+      "30x45",
+      "50x75"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39,
+        "50x75": 59
+      },
+      "canvas": {
+        "30x45": 69,
+        "50x75": 119
+      }
+    },
+    "supportDetails": {
+      "poster": {
+        "displayName": "Affiche Fine Art",
+        "description": "Tirage photo haute qualité sur papier mat premium, livré sans cadre."
+      },
+      "canvas": {
+        "displayName": "Toile imprimée",
+        "description": "Photo imprimée sur toile, rendu mural prêt à accrocher selon disponibilité Prodigi."
+      }
+    }
+  },
+  {
+    "id": "cal-020",
+    "title": "Bandol",
+    "collection": "calanques",
+    "previewImage": "/Calanques/bougainvillier-bandol01.jpg",
+    "grade": "C",
+    "allowedFormats": [
+      "30x45"
+    ],
+    "allowedSupports": [
+      "poster"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39
+      }
+    },
+    "supportDetails": {
+      "poster": {
+        "displayName": "Affiche Fine Art",
+        "description": "Tirage photo haute qualité sur papier mat premium, livré sans cadre."
+      }
+    }
+  },
+  {
+    "id": "cal-021",
+    "title": "Beaucours",
+    "collection": "calanques",
+    "previewImage": "/Calanques/plage-beaucours01.webp",
+    "grade": "B",
+    "allowedFormats": [
+      "30x45",
+      "50x75"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39,
+        "50x75": 59
+      },
+      "canvas": {
+        "30x45": 69,
+        "50x75": 119
+      }
+    },
+    "supportDetails": {
+      "poster": {
+        "displayName": "Affiche Fine Art",
+        "description": "Tirage photo haute qualité sur papier mat premium, livré sans cadre."
+      },
+      "canvas": {
+        "displayName": "Toile imprimée",
+        "description": "Photo imprimée sur toile, rendu mural prêt à accrocher selon disponibilité Prodigi."
+      }
+    }
+  },
+  {
+    "id": "cal-022",
+    "title": "Beaucours",
+    "collection": "calanques",
+    "previewImage": "/Calanques/plage-beaucours02.webp",
+    "grade": "A",
+    "allowedFormats": [
+      "30x45",
+      "50x75",
+      "70x105"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas",
+      "frame"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39,
+        "50x75": 59,
+        "70x105": 89
+      },
+      "canvas": {
+        "30x45": 69,
+        "50x75": 119,
+        "70x105": 179
+      },
+      "frame": {
+        "30x45": 99,
+        "50x75": 149,
+        "70x105": 229
+      }
+    },
+    "supportDetails": {
+      "poster": {
+        "displayName": "Affiche Fine Art",
+        "description": "Tirage photo haute qualité sur papier mat premium, livré sans cadre."
+      },
+      "canvas": {
+        "displayName": "Toile imprimée",
+        "description": "Photo imprimée sur toile, rendu mural prêt à accrocher selon disponibilité Prodigi."
+      },
+      "frame": {
+        "displayName": "Tableau encadré",
+        "description": "Tirage encadré prêt à accrocher, finition premium."
+      }
+    }
+  },
+  {
+    "id": "cal-023",
+    "title": "Plage de la Fossette",
+    "collection": "calanques",
+    "previewImage": "/Calanques/plage-la-fossette01.webp",
+    "grade": "B",
+    "allowedFormats": [
+      "30x45",
+      "50x75"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39,
+        "50x75": 59
+      },
+      "canvas": {
+        "30x45": 69,
+        "50x75": 119
+      }
+    },
+    "supportDetails": {
+      "poster": {
+        "displayName": "Affiche Fine Art",
+        "description": "Tirage photo haute qualité sur papier mat premium, livré sans cadre."
+      },
+      "canvas": {
+        "displayName": "Toile imprimée",
+        "description": "Photo imprimée sur toile, rendu mural prêt à accrocher selon disponibilité Prodigi."
+      }
+    }
+  },
+  {
+    "id": "cal-024",
+    "title": "Plage de la Fossette",
+    "collection": "calanques",
+    "previewImage": "/Calanques/plage-la-fossette02.webp",
+    "grade": "B",
+    "allowedFormats": [
+      "30x45",
+      "50x75"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39,
+        "50x75": 59
+      },
+      "canvas": {
+        "30x45": 69,
+        "50x75": 119
+      }
+    },
+    "supportDetails": {
+      "poster": {
+        "displayName": "Affiche Fine Art",
+        "description": "Tirage photo haute qualité sur papier mat premium, livré sans cadre."
+      },
+      "canvas": {
+        "displayName": "Toile imprimée",
+        "description": "Photo imprimée sur toile, rendu mural prêt à accrocher selon disponibilité Prodigi."
+      }
+    }
+  },
+  {
+    "id": "cal-025",
+    "title": "Plage de la Fossette",
+    "collection": "calanques",
+    "previewImage": "/Calanques/plage-la-fossette03.webp",
+    "grade": "B",
+    "allowedFormats": [
+      "30x45",
+      "50x75"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39,
+        "50x75": 59
+      },
+      "canvas": {
+        "30x45": 69,
+        "50x75": 119
+      }
+    },
+    "supportDetails": {
+      "poster": {
+        "displayName": "Affiche Fine Art",
+        "description": "Tirage photo haute qualité sur papier mat premium, livré sans cadre."
+      },
+      "canvas": {
+        "displayName": "Toile imprimée",
+        "description": "Photo imprimée sur toile, rendu mural prêt à accrocher selon disponibilité Prodigi."
+      }
+    }
+  },
+  {
+    "id": "cal-027",
+    "title": "Sugiton",
+    "collection": "calanques",
+    "previewImage": "/Calanques/sugiton03.webp",
+    "grade": "B",
+    "allowedFormats": [
+      "30x45",
+      "50x75"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39,
+        "50x75": 59
+      },
+      "canvas": {
+        "30x45": 69,
+        "50x75": 119
+      }
+    },
+    "supportDetails": {
+      "poster": {
+        "displayName": "Affiche Fine Art",
+        "description": "Tirage photo haute qualité sur papier mat premium, livré sans cadre."
+      },
+      "canvas": {
+        "displayName": "Toile imprimée",
+        "description": "Photo imprimée sur toile, rendu mural prêt à accrocher selon disponibilité Prodigi."
+      }
+    }
+  },
+  {
+    "id": "cal-028",
+    "title": "Sugiton",
+    "collection": "calanques",
+    "previewImage": "/Calanques/sugiton04.webp",
+    "grade": "B",
+    "allowedFormats": [
+      "30x45",
+      "50x75"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39,
+        "50x75": 59
+      },
+      "canvas": {
+        "30x45": 69,
+        "50x75": 119
+      }
+    },
+    "supportDetails": {
+      "poster": {
+        "displayName": "Affiche Fine Art",
+        "description": "Tirage photo haute qualité sur papier mat premium, livré sans cadre."
+      },
+      "canvas": {
+        "displayName": "Toile imprimée",
+        "description": "Photo imprimée sur toile, rendu mural prêt à accrocher selon disponibilité Prodigi."
+      }
+    }
+  },
+  {
+    "id": "cal-026",
+    "title": "Plage de Portissol",
+    "collection": "calanques",
+    "previewImage": "/Calanques/plage-portissol01.webp",
+    "grade": "A",
+    "allowedFormats": [
+      "30x45",
+      "50x75",
+      "70x105"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas",
+      "frame"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39,
+        "50x75": 59,
+        "70x105": 89
+      },
+      "canvas": {
+        "30x45": 69,
+        "50x75": 119,
+        "70x105": 179
+      },
+      "frame": {
+        "30x45": 99,
+        "50x75": 149,
+        "70x105": 229
+      }
+    },
+    "supportDetails": {
+      "poster": {
+        "displayName": "Affiche Fine Art",
+        "description": "Tirage photo haute qualité sur papier mat premium, livré sans cadre."
+      },
+      "canvas": {
+        "displayName": "Toile imprimée",
+        "description": "Photo imprimée sur toile, rendu mural prêt à accrocher selon disponibilité Prodigi."
+      },
+      "frame": {
+        "displayName": "Tableau encadré",
+        "description": "Tirage encadré prêt à accrocher, finition premium."
+      }
+    }
+  },
+  {
+    "id": "sun-001",
+    "title": "Route des Crêtes, La Ciotat",
+    "collection": "couchers-de-soleil",
+    "previewImage": "/Sunset/Coucher de soleil La Ciotat éléphant routedes crêtes.webp",
+    "grade": "C",
+    "allowedFormats": [
+      "30x45"
+    ],
+    "allowedSupports": [
+      "poster"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39
+      }
+    },
+    "supportDetails": {
+      "poster": {
+        "displayName": "Affiche Fine Art",
+        "description": "Tirage photo haute qualité sur papier mat premium, livré sans cadre."
+      }
+    }
+  },
+  {
+    "id": "sun-002",
+    "title": "La Ciotat au coucher du soleil",
+    "collection": "couchers-de-soleil",
+    "previewImage": "/Sunset/sunset fire la ciotat.webp",
+    "grade": "B",
+    "allowedFormats": [
+      "30x45",
+      "50x75"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39,
+        "50x75": 59
+      },
+      "canvas": {
+        "30x45": 69,
+        "50x75": 119
+      }
+    },
+    "supportDetails": {
+      "poster": {
+        "displayName": "Affiche Fine Art",
+        "description": "Tirage photo haute qualité sur papier mat premium, livré sans cadre."
+      },
+      "canvas": {
+        "displayName": "Toile imprimée",
+        "description": "Photo imprimée sur toile, rendu mural prêt à accrocher selon disponibilité Prodigi."
+      }
+    }
+  },
+  {
+    "id": "sun-007",
+    "title": "La Ciotat au coucher du soleil",
+    "collection": "couchers-de-soleil",
+    "previewImage": "/Sunset/Sunset La Ciotat1.webp",
+    "grade": "B",
+    "allowedFormats": [
+      "30x45",
+      "50x75"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39,
+        "50x75": 59
+      },
+      "canvas": {
+        "30x45": 69,
+        "50x75": 119
+      }
+    },
+    "supportDetails": {
+      "poster": {
+        "displayName": "Affiche Fine Art",
+        "description": "Tirage photo haute qualité sur papier mat premium, livré sans cadre."
+      },
+      "canvas": {
+        "displayName": "Toile imprimée",
+        "description": "Photo imprimée sur toile, rendu mural prêt à accrocher selon disponibilité Prodigi."
+      }
+    }
+  },
+  {
+    "id": "sun-008",
+    "title": "La Ciotat au coucher du soleil",
+    "collection": "couchers-de-soleil",
+    "previewImage": "/Sunset/Sunset fire la ciotat 4.webp",
+    "grade": "B",
+    "allowedFormats": [
+      "30x45",
+      "50x75"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39,
+        "50x75": 59
+      },
+      "canvas": {
+        "30x45": 69,
+        "50x75": 119
+      }
+    },
+    "supportDetails": {
+      "poster": {
+        "displayName": "Affiche Fine Art",
+        "description": "Tirage photo haute qualité sur papier mat premium, livré sans cadre."
+      },
+      "canvas": {
+        "displayName": "Toile imprimée",
+        "description": "Photo imprimée sur toile, rendu mural prêt à accrocher selon disponibilité Prodigi."
+      }
+    }
+  },
+  {
+    "id": "sun-005",
+    "title": "Port Saint-Jean, La Ciotat",
+    "collection": "couchers-de-soleil",
+    "previewImage": "/Sunset/sunset port saintjean la ciotat.webp",
+    "grade": "B",
+    "allowedFormats": [
+      "30x45",
+      "50x75"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39,
+        "50x75": 59
+      },
+      "canvas": {
+        "30x45": 69,
+        "50x75": 119
+      }
+    },
+    "supportDetails": {
+      "poster": {
+        "displayName": "Affiche Fine Art",
+        "description": "Tirage photo haute qualité sur papier mat premium, livré sans cadre."
+      },
+      "canvas": {
+        "displayName": "Toile imprimée",
+        "description": "Photo imprimée sur toile, rendu mural prêt à accrocher selon disponibilité Prodigi."
+      }
+    }
+  },
+  {
+    "id": "sun-003",
+    "title": "Plage des Catalans, Marseille",
+    "collection": "couchers-de-soleil",
+    "previewImage": "/Sunset/Sunset catalans marseille.webp",
+    "grade": "B",
+    "allowedFormats": [
+      "30x45",
+      "50x75"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39,
+        "50x75": 59
+      },
+      "canvas": {
+        "30x45": 69,
+        "50x75": 119
+      }
+    },
+    "supportDetails": {
+      "poster": {
+        "displayName": "Affiche Fine Art",
+        "description": "Tirage photo haute qualité sur papier mat premium, livré sans cadre."
+      },
+      "canvas": {
+        "displayName": "Toile imprimée",
+        "description": "Photo imprimée sur toile, rendu mural prêt à accrocher selon disponibilité Prodigi."
+      }
+    }
+  },
+  {
+    "id": "sun-011",
+    "title": "Plage des Catalans, Marseille",
+    "collection": "couchers-de-soleil",
+    "previewImage": "/Sunset/Sunset catalans.webp",
+    "grade": "B",
+    "allowedFormats": [
+      "30x45",
+      "50x75"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39,
+        "50x75": 59
+      },
+      "canvas": {
+        "30x45": 69,
+        "50x75": 119
+      }
+    },
+    "supportDetails": {
+      "poster": {
+        "displayName": "Affiche Fine Art",
+        "description": "Tirage photo haute qualité sur papier mat premium, livré sans cadre."
+      },
+      "canvas": {
+        "displayName": "Toile imprimée",
+        "description": "Photo imprimée sur toile, rendu mural prêt à accrocher selon disponibilité Prodigi."
+      }
+    }
+  },
+  {
+    "id": "sun-004",
+    "title": "L'Estaque, Marseille",
+    "collection": "couchers-de-soleil",
+    "previewImage": "/Sunset/sunset l'estaque Marseille.webp",
+    "grade": "A",
+    "allowedFormats": [
+      "30x45",
+      "50x75",
+      "70x105"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas",
+      "frame"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39,
+        "50x75": 59,
+        "70x105": 89
+      },
+      "canvas": {
+        "30x45": 69,
+        "50x75": 119,
+        "70x105": 179
+      },
+      "frame": {
+        "30x45": 99,
+        "50x75": 149,
+        "70x105": 229
+      }
+    },
+    "supportDetails": {
+      "poster": {
+        "displayName": "Affiche Fine Art",
+        "description": "Tirage photo haute qualité sur papier mat premium, livré sans cadre."
+      },
+      "canvas": {
+        "displayName": "Toile imprimée",
+        "description": "Photo imprimée sur toile, rendu mural prêt à accrocher selon disponibilité Prodigi."
+      },
+      "frame": {
+        "displayName": "Tableau encadré",
+        "description": "Tirage encadré prêt à accrocher, finition premium."
+      }
+    }
+  },
+  {
+    "id": "sun-006",
+    "title": "Bain des Dames, Marseille",
+    "collection": "couchers-de-soleil",
+    "previewImage": "/Sunset/sunset serpent bain des dames marseille.webp",
+    "grade": "A",
+    "allowedFormats": [
+      "30x45",
+      "50x75",
+      "70x105"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas",
+      "frame"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39,
+        "50x75": 59,
+        "70x105": 89
+      },
+      "canvas": {
+        "30x45": 69,
+        "50x75": 119,
+        "70x105": 179
+      },
+      "frame": {
+        "30x45": 99,
+        "50x75": 149,
+        "70x105": 229
+      }
+    },
+    "supportDetails": {
+      "poster": {
+        "displayName": "Affiche Fine Art",
+        "description": "Tirage photo haute qualité sur papier mat premium, livré sans cadre."
+      },
+      "canvas": {
+        "displayName": "Toile imprimée",
+        "description": "Photo imprimée sur toile, rendu mural prêt à accrocher selon disponibilité Prodigi."
+      },
+      "frame": {
+        "displayName": "Tableau encadré",
+        "description": "Tirage encadré prêt à accrocher, finition premium."
+      }
+    }
+  },
+  {
+    "id": "sunrise-001",
+    "title": "Lever de soleil à La Ciotat",
+    "collection": "lever-de-soleil",
+    "previewImage": "/Sunrise/lever-de-soleil-laciotat01.jpg",
+    "grade": "A",
+    "allowedFormats": [
+      "30x45",
+      "50x75",
+      "70x105"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas",
+      "frame"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39,
+        "50x75": 59,
+        "70x105": 89
+      },
+      "canvas": {
+        "30x45": 69,
+        "50x75": 119,
+        "70x105": 179
+      },
+      "frame": {
+        "30x45": 99,
+        "50x75": 149,
+        "70x105": 229
+      }
+    },
+    "supportDetails": {
+      "poster": {
+        "displayName": "Affiche Fine Art",
+        "description": "Tirage photo haute qualité sur papier mat premium, livré sans cadre."
+      },
+      "canvas": {
+        "displayName": "Toile imprimée",
+        "description": "Photo imprimée sur toile, rendu mural prêt à accrocher selon disponibilité Prodigi."
+      },
+      "frame": {
+        "displayName": "Tableau encadré",
+        "description": "Tirage encadré prêt à accrocher, finition premium."
+      }
+    }
+  },
+  {
+    "id": "sunrise-002",
+    "title": "Lever de soleil à La Ciotat",
+    "collection": "lever-de-soleil",
+    "previewImage": "/Sunrise/lever-de-soleil-laciotat02.jpg",
+    "grade": "A",
+    "allowedFormats": [
+      "30x45",
+      "50x75",
+      "70x105"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas",
+      "frame"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39,
+        "50x75": 59,
+        "70x105": 89
+      },
+      "canvas": {
+        "30x45": 69,
+        "50x75": 119,
+        "70x105": 179
+      },
+      "frame": {
+        "30x45": 99,
+        "50x75": 149,
+        "70x105": 229
+      }
+    },
+    "supportDetails": {
+      "poster": {
+        "displayName": "Affiche Fine Art",
+        "description": "Tirage photo haute qualité sur papier mat premium, livré sans cadre."
+      },
+      "canvas": {
+        "displayName": "Toile imprimée",
+        "description": "Photo imprimée sur toile, rendu mural prêt à accrocher selon disponibilité Prodigi."
+      },
+      "frame": {
+        "displayName": "Tableau encadré",
+        "description": "Tirage encadré prêt à accrocher, finition premium."
+      }
+    }
+  },
+  {
+    "id": "sunrise-003",
+    "title": "Lever de soleil à La Ciotat",
+    "collection": "lever-de-soleil",
+    "previewImage": "/Sunrise/lever-de-soleil-laciotat03.jpg",
+    "grade": "A",
+    "allowedFormats": [
+      "30x45",
+      "50x75",
+      "70x105"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas",
+      "frame"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39,
+        "50x75": 59,
+        "70x105": 89
+      },
+      "canvas": {
+        "30x45": 69,
+        "50x75": 119,
+        "70x105": 179
+      },
+      "frame": {
+        "30x45": 99,
+        "50x75": 149,
+        "70x105": 229
+      }
+    },
+    "supportDetails": {
+      "poster": {
+        "displayName": "Affiche Fine Art",
+        "description": "Tirage photo haute qualité sur papier mat premium, livré sans cadre."
+      },
+      "canvas": {
+        "displayName": "Toile imprimée",
+        "description": "Photo imprimée sur toile, rendu mural prêt à accrocher selon disponibilité Prodigi."
+      },
+      "frame": {
+        "displayName": "Tableau encadré",
+        "description": "Tirage encadré prêt à accrocher, finition premium."
+      }
+    }
+  },
+  {
+    "id": "sunrise-005",
+    "title": "Lever de soleil à La Ciotat",
+    "collection": "lever-de-soleil",
+    "previewImage": "/Sunrise/lever-de-soleil-laciotat05.jpg",
+    "grade": "C",
+    "allowedFormats": [
+      "30x45"
+    ],
+    "allowedSupports": [
+      "poster"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39
+      }
+    },
+    "supportDetails": {
+      "poster": {
+        "displayName": "Affiche Fine Art",
+        "description": "Tirage photo haute qualité sur papier mat premium, livré sans cadre."
+      }
+    }
+  },
+  {
+    "id": "sunrise-006",
+    "title": "Lever de soleil à La Ciotat",
+    "collection": "lever-de-soleil",
+    "previewImage": "/Sunrise/lever-de-soleil-laciotat06.jpg",
+    "grade": "A",
+    "allowedFormats": [
+      "30x45",
+      "50x75",
+      "70x105"
+    ],
+    "allowedSupports": [
+      "poster",
+      "canvas",
+      "frame"
+    ],
+    "pricing": {
+      "poster": {
+        "30x45": 39,
+        "50x75": 59,
+        "70x105": 89
+      },
+      "canvas": {
+        "30x45": 69,
+        "50x75": 119,
+        "70x105": 179
+      },
+      "frame": {
+        "30x45": 99,
+        "50x75": 149,
+        "70x105": 229
+      }
+    },
+    "supportDetails": {
+      "poster": {
+        "displayName": "Affiche Fine Art",
+        "description": "Tirage photo haute qualité sur papier mat premium, livré sans cadre."
+      },
+      "canvas": {
+        "displayName": "Toile imprimée",
+        "description": "Photo imprimée sur toile, rendu mural prêt à accrocher selon disponibilité Prodigi."
+      },
+      "frame": {
+        "displayName": "Tableau encadré",
+        "description": "Tirage encadré prêt à accrocher, finition premium."
+      }
+    }
+  }
+]

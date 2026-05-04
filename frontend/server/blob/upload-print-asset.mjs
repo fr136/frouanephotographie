@@ -26,10 +26,10 @@ export async function uploadPrintAsset({ productId, filePath = null, allowOverwr
 
   const sourceAbsolutePath = resolveSourceAbsolutePath(sourceFilePath);
   const fileBuffer = await fs.readFile(sourceAbsolutePath);
-  const blobPathname = getBlobPathname(productId, sourceFilePath, currentAsset.blobPathname);
+  const blobPathname = getBlobPathname(productId, sourceFilePath, currentAsset.blobPath);
 
   const uploaded = await put(blobPathname, fileBuffer, {
-    access: 'public',
+    access: 'private',
     addRandomSuffix: false,
     allowOverwrite,
     contentType: getContentType(sourceFilePath),
@@ -40,9 +40,7 @@ export async function uploadPrintAsset({ productId, filePath = null, allowOverwr
     ...catalog,
     [productId]: {
       ...currentAsset,
-      sourceFilePath,
-      blobPathname,
-      blobUrl: uploaded.url,
+      blobPath: uploaded.pathname || blobPathname,
     },
   };
 
@@ -50,8 +48,7 @@ export async function uploadPrintAsset({ productId, filePath = null, allowOverwr
 
   return {
     productId,
-    blobPathname,
-    blobUrl: uploaded.url,
+    blobPath: uploaded.pathname || blobPathname,
   };
 }
 
