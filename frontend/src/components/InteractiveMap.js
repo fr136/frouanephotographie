@@ -127,8 +127,8 @@ const photoLocations = [
   },
   {
     id: "loc-sunset-ciotat",
-    name: "La Ciotat - Route des Crêtes",
-    coordinates: [43.21527, 5.552392],
+    name: "La Ciotat – Route des Crêtes",
+    coordinates: [43.1854, 5.6070],
     collection: "sunset",
     collectionLabel: COLLECTION_LABELS.sunset,
     routeTo: "/collections/couchers-de-soleil?lieu=la-ciotat",
