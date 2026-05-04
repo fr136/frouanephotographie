@@ -1,67 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://frouanephotographie.com/</loc>
+    <loc>https://www.frouanephotographie.com/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <url>
-    <loc>https://frouanephotographie.com/collections</loc>
+    <loc>https://www.frouanephotographie.com/collections</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://frouanephotographie.com/collections/calanques</loc>
+    <loc>https://www.frouanephotographie.com/collections/calanques</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://frouanephotographie.com/collections/couchers-de-soleil</loc>
+    <loc>https://www.frouanephotographie.com/collections/couchers-de-soleil</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://frouanephotographie.com/collections/lever-de-soleil</loc>
+    <loc>https://www.frouanephotographie.com/collections/lever-de-soleil</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://frouanephotographie.com/boutique</loc>
+    <loc>https://www.frouanephotographie.com/boutique</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://frouanephotographie.com/a-propos</loc>
+    <loc>https://www.frouanephotographie.com/a-propos</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://frouanephotographie.com/contact</loc>
+    <loc>https://www.frouanephotographie.com/contact</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://frouanephotographie.com/mentions-legales</loc>
+    <loc>https://www.frouanephotographie.com/mentions-legales</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
 
   <url>
-    <loc>https://frouanephotographie.com/cgv</loc>
+    <loc>https://www.frouanephotographie.com/cgv</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
 
   <url>
-    <loc>https://frouanephotographie.com/confidentialite</loc>
+    <loc>https://www.frouanephotographie.com/confidentialite</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
