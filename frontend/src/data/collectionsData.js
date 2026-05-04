@@ -107,7 +107,7 @@ const RAW_COLLECTIONS = [
         id: "en-vau",
         slug: "en-vau",
         title: "En-Vau",
-        location: "Calanques",
+        location: "Cassis",
         description:
           "Encaissée entre deux falaises, accessible à pied ou par la mer. Souvent citée comme la plus belle du massif.",
         coverFile: "calanque-en-vau02.jpeg",
@@ -145,9 +145,9 @@ const RAW_COLLECTIONS = [
         id: "cap-canaille",
         slug: "cap-canaille",
         title: "Cap Canaille",
-        location: "Route des Crêtes",
+        location: "Cap Canaille, Cassis",
         description:
-          "Le Cap Canaille domine Cassis à 362 mètres. Depuis la Route des Crêtes, la vue porte loin sur la côte.",
+          "Le Cap Canaille domine Cassis à 394 mètres. Depuis la Route des Crêtes, la vue porte loin sur la côte.",
         coverFile: "cap-canaille01.webp",
         spotTags: ["cap-canaille", "falaises", "route des crêtes"],
         photos: [createPhoto("cap-canaille01.webp"), createPhoto("cap-canaille02.jpg")],
@@ -178,7 +178,7 @@ const RAW_COLLECTIONS = [
         id: "beaucours",
         slug: "beaucours",
         title: "Beaucours",
-        location: "Beaucours",
+        location: "Sanary-sur-Mer",
         description:
           "Plage de sable fin face à l'île des Embiez, dans le Var. Eaux calmes, lumière douce en fin de journée.",
         coverFile: "plage-beaucours01.webp",

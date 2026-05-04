@@ -127,7 +127,7 @@ const SEOHead = ({
       <meta name="description" content={pageDescription} />
       <meta
         name="keywords"
-        content="photographe marseille, calanques, littoral méditerranéen, tirage art, photographie paysage, méditerranée, coucher de soleil, fine art, photo provence"
+        content="photographe marseille, calanques, littoral méditerranéen, tirage d'art, photographie paysage, méditerranée, coucher de soleil, fine art, photo provence"
       />
       <meta name="author" content="Franck Rouane" />
       <meta name="robots" content="index, follow, max-image-preview:large" />

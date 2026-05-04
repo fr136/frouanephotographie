@@ -157,7 +157,7 @@
     "category": "calanques",
     "collection_slug": "calanques",
     "subcollection_slug": "cap-canaille",
-    "location": "Route des Crêtes",
+    "location": "Cap Canaille, Cassis",
     "asset_path": "/Calanques/cap-canaille01.webp",
     "base_price_eur": 69,
     "sizes": [
@@ -172,7 +172,7 @@
     "category": "calanques",
     "collection_slug": "calanques",
     "subcollection_slug": "cap-canaille",
-    "location": "Route des Crêtes",
+    "location": "Cap Canaille, Cassis",
     "asset_path": "/Calanques/cap-canaille02.jpg",
     "base_price_eur": 79,
     "sizes": [
@@ -218,7 +218,7 @@
     "category": "calanques",
     "collection_slug": "calanques",
     "subcollection_slug": "beaucours",
-    "location": "Beaucours",
+    "location": "Beaucours, Sanary-sur-Mer",
     "asset_path": "/Calanques/plage-beaucours01.webp",
     "base_price_eur": 69,
     "sizes": [
@@ -233,7 +233,7 @@
     "category": "calanques",
     "collection_slug": "calanques",
     "subcollection_slug": "beaucours",
-    "location": "Beaucours",
+    "location": "Beaucours, Sanary-sur-Mer",
     "asset_path": "/Calanques/plage-beaucours02.webp",
     "base_price_eur": 79,
     "sizes": [
@@ -461,7 +461,7 @@
     "category": "sunset",
     "collection_slug": "couchers-de-soleil",
     "subcollection_slug": "marseille",
-    "location": "Marseille",
+    "location": "Marseille, 8e arrondissement",
     "asset_path": "/Sunset/sunset serpent bain des dames marseille.webp",
     "base_price_eur": 69,
     "sizes": [

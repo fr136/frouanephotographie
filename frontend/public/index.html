@@ -12,22 +12,21 @@
         />
         <meta
             name="keywords"
-            content="photographie maritime, tirage d'art, photo mer Méditerranée, photographe Côte d'Azur, impression fine art, décoration murale mer, Mediterranean seascape photography, fine art print, coastal wall art, French Riviera photographer, sea photography print"
+            content="photographie maritime, tirage d'art, photo mer Méditerranée, photographe Provence Méditerranée, impression fine art, décoration murale mer, Mediterranean seascape photography, fine art print, coastal wall art, Provence Mediterranean photographer, sea photography print"
         />
         <meta name="author" content="Franck Rouane" />
 
         <!-- Canonical & alternate links -->
         <link rel="canonical" href="https://frouanephotographie.com/" />
         <link rel="alternate" hreflang="fr" href="https://frouanephotographie.com/" />
-        <link rel="alternate" hreflang="en" href="https://frouanephotographie.com/en" />
 
         <!-- Open Graph / Facebook (Optimised) -->
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://frouanephotographie.com/" />
-        <meta property="og:title" content="Photographie maritime &amp; tirages d'art | Franck Rouane" />
+        <meta property="og:title" content="Photographie maritime &amp; tirages d'art Méditerranée | Franck Rouane" />
         <meta
             property="og:description"
-            content="Découvrez des tirages d'art en édition limitée de la mer Méditerranée et de la Côte d'Azur. Fine art prints pour décoration murale, qualité muséale."
+            content="Découvrez des tirages d'art en édition limitée de la Méditerranée provençale — Marseille, Calanques, La Ciotat, littoral varois. Fine art prints, qualité muséale."
         />
         <meta property="og:image" content="%PUBLIC_URL%/og-image.jpg" />
         <meta property="og:locale" content="fr_FR" />
@@ -36,10 +35,10 @@
         <!-- Twitter (Optimised) -->
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:url" content="https://frouanephotographie.com/" />
-        <meta name="twitter:title" content="Mediterranean seascape photography &amp; fine art prints" />
+        <meta name="twitter:title" content="Mediterranean &amp; Provence photography — fine art prints" />
         <meta
             name="twitter:description"
-            content="Fine art prints of Mediterranean seascapes and French Riviera landscapes by Franck Rouane. Limited edition photographic art for coastal wall decor."
+            content="Fine art prints of Mediterranean and Provence landscapes by Franck Rouane. Limited edition photographic art for coastal wall decor."
         />
         <meta name="twitter:image" content="%PUBLIC_URL%/og-image.jpg" />
 
@@ -48,7 +47,7 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap" rel="stylesheet" />
 
-        <title>Photographie maritime &amp; tirages d'art Côte d'Azur | Franck Rouane</title>
+        <title>Photographie maritime &amp; tirages d'art Méditerranée | Franck Rouane</title>
 
         <!-- Structured data using JSON-LD -->
         <script type="application/ld+json">
@@ -62,10 +61,11 @@
                   "description": "Photographe spécialisé en paysages maritimes méditerranéens proposant des tirages d'art en édition limitée.",
                   "url": "https://frouanephotographie.com/",
                   "image": "%PUBLIC_URL%/og-image.jpg",
-                  "telephone": "+33 6 00 00 00 00",
                   "address": {
                     "@type": "PostalAddress",
-                    "addressLocality": "Côte d'Azur",
+                    "addressLocality": "Marseille",
+                    "addressRegion": "Provence-Alpes-Côte d'Azur",
+                    "postalCode": "13000",
                     "addressCountry": "FR"
                   },
                   "areaServed": {
@@ -91,7 +91,7 @@
                     {
                       "@type": "ImageObject",
                       "contentUrl": "%PUBLIC_URL%/og-image.jpg",
-                      "caption": "Paysage maritime en Côte d'Azur"
+                      "caption": "Paysage maritime méditerranéen"
                     }
                   ]
                 },
@@ -99,7 +99,7 @@
                   "@type": "Product",
                   "@id": "https://frouanephotographie.com/#prints",
                   "name": "Tirages d'art de photographie maritime",
-                  "description": "Tirages Fine Art sur papier Hahnemühle, édition limitée et numérotée. Photographies de la mer Méditerranée et de la Côte d'Azur.",
+                  "description": "Tirages Fine Art sur papier Hahnemühle, édition limitée et numérotée. Photographies de la Méditerranée — Calanques, Marseille, La Ciotat, littoral varois.",
                   "image": [
                     "%PUBLIC_URL%/sunrise-laciotat.jpeg",
                     "%PUBLIC_URL%/Salon-sormiou.png"
@@ -110,8 +110,12 @@
                   },
                   "offers": {
                     "@type": "Offer",
-                    "price": "180",
-                    "priceCurrency": "EUR",
+                    "priceSpecification": {
+                      "@type": "PriceSpecification",
+                      "minPrice": "49",
+                      "maxPrice": "79",
+                      "priceCurrency": "EUR"
+                    },
                     "availability": "https://schema.org/InStock",
                     "url": "https://frouanephotographie.com/boutique"
                   }

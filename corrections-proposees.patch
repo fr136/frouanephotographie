@@ -1,0 +1,366 @@
+--- CORRECTIONS PROPOSÉES — frouanephotographie.com
+--- Date : 2026-05-04
+--- Basé sur audit-coherence.md
+---
+--- LÉGENDE :
+---   [AUTO]    = correction factuelle certaine, applicable sans décision humaine
+---   [DÉCIDER] = requiert une décision éditoriale de Franck avant application
+---   [INFO]    = information contextuelle, pas de diff applicable
+
+================================================================================
+[AUTO] E1 — Sugiton : coordonnées GPS corrigées
+Fichier : frontend/src/components/InteractiveMap.js:71
+Source IGN/OSM : calanque de Sugiton, commune de Marseille ≈ 43.2094°N, 5.4567°E
+================================================================================
+
+--- a/frontend/src/components/InteractiveMap.js
++++ b/frontend/src/components/InteractiveMap.js
+@@ -69,7 +69,7 @@
+   {
+     id: "loc-sugiton",
+     name: "Sugiton",
+-    coordinates: [43.2102, 5.4426],
++    coordinates: [43.2094, 5.4567],
+     collection: "calanques",
+
+
+================================================================================
+[AUTO] I1 — Sitemap : slug canonique couchers-de-soleil
+Fichier : frontend/public/sitemap.xml:20
+================================================================================
+
+--- a/frontend/public/sitemap.xml
++++ b/frontend/public/sitemap.xml
+@@ -17,7 +17,7 @@
+
+   <url>
+-    <loc>https://frouanephotographie.com/collections/sunset</loc>
++    <loc>https://frouanephotographie.com/collections/couchers-de-soleil</loc>
+     <changefreq>monthly</changefreq>
+     <priority>0.8</priority>
+   </url>
++
++  <url>
++    <loc>https://frouanephotographie.com/collections/couchers-de-soleil</loc>
++    <changefreq>monthly</changefreq>
++    <priority>0.8</priority>
++  </url>
++
++  <url>
++    <loc>https://frouanephotographie.com/collections/lever-de-soleil</loc>
++    <changefreq>monthly</changefreq>
++    <priority>0.8</priority>
++  </url>
+
+
+================================================================================
+[AUTO] I3 — Cap Canaille : location corrigée dans collectionsData.js
+Fichier : frontend/src/data/collectionsData.js:148
+Source : IGN — Cap Canaille, commune de Cassis (13260), Bouches-du-Rhône
+================================================================================
+
+--- a/frontend/src/data/collectionsData.js
++++ b/frontend/src/data/collectionsData.js
+@@ -146,7 +146,7 @@
+       {
+         id: "cap-canaille",
+         slug: "cap-canaille",
+         title: "Cap Canaille",
+-        location: "Route des Crêtes",
++        location: "Cap Canaille, Cassis",
+         description:
+           "Le Cap Canaille domine Cassis à 362 mètres. Depuis la Route des Crêtes, la vue porte loin sur la côte.",
+
+
+================================================================================
+[AUTO] I3 — Cap Canaille : location corrigée dans productCatalog.json
+Fichier : frontend/src/data/productCatalog.json (cal-017 et cal-018)
+================================================================================
+
+--- a/frontend/src/data/productCatalog.json
++++ b/frontend/src/data/productCatalog.json
+@@ cal-017
+-    "location": "Route des Crêtes",
++    "location": "Cap Canaille, Cassis",
+
+@@ cal-018
+-    "location": "Route des Crêtes",
++    "location": "Cap Canaille, Cassis",
+
+
+================================================================================
+[AUTO] I4 — Sugiton : ajout photos 03 et 04 dans le marqueur carte
+Fichier : frontend/src/components/InteractiveMap.js:76-78
+================================================================================
+
+--- a/frontend/src/components/InteractiveMap.js
++++ b/frontend/src/components/InteractiveMap.js
+@@ -74,6 +74,12 @@
+     photos: [
+       { title: getPhotoTitleFromPath("/Calanques/sugiton01.jpeg", "Sugiton"), image: "/Calanques/sugiton01.jpeg" },
+       { title: getPhotoTitleFromPath("/Calanques/sugiton02.jpg", "Sugiton"), image: "/Calanques/sugiton02.jpg" },
++      { title: getPhotoTitleFromPath("/Calanques/sugiton03.webp", "Sugiton"), image: "/Calanques/sugiton03.webp" },
++      { title: getPhotoTitleFromPath("/Calanques/sugiton04.webp", "Sugiton"), image: "/Calanques/sugiton04.webp" },
+     ],
+
+
+================================================================================
+[AUTO] T1 — En-Vau : location précisée (commune de Cassis)
+Fichier : frontend/src/data/collectionsData.js:113
+Source : IGN — calanque d'En-Vau, commune de Cassis (13260)
+================================================================================
+
+--- a/frontend/src/data/collectionsData.js
++++ b/frontend/src/data/collectionsData.js
+@@ -110,7 +110,7 @@
+       {
+         id: "en-vau",
+         slug: "en-vau",
+         title: "En-Vau",
+-        location: "Calanques",
++        location: "Cassis",
+
+
+================================================================================
+[AUTO] T2 — Port d'Alon : commune corrigée dans collectionsData.js et InteractiveMap.js
+Fichier A : frontend/src/data/collectionsData.js:134
+Fichier B : frontend/src/components/InteractiveMap.js:124
+Source : IGN — calanque de Port d'Alon, commune de Saint-Cyr-sur-Mer (83270)
+================================================================================
+
+--- a/frontend/src/data/collectionsData.js
++++ b/frontend/src/data/collectionsData.js
+@@ -132,7 +132,7 @@
+         title: "Port d'Alon",
+         location: "Saint-Cyr-sur-Mer",
+-        description: "Petite calanque entre Bandol et Saint-Cyr-sur-Mer. Ambiance intime, eaux remarquablement claires.",
++        description: "Petite calanque à Saint-Cyr-sur-Mer. Ambiance intime, eaux remarquablement claires.",
+
+--- a/frontend/src/components/InteractiveMap.js
++++ b/frontend/src/components/InteractiveMap.js
+@@ -122,7 +122,7 @@
+-      "Port d'Alon est une petite calanque discrète entre Bandol et Saint-Cyr-sur-Mer. Moins connue que ses voisines, elle conserve une ambiance intime et des eaux remarquablement claires.",
++      "Port d'Alon est une petite calanque discrète à Saint-Cyr-sur-Mer. Moins connue que ses voisines, elle conserve une ambiance intime et des eaux remarquablement claires.",
+
+
+================================================================================
+[AUTO] T5 — Beaucours : commune ajoutée
+Fichier : frontend/src/data/collectionsData.js:182 et productCatalog.json
+Source : IGN — plage de Beaucours, commune de Six-Fours-les-Plages (83140)
+================================================================================
+
+--- a/frontend/src/data/collectionsData.js
++++ b/frontend/src/data/collectionsData.js
+@@ -180,7 +180,7 @@
+       {
+         id: "beaucours",
+         slug: "beaucours",
+         title: "Beaucours",
+-        location: "Beaucours",
++        location: "Six-Fours-les-Plages",
+         description: "Plage de sable fin face à l'île des Embiez, dans le Var. Eaux calmes, lumière douce en fin de journée.",
+
+--- a/frontend/src/data/productCatalog.json
++++ b/frontend/src/data/productCatalog.json
+@@ cal-021 et cal-022
+-    "location": "Beaucours",
++    "location": "Beaucours, Six-Fours-les-Plages",
+
+
+================================================================================
+[AUTO] S1 — Keywords SEO : "tirage art" → "tirage d'art"
+Fichier : frontend/src/components/SEOHead.js:131
+================================================================================
+
+--- a/frontend/src/components/SEOHead.js
++++ b/frontend/src/components/SEOHead.js
+@@ -129,7 +129,7 @@
+       <meta
+         name="keywords"
+-        content="photographe marseille, calanques, littoral méditerranéen, tirage art, photographie paysage, méditerranée, coucher de soleil, fine art, photo provence"
++        content="photographe marseille, calanques, littoral méditerranéen, tirage d'art, photographie paysage, méditerranée, coucher de soleil, fine art, photo provence"
+       />
+
+
+================================================================================
+[AUTO] S2 — Suppression hreflang EN (URL inexistante)
+Fichier : frontend/public/index.html:22
+================================================================================
+
+--- a/frontend/public/index.html
++++ b/frontend/public/index.html
+@@ -20,7 +20,6 @@
+         <link rel="canonical" href="https://frouanephotographie.com/" />
+         <link rel="alternate" hreflang="fr" href="https://frouanephotographie.com/" />
+-        <link rel="alternate" hreflang="en" href="https://frouanephotographie.com/en" />
+
+
+================================================================================
+[AUTO] S3 — schema.org LocalBusiness : addressLocality valide
+Fichier : frontend/public/index.html:66-70
+================================================================================
+
+--- a/frontend/public/index.html
++++ b/frontend/public/index.html
+@@ -63,7 +63,9 @@
+                   "address": {
+                     "@type": "PostalAddress",
+-                    "addressLocality": "Côte d'Azur",
++                    "addressLocality": "Marseille",
++                    "addressRegion": "Provence-Alpes-Côte d'Azur",
++                    "postalCode": "13000",
+                     "addressCountry": "FR"
+                   },
+
+
+================================================================================
+[AUTO] E4 — Suppression numéro de téléphone placeholder
+Fichier : frontend/public/index.html:65
+================================================================================
+
+--- a/frontend/public/index.html
++++ b/frontend/public/index.html
+@@ -62,7 +62,6 @@
+                   "url": "https://frouanephotographie.com/",
+                   "image": "%PUBLIC_URL%/og-image.jpg",
+-                  "telephone": "+33 6 00 00 00 00",
+                   "address": {
+
+
+================================================================================
+[AUTO] E5 — Prix schema.org corrigé (49–79€, pas 180€)
+Fichier : frontend/public/index.html:113
+================================================================================
+
+--- a/frontend/public/index.html
++++ b/frontend/public/index.html
+@@ -109,9 +109,12 @@
+                   "offers": {
+                     "@type": "Offer",
+-                    "price": "180",
+-                    "priceCurrency": "EUR",
++                    "priceSpecification": {
++                      "@type": "PriceSpecification",
++                      "minPrice": "49",
++                      "maxPrice": "79",
++                      "priceCurrency": "EUR"
++                    },
+                     "availability": "https://schema.org/InStock",
+                     "url": "https://frouanephotographie.com/boutique"
+                   }
+
+
+================================================================================
+[AUTO] E3 — Remplacement "Côte d'Azur" par termes géographiquement corrects
+Fichiers multiples — corrections regroupées
+================================================================================
+
+--- a/frontend/public/index.html
++++ b/frontend/public/index.html
+@@ title
+-  <title>Photographie maritime &amp; tirages d'art Côte d'Azur | Franck Rouane</title>
++  <title>Photographie maritime &amp; tirages d'art Méditerranée | Franck Rouane</title>
+
+@@ keywords
+-  "photographe Côte d'Azur"
++  "photographe Provence Méditerranée"
+
+@@ og:description
+-  "Découvrez des tirages d'art en édition limitée de la mer Méditerranée et de la Côte d'Azur. Fine art prints pour décoration murale, qualité muséale."
++  "Découvrez des tirages d'art en édition limitée de la Méditerranée provençale — Marseille, Calanques, La Ciotat, littoral varois. Fine art prints, qualité muséale."
+
+@@ og:title
+-  "Photographie maritime &amp; tirages d'art | Franck Rouane"
++  "Photographie maritime &amp; tirages d'art Méditerranée | Franck Rouane"
+
+@@ twitter:description
+-  "Fine art prints of Mediterranean seascapes and French Riviera landscapes by Franck Rouane. Limited edition photographic art for coastal wall decor."
++  "Fine art prints of Mediterranean and Provence landscapes by Franck Rouane. Limited edition photographic art for coastal wall decor."
+
+@@ twitter:title
+-  "Mediterranean seascape photography &amp; fine art prints"
++  "Mediterranean & Provence photography &amp; fine art prints"
+
+@@ og:image caption (schema.org ImageGallery)
+-  "caption": "Paysage maritime en Côte d'Azur"
++  "caption": "Paysage maritime méditerranéen"
+
+@@ product schema description
+-  "Tirages Fine Art sur papier Hahnemühle, édition limitée et numérotée. Photographies de la mer Méditerranée et de la Côte d'Azur."
++  "Tirages Fine Art sur papier Hahnemühle, édition limitée et numérotée. Photographies de la Méditerranée — Calanques, Marseille, La Ciotat, littoral varois."
+
+--- a/frontend/src/pages/About.js
++++ b/frontend/src/pages/About.js
+@@ -147
+-  "Retrouvez mes captures vidéo de la Côte d'Azur sur ma"
++  "Retrouvez mes captures vidéo de la Méditerranée provençale sur ma"
+
+--- a/frontend/src/mock.js
++++ b/frontend/src/mock.js
+@@ -14 (bio)
+-  "...de la rade de Marseille aux rivages de la Côte d'Azur."
++  "...de la rade de Marseille aux rivages de la Méditerranée."
+
+
+================================================================================
+[DÉCIDER] E2 — Route des Crêtes : deux options de correction GPS
+Fichier : frontend/src/components/InteractiveMap.js:127-148
+================================================================================
+
+OPTION A — Marqueur sur le belvédère Cap Canaille (sommet de la Route des Crêtes)
+Source : IGN, sommet Cap Canaille ≈ 43.1999°N, 5.5795°E, commune de Cassis
+
+--- a/frontend/src/components/InteractiveMap.js
++++ b/frontend/src/components/InteractiveMap.js
+@@ -127,7 +127,7 @@
+   {
+     id: "loc-sunset-ciotat",
+-    name: "La Ciotat - Route des Crêtes",
+-    coordinates: [43.21527, 5.552392],
++    name: "Route des Crêtes – Cap Canaille",
++    coordinates: [43.1999, 5.5795],
+
+---
+
+OPTION B — Marqueur sur le versant La Ciotat (belvédère Sémaphore)
+Source : IGN, point de vue Route des Crêtes côté La Ciotat ≈ 43.185°N, 5.607°E
+
+--- a/frontend/src/components/InteractiveMap.js
++++ b/frontend/src/components/InteractiveMap.js
+@@ -127,7 +127,7 @@
+   {
+     id: "loc-sunset-ciotat",
+-    name: "La Ciotat - Route des Crêtes",
+-    coordinates: [43.21527, 5.552392],
++    name: "La Ciotat – Route des Crêtes",
++    coordinates: [43.1854, 5.6070],
+
+
+================================================================================
+[DÉCIDER] I2 — Choix www vs non-www (à aligner avec config Vercel)
+Fichier : frontend/src/components/SEOHead.js:12
+================================================================================
+
+Si décision : URLs sans www (cohérent avec sitemap et index.html actuels) :
+
+--- a/frontend/src/components/SEOHead.js
++++ b/frontend/src/components/SEOHead.js
+@@ -12
+-  const siteUrl = 'https://www.frouanephotographie.com';
++  const siteUrl = 'https://frouanephotographie.com';
+
+
+================================================================================
+[INFO] P1 — Fichiers orphelins / doublons à traiter manuellement
+Ces fichiers ne nécessitent pas de modification de code source mais une décision
+d'archivage ou de suppression par Franck.
+
+  À supprimer si doublons confirmés :
+  - frontend/public/Sunset/sunset fire  la ciotat.webp  (double espace)
+  - frontend/public/Calanques/sugiton03.jpeg  (original du .webp)
+  - frontend/public/Calanques/sugiton04.jpeg  (original du .webp)
+
+  À décider (ajouter ou supprimer) :
+  - frontend/public/Sunrise/lever-de-soleil-laciotat04.jpg
+  - frontend/public/Sunset/sunset fire la ciotat 3.jpg
+================================================================================

@@ -68,13 +68,15 @@ const photoLocations = [
   {
     id: "loc-sugiton",
     name: "Sugiton",
-    coordinates: [43.2102, 5.4426],
+    coordinates: [43.2094, 5.4567],
     collection: "calanques",
     collectionLabel: COLLECTION_LABELS.calanques,
     routeTo: "/collections/calanques?lieu=sugiton",
     photos: [
       { title: getPhotoTitleFromPath("/Calanques/sugiton01.jpeg", "Sugiton"), image: "/Calanques/sugiton01.jpeg" },
       { title: getPhotoTitleFromPath("/Calanques/sugiton02.jpg", "Sugiton"), image: "/Calanques/sugiton02.jpg" },
+      { title: getPhotoTitleFromPath("/Calanques/sugiton03.webp", "Sugiton"), image: "/Calanques/sugiton03.webp" },
+      { title: getPhotoTitleFromPath("/Calanques/sugiton04.webp", "Sugiton"), image: "/Calanques/sugiton04.webp" },
     ],
     description: "Sugiton est accessible à pied depuis Luminy. Moins fréquentée que Sormiou, elle offre une lumière plus sauvage et un silence rare à cette distance de la ville.",
   },

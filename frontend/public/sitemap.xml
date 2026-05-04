@@ -19,7 +19,13 @@
   </url>
 
   <url>
-    <loc>https://frouanephotographie.com/collections/sunset</loc>
+    <loc>https://frouanephotographie.com/collections/couchers-de-soleil</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://frouanephotographie.com/collections/lever-de-soleil</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
