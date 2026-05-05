@@ -422,9 +422,9 @@ const Shop = () => {
                         </button>
                       ))}
                     </div>
-                    {selectedProduct.cropWarning ? (
-                      <p className="mt-3 text-xs text-gray-500">
-                        Recadrage lÃ©ger possible Ã  l'impression
+                    {selectedProduct.ratioMatchStatus === "crop-safe" ? (
+                      <p className="mt-2 text-sm text-gray-500">
+                        Recadrage léger possible selon le format choisi.
                       </p>
                     ) : null}
                   </div>
