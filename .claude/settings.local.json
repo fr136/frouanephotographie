@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(yarn install *)",
+      "Bash(npm --version)",
+      "Bash(powershell.exe -Command \"Set-Location 'C:\\\\Users\\\\Utilisateur\\\\frouanephotographie\\\\frouanephotographie\\\\frontend'; yarn --version\")",
+      "Bash(powershell.exe -Command \"Set-Location 'C:\\\\Users\\\\Utilisateur\\\\frouanephotographie\\\\frouanephotographie\\\\frontend'; node --version; npm --version\")",
+      "Bash(powershell.exe -Command \"Get-Command node,npm,yarn -ErrorAction SilentlyContinue | Select-Object Name,Source\")",
+      "Read(//c/Program Files/**)",
+      "Read(//c/Users/Utilisateur/AppData/Roaming/**)",
+      "Bash(powershell.exe -Command \"Get-ChildItem -Path 'C:\\\\' -Recurse -Filter 'node.exe' -ErrorAction SilentlyContinue | Select-Object FullName -First 5\")",
+      "Bash(powershell.exe -Command '& { $env:Path = [System.Environment]::GetEnvironmentVariable\\('\\\\''Path'\\\\'','\\\\''Machine'\\\\''\\) + '\\\\'';'\\\\'' + [System.Environment]::GetEnvironmentVariable\\('\\\\''Path'\\\\'','\\\\''User'\\\\''\\); node --version }')"
+    ]
+  }
+}

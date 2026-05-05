@@ -9,6 +9,11 @@ node_modules/
 dist/
 /.next/
 /out/
+frontend/build/
+frontend/.cache/
+
+# Python audit packages (generated, ne pas versionner)
+backend/.audit_sitepackages/
 
 # Environment — secrets (never commit)
 .env

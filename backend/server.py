@@ -6,7 +6,7 @@ Backend Franck Rouane Photographie
 - Newsletter (stockage)
 """
 
-from fastapi import FastAPI, APIRouter, HTTPException, Request
+from fastapi import FastAPI, APIRouter, HTTPException, Request, Header
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from dotenv import load_dotenv
@@ -21,11 +21,14 @@ import json
 from datetime import datetime, timezone
 from pathlib import Path
 from urllib.parse import urlparse
+from slowapi import Limiter, _rate_limit_exceeded_handler
+from slowapi.util import get_remote_address
+from slowapi.errors import RateLimitExceeded
 
 ROOT_DIR = Path(__file__).parent
 load_dotenv(ROOT_DIR / '.env')
 
-# â”€â”€â”€ Config â”€â”€â”€
+# â"€â"€â"€ Config â"€â"€â"€
 MONGO_URL = os.environ.get('MONGO_URL', '')
 DB_NAME = os.environ.get('DB_NAME', 'frouane_photo')
 PRODIGI_API_KEY = os.environ.get('PRODIGI_API_KEY', '')
@@ -37,6 +40,8 @@ FRONTEND_URL = os.environ.get('FRONTEND_URL', 'http://localhost:3000')
 CORS_ORIGINS = os.environ.get('CORS_ORIGINS', 'http://localhost:3000').split(',')
 BLOB_READ_WRITE_TOKEN = os.environ.get('BLOB_READ_WRITE_TOKEN', '')
 ADMIN_DEBUG_ENABLED = os.environ.get('ADMIN_DEBUG_ENABLED', '').lower() in {'1', 'true', 'yes'}
+ADMIN_API_KEY = os.environ.get('ADMIN_API_KEY', '')
+ALLOW_MANUAL_REVIEW_PRODUCTS = os.environ.get('ALLOW_MANUAL_REVIEW_PRODUCTS', '').lower() in {'1', 'true', 'yes'}
 PRINT_ASSET_CATALOG_PATH = ROOT_DIR.parent / 'server' / 'catalog' / 'printAssetCatalog.private.json'
 PRODUCT_CATALOG_PATH = ROOT_DIR.parent / 'frontend' / 'src' / 'data' / 'productCatalog.json'
 
@@ -54,21 +59,25 @@ try:
         stripe = stripe_lib
         logging.info("Stripe configured")
 except ImportError:
-    logging.warning("stripe package not installed â€” payment disabled")
+    logging.warning("stripe package not installed - payment disabled")
 
-# â”€â”€â”€ MongoDB â”€â”€â”€
+# â"€â"€â"€ MongoDB â"€â"€â"€
 client = None
 db = None
 
-# â”€â”€â”€ App â”€â”€â”€
+# â"€â"€â"€ App â"€â"€â"€
 app = FastAPI(title="Franck Rouane Photographie API")
 api = APIRouter(prefix="/api")
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
+limiter = Limiter(key_func=get_remote_address)
+app.state.limiter = limiter
+app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
 
-# â”€â”€â”€ Startup / Shutdown â”€â”€â”€
+
+# â"€â"€â"€ Startup / Shutdown â"€â"€â"€
 @app.on_event("startup")
 async def startup():
     global client, db
@@ -77,7 +86,7 @@ async def startup():
         db = client[DB_NAME]
         logger.info("MongoDB connected")
     else:
-        logger.warning("MONGO_URL not set â€” DB features disabled")
+        logger.warning("MONGO_URL not set - DB features disabled")
 
 
 @app.on_event("shutdown")
@@ -86,29 +95,89 @@ async def shutdown():
         client.close()
 
 
-# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-#  PRODIGI â€” SKU Mapping
+#â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+#  PRODIGI - SKU Mapping
 # â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 
-# Enhanced Matte Art Paper (GLOBAL-FAP) â€” giclÃ©e, 200gsm, qualitÃ© musÃ©ale
+POSTER_SKUS_BY_RATIO = {
+    '2:3': {
+        '12x18': 'GLOBAL-FAP-12X18',
+        '16x24': 'GLOBAL-FAP-16X24',
+        '20x30': 'GLOBAL-FAP-20X30',
+        '24x36': 'GLOBAL-FAP-24X36',
+        '30x45': 'GLOBAL-FAP-30X45',
+    },
+    '3:4': {
+        '12x16': 'GLOBAL-FAP-12X16',
+        '18x24': 'GLOBAL-FAP-18X24',
+        '24x32': 'GLOBAL-FAP-24X32',
+        '30x40': 'GLOBAL-FAP-30X40',
+    },
+    '1:1': {
+        '12x12': 'GLOBAL-FAP-12X12',
+        '16x16': 'GLOBAL-FAP-16X16',
+        '20x20': 'GLOBAL-FAP-20X20',
+        '24x24': 'GLOBAL-FAP-24X24',
+        '30x30': 'GLOBAL-FAP-30X30',
+    },
+    '4:5': {
+        '8x10': 'GLOBAL-FAP-8X10',
+        '16x20': 'GLOBAL-FAP-16X20',
+        '20x24': 'GLOBAL-FAP-20X24',
+    },
+    'panoramic': {
+        '10x20': 'GLOBAL-FAP-10X20',
+        '12x24': 'GLOBAL-FAP-12X24',
+        '20x40': 'GLOBAL-FAP-20X40',
+    },
+}
+
+FRAME_SKUS_BY_RATIO = {
+    '2:3': {
+        '12x18': 'GLOBAL-CFP-12X18',
+        '20x30': 'GLOBAL-CFP-20X30',
+        '24x36': 'GLOBAL-CFP-24X36',
+    },
+    '3:4': {
+        '12x16': 'GLOBAL-CFP-12X16',
+        '18x24': 'GLOBAL-CFP-18X24',
+        '24x32': 'GLOBAL-CFP-24X32',
+        '30x40': 'GLOBAL-CFP-30X40',
+    },
+    '1:1': {
+        '12x12': 'GLOBAL-CFP-12X12',
+        '16x16': 'GLOBAL-CFP-16X16',
+        '20x20': 'GLOBAL-CFP-20X20',
+        '24x24': 'GLOBAL-CFP-24X24',
+        '30x30': 'GLOBAL-CFP-30X30',
+    },
+    '4:5': {
+        '8x10': 'GLOBAL-CFP-8X10',
+        '16x20': 'GLOBAL-CFP-16X20',
+        '20x24': 'GLOBAL-CFP-20X24',
+    },
+    'panoramic': {
+        '10x20': 'GLOBAL-CFP-10X20',
+        '12x24': 'GLOBAL-CFP-12X24',
+        '20x40': 'GLOBAL-CFP-20X40',
+    },
+}
+
 PRODIGI_SKUS = {
-    '20x30 cm': 'GLOBAL-FAP-8x12',
-    '30x40 cm': 'GLOBAL-FAP-12x16',
-    '30x45 cm': 'GLOBAL-FAP-12x18',
-    '40x60 cm': 'GLOBAL-FAP-16x24',
-    '50x70 cm': 'GLOBAL-FAP-20x28',
+    **{size: sku for sizes in POSTER_SKUS_BY_RATIO.values() for size, sku in sizes.items()},
+    **{f"frame:{size}": sku for sizes in FRAME_SKUS_BY_RATIO.values() for size, sku in sizes.items()},
 }
 
 FORMATS_BY_GRADE = {
-    'A': ['30x45', '50x75', '70x105'],
-    'B': ['30x45', '50x75'],
-    'C': ['30x45'],
+    'A': [],
+    'B': [],
+    'C': [],
 }
 
 SUPPORTS_BY_GRADE = {
-    'A': ['poster', 'canvas', 'frame'],
-    'B': ['poster', 'canvas'],
-    'C': ['poster'],
+    'A': ['poster', 'frame'],
+    'B': ['poster', 'frame'],
+    'C': ['poster', 'frame'],
 }
 
 SUPPORT_LABELS = {
@@ -118,9 +187,49 @@ SUPPORT_LABELS = {
 }
 
 PRINT_PRICES = {
-    'poster': {'30x45': 39, '50x75': 59, '70x105': 89},
-    'canvas': {'30x45': 69, '50x75': 119, '70x105': 179},
-    'frame': {'30x45': 99, '50x75': 149, '70x105': 229},
+    'poster': {
+        '8x10': 25,
+        '10x20': 39,
+        '12x12': 29,
+        '12x16': 35,
+        '12x18': 39,
+        '12x24': 49,
+        '16x16': 39,
+        '16x20': 45,
+        '16x24': 49,
+        '18x24': 55,
+        '20x20': 55,
+        '20x24': 59,
+        '20x30': 65,
+        '20x40': 89,
+        '24x24': 69,
+        '24x32': 79,
+        '24x36': 89,
+        '30x30': 89,
+        '30x40': 99,
+        '30x45': 109,
+    },
+    'frame': {
+        '8x10': 69,
+        '10x20': 95,
+        '12x12': 79,
+        '12x16': 89,
+        '12x18': 95,
+        '12x24': 119,
+        '16x16': 99,
+        '16x20': 99,
+        '18x24': 129,
+        '20x20': 119,
+        '20x24': 139,
+        '20x30': 149,
+        '20x40': 199,
+        '24x24': 159,
+        '24x32': 179,
+        '24x36': 199,
+        '30x30': 199,
+        '30x40': 229,
+    },
+    'canvas': {},
 }
 
 def load_product_catalog() -> dict:
@@ -198,7 +307,9 @@ def build_public_asset_url(path_or_url: str) -> str:
 def get_catalog_product(product_id: str) -> dict:
     product = PRODUCT_CATALOG.get(product_id)
     if not product:
-        raise HTTPException(status_code=400, detail=f"Produit inconnu: {product_id}")
+        # Sécurité : bloque toute tentative de produit invalide (fraude ou bug client)
+        logger.warning("ALERT product_id inconnu dans le catalogue: %r", product_id)
+        raise HTTPException(status_code=400, detail="Produit invalide")
     return product
 
 
@@ -215,25 +326,36 @@ def getAllowedSupportsForGrade(grade: str) -> List[str]:
 
 
 def validateProductConfiguration(product: dict) -> dict:
-    grade = product.get('grade')
-    if grade not in FORMATS_BY_GRADE:
-        raise HTTPException(status_code=500, detail=f"Grade invalide: {grade}")
+    match_status = product.get('ratioMatchStatus')
+    if match_status not in {'perfect', 'crop-safe', 'manual-review', 'incompatible'}:
+        raise HTTPException(status_code=500, detail="Statut ratio invalide")
 
-    allowed_formats = product.get('allowedFormats') or []
+    if match_status == 'incompatible':
+        return product
+
     allowed_supports = product.get('allowedSupports') or []
-    expected_formats = getAllowedFormatsForGrade(grade)
-    expected_supports = getAllowedSupportsForGrade(grade)
+    if not isinstance(allowed_supports, list) or not allowed_supports:
+        raise HTTPException(status_code=500, detail="Aucun support d'impression compatible")
 
-    if allowed_formats != expected_formats:
-        raise HTTPException(status_code=500, detail=f"Formats incoherents pour grade {grade}")
-    if allowed_supports != expected_supports:
-        raise HTTPException(status_code=500, detail=f"Supports incoherents pour grade {grade}")
-    if grade != 'A' and '70x105' in allowed_formats:
-        raise HTTPException(status_code=500, detail="70x105 reserve au grade A")
-    if grade != 'A' and 'frame' in allowed_supports:
-        raise HTTPException(status_code=500, detail="Cadre reserve au grade A")
-    if grade == 'C' and 'canvas' in allowed_supports:
-        raise HTTPException(status_code=500, detail="Canvas interdit au grade C")
+    allowed_sizes = product.get('allowedPrintSizes') or {}
+    if not isinstance(allowed_sizes, dict) or not allowed_sizes:
+        raise HTTPException(status_code=500, detail="Aucune taille d'impression compatible")
+
+    sku_grid = product.get('prodigiSkuBySupportAndSize') or {}
+    if not isinstance(sku_grid, dict):
+        raise HTTPException(status_code=500, detail="Catalogue SKU Prodigi invalide")
+
+    for support in allowed_supports:
+        support_skus = sku_grid.get(support)
+        if support_skus is None or not isinstance(support_skus, dict):
+            raise HTTPException(status_code=500, detail=f"SKU manquants pour support {support}")
+        support_sizes = allowed_sizes.get(support)
+        if not isinstance(support_sizes, list) or not support_sizes:
+            raise HTTPException(status_code=500, detail=f"Tailles manquantes pour support {support}")
+        for entry in support_sizes:
+            size = entry.get('size') if isinstance(entry, dict) else None
+            if not size or not support_skus.get(size):
+                raise HTTPException(status_code=500, detail=f"SKU manquant pour {support} {size}")
 
     return product
 
@@ -245,35 +367,54 @@ def get_private_catalog_product(product_id: str) -> dict:
     return validateProductConfiguration(asset)
 
 
-def getPrintAsset(productId: str, format: str, support: Optional[str] = None) -> dict:
+def getPrintAsset(productId: str, size: str, support: Optional[str] = None) -> dict:
     get_catalog_product(productId)
     asset = get_private_catalog_product(productId)
+    selected_support = support or 'poster'
+    match_status = asset.get('ratioMatchStatus')
 
-    allowed_formats = asset.get('allowedFormats') or []
-    if format not in allowed_formats:
-        raise HTTPException(
-            status_code=400,
-            detail=f"Format indisponible pour {productId}: {format}",
-        )
+    if match_status == 'incompatible':
+        raise HTTPException(status_code=400, detail=f"Ratio incompatible pour {productId}")
+    if match_status == 'manual-review' and not ALLOW_MANUAL_REVIEW_PRODUCTS:
+        raise HTTPException(status_code=403, detail=f"Produit en revue manuelle: {productId}")
 
     allowed_supports = asset.get('allowedSupports') or []
-    if support is not None and support not in allowed_supports:
+    if selected_support not in allowed_supports:
         raise HTTPException(
             status_code=400,
-            detail=f"Support indisponible pour {productId}: {support}",
+            detail=f"Support indisponible pour {productId}: {selected_support}",
         )
+
+    allowed_print_sizes_by_support = asset.get('allowedPrintSizes') or {}
+    allowed_print_sizes = allowed_print_sizes_by_support.get(selected_support) or []
+    allowed_size_ids = [entry.get('size') for entry in allowed_print_sizes if isinstance(entry, dict)]
+    if size not in allowed_size_ids:
+        raise HTTPException(
+            status_code=400,
+            detail=f"Taille indisponible pour {productId}: {size}",
+        )
+
+    sku_grid = asset.get('prodigiSkuBySupportAndSize') or {}
+    support_skus = sku_grid.get(selected_support) or {}
 
     blob_path = (asset.get('blobPath') or '').strip()
     if not blob_path:
         raise HTTPException(status_code=500, detail=f"blobPath manquant pour {productId}")
 
+    selected_size = next((entry for entry in allowed_print_sizes if entry.get('size') == size), {})
+
     return {
         "productId": productId,
-        "format": format,
-        "support": support,
+        "size": size,
+        "displaySize": selected_size.get('displaySize') or size,
+        "support": selected_support,
         "grade": asset.get('grade'),
+        "aspectRatio": asset.get('aspectRatio'),
+        "ratioGroup": asset.get('ratioGroup'),
+        "ratioMatchStatus": match_status,
+        "cropWarning": bool(asset.get('cropWarning')),
         "blobPath": blob_path,
-        "prodigiSku": ((asset.get('prodigiSkuBySupportAndFormat') or {}).get(support or '') or {}).get(format),
+        "prodigiSku": support_skus.get(size),
     }
 
 
@@ -282,7 +423,8 @@ def get_product_print_asset(product_id: str, size: str, support: str) -> dict:
 
 
 def get_checkout_unit_amount(product_id: str, size: str, support: str) -> int:
-    get_product_print_asset(product_id, size, support)
+    print_asset = get_product_print_asset(product_id, size, support)
+    get_prodigi_sku(product_id, size, support, print_asset)
     try:
         return PRINT_PRICES[support][size] * 100
     except KeyError as exc:
@@ -307,7 +449,7 @@ async def createProdigiOrder(order: dict) -> dict:
     items = []
     for item in order.get("items", []):
         product_id = item["productId"]
-        size = item["format"]
+        size = item.get("size") or item.get("format")
         support = item["support"]
         print_asset = getPrintAsset(product_id, size, support)
         sku = get_prodigi_sku(product_id, size, support, print_asset)
@@ -325,10 +467,13 @@ async def createProdigiOrder(order: dict) -> dict:
             ],
             "metadata": {
                 "productId": product_id,
-                "format": size,
+                "size": size,
                 "support": support,
                 "grade": print_asset["grade"],
-                "blobPath": print_asset["blobPath"],
+                "aspectRatio": print_asset["aspectRatio"],
+                "ratioGroup": print_asset["ratioGroup"],
+                "ratioMatchStatus": print_asset["ratioMatchStatus"],
+                "cropWarning": str(print_asset["cropWarning"]).lower(),
             },
         })
 
@@ -491,7 +636,7 @@ def serialize_checkout_record(record: dict) -> dict:
 
 
 # â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-#  PRODIGI â€” Quote
+#  PRODIGI - Quote
 # â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 
 class QuoteRequest(BaseModel):
@@ -563,7 +708,7 @@ async def get_prodigi_quote(req: QuoteRequest):
 
 
 # â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-#  PRODIGI â€” Create Order
+#  PRODIGI - Create Order
 # â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 
 class OrderAddress(BaseModel):
@@ -584,7 +729,7 @@ class OrderRecipient(BaseModel):
 
 class OrderItemRequest(BaseModel):
     product_id: str
-    format: str
+    size: str
     support: str
     copies: int = Field(default=1)
     merchant_reference: Optional[str] = None
@@ -625,7 +770,7 @@ async def create_prodigi_order(req: CreateOrderRequest):
         "items": [
             {
                 "productId": item.product_id,
-                "format": item.format,
+                "size": item.size,
                 "support": item.support,
                 "quantity": item.copies,
             }
@@ -644,7 +789,7 @@ async def create_prodigi_order(req: CreateOrderRequest):
             "status": "submitted_to_prodigi" if prodigi_order.get("submitted") else "prodigi_prepared",
             "created_at": datetime.now(timezone.utc).isoformat(),
             "items": [
-                {"product_id": i.product_id, "format": i.format, "support": i.support, "copies": i.copies}
+                {"product_id": i.product_id, "size": i.size, "support": i.support, "copies": i.copies}
                 for i in req.items
             ]
         })
@@ -657,7 +802,7 @@ async def create_prodigi_order(req: CreateOrderRequest):
 
 
 # â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-#  PRODIGI â€” Order Status
+#  PRODIGI - Order Status
 # â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 
 @api.get("/prodigi/orders/{order_id}")
@@ -690,15 +835,16 @@ async def get_order_status(order_id: str):
 # â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 
 class ContactMessage(BaseModel):
-    name: str
+    name: str = Field(..., min_length=1, max_length=100)
     email: EmailStr
-    phone: Optional[str] = None
-    subject: str
-    message: str
+    phone: Optional[str] = Field(None, max_length=30)
+    subject: str = Field(..., min_length=1, max_length=200)
+    message: str = Field(..., min_length=1, max_length=5000)
 
 
 @api.post("/contact")
-async def submit_contact(msg: ContactMessage):
+@limiter.limit("5/minute")
+async def submit_contact(request: Request, msg: ContactMessage):
     """Enregistrer un message de contact."""
     doc = {
         "id": str(uuid.uuid4()),
@@ -713,9 +859,9 @@ async def submit_contact(msg: ContactMessage):
 
     if db:
         await db.contact_messages.insert_one(doc)
-        logger.info(f"Contact message saved: {msg.name} <{msg.email}>")
+        logger.info(f"Contact message saved: id={doc['id']}")
     else:
-        logger.info(f"Contact message (no DB): {msg.name} <{msg.email}> â€” {msg.subject}")
+        logger.info(f"Contact message (no DB): id={doc['id']}, subject={msg.subject!r}")
 
     return {"success": True, "message": "Message reçu"}
 
@@ -729,7 +875,8 @@ class NewsletterSubscription(BaseModel):
 
 
 @api.post("/newsletter/subscribe")
-async def subscribe_newsletter(sub: NewsletterSubscription):
+@limiter.limit("3/minute")
+async def subscribe_newsletter(request: Request, sub: NewsletterSubscription):
     """Inscription newsletter."""
     if db:
         existing = await db.newsletter.find_one({"email": sub.email})
@@ -748,10 +895,10 @@ async def subscribe_newsletter(sub: NewsletterSubscription):
 # â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 
 class CheckoutItem(BaseModel):
-    product_id: str
-    support: str
-    size: str
-    title: Optional[str] = None
+    product_id: str = Field(..., min_length=1, max_length=100)
+    support: str = Field(..., min_length=1, max_length=50)
+    size: str = Field(..., min_length=1, max_length=20)
+    title: Optional[str] = Field(None, max_length=200)
     price: Optional[int] = None
     quantity: int = Field(default=1, ge=1, le=5)
 
@@ -773,8 +920,8 @@ async def create_checkout_session(req: CheckoutRequest):
         product_id = item.product_id
         product = get_catalog_product(product_id)
 
-        unit_amount = get_checkout_unit_amount(product_id, item.size, item.support)
         print_asset = get_product_print_asset(product_id, item.size, item.support)
+        unit_amount = get_checkout_unit_amount(product_id, item.size, item.support)
         preview_url = get_product_preview_url(product)
         support_label = SUPPORT_LABELS.get(item.support, item.support)
 
@@ -783,7 +930,7 @@ async def create_checkout_session(req: CheckoutRequest):
                 "currency": "eur",
                 "unit_amount": unit_amount,
                 "product_data": {
-                    "name": f"{support_label} - {product['title']} - {item.size}",
+                    "name": f"{support_label} - {product['title']} - {print_asset['displaySize']}",
                     "description": "Tirage Fine Art, édition limitée",
                     **({"images": [preview_url]} if preview_url else {}),
                 },
@@ -793,9 +940,14 @@ async def create_checkout_session(req: CheckoutRequest):
         metadata_items.append({
             "productId": product_id,
             "title": product['title'],
-            "format": item.size,
+            "size": item.size,
+            "displaySize": print_asset["displaySize"],
             "support": item.support,
             "grade": print_asset["grade"],
+            "aspectRatio": print_asset["aspectRatio"],
+            "ratioGroup": print_asset["ratioGroup"],
+            "ratioMatchStatus": print_asset["ratioMatchStatus"],
+            "cropWarning": str(print_asset["cropWarning"]).lower(),
             "unit_amount": unit_amount,
             "quantity": item.quantity,
         })
@@ -836,7 +988,7 @@ async def create_checkout_session(req: CheckoutRequest):
 
     except Exception as e:
         logger.error(f"Stripe checkout error: {e}")
-        raise HTTPException(status_code=500, detail=str(e))
+        raise HTTPException(status_code=500, detail="Erreur lors de la création du paiement. Veuillez réessayer.")
 
 
 @api.get("/checkout/session/{session_id}")
@@ -978,7 +1130,7 @@ async def stripe_webhook(request: Request):
                     "items": [
                         {
                             "productId": item.get("productId"),
-                            "format": item.get("format"),
+                            "size": item.get("size") or item.get("format"),
                             "support": item.get("support"),
                             "quantity": item.get("quantity", 1),
                         }
@@ -1066,8 +1218,8 @@ async def stripe_webhook(request: Request):
 # â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 
 @api.get("/admin/blob-health")
-async def blob_health():
-    if os.environ.get("NODE_ENV") == "production" and not ADMIN_DEBUG_ENABLED:
+async def blob_health(x_admin_key: Optional[str] = Header(None)):
+    if not ADMIN_API_KEY or x_admin_key != ADMIN_API_KEY:
         raise HTTPException(status_code=404, detail="Not found")
 
     if not ADMIN_DEBUG_ENABLED:
@@ -1107,20 +1259,19 @@ async def blob_health():
 async def health():
     return {
         "status": "ok",
-        "prodigi_env": PRODIGI_ENV,
         "db_connected": db is not None,
         "stripe_configured": stripe is not None,
     }
 
 
-# â”€â”€â”€ Mount & CORS â”€â”€â”€
+# â"€â"€â"€ Mount & CORS â"€â"€â"€
 app.include_router(api)
 
 app.add_middleware(
     CORSMiddleware,
     allow_credentials=True,
     allow_origins=CORS_ORIGINS,
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_methods=["GET", "POST", "OPTIONS"],
+    allow_headers=["Content-Type", "Authorization", "stripe-signature", "X-Admin-Key"],
 )
 

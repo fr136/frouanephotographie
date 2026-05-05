@@ -18,18 +18,21 @@ const CATEGORY_LABELS = {
 
 const SUPPORT_LABELS = {
   poster: "Affiche Fine Art",
-  canvas: "Toile imprimée",
-  frame: "Tableau encadré",
+  frame: "Tableau encadr\u00e9",
 };
 
 const SUPPORT_DESCRIPTIONS = {
-  poster: "Tirage photo haute qualité sur papier mat premium, livré sans cadre.",
-  canvas: "Photo imprimée sur toile, rendu mural prêt à accrocher selon disponibilité Prodigi.",
-  frame: "Tirage encadré prêt à accrocher, finition premium.",
+  poster: "Tirage photo sur papier mat premium EMA 200 g/m\u00b2, livr\u00e9 sans cadre.",
+  frame: "Tirage encadr\u00e9 classique, finition sobre, pr\u00eat \u00e0 accrocher selon disponibilit\u00e9 Prodigi.",
 };
 
-const ALL_SUPPORTS = ["poster", "canvas", "frame"];
-const ALL_FORMATS = ["30x45", "50x75", "70x105"];
+const ACTIVE_SUPPORTS = ["poster", "frame"];
+const ALLOW_MANUAL_REVIEW_PRODUCTS =
+  process.env.REACT_APP_ALLOW_MANUAL_REVIEW_PRODUCTS === "true" ||
+  process.env.ALLOW_MANUAL_REVIEW_PRODUCTS === "true";
+const DISPLAYABLE_RATIO_STATUSES = ALLOW_MANUAL_REVIEW_PRODUCTS
+  ? ["perfect", "crop-safe", "manual-review"]
+  : ["perfect", "crop-safe"];
 
 const getProductStartingPrice = (pricing = {}) => {
   const prices = Object.values(pricing).flatMap((supportPricing) =>
@@ -39,6 +42,11 @@ const getProductStartingPrice = (pricing = {}) => {
 };
 
 const shopProducts = publicProductCatalog.map((product) => {
+  const printSizesBySupport = product.allowedPrintSizes || {};
+  const sizes = Object.values(printSizesBySupport)
+    .flat()
+    .map((printSize) => printSize.size);
+
   return {
     id: product.id,
     title: product.title,
@@ -46,9 +54,14 @@ const shopProducts = publicProductCatalog.map((product) => {
     location: "",
     image: product.previewImage,
     price: getProductStartingPrice(product.pricing),
-    sizes: product.allowedFormats,
-    supports: product.allowedSupports,
-    supportDetails: product.supportDetails || {},
+    printSizesBySupport,
+    sizes: [...new Set(sizes)],
+    supports: (product.allowedSupports || []).filter((support) => ACTIVE_SUPPORTS.includes(support)),
+    supportLabels: product.supportLabels || {},
+    aspectRatio: product.aspectRatio,
+    ratioGroup: product.ratioGroup,
+    ratioMatchStatus: product.ratioMatchStatus,
+    cropWarning: Boolean(product.cropWarning),
     grade: product.grade,
     edition: "Edition limitee",
     featured: false,
@@ -58,7 +71,11 @@ const shopProducts = publicProductCatalog.map((product) => {
 });
 
 const isProductSellable = (product) =>
-  Boolean(product?.previewImage && product?.sizes?.length && product?.supports?.length);
+  Boolean(
+    product?.previewImage &&
+    DISPLAYABLE_RATIO_STATUSES.includes(product?.ratioMatchStatus) &&
+    product?.supports?.some((support) => product.printSizesBySupport?.[support]?.length)
+  );
 
 const Shop = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");
@@ -100,6 +117,17 @@ const Shop = () => {
   }, [selectedProduct]);
 
   useEffect(() => {
+    if (!selectedProduct || !selectedSupport || !selectedSize) {
+      return;
+    }
+
+    const supportSizes = selectedProduct.printSizesBySupport?.[selectedSupport] || [];
+    if (!supportSizes.some((printSize) => printSize.size === selectedSize)) {
+      setSelectedSize(null);
+    }
+  }, [selectedProduct, selectedSupport, selectedSize]);
+
+  useEffect(() => {
     if (searchParams.get("checkout") !== "cancelled") {
       return;
     }
@@ -126,7 +154,7 @@ const Shop = () => {
     if (!support || !size) {
       toast({
         title: "Selection requise",
-        description: "Veuillez sélectionner un format avant de procéder au paiement.",
+        description: "Veuillez sélectionner une taille avant de procéder au paiement.",
         variant: "destructive",
       });
       return;
@@ -350,15 +378,16 @@ const Shop = () => {
                   <div className="mb-6">
                     <p className="font-medium mb-3">Selectionnez un support :</p>
                     <div className="grid gap-2">
-                      {ALL_SUPPORTS.map((support) => {
-                        const isAllowed = selectedProduct.supports.includes(support);
-                        const supportDetail = selectedProduct.supportDetails[support] || {};
+                      {selectedProduct.supports.map((support) => {
+                        const supportDetail = selectedProduct.supportLabels[support] || {};
                         return (
                           <button
                             key={support}
-                            onClick={() => isAllowed && setSelectedSupport(support)}
-                            disabled={!isAllowed}
-                            className={`px-4 py-3 border text-left transition-all disabled:opacity-40 disabled:cursor-not-allowed ${
+                            onClick={() => {
+                              setSelectedSupport(support);
+                              setSelectedSize(null);
+                            }}
+                            className={`px-4 py-3 border text-left transition-all ${
                               selectedSupport === support
                                 ? "border-[var(--color-gold)] bg-[var(--color-gold)]/10 text-[var(--color-gold)]"
                                 : "border-gray-200 hover:border-gray-400"
@@ -377,26 +406,27 @@ const Shop = () => {
                   </div>
 
                   <div className="mb-6">
-                    <p className="font-medium mb-3">Sélectionnez un format :</p>
+                    <p className="font-medium mb-3">Sélectionnez une taille :</p>
                     <div className="flex flex-wrap gap-2">
-                      {ALL_FORMATS.map((size) => {
-                        const isAllowed = selectedProduct.sizes.includes(size);
-                        return (
-                          <button
-                            key={size}
-                            onClick={() => isAllowed && setSelectedSize(size)}
-                            disabled={!isAllowed}
-                            className={`px-4 py-2 border transition-all disabled:opacity-40 disabled:cursor-not-allowed ${
-                              selectedSize === size
-                                ? "border-[var(--color-gold)] bg-[var(--color-gold)]/10 text-[var(--color-gold)]"
-                                : "border-gray-200 hover:border-gray-400"
-                            }`}
-                          >
-                            {size}
-                          </button>
-                        );
-                      })}
+                      {(selectedProduct.printSizesBySupport?.[selectedSupport] || []).map((printSize) => (
+                        <button
+                          key={printSize.size}
+                          onClick={() => setSelectedSize(printSize.size)}
+                          className={`px-4 py-2 border transition-all ${
+                            selectedSize === printSize.size
+                              ? "border-[var(--color-gold)] bg-[var(--color-gold)]/10 text-[var(--color-gold)]"
+                              : "border-gray-200 hover:border-gray-400"
+                          }`}
+                        >
+                          {printSize.displaySize || printSize.size}
+                        </button>
+                      ))}
                     </div>
+                    {selectedProduct.cropWarning ? (
+                      <p className="mt-3 text-xs text-gray-500">
+                        Recadrage lÃ©ger possible Ã  l'impression
+                      </p>
+                    ) : null}
                   </div>
 
                   <div className="mb-6">

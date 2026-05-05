@@ -15,24 +15,32 @@ export const useCart = () => {
  * Le backend e-commerce n'est pas implémenté.
  * Toute la logique panier/wishlist fonctionne côté client.
  */
-export const CartProvider = ({ children }) => {
-  const [cart, setCart] = useState(() => {
-    try {
-      const saved = localStorage.getItem('frouane_cart');
-      return saved ? JSON.parse(saved) : { items: [], total: 0 };
-    } catch {
-      return { items: [], total: 0 };
-    }
-  });
+const EMPTY_CART = { items: [], total: 0 };
+const EMPTY_WISHLIST = { items: [] };
 
-  const [wishlist, setWishlist] = useState(() => {
-    try {
-      const saved = localStorage.getItem('frouane_wishlist');
-      return saved ? JSON.parse(saved) : { items: [] };
-    } catch {
-      return { items: [] };
-    }
-  });
+function parseCart(raw) {
+  try {
+    const parsed = raw ? JSON.parse(raw) : null;
+    if (!parsed || !Array.isArray(parsed.items)) return EMPTY_CART;
+    return { items: parsed.items, total: typeof parsed.total === 'number' ? parsed.total : 0 };
+  } catch {
+    return EMPTY_CART;
+  }
+}
+
+function parseWishlist(raw) {
+  try {
+    const parsed = raw ? JSON.parse(raw) : null;
+    if (!parsed || !Array.isArray(parsed.items)) return EMPTY_WISHLIST;
+    return { items: parsed.items };
+  } catch {
+    return EMPTY_WISHLIST;
+  }
+}
+
+export const CartProvider = ({ children }) => {
+  const [cart, setCart] = useState(() => parseCart(localStorage.getItem('frouane_cart')));
+  const [wishlist, setWishlist] = useState(() => parseWishlist(localStorage.getItem('frouane_wishlist')));
 
   const persistCart = useCallback((newCart) => {
     setCart(newCart);
