@@ -1,5 +1,5 @@
 {
-  "cal-007": {
+  "calanque-sormiou02": {
     "title": "Calanque de Sormiou",
     "category": "calanques",
     "collection_slug": "calanques",
@@ -12,9 +12,9 @@
     ],
     "edition_label": "Édition limitée 1/25",
     "featured": true,
-    "pricing_source": "cal-001"
+    "pricing_source": "calanque-sormiou02"
   },
-  "cal-011": {
+  "calanque-sormiou06": {
     "title": "Calanque de Sormiou",
     "category": "calanques",
     "collection_slug": "calanques",
@@ -27,9 +27,9 @@
     ],
     "edition_label": "Édition limitée 1/25",
     "featured": false,
-    "pricing_source": "cal-001"
+    "pricing_source": "calanque-sormiou02"
   },
-  "cal-005": {
+  "sugiton01": {
     "title": "Sugiton",
     "category": "calanques",
     "collection_slug": "calanques",
@@ -43,9 +43,9 @@
     ],
     "edition_label": "Édition limitée 1/20",
     "featured": true,
-    "pricing_source": "cal-005"
+    "pricing_source": "sugiton01"
   },
-  "cal-012": {
+  "sugiton02": {
     "title": "Sugiton",
     "category": "calanques",
     "collection_slug": "calanques",
@@ -59,9 +59,9 @@
     ],
     "edition_label": "Édition limitée 1/20",
     "featured": false,
-    "pricing_source": "cal-005"
+    "pricing_source": "sugiton01"
   },
-  "cal-006": {
+  "calanque-en-vau02": {
     "title": "Calanque d'En-Vau",
     "category": "calanques",
     "collection_slug": "calanques",
@@ -75,9 +75,9 @@
     ],
     "edition_label": "Édition limitée 1/25",
     "featured": true,
-    "pricing_source": "cal-006"
+    "pricing_source": "calanque-en-vau02"
   },
-  "cal-002": {
+  "port-de-cassis01": {
     "title": "Port de Cassis",
     "category": "calanques",
     "collection_slug": "calanques",
@@ -90,9 +90,9 @@
     ],
     "edition_label": "Édition limitée 1/25",
     "featured": true,
-    "pricing_source": "cal-002"
+    "pricing_source": "port-de-cassis01"
   },
-  "cal-004": {
+  "calanque-port-d-alon01": {
     "title": "Calanque de Port d'Alon",
     "category": "calanques",
     "collection_slug": "calanques",
@@ -105,9 +105,9 @@
     ],
     "edition_label": "Édition limitée 1/25",
     "featured": true,
-    "pricing_source": "cal-004"
+    "pricing_source": "calanque-port-d-alon01"
   },
-  "cal-014": {
+  "calanque-port-d-alon02": {
     "title": "Calanque de Port d'Alon",
     "category": "calanques",
     "collection_slug": "calanques",
@@ -120,9 +120,9 @@
     ],
     "edition_label": "Édition limitée 1/25",
     "featured": false,
-    "pricing_source": "cal-004"
+    "pricing_source": "calanque-port-d-alon01"
   },
-  "cal-015": {
+  "calanque-port-d-alon03": {
     "title": "Calanque de Port d'Alon",
     "category": "calanques",
     "collection_slug": "calanques",
@@ -135,9 +135,9 @@
     ],
     "edition_label": "Édition limitée 1/25",
     "featured": false,
-    "pricing_source": "cal-004"
+    "pricing_source": "calanque-port-d-alon01"
   },
-  "cal-016": {
+  "calanque-port-d-alon04": {
     "title": "Calanque de Port d'Alon",
     "category": "calanques",
     "collection_slug": "calanques",
@@ -150,9 +150,9 @@
     ],
     "edition_label": "Édition limitée 1/25",
     "featured": false,
-    "pricing_source": "cal-004"
+    "pricing_source": "calanque-port-d-alon01"
   },
-  "cal-017": {
+  "cap-canaille01": {
     "title": "Cap Canaille",
     "category": "calanques",
     "collection_slug": "calanques",
@@ -167,7 +167,7 @@
     "featured": false,
     "pricing_source": "default-calanques"
   },
-  "cal-018": {
+  "cap-canaille02": {
     "title": "Cap Canaille",
     "category": "calanques",
     "collection_slug": "calanques",
@@ -183,7 +183,7 @@
     "featured": false,
     "pricing_source": "default-calanques"
   },
-  "cal-019": {
+  "la-madrague-saint-cyr-sur-mer01": {
     "title": "La Madrague, Saint-Cyr-sur-Mer",
     "category": "calanques",
     "collection_slug": "calanques",
@@ -198,7 +198,7 @@
     "featured": false,
     "pricing_source": "default-calanques"
   },
-  "cal-020": {
+  "bougainvillier-bandol01": {
     "title": "Bandol",
     "category": "calanques",
     "collection_slug": "calanques",
@@ -213,7 +213,7 @@
     "featured": false,
     "pricing_source": "default-calanques"
   },
-  "cal-021": {
+  "plage-beaucours01": {
     "title": "Beaucours",
     "category": "calanques",
     "collection_slug": "calanques",
@@ -228,7 +228,7 @@
     "featured": false,
     "pricing_source": "default-calanques"
   },
-  "cal-022": {
+  "plage-beaucours02": {
     "title": "Beaucours",
     "category": "calanques",
     "collection_slug": "calanques",
@@ -244,7 +244,7 @@
     "featured": false,
     "pricing_source": "default-calanques"
   },
-  "cal-023": {
+  "plage-la-fossette01": {
     "title": "Plage de la Fossette",
     "category": "calanques",
     "collection_slug": "calanques",
@@ -259,7 +259,7 @@
     "featured": false,
     "pricing_source": "default-calanques"
   },
-  "cal-024": {
+  "plage-la-fossette02": {
     "title": "Plage de la Fossette",
     "category": "calanques",
     "collection_slug": "calanques",
@@ -274,7 +274,7 @@
     "featured": false,
     "pricing_source": "default-calanques"
   },
-  "cal-025": {
+  "plage-la-fossette03": {
     "title": "Plage de la Fossette",
     "category": "calanques",
     "collection_slug": "calanques",
@@ -289,7 +289,7 @@
     "featured": false,
     "pricing_source": "default-calanques"
   },
-  "cal-027": {
+  "sugiton03": {
     "title": "Sugiton",
     "category": "calanques",
     "collection_slug": "calanques",
@@ -303,9 +303,9 @@
     ],
     "edition_label": "Édition limitée 1/20",
     "featured": false,
-    "pricing_source": "cal-005"
+    "pricing_source": "sugiton01"
   },
-  "cal-028": {
+  "sugiton04": {
     "title": "Sugiton",
     "category": "calanques",
     "collection_slug": "calanques",
@@ -319,9 +319,9 @@
     ],
     "edition_label": "Édition limitée 1/20",
     "featured": false,
-    "pricing_source": "cal-005"
+    "pricing_source": "sugiton01"
   },
-  "cal-026": {
+  "plage-portissol01": {
     "title": "Plage de Portissol",
     "category": "calanques",
     "collection_slug": "calanques",
@@ -336,7 +336,7 @@
     "featured": false,
     "pricing_source": "default-calanques"
   },
-  "sun-001": {
+  "Coucher de soleil La Ciotat éléphant routedes crêtes": {
     "title": "Route des Crêtes, La Ciotat",
     "category": "sunset",
     "collection_slug": "couchers-de-soleil",
@@ -349,9 +349,9 @@
     ],
     "edition_label": "Édition limitée 1/15",
     "featured": true,
-    "pricing_source": "sun-001"
+    "pricing_source": "Coucher de soleil La Ciotat éléphant routedes crêtes"
   },
-  "sun-002": {
+  "sunset fire la ciotat": {
     "title": "La Ciotat au coucher du soleil",
     "category": "sunset",
     "collection_slug": "couchers-de-soleil",
@@ -364,9 +364,9 @@
     ],
     "edition_label": "Édition limitée 1/15",
     "featured": true,
-    "pricing_source": "sun-002"
+    "pricing_source": "sunset fire la ciotat"
   },
-  "sun-007": {
+  "Sunset La Ciotat1": {
     "title": "La Ciotat au coucher du soleil",
     "category": "sunset",
     "collection_slug": "couchers-de-soleil",
@@ -379,9 +379,9 @@
     ],
     "edition_label": "Édition limitée 1/15",
     "featured": true,
-    "pricing_source": "sun-002"
+    "pricing_source": "sunset fire la ciotat"
   },
-  "sun-008": {
+  "Sunset fire la ciotat 4": {
     "title": "La Ciotat au coucher du soleil",
     "category": "sunset",
     "collection_slug": "couchers-de-soleil",
@@ -394,9 +394,9 @@
     ],
     "edition_label": "Édition limitée 1/15",
     "featured": false,
-    "pricing_source": "sun-002"
+    "pricing_source": "sunset fire la ciotat"
   },
-  "sun-005": {
+  "sunset port saintjean la ciotat": {
     "title": "Port Saint-Jean, La Ciotat",
     "category": "sunset",
     "collection_slug": "couchers-de-soleil",
@@ -409,9 +409,9 @@
     ],
     "edition_label": "Édition limitée 1/25",
     "featured": false,
-    "pricing_source": "sun-005"
+    "pricing_source": "sunset port saintjean la ciotat"
   },
-  "sun-003": {
+  "Sunset catalans marseille": {
     "title": "Plage des Catalans, Marseille",
     "category": "sunset",
     "collection_slug": "couchers-de-soleil",
@@ -424,9 +424,9 @@
     ],
     "edition_label": "Édition limitée 1/20",
     "featured": false,
-    "pricing_source": "sun-003"
+    "pricing_source": "Sunset catalans marseille"
   },
-  "sun-011": {
+  "Sunset catalans": {
     "title": "Plage des Catalans, Marseille",
     "category": "sunset",
     "collection_slug": "couchers-de-soleil",
@@ -439,9 +439,9 @@
     ],
     "edition_label": "Édition limitée 1/20",
     "featured": false,
-    "pricing_source": "sun-003"
+    "pricing_source": "Sunset catalans marseille"
   },
-  "sun-004": {
+  "sunset l'estaque Marseille": {
     "title": "L'Estaque, Marseille",
     "category": "sunset",
     "collection_slug": "couchers-de-soleil",
@@ -454,9 +454,9 @@
     ],
     "edition_label": "Édition limitée 1/20",
     "featured": false,
-    "pricing_source": "sun-004"
+    "pricing_source": "sunset l'estaque Marseille"
   },
-  "sun-006": {
+  "sunset serpent bain des dames marseille": {
     "title": "Bain des Dames, Marseille",
     "category": "sunset",
     "collection_slug": "couchers-de-soleil",
@@ -469,9 +469,9 @@
     ],
     "edition_label": "Édition limitée 1/20",
     "featured": false,
-    "pricing_source": "sun-006"
+    "pricing_source": "sunset serpent bain des dames marseille"
   },
-  "sunrise-001": {
+  "lever-de-soleil-laciotat01": {
     "title": "Lever de soleil à La Ciotat",
     "category": "sunrise",
     "collection_slug": "lever-de-soleil",
@@ -488,7 +488,7 @@
     "featured": true,
     "pricing_source": "default-sunrise"
   },
-  "sunrise-002": {
+  "lever-de-soleil-laciotat02": {
     "title": "Lever de soleil à La Ciotat",
     "category": "sunrise",
     "collection_slug": "lever-de-soleil",
@@ -504,7 +504,7 @@
     "featured": true,
     "pricing_source": "default-sunrise"
   },
-  "sunrise-003": {
+  "lever-de-soleil-laciotat03": {
     "title": "Lever de soleil à La Ciotat",
     "category": "sunrise",
     "collection_slug": "lever-de-soleil",
@@ -520,7 +520,7 @@
     "featured": false,
     "pricing_source": "default-sunrise"
   },
-  "sunrise-005": {
+  "lever-de-soleil-laciotat05": {
     "title": "Lever de soleil à La Ciotat",
     "category": "sunrise",
     "collection_slug": "lever-de-soleil",
@@ -535,7 +535,7 @@
     "featured": false,
     "pricing_source": "default-sunrise"
   },
-  "sunrise-006": {
+  "lever-de-soleil-laciotat06": {
     "title": "Lever de soleil à La Ciotat",
     "category": "sunrise",
     "collection_slug": "lever-de-soleil",

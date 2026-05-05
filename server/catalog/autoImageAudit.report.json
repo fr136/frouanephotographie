@@ -1,94 +1,535 @@
 {
   "summary": {
     "scannedImages": 42,
-    "sellableProducts": 36,
+    "catalogProducts": 36,
+    "defaultSellableProducts": 32,
+    "manualReviewProducts": 4,
     "imagesWithoutProduct": 6,
     "productsWithoutImage": 0,
-    "imagesTooSmall": 0,
-    "gradeCounts": {
-      "A": 16,
-      "B": 20,
-      "C": 6,
-      "WEB ONLY": 0
+    "productsWithoutCompatibleSize": 0,
+    "ratios": {
+      "1:1": 9,
+      "2:3": 2,
+      "3:4": 22,
+      "4:5": 8,
+      "panoramic": 1
+    },
+    "ratioMatchStatuses": {
+      "crop-safe": 9,
+      "manual-review": 5,
+      "perfect": 28
+    },
+    "productMatchStatuses": {
+      "crop-safe": 9,
+      "manual-review": 4,
+      "perfect": 23
+    },
+    "sizesAssigned": {
+      "frame:10x20": 1,
+      "frame:12x12": 9,
+      "frame:12x16": 17,
+      "frame:12x18": 2,
+      "frame:12x24": 1,
+      "frame:16x16": 9,
+      "frame:16x20": 7,
+      "frame:18x24": 17,
+      "frame:20x20": 9,
+      "frame:20x24": 7,
+      "frame:20x30": 1,
+      "frame:20x40": 1,
+      "frame:24x24": 9,
+      "frame:24x32": 11,
+      "frame:30x30": 7,
+      "frame:30x40": 8,
+      "frame:8x10": 7,
+      "poster:10x20": 1,
+      "poster:12x12": 9,
+      "poster:12x16": 17,
+      "poster:12x18": 2,
+      "poster:12x24": 1,
+      "poster:16x16": 9,
+      "poster:16x20": 7,
+      "poster:16x24": 2,
+      "poster:18x24": 17,
+      "poster:20x20": 9,
+      "poster:20x24": 7,
+      "poster:20x30": 1,
+      "poster:20x40": 1,
+      "poster:24x24": 9,
+      "poster:24x32": 11,
+      "poster:30x30": 7,
+      "poster:30x40": 8,
+      "poster:8x10": 7
     }
+  },
+  "productsByStatus": {
+    "crop-safe": [
+      {
+        "id": "port-de-cassis01",
+        "title": "Port de Cassis",
+        "ratioGroup": "4:5",
+        "ratioDeviation": 0.0661
+      },
+      {
+        "id": "calanque-port-d-alon01",
+        "title": "Calanque de Port d'Alon",
+        "ratioGroup": "3:4",
+        "ratioDeviation": 0.0361
+      },
+      {
+        "id": "calanque-port-d-alon03",
+        "title": "Calanque de Port d'Alon",
+        "ratioGroup": "1:1",
+        "ratioDeviation": 0.0537
+      },
+      {
+        "id": "cap-canaille01",
+        "title": "Cap Canaille",
+        "ratioGroup": "4:5",
+        "ratioDeviation": 0.078
+      },
+      {
+        "id": "la-madrague-saint-cyr-sur-mer01",
+        "title": "La Madrague, Saint-Cyr-sur-Mer",
+        "ratioGroup": "1:1",
+        "ratioDeviation": 0.0713
+      },
+      {
+        "id": "plage-la-fossette02",
+        "title": "Plage de la Fossette",
+        "ratioGroup": "1:1",
+        "ratioDeviation": 0.0321
+      },
+      {
+        "id": "plage-la-fossette03",
+        "title": "Plage de la Fossette",
+        "ratioGroup": "2:3",
+        "ratioDeviation": 0.0538
+      },
+      {
+        "id": "sunset fire la ciotat",
+        "title": "La Ciotat au coucher du soleil",
+        "ratioGroup": "2:3",
+        "ratioDeviation": 0.0631
+      },
+      {
+        "id": "Sunset La Ciotat1",
+        "title": "La Ciotat au coucher du soleil",
+        "ratioGroup": "1:1",
+        "ratioDeviation": 0.0346
+      }
+    ],
+    "manual-review": [
+      {
+        "id": "calanque-port-d-alon02",
+        "title": "Calanque de Port d'Alon",
+        "ratioGroup": "1:1",
+        "ratioDeviation": 0.0875
+      },
+      {
+        "id": "plage-beaucours02",
+        "title": "Beaucours",
+        "ratioGroup": "1:1",
+        "ratioDeviation": 0.1066
+      },
+      {
+        "id": "plage-la-fossette01",
+        "title": "Plage de la Fossette",
+        "ratioGroup": "4:5",
+        "ratioDeviation": 0.1103
+      },
+      {
+        "id": "lever-de-soleil-laciotat01",
+        "title": "Lever de soleil à La Ciotat",
+        "ratioGroup": "panoramic",
+        "ratioDeviation": 0.1327
+      }
+    ],
+    "perfect": [
+      {
+        "id": "calanque-sormiou02",
+        "title": "Calanque de Sormiou",
+        "ratioGroup": "3:4",
+        "ratioDeviation": 0.0003
+      },
+      {
+        "id": "calanque-sormiou06",
+        "title": "Calanque de Sormiou",
+        "ratioGroup": "3:4",
+        "ratioDeviation": 0.0196
+      },
+      {
+        "id": "sugiton01",
+        "title": "Sugiton",
+        "ratioGroup": "3:4",
+        "ratioDeviation": 0
+      },
+      {
+        "id": "sugiton02",
+        "title": "Sugiton",
+        "ratioGroup": "3:4",
+        "ratioDeviation": 0
+      },
+      {
+        "id": "calanque-en-vau02",
+        "title": "Calanque d'En-Vau",
+        "ratioGroup": "4:5",
+        "ratioDeviation": 0
+      },
+      {
+        "id": "calanque-port-d-alon04",
+        "title": "Calanque de Port d'Alon",
+        "ratioGroup": "4:5",
+        "ratioDeviation": 0.0068
+      },
+      {
+        "id": "cap-canaille02",
+        "title": "Cap Canaille",
+        "ratioGroup": "3:4",
+        "ratioDeviation": 0
+      },
+      {
+        "id": "bougainvillier-bandol01",
+        "title": "Bandol",
+        "ratioGroup": "3:4",
+        "ratioDeviation": 0
+      },
+      {
+        "id": "plage-beaucours01",
+        "title": "Beaucours",
+        "ratioGroup": "1:1",
+        "ratioDeviation": 0
+      },
+      {
+        "id": "sugiton03",
+        "title": "Sugiton",
+        "ratioGroup": "3:4",
+        "ratioDeviation": 0
+      },
+      {
+        "id": "sugiton04",
+        "title": "Sugiton",
+        "ratioGroup": "3:4",
+        "ratioDeviation": 0
+      },
+      {
+        "id": "plage-portissol01",
+        "title": "Plage de Portissol",
+        "ratioGroup": "4:5",
+        "ratioDeviation": 0.0079
+      },
+      {
+        "id": "Coucher de soleil La Ciotat éléphant routedes crêtes",
+        "title": "Route des Crêtes, La Ciotat",
+        "ratioGroup": "3:4",
+        "ratioDeviation": 0.0002
+      },
+      {
+        "id": "Sunset fire la ciotat 4",
+        "title": "La Ciotat au coucher du soleil",
+        "ratioGroup": "3:4",
+        "ratioDeviation": 0
+      },
+      {
+        "id": "sunset port saintjean la ciotat",
+        "title": "Port Saint-Jean, La Ciotat",
+        "ratioGroup": "1:1",
+        "ratioDeviation": 0
+      },
+      {
+        "id": "Sunset catalans marseille",
+        "title": "Plage des Catalans, Marseille",
+        "ratioGroup": "4:5",
+        "ratioDeviation": 0.0193
+      },
+      {
+        "id": "Sunset catalans",
+        "title": "Plage des Catalans, Marseille",
+        "ratioGroup": "1:1",
+        "ratioDeviation": 0.0008
+      },
+      {
+        "id": "sunset l'estaque Marseille",
+        "title": "L'Estaque, Marseille",
+        "ratioGroup": "3:4",
+        "ratioDeviation": 0
+      },
+      {
+        "id": "sunset serpent bain des dames marseille",
+        "title": "Bain des Dames, Marseille",
+        "ratioGroup": "3:4",
+        "ratioDeviation": 0
+      },
+      {
+        "id": "lever-de-soleil-laciotat02",
+        "title": "Lever de soleil à La Ciotat",
+        "ratioGroup": "3:4",
+        "ratioDeviation": 0
+      },
+      {
+        "id": "lever-de-soleil-laciotat03",
+        "title": "Lever de soleil à La Ciotat",
+        "ratioGroup": "3:4",
+        "ratioDeviation": 0
+      },
+      {
+        "id": "lever-de-soleil-laciotat05",
+        "title": "Lever de soleil à La Ciotat",
+        "ratioGroup": "3:4",
+        "ratioDeviation": 0
+      },
+      {
+        "id": "lever-de-soleil-laciotat06",
+        "title": "Lever de soleil à La Ciotat",
+        "ratioGroup": "3:4",
+        "ratioDeviation": 0
+      }
+    ]
   },
   "imagesWithoutProduct": [
     {
       "file": "calanque-des-anglais01.png",
-      "relativePath": "calanque-des-anglais01.png",
       "width": 3200,
       "height": 2400,
+      "aspectRatio": 1.333,
+      "ratioGroup": "3:4",
+      "ratioDeviation": 0,
+      "ratioMatchStatus": "perfect",
+      "cropWarning": false,
+      "normalizedRatio": 0.75,
+      "targetRatio": 0.75,
       "grade": "C",
-      "allowedFormats": [
-        "30x45"
-      ],
-      "matchedProductIds": []
+      "allowedPrintSizes": [
+        {
+          "size": "12x16",
+          "displaySize": "12x16 in (30x41 cm)",
+          "requiredPixels": {
+            "shortSide": 1800,
+            "longSide": 2400
+          }
+        }
+      ]
     },
     {
       "file": "calanque-sormiou01.png",
-      "relativePath": "calanque-sormiou01.png",
       "width": 4800,
       "height": 6400,
+      "aspectRatio": 0.75,
+      "ratioGroup": "3:4",
+      "ratioDeviation": 0,
+      "ratioMatchStatus": "perfect",
+      "cropWarning": false,
+      "normalizedRatio": 0.75,
+      "targetRatio": 0.75,
       "grade": "A",
-      "allowedFormats": [
-        "30x45",
-        "50x75",
-        "70x105"
-      ],
-      "matchedProductIds": []
+      "allowedPrintSizes": [
+        {
+          "size": "12x16",
+          "displaySize": "12x16 in (30x41 cm)",
+          "requiredPixels": {
+            "shortSide": 1800,
+            "longSide": 2400
+          }
+        },
+        {
+          "size": "18x24",
+          "displaySize": "18x24 in (46x61 cm)",
+          "requiredPixels": {
+            "shortSide": 2700,
+            "longSide": 3600
+          }
+        },
+        {
+          "size": "24x32",
+          "displaySize": "24x32 in (61x81 cm)",
+          "requiredPixels": {
+            "shortSide": 3600,
+            "longSide": 4800
+          }
+        },
+        {
+          "size": "30x40",
+          "displaySize": "30x40 in (76x102 cm)",
+          "requiredPixels": {
+            "shortSide": 4500,
+            "longSide": 6000
+          }
+        }
+      ]
     },
     {
       "file": "calanque-sormiou03.png",
-      "relativePath": "calanque-sormiou03.png",
       "width": 4800,
       "height": 6400,
+      "aspectRatio": 0.75,
+      "ratioGroup": "3:4",
+      "ratioDeviation": 0,
+      "ratioMatchStatus": "perfect",
+      "cropWarning": false,
+      "normalizedRatio": 0.75,
+      "targetRatio": 0.75,
       "grade": "A",
-      "allowedFormats": [
-        "30x45",
-        "50x75",
-        "70x105"
-      ],
-      "matchedProductIds": []
+      "allowedPrintSizes": [
+        {
+          "size": "12x16",
+          "displaySize": "12x16 in (30x41 cm)",
+          "requiredPixels": {
+            "shortSide": 1800,
+            "longSide": 2400
+          }
+        },
+        {
+          "size": "18x24",
+          "displaySize": "18x24 in (46x61 cm)",
+          "requiredPixels": {
+            "shortSide": 2700,
+            "longSide": 3600
+          }
+        },
+        {
+          "size": "24x32",
+          "displaySize": "24x32 in (61x81 cm)",
+          "requiredPixels": {
+            "shortSide": 3600,
+            "longSide": 4800
+          }
+        },
+        {
+          "size": "30x40",
+          "displaySize": "30x40 in (76x102 cm)",
+          "requiredPixels": {
+            "shortSide": 4500,
+            "longSide": 6000
+          }
+        }
+      ]
     },
     {
       "file": "calanque-sormiou04.png",
-      "relativePath": "calanque-sormiou04.png",
       "width": 4800,
       "height": 6400,
+      "aspectRatio": 0.75,
+      "ratioGroup": "3:4",
+      "ratioDeviation": 0,
+      "ratioMatchStatus": "perfect",
+      "cropWarning": false,
+      "normalizedRatio": 0.75,
+      "targetRatio": 0.75,
       "grade": "A",
-      "allowedFormats": [
-        "30x45",
-        "50x75",
-        "70x105"
-      ],
-      "matchedProductIds": []
+      "allowedPrintSizes": [
+        {
+          "size": "12x16",
+          "displaySize": "12x16 in (30x41 cm)",
+          "requiredPixels": {
+            "shortSide": 1800,
+            "longSide": 2400
+          }
+        },
+        {
+          "size": "18x24",
+          "displaySize": "18x24 in (46x61 cm)",
+          "requiredPixels": {
+            "shortSide": 2700,
+            "longSide": 3600
+          }
+        },
+        {
+          "size": "24x32",
+          "displaySize": "24x32 in (61x81 cm)",
+          "requiredPixels": {
+            "shortSide": 3600,
+            "longSide": 4800
+          }
+        },
+        {
+          "size": "30x40",
+          "displaySize": "30x40 in (76x102 cm)",
+          "requiredPixels": {
+            "shortSide": 4500,
+            "longSide": 6000
+          }
+        }
+      ]
     },
     {
       "file": "calanque-sormiou05.png",
-      "relativePath": "calanque-sormiou05.png",
       "width": 4800,
       "height": 3600,
+      "aspectRatio": 1.333,
+      "ratioGroup": "3:4",
+      "ratioDeviation": 0,
+      "ratioMatchStatus": "perfect",
+      "cropWarning": false,
+      "normalizedRatio": 0.75,
+      "targetRatio": 0.75,
       "grade": "B",
-      "allowedFormats": [
-        "30x45",
-        "50x75"
-      ],
-      "matchedProductIds": []
+      "allowedPrintSizes": [
+        {
+          "size": "12x16",
+          "displaySize": "12x16 in (30x41 cm)",
+          "requiredPixels": {
+            "shortSide": 1800,
+            "longSide": 2400
+          }
+        },
+        {
+          "size": "18x24",
+          "displaySize": "18x24 in (46x61 cm)",
+          "requiredPixels": {
+            "shortSide": 2700,
+            "longSide": 3600
+          }
+        },
+        {
+          "size": "24x32",
+          "displaySize": "24x32 in (61x81 cm)",
+          "requiredPixels": {
+            "shortSide": 3600,
+            "longSide": 4800
+          }
+        }
+      ]
     },
     {
       "file": "Cover.png",
-      "relativePath": "Cover.png",
       "width": 8190,
       "height": 7088,
-      "grade": "A",
-      "allowedFormats": [
-        "30x45",
-        "50x75",
-        "70x105"
-      ],
-      "matchedProductIds": []
+      "aspectRatio": 1.155,
+      "ratioGroup": "4:5",
+      "ratioDeviation": 0.0818,
+      "ratioMatchStatus": "manual-review",
+      "cropWarning": true,
+      "normalizedRatio": 0.8654,
+      "targetRatio": 0.8,
+      "grade": "B",
+      "allowedPrintSizes": [
+        {
+          "size": "8x10",
+          "displaySize": "8x10 in (20x25 cm)",
+          "requiredPixels": {
+            "shortSide": 1200,
+            "longSide": 1500
+          }
+        },
+        {
+          "size": "16x20",
+          "displaySize": "16x20 in (41x51 cm)",
+          "requiredPixels": {
+            "shortSide": 2400,
+            "longSide": 3000
+          }
+        },
+        {
+          "size": "20x24",
+          "displaySize": "20x24 in (51x61 cm)",
+          "requiredPixels": {
+            "shortSide": 3000,
+            "longSide": 3600
+          }
+        }
+      ]
     }
   ],
   "productsWithoutImage": [],
-  "imagesTooSmall": []
+  "productsWithoutCompatibleSize": []
 }

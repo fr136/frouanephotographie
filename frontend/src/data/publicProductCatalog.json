@@ -1,1362 +1,3533 @@
 [
   {
-    "id": "cal-007",
+    "id": "calanque-sormiou02",
     "title": "Calanque de Sormiou",
     "collection": "calanques",
     "previewImage": "/Calanques/calanque-sormiou02.webp",
-    "grade": "C",
-    "allowedFormats": [
-      "30x45"
-    ],
+    "width": 3200,
+    "height": 4268,
+    "aspectRatio": 0.75,
+    "normalizedRatio": 0.7498,
+    "targetRatio": 0.75,
+    "ratioGroup": "3:4",
+    "ratioDeviation": 0.0003,
+    "ratioMatchStatus": "perfect",
+    "cropWarning": false,
+    "grade": "B",
+    "support": "poster",
     "allowedSupports": [
-      "poster"
+      "poster",
+      "frame"
     ],
+    "allowedPrintSizes": {
+      "poster": [
+        {
+          "size": "12x16",
+          "displaySize": "12x16 in (30x41 cm)",
+          "widthInches": 12,
+          "heightInches": 16,
+          "price": 35
+        },
+        {
+          "size": "18x24",
+          "displaySize": "18x24 in (46x61 cm)",
+          "widthInches": 18,
+          "heightInches": 24,
+          "price": 55
+        }
+      ],
+      "frame": [
+        {
+          "size": "12x16",
+          "displaySize": "12x16 in (30x41 cm)",
+          "widthInches": 12,
+          "heightInches": 16,
+          "price": 89
+        },
+        {
+          "size": "18x24",
+          "displaySize": "18x24 in (46x61 cm)",
+          "widthInches": 18,
+          "heightInches": 24,
+          "price": 129
+        }
+      ]
+    },
     "pricing": {
       "poster": {
-        "30x45": 39
+        "12x16": 35,
+        "18x24": 55
+      },
+      "frame": {
+        "12x16": 89,
+        "18x24": 129
       }
     },
-    "supportDetails": {
+    "supportLabels": {
       "poster": {
         "displayName": "Affiche Fine Art",
-        "description": "Tirage photo haute qualité sur papier mat premium, livré sans cadre."
+        "description": "Tirage photo sur papier mat premium EMA 200 g/m², livré sans cadre."
+      },
+      "frame": {
+        "displayName": "Tableau encadré",
+        "description": "Tirage encadré classique, finition sobre, prêt à accrocher selon disponibilité Prodigi."
       }
     }
   },
   {
-    "id": "cal-011",
+    "id": "calanque-sormiou06",
     "title": "Calanque de Sormiou",
     "collection": "calanques",
     "previewImage": "/Calanques/calanque-sormiou06.webp",
-    "grade": "C",
-    "allowedFormats": [
-      "30x45"
-    ],
+    "width": 3200,
+    "height": 4352,
+    "aspectRatio": 0.735,
+    "normalizedRatio": 0.7353,
+    "targetRatio": 0.75,
+    "ratioGroup": "3:4",
+    "ratioDeviation": 0.0196,
+    "ratioMatchStatus": "perfect",
+    "cropWarning": false,
+    "grade": "B",
+    "support": "poster",
     "allowedSupports": [
-      "poster"
+      "poster",
+      "frame"
     ],
+    "allowedPrintSizes": {
+      "poster": [
+        {
+          "size": "12x16",
+          "displaySize": "12x16 in (30x41 cm)",
+          "widthInches": 12,
+          "heightInches": 16,
+          "price": 35
+        },
+        {
+          "size": "18x24",
+          "displaySize": "18x24 in (46x61 cm)",
+          "widthInches": 18,
+          "heightInches": 24,
+          "price": 55
+        }
+      ],
+      "frame": [
+        {
+          "size": "12x16",
+          "displaySize": "12x16 in (30x41 cm)",
+          "widthInches": 12,
+          "heightInches": 16,
+          "price": 89
+        },
+        {
+          "size": "18x24",
+          "displaySize": "18x24 in (46x61 cm)",
+          "widthInches": 18,
+          "heightInches": 24,
+          "price": 129
+        }
+      ]
+    },
     "pricing": {
       "poster": {
-        "30x45": 39
+        "12x16": 35,
+        "18x24": 55
+      },
+      "frame": {
+        "12x16": 89,
+        "18x24": 129
       }
     },
-    "supportDetails": {
+    "supportLabels": {
       "poster": {
         "displayName": "Affiche Fine Art",
-        "description": "Tirage photo haute qualité sur papier mat premium, livré sans cadre."
+        "description": "Tirage photo sur papier mat premium EMA 200 g/m², livré sans cadre."
+      },
+      "frame": {
+        "displayName": "Tableau encadré",
+        "description": "Tirage encadré classique, finition sobre, prêt à accrocher selon disponibilité Prodigi."
       }
     }
   },
   {
-    "id": "cal-005",
+    "id": "sugiton01",
     "title": "Sugiton",
     "collection": "calanques",
     "previewImage": "/Calanques/sugiton01.jpeg",
+    "width": 8064,
+    "height": 6048,
+    "aspectRatio": 1.333,
+    "normalizedRatio": 0.75,
+    "targetRatio": 0.75,
+    "ratioGroup": "3:4",
+    "ratioDeviation": 0,
+    "ratioMatchStatus": "perfect",
+    "cropWarning": false,
     "grade": "A",
-    "allowedFormats": [
-      "30x45",
-      "50x75",
-      "70x105"
-    ],
+    "support": "poster",
     "allowedSupports": [
       "poster",
-      "canvas",
       "frame"
     ],
+    "allowedPrintSizes": {
+      "poster": [
+        {
+          "size": "12x16",
+          "displaySize": "12x16 in (30x41 cm)",
+          "widthInches": 12,
+          "heightInches": 16,
+          "price": 35
+        },
+        {
+          "size": "18x24",
+          "displaySize": "18x24 in (46x61 cm)",
+          "widthInches": 18,
+          "heightInches": 24,
+          "price": 55
+        },
+        {
+          "size": "24x32",
+          "displaySize": "24x32 in (61x81 cm)",
+          "widthInches": 24,
+          "heightInches": 32,
+          "price": 79
+        },
+        {
+          "size": "30x40",
+          "displaySize": "30x40 in (76x102 cm)",
+          "widthInches": 30,
+          "heightInches": 40,
+          "price": 99
+        }
+      ],
+      "frame": [
+        {
+          "size": "12x16",
+          "displaySize": "12x16 in (30x41 cm)",
+          "widthInches": 12,
+          "heightInches": 16,
+          "price": 89
+        },
+        {
+          "size": "18x24",
+          "displaySize": "18x24 in (46x61 cm)",
+          "widthInches": 18,
+          "heightInches": 24,
+          "price": 129
+        },
+        {
+          "size": "24x32",
+          "displaySize": "24x32 in (61x81 cm)",
+          "widthInches": 24,
+          "heightInches": 32,
+          "price": 179
+        },
+        {
+          "size": "30x40",
+          "displaySize": "30x40 in (76x102 cm)",
+          "widthInches": 30,
+          "heightInches": 40,
+          "price": 229
+        }
+      ]
+    },
     "pricing": {
       "poster": {
-        "30x45": 39,
-        "50x75": 59,
-        "70x105": 89
-      },
-      "canvas": {
-        "30x45": 69,
-        "50x75": 119,
-        "70x105": 179
+        "12x16": 35,
+        "18x24": 55,
+        "24x32": 79,
+        "30x40": 99
       },
       "frame": {
-        "30x45": 99,
-        "50x75": 149,
-        "70x105": 229
+        "12x16": 89,
+        "18x24": 129,
+        "24x32": 179,
+        "30x40": 229
       }
     },
-    "supportDetails": {
+    "supportLabels": {
       "poster": {
         "displayName": "Affiche Fine Art",
-        "description": "Tirage photo haute qualité sur papier mat premium, livré sans cadre."
-      },
-      "canvas": {
-        "displayName": "Toile imprimée",
-        "description": "Photo imprimée sur toile, rendu mural prêt à accrocher selon disponibilité Prodigi."
+        "description": "Tirage photo sur papier mat premium EMA 200 g/m², livré sans cadre."
       },
       "frame": {
         "displayName": "Tableau encadré",
-        "description": "Tirage encadré prêt à accrocher, finition premium."
+        "description": "Tirage encadré classique, finition sobre, prêt à accrocher selon disponibilité Prodigi."
       }
     }
   },
   {
-    "id": "cal-012",
+    "id": "sugiton02",
     "title": "Sugiton",
     "collection": "calanques",
     "previewImage": "/Calanques/sugiton02.jpg",
+    "width": 8064,
+    "height": 6048,
+    "aspectRatio": 1.333,
+    "normalizedRatio": 0.75,
+    "targetRatio": 0.75,
+    "ratioGroup": "3:4",
+    "ratioDeviation": 0,
+    "ratioMatchStatus": "perfect",
+    "cropWarning": false,
     "grade": "A",
-    "allowedFormats": [
-      "30x45",
-      "50x75",
-      "70x105"
-    ],
+    "support": "poster",
     "allowedSupports": [
       "poster",
-      "canvas",
       "frame"
     ],
+    "allowedPrintSizes": {
+      "poster": [
+        {
+          "size": "12x16",
+          "displaySize": "12x16 in (30x41 cm)",
+          "widthInches": 12,
+          "heightInches": 16,
+          "price": 35
+        },
+        {
+          "size": "18x24",
+          "displaySize": "18x24 in (46x61 cm)",
+          "widthInches": 18,
+          "heightInches": 24,
+          "price": 55
+        },
+        {
+          "size": "24x32",
+          "displaySize": "24x32 in (61x81 cm)",
+          "widthInches": 24,
+          "heightInches": 32,
+          "price": 79
+        },
+        {
+          "size": "30x40",
+          "displaySize": "30x40 in (76x102 cm)",
+          "widthInches": 30,
+          "heightInches": 40,
+          "price": 99
+        }
+      ],
+      "frame": [
+        {
+          "size": "12x16",
+          "displaySize": "12x16 in (30x41 cm)",
+          "widthInches": 12,
+          "heightInches": 16,
+          "price": 89
+        },
+        {
+          "size": "18x24",
+          "displaySize": "18x24 in (46x61 cm)",
+          "widthInches": 18,
+          "heightInches": 24,
+          "price": 129
+        },
+        {
+          "size": "24x32",
+          "displaySize": "24x32 in (61x81 cm)",
+          "widthInches": 24,
+          "heightInches": 32,
+          "price": 179
+        },
+        {
+          "size": "30x40",
+          "displaySize": "30x40 in (76x102 cm)",
+          "widthInches": 30,
+          "heightInches": 40,
+          "price": 229
+        }
+      ]
+    },
     "pricing": {
       "poster": {
-        "30x45": 39,
-        "50x75": 59,
-        "70x105": 89
-      },
-      "canvas": {
-        "30x45": 69,
-        "50x75": 119,
-        "70x105": 179
+        "12x16": 35,
+        "18x24": 55,
+        "24x32": 79,
+        "30x40": 99
       },
       "frame": {
-        "30x45": 99,
-        "50x75": 149,
-        "70x105": 229
+        "12x16": 89,
+        "18x24": 129,
+        "24x32": 179,
+        "30x40": 229
       }
     },
-    "supportDetails": {
+    "supportLabels": {
       "poster": {
         "displayName": "Affiche Fine Art",
-        "description": "Tirage photo haute qualité sur papier mat premium, livré sans cadre."
-      },
-      "canvas": {
-        "displayName": "Toile imprimée",
-        "description": "Photo imprimée sur toile, rendu mural prêt à accrocher selon disponibilité Prodigi."
+        "description": "Tirage photo sur papier mat premium EMA 200 g/m², livré sans cadre."
       },
       "frame": {
         "displayName": "Tableau encadré",
-        "description": "Tirage encadré prêt à accrocher, finition premium."
+        "description": "Tirage encadré classique, finition sobre, prêt à accrocher selon disponibilité Prodigi."
       }
     }
   },
   {
-    "id": "cal-006",
+    "id": "calanque-en-vau02",
     "title": "Calanque d'En-Vau",
     "collection": "calanques",
     "previewImage": "/Calanques/calanque-en-vau02.jpeg",
-    "grade": "A",
-    "allowedFormats": [
-      "30x45",
-      "50x75",
-      "70x105"
-    ],
+    "width": 6048,
+    "height": 7560,
+    "aspectRatio": 0.8,
+    "normalizedRatio": 0.8,
+    "targetRatio": 0.8,
+    "ratioGroup": "4:5",
+    "ratioDeviation": 0,
+    "ratioMatchStatus": "perfect",
+    "cropWarning": false,
+    "grade": "B",
+    "support": "poster",
     "allowedSupports": [
       "poster",
-      "canvas",
       "frame"
     ],
+    "allowedPrintSizes": {
+      "poster": [
+        {
+          "size": "8x10",
+          "displaySize": "8x10 in (20x25 cm)",
+          "widthInches": 8,
+          "heightInches": 10,
+          "price": 25
+        },
+        {
+          "size": "16x20",
+          "displaySize": "16x20 in (41x51 cm)",
+          "widthInches": 16,
+          "heightInches": 20,
+          "price": 45
+        },
+        {
+          "size": "20x24",
+          "displaySize": "20x24 in (51x61 cm)",
+          "widthInches": 20,
+          "heightInches": 24,
+          "price": 59
+        }
+      ],
+      "frame": [
+        {
+          "size": "8x10",
+          "displaySize": "8x10 in (20x25 cm)",
+          "widthInches": 8,
+          "heightInches": 10,
+          "price": 69
+        },
+        {
+          "size": "16x20",
+          "displaySize": "16x20 in (41x51 cm)",
+          "widthInches": 16,
+          "heightInches": 20,
+          "price": 99
+        },
+        {
+          "size": "20x24",
+          "displaySize": "20x24 in (51x61 cm)",
+          "widthInches": 20,
+          "heightInches": 24,
+          "price": 139
+        }
+      ]
+    },
     "pricing": {
       "poster": {
-        "30x45": 39,
-        "50x75": 59,
-        "70x105": 89
-      },
-      "canvas": {
-        "30x45": 69,
-        "50x75": 119,
-        "70x105": 179
+        "8x10": 25,
+        "16x20": 45,
+        "20x24": 59
       },
       "frame": {
-        "30x45": 99,
-        "50x75": 149,
-        "70x105": 229
+        "8x10": 69,
+        "16x20": 99,
+        "20x24": 139
       }
     },
-    "supportDetails": {
+    "supportLabels": {
       "poster": {
         "displayName": "Affiche Fine Art",
-        "description": "Tirage photo haute qualité sur papier mat premium, livré sans cadre."
-      },
-      "canvas": {
-        "displayName": "Toile imprimée",
-        "description": "Photo imprimée sur toile, rendu mural prêt à accrocher selon disponibilité Prodigi."
+        "description": "Tirage photo sur papier mat premium EMA 200 g/m², livré sans cadre."
       },
       "frame": {
         "displayName": "Tableau encadré",
-        "description": "Tirage encadré prêt à accrocher, finition premium."
+        "description": "Tirage encadré classique, finition sobre, prêt à accrocher selon disponibilité Prodigi."
       }
     }
   },
   {
-    "id": "cal-002",
+    "id": "port-de-cassis01",
     "title": "Port de Cassis",
     "collection": "calanques",
     "previewImage": "/Calanques/port-de-cassis01.webp",
+    "width": 4800,
+    "height": 4094,
+    "aspectRatio": 1.172,
+    "normalizedRatio": 0.8529,
+    "targetRatio": 0.8,
+    "ratioGroup": "4:5",
+    "ratioDeviation": 0.0661,
+    "ratioMatchStatus": "crop-safe",
+    "cropWarning": true,
     "grade": "B",
-    "allowedFormats": [
-      "30x45",
-      "50x75"
-    ],
+    "support": "poster",
     "allowedSupports": [
       "poster",
-      "canvas"
+      "frame"
     ],
+    "allowedPrintSizes": {
+      "poster": [
+        {
+          "size": "8x10",
+          "displaySize": "8x10 in (20x25 cm)",
+          "widthInches": 8,
+          "heightInches": 10,
+          "price": 25
+        },
+        {
+          "size": "16x20",
+          "displaySize": "16x20 in (41x51 cm)",
+          "widthInches": 16,
+          "heightInches": 20,
+          "price": 45
+        },
+        {
+          "size": "20x24",
+          "displaySize": "20x24 in (51x61 cm)",
+          "widthInches": 20,
+          "heightInches": 24,
+          "price": 59
+        }
+      ],
+      "frame": [
+        {
+          "size": "8x10",
+          "displaySize": "8x10 in (20x25 cm)",
+          "widthInches": 8,
+          "heightInches": 10,
+          "price": 69
+        },
+        {
+          "size": "16x20",
+          "displaySize": "16x20 in (41x51 cm)",
+          "widthInches": 16,
+          "heightInches": 20,
+          "price": 99
+        },
+        {
+          "size": "20x24",
+          "displaySize": "20x24 in (51x61 cm)",
+          "widthInches": 20,
+          "heightInches": 24,
+          "price": 139
+        }
+      ]
+    },
     "pricing": {
       "poster": {
-        "30x45": 39,
-        "50x75": 59
+        "8x10": 25,
+        "16x20": 45,
+        "20x24": 59
       },
-      "canvas": {
-        "30x45": 69,
-        "50x75": 119
+      "frame": {
+        "8x10": 69,
+        "16x20": 99,
+        "20x24": 139
       }
     },
-    "supportDetails": {
+    "supportLabels": {
       "poster": {
         "displayName": "Affiche Fine Art",
-        "description": "Tirage photo haute qualité sur papier mat premium, livré sans cadre."
+        "description": "Tirage photo sur papier mat premium EMA 200 g/m², livré sans cadre."
       },
-      "canvas": {
-        "displayName": "Toile imprimée",
-        "description": "Photo imprimée sur toile, rendu mural prêt à accrocher selon disponibilité Prodigi."
+      "frame": {
+        "displayName": "Tableau encadré",
+        "description": "Tirage encadré classique, finition sobre, prêt à accrocher selon disponibilité Prodigi."
       }
     }
   },
   {
-    "id": "cal-004",
+    "id": "calanque-port-d-alon01",
     "title": "Calanque de Port d'Alon",
     "collection": "calanques",
     "previewImage": "/Calanques/calanque-port-d-alon01.webp",
+    "width": 4800,
+    "height": 3470,
+    "aspectRatio": 1.383,
+    "normalizedRatio": 0.7229,
+    "targetRatio": 0.75,
+    "ratioGroup": "3:4",
+    "ratioDeviation": 0.0361,
+    "ratioMatchStatus": "crop-safe",
+    "cropWarning": true,
     "grade": "B",
-    "allowedFormats": [
-      "30x45",
-      "50x75"
-    ],
+    "support": "poster",
     "allowedSupports": [
       "poster",
-      "canvas"
+      "frame"
     ],
+    "allowedPrintSizes": {
+      "poster": [
+        {
+          "size": "12x16",
+          "displaySize": "12x16 in (30x41 cm)",
+          "widthInches": 12,
+          "heightInches": 16,
+          "price": 35
+        },
+        {
+          "size": "18x24",
+          "displaySize": "18x24 in (46x61 cm)",
+          "widthInches": 18,
+          "heightInches": 24,
+          "price": 55
+        }
+      ],
+      "frame": [
+        {
+          "size": "12x16",
+          "displaySize": "12x16 in (30x41 cm)",
+          "widthInches": 12,
+          "heightInches": 16,
+          "price": 89
+        },
+        {
+          "size": "18x24",
+          "displaySize": "18x24 in (46x61 cm)",
+          "widthInches": 18,
+          "heightInches": 24,
+          "price": 129
+        }
+      ]
+    },
     "pricing": {
       "poster": {
-        "30x45": 39,
-        "50x75": 59
+        "12x16": 35,
+        "18x24": 55
       },
-      "canvas": {
-        "30x45": 69,
-        "50x75": 119
+      "frame": {
+        "12x16": 89,
+        "18x24": 129
       }
     },
-    "supportDetails": {
+    "supportLabels": {
       "poster": {
         "displayName": "Affiche Fine Art",
-        "description": "Tirage photo haute qualité sur papier mat premium, livré sans cadre."
+        "description": "Tirage photo sur papier mat premium EMA 200 g/m², livré sans cadre."
       },
-      "canvas": {
-        "displayName": "Toile imprimée",
-        "description": "Photo imprimée sur toile, rendu mural prêt à accrocher selon disponibilité Prodigi."
+      "frame": {
+        "displayName": "Tableau encadré",
+        "description": "Tirage encadré classique, finition sobre, prêt à accrocher selon disponibilité Prodigi."
       }
     }
   },
   {
-    "id": "cal-014",
+    "id": "calanque-port-d-alon02",
     "title": "Calanque de Port d'Alon",
     "collection": "calanques",
     "previewImage": "/Calanques/calanque-port-d-alon02.webp",
+    "width": 4800,
+    "height": 4380,
+    "aspectRatio": 1.096,
+    "normalizedRatio": 0.9125,
+    "targetRatio": 1,
+    "ratioGroup": "1:1",
+    "ratioDeviation": 0.0875,
+    "ratioMatchStatus": "manual-review",
+    "cropWarning": true,
     "grade": "B",
-    "allowedFormats": [
-      "30x45",
-      "50x75"
-    ],
+    "support": "poster",
     "allowedSupports": [
       "poster",
-      "canvas"
+      "frame"
     ],
+    "allowedPrintSizes": {
+      "poster": [
+        {
+          "size": "12x12",
+          "displaySize": "12x12 in (30x30 cm)",
+          "widthInches": 12,
+          "heightInches": 12,
+          "price": 29
+        },
+        {
+          "size": "16x16",
+          "displaySize": "16x16 in (41x41 cm)",
+          "widthInches": 16,
+          "heightInches": 16,
+          "price": 39
+        },
+        {
+          "size": "20x20",
+          "displaySize": "20x20 in (51x51 cm)",
+          "widthInches": 20,
+          "heightInches": 20,
+          "price": 55
+        },
+        {
+          "size": "24x24",
+          "displaySize": "24x24 in (61x61 cm)",
+          "widthInches": 24,
+          "heightInches": 24,
+          "price": 69
+        }
+      ],
+      "frame": [
+        {
+          "size": "12x12",
+          "displaySize": "12x12 in (30x30 cm)",
+          "widthInches": 12,
+          "heightInches": 12,
+          "price": 79
+        },
+        {
+          "size": "16x16",
+          "displaySize": "16x16 in (41x41 cm)",
+          "widthInches": 16,
+          "heightInches": 16,
+          "price": 99
+        },
+        {
+          "size": "20x20",
+          "displaySize": "20x20 in (51x51 cm)",
+          "widthInches": 20,
+          "heightInches": 20,
+          "price": 119
+        },
+        {
+          "size": "24x24",
+          "displaySize": "24x24 in (61x61 cm)",
+          "widthInches": 24,
+          "heightInches": 24,
+          "price": 159
+        }
+      ]
+    },
     "pricing": {
       "poster": {
-        "30x45": 39,
-        "50x75": 59
+        "12x12": 29,
+        "16x16": 39,
+        "20x20": 55,
+        "24x24": 69
       },
-      "canvas": {
-        "30x45": 69,
-        "50x75": 119
+      "frame": {
+        "12x12": 79,
+        "16x16": 99,
+        "20x20": 119,
+        "24x24": 159
       }
     },
-    "supportDetails": {
+    "supportLabels": {
       "poster": {
         "displayName": "Affiche Fine Art",
-        "description": "Tirage photo haute qualité sur papier mat premium, livré sans cadre."
+        "description": "Tirage photo sur papier mat premium EMA 200 g/m², livré sans cadre."
       },
-      "canvas": {
-        "displayName": "Toile imprimée",
-        "description": "Photo imprimée sur toile, rendu mural prêt à accrocher selon disponibilité Prodigi."
+      "frame": {
+        "displayName": "Tableau encadré",
+        "description": "Tirage encadré classique, finition sobre, prêt à accrocher selon disponibilité Prodigi."
       }
     }
   },
   {
-    "id": "cal-015",
+    "id": "calanque-port-d-alon03",
     "title": "Calanque de Port d'Alon",
     "collection": "calanques",
     "previewImage": "/Calanques/calanque-port-d-alon03.webp",
+    "width": 4800,
+    "height": 4542,
+    "aspectRatio": 1.057,
+    "normalizedRatio": 0.9463,
+    "targetRatio": 1,
+    "ratioGroup": "1:1",
+    "ratioDeviation": 0.0537,
+    "ratioMatchStatus": "crop-safe",
+    "cropWarning": true,
     "grade": "B",
-    "allowedFormats": [
-      "30x45",
-      "50x75"
-    ],
+    "support": "poster",
     "allowedSupports": [
       "poster",
-      "canvas"
+      "frame"
     ],
+    "allowedPrintSizes": {
+      "poster": [
+        {
+          "size": "12x12",
+          "displaySize": "12x12 in (30x30 cm)",
+          "widthInches": 12,
+          "heightInches": 12,
+          "price": 29
+        },
+        {
+          "size": "16x16",
+          "displaySize": "16x16 in (41x41 cm)",
+          "widthInches": 16,
+          "heightInches": 16,
+          "price": 39
+        },
+        {
+          "size": "20x20",
+          "displaySize": "20x20 in (51x51 cm)",
+          "widthInches": 20,
+          "heightInches": 20,
+          "price": 55
+        },
+        {
+          "size": "24x24",
+          "displaySize": "24x24 in (61x61 cm)",
+          "widthInches": 24,
+          "heightInches": 24,
+          "price": 69
+        },
+        {
+          "size": "30x30",
+          "displaySize": "30x30 in (76x76 cm)",
+          "widthInches": 30,
+          "heightInches": 30,
+          "price": 89
+        }
+      ],
+      "frame": [
+        {
+          "size": "12x12",
+          "displaySize": "12x12 in (30x30 cm)",
+          "widthInches": 12,
+          "heightInches": 12,
+          "price": 79
+        },
+        {
+          "size": "16x16",
+          "displaySize": "16x16 in (41x41 cm)",
+          "widthInches": 16,
+          "heightInches": 16,
+          "price": 99
+        },
+        {
+          "size": "20x20",
+          "displaySize": "20x20 in (51x51 cm)",
+          "widthInches": 20,
+          "heightInches": 20,
+          "price": 119
+        },
+        {
+          "size": "24x24",
+          "displaySize": "24x24 in (61x61 cm)",
+          "widthInches": 24,
+          "heightInches": 24,
+          "price": 159
+        },
+        {
+          "size": "30x30",
+          "displaySize": "30x30 in (76x76 cm)",
+          "widthInches": 30,
+          "heightInches": 30,
+          "price": 199
+        }
+      ]
+    },
     "pricing": {
       "poster": {
-        "30x45": 39,
-        "50x75": 59
+        "12x12": 29,
+        "16x16": 39,
+        "20x20": 55,
+        "24x24": 69,
+        "30x30": 89
       },
-      "canvas": {
-        "30x45": 69,
-        "50x75": 119
+      "frame": {
+        "12x12": 79,
+        "16x16": 99,
+        "20x20": 119,
+        "24x24": 159,
+        "30x30": 199
       }
     },
-    "supportDetails": {
+    "supportLabels": {
       "poster": {
         "displayName": "Affiche Fine Art",
-        "description": "Tirage photo haute qualité sur papier mat premium, livré sans cadre."
+        "description": "Tirage photo sur papier mat premium EMA 200 g/m², livré sans cadre."
       },
-      "canvas": {
-        "displayName": "Toile imprimée",
-        "description": "Photo imprimée sur toile, rendu mural prêt à accrocher selon disponibilité Prodigi."
+      "frame": {
+        "displayName": "Tableau encadré",
+        "description": "Tirage encadré classique, finition sobre, prêt à accrocher selon disponibilité Prodigi."
       }
     }
   },
   {
-    "id": "cal-016",
+    "id": "calanque-port-d-alon04",
     "title": "Calanque de Port d'Alon",
     "collection": "calanques",
     "previewImage": "/Calanques/calanque-port-d-alon04.webp",
+    "width": 4800,
+    "height": 3814,
+    "aspectRatio": 1.259,
+    "normalizedRatio": 0.7946,
+    "targetRatio": 0.8,
+    "ratioGroup": "4:5",
+    "ratioDeviation": 0.0068,
+    "ratioMatchStatus": "perfect",
+    "cropWarning": false,
     "grade": "B",
-    "allowedFormats": [
-      "30x45",
-      "50x75"
-    ],
+    "support": "poster",
     "allowedSupports": [
       "poster",
-      "canvas"
+      "frame"
     ],
+    "allowedPrintSizes": {
+      "poster": [
+        {
+          "size": "8x10",
+          "displaySize": "8x10 in (20x25 cm)",
+          "widthInches": 8,
+          "heightInches": 10,
+          "price": 25
+        },
+        {
+          "size": "16x20",
+          "displaySize": "16x20 in (41x51 cm)",
+          "widthInches": 16,
+          "heightInches": 20,
+          "price": 45
+        },
+        {
+          "size": "20x24",
+          "displaySize": "20x24 in (51x61 cm)",
+          "widthInches": 20,
+          "heightInches": 24,
+          "price": 59
+        }
+      ],
+      "frame": [
+        {
+          "size": "8x10",
+          "displaySize": "8x10 in (20x25 cm)",
+          "widthInches": 8,
+          "heightInches": 10,
+          "price": 69
+        },
+        {
+          "size": "16x20",
+          "displaySize": "16x20 in (41x51 cm)",
+          "widthInches": 16,
+          "heightInches": 20,
+          "price": 99
+        },
+        {
+          "size": "20x24",
+          "displaySize": "20x24 in (51x61 cm)",
+          "widthInches": 20,
+          "heightInches": 24,
+          "price": 139
+        }
+      ]
+    },
     "pricing": {
       "poster": {
-        "30x45": 39,
-        "50x75": 59
+        "8x10": 25,
+        "16x20": 45,
+        "20x24": 59
       },
-      "canvas": {
-        "30x45": 69,
-        "50x75": 119
+      "frame": {
+        "8x10": 69,
+        "16x20": 99,
+        "20x24": 139
       }
     },
-    "supportDetails": {
+    "supportLabels": {
       "poster": {
         "displayName": "Affiche Fine Art",
-        "description": "Tirage photo haute qualité sur papier mat premium, livré sans cadre."
+        "description": "Tirage photo sur papier mat premium EMA 200 g/m², livré sans cadre."
       },
-      "canvas": {
-        "displayName": "Toile imprimée",
-        "description": "Photo imprimée sur toile, rendu mural prêt à accrocher selon disponibilité Prodigi."
+      "frame": {
+        "displayName": "Tableau encadré",
+        "description": "Tirage encadré classique, finition sobre, prêt à accrocher selon disponibilité Prodigi."
       }
     }
   },
   {
-    "id": "cal-017",
+    "id": "cap-canaille01",
     "title": "Cap Canaille",
     "collection": "calanques",
     "previewImage": "/Calanques/cap-canaille01.webp",
+    "width": 4800,
+    "height": 5566,
+    "aspectRatio": 0.862,
+    "normalizedRatio": 0.8624,
+    "targetRatio": 0.8,
+    "ratioGroup": "4:5",
+    "ratioDeviation": 0.078,
+    "ratioMatchStatus": "crop-safe",
+    "cropWarning": true,
     "grade": "B",
-    "allowedFormats": [
-      "30x45",
-      "50x75"
-    ],
+    "support": "poster",
     "allowedSupports": [
       "poster",
-      "canvas"
+      "frame"
     ],
+    "allowedPrintSizes": {
+      "poster": [
+        {
+          "size": "8x10",
+          "displaySize": "8x10 in (20x25 cm)",
+          "widthInches": 8,
+          "heightInches": 10,
+          "price": 25
+        },
+        {
+          "size": "16x20",
+          "displaySize": "16x20 in (41x51 cm)",
+          "widthInches": 16,
+          "heightInches": 20,
+          "price": 45
+        },
+        {
+          "size": "20x24",
+          "displaySize": "20x24 in (51x61 cm)",
+          "widthInches": 20,
+          "heightInches": 24,
+          "price": 59
+        }
+      ],
+      "frame": [
+        {
+          "size": "8x10",
+          "displaySize": "8x10 in (20x25 cm)",
+          "widthInches": 8,
+          "heightInches": 10,
+          "price": 69
+        },
+        {
+          "size": "16x20",
+          "displaySize": "16x20 in (41x51 cm)",
+          "widthInches": 16,
+          "heightInches": 20,
+          "price": 99
+        },
+        {
+          "size": "20x24",
+          "displaySize": "20x24 in (51x61 cm)",
+          "widthInches": 20,
+          "heightInches": 24,
+          "price": 139
+        }
+      ]
+    },
     "pricing": {
       "poster": {
-        "30x45": 39,
-        "50x75": 59
+        "8x10": 25,
+        "16x20": 45,
+        "20x24": 59
       },
-      "canvas": {
-        "30x45": 69,
-        "50x75": 119
+      "frame": {
+        "8x10": 69,
+        "16x20": 99,
+        "20x24": 139
       }
     },
-    "supportDetails": {
+    "supportLabels": {
       "poster": {
         "displayName": "Affiche Fine Art",
-        "description": "Tirage photo haute qualité sur papier mat premium, livré sans cadre."
+        "description": "Tirage photo sur papier mat premium EMA 200 g/m², livré sans cadre."
       },
-      "canvas": {
-        "displayName": "Toile imprimée",
-        "description": "Photo imprimée sur toile, rendu mural prêt à accrocher selon disponibilité Prodigi."
+      "frame": {
+        "displayName": "Tableau encadré",
+        "description": "Tirage encadré classique, finition sobre, prêt à accrocher selon disponibilité Prodigi."
       }
     }
   },
   {
-    "id": "cal-018",
+    "id": "cap-canaille02",
     "title": "Cap Canaille",
     "collection": "calanques",
     "previewImage": "/Calanques/cap-canaille02.jpg",
+    "width": 8064,
+    "height": 6048,
+    "aspectRatio": 1.333,
+    "normalizedRatio": 0.75,
+    "targetRatio": 0.75,
+    "ratioGroup": "3:4",
+    "ratioDeviation": 0,
+    "ratioMatchStatus": "perfect",
+    "cropWarning": false,
     "grade": "A",
-    "allowedFormats": [
-      "30x45",
-      "50x75",
-      "70x105"
-    ],
+    "support": "poster",
     "allowedSupports": [
       "poster",
-      "canvas",
       "frame"
     ],
+    "allowedPrintSizes": {
+      "poster": [
+        {
+          "size": "12x16",
+          "displaySize": "12x16 in (30x41 cm)",
+          "widthInches": 12,
+          "heightInches": 16,
+          "price": 35
+        },
+        {
+          "size": "18x24",
+          "displaySize": "18x24 in (46x61 cm)",
+          "widthInches": 18,
+          "heightInches": 24,
+          "price": 55
+        },
+        {
+          "size": "24x32",
+          "displaySize": "24x32 in (61x81 cm)",
+          "widthInches": 24,
+          "heightInches": 32,
+          "price": 79
+        },
+        {
+          "size": "30x40",
+          "displaySize": "30x40 in (76x102 cm)",
+          "widthInches": 30,
+          "heightInches": 40,
+          "price": 99
+        }
+      ],
+      "frame": [
+        {
+          "size": "12x16",
+          "displaySize": "12x16 in (30x41 cm)",
+          "widthInches": 12,
+          "heightInches": 16,
+          "price": 89
+        },
+        {
+          "size": "18x24",
+          "displaySize": "18x24 in (46x61 cm)",
+          "widthInches": 18,
+          "heightInches": 24,
+          "price": 129
+        },
+        {
+          "size": "24x32",
+          "displaySize": "24x32 in (61x81 cm)",
+          "widthInches": 24,
+          "heightInches": 32,
+          "price": 179
+        },
+        {
+          "size": "30x40",
+          "displaySize": "30x40 in (76x102 cm)",
+          "widthInches": 30,
+          "heightInches": 40,
+          "price": 229
+        }
+      ]
+    },
     "pricing": {
       "poster": {
-        "30x45": 39,
-        "50x75": 59,
-        "70x105": 89
-      },
-      "canvas": {
-        "30x45": 69,
-        "50x75": 119,
-        "70x105": 179
+        "12x16": 35,
+        "18x24": 55,
+        "24x32": 79,
+        "30x40": 99
       },
       "frame": {
-        "30x45": 99,
-        "50x75": 149,
-        "70x105": 229
+        "12x16": 89,
+        "18x24": 129,
+        "24x32": 179,
+        "30x40": 229
       }
     },
-    "supportDetails": {
+    "supportLabels": {
       "poster": {
         "displayName": "Affiche Fine Art",
-        "description": "Tirage photo haute qualité sur papier mat premium, livré sans cadre."
-      },
-      "canvas": {
-        "displayName": "Toile imprimée",
-        "description": "Photo imprimée sur toile, rendu mural prêt à accrocher selon disponibilité Prodigi."
+        "description": "Tirage photo sur papier mat premium EMA 200 g/m², livré sans cadre."
       },
       "frame": {
         "displayName": "Tableau encadré",
-        "description": "Tirage encadré prêt à accrocher, finition premium."
+        "description": "Tirage encadré classique, finition sobre, prêt à accrocher selon disponibilité Prodigi."
       }
     }
   },
   {
-    "id": "cal-019",
+    "id": "la-madrague-saint-cyr-sur-mer01",
     "title": "La Madrague, Saint-Cyr-sur-Mer",
     "collection": "calanques",
     "previewImage": "/Calanques/la-madrague-saint-cyr-sur-mer01.webp",
+    "width": 4800,
+    "height": 4458,
+    "aspectRatio": 1.077,
+    "normalizedRatio": 0.9287,
+    "targetRatio": 1,
+    "ratioGroup": "1:1",
+    "ratioDeviation": 0.0713,
+    "ratioMatchStatus": "crop-safe",
+    "cropWarning": true,
     "grade": "B",
-    "allowedFormats": [
-      "30x45",
-      "50x75"
-    ],
+    "support": "poster",
     "allowedSupports": [
       "poster",
-      "canvas"
+      "frame"
     ],
+    "allowedPrintSizes": {
+      "poster": [
+        {
+          "size": "12x12",
+          "displaySize": "12x12 in (30x30 cm)",
+          "widthInches": 12,
+          "heightInches": 12,
+          "price": 29
+        },
+        {
+          "size": "16x16",
+          "displaySize": "16x16 in (41x41 cm)",
+          "widthInches": 16,
+          "heightInches": 16,
+          "price": 39
+        },
+        {
+          "size": "20x20",
+          "displaySize": "20x20 in (51x51 cm)",
+          "widthInches": 20,
+          "heightInches": 20,
+          "price": 55
+        },
+        {
+          "size": "24x24",
+          "displaySize": "24x24 in (61x61 cm)",
+          "widthInches": 24,
+          "heightInches": 24,
+          "price": 69
+        }
+      ],
+      "frame": [
+        {
+          "size": "12x12",
+          "displaySize": "12x12 in (30x30 cm)",
+          "widthInches": 12,
+          "heightInches": 12,
+          "price": 79
+        },
+        {
+          "size": "16x16",
+          "displaySize": "16x16 in (41x41 cm)",
+          "widthInches": 16,
+          "heightInches": 16,
+          "price": 99
+        },
+        {
+          "size": "20x20",
+          "displaySize": "20x20 in (51x51 cm)",
+          "widthInches": 20,
+          "heightInches": 20,
+          "price": 119
+        },
+        {
+          "size": "24x24",
+          "displaySize": "24x24 in (61x61 cm)",
+          "widthInches": 24,
+          "heightInches": 24,
+          "price": 159
+        }
+      ]
+    },
     "pricing": {
       "poster": {
-        "30x45": 39,
-        "50x75": 59
+        "12x12": 29,
+        "16x16": 39,
+        "20x20": 55,
+        "24x24": 69
       },
-      "canvas": {
-        "30x45": 69,
-        "50x75": 119
+      "frame": {
+        "12x12": 79,
+        "16x16": 99,
+        "20x20": 119,
+        "24x24": 159
       }
     },
-    "supportDetails": {
+    "supportLabels": {
       "poster": {
         "displayName": "Affiche Fine Art",
-        "description": "Tirage photo haute qualité sur papier mat premium, livré sans cadre."
+        "description": "Tirage photo sur papier mat premium EMA 200 g/m², livré sans cadre."
       },
-      "canvas": {
-        "displayName": "Toile imprimée",
-        "description": "Photo imprimée sur toile, rendu mural prêt à accrocher selon disponibilité Prodigi."
+      "frame": {
+        "displayName": "Tableau encadré",
+        "description": "Tirage encadré classique, finition sobre, prêt à accrocher selon disponibilité Prodigi."
       }
     }
   },
   {
-    "id": "cal-020",
+    "id": "bougainvillier-bandol01",
     "title": "Bandol",
     "collection": "calanques",
     "previewImage": "/Calanques/bougainvillier-bandol01.jpg",
-    "grade": "C",
-    "allowedFormats": [
-      "30x45"
-    ],
+    "width": 2880,
+    "height": 3840,
+    "aspectRatio": 0.75,
+    "normalizedRatio": 0.75,
+    "targetRatio": 0.75,
+    "ratioGroup": "3:4",
+    "ratioDeviation": 0,
+    "ratioMatchStatus": "perfect",
+    "cropWarning": false,
+    "grade": "B",
+    "support": "poster",
     "allowedSupports": [
-      "poster"
+      "poster",
+      "frame"
     ],
+    "allowedPrintSizes": {
+      "poster": [
+        {
+          "size": "12x16",
+          "displaySize": "12x16 in (30x41 cm)",
+          "widthInches": 12,
+          "heightInches": 16,
+          "price": 35
+        },
+        {
+          "size": "18x24",
+          "displaySize": "18x24 in (46x61 cm)",
+          "widthInches": 18,
+          "heightInches": 24,
+          "price": 55
+        }
+      ],
+      "frame": [
+        {
+          "size": "12x16",
+          "displaySize": "12x16 in (30x41 cm)",
+          "widthInches": 12,
+          "heightInches": 16,
+          "price": 89
+        },
+        {
+          "size": "18x24",
+          "displaySize": "18x24 in (46x61 cm)",
+          "widthInches": 18,
+          "heightInches": 24,
+          "price": 129
+        }
+      ]
+    },
     "pricing": {
       "poster": {
-        "30x45": 39
+        "12x16": 35,
+        "18x24": 55
+      },
+      "frame": {
+        "12x16": 89,
+        "18x24": 129
       }
     },
-    "supportDetails": {
+    "supportLabels": {
       "poster": {
         "displayName": "Affiche Fine Art",
-        "description": "Tirage photo haute qualité sur papier mat premium, livré sans cadre."
+        "description": "Tirage photo sur papier mat premium EMA 200 g/m², livré sans cadre."
+      },
+      "frame": {
+        "displayName": "Tableau encadré",
+        "description": "Tirage encadré classique, finition sobre, prêt à accrocher selon disponibilité Prodigi."
       }
     }
   },
   {
-    "id": "cal-021",
+    "id": "plage-beaucours01",
     "title": "Beaucours",
     "collection": "calanques",
     "previewImage": "/Calanques/plage-beaucours01.webp",
+    "width": 4800,
+    "height": 4800,
+    "aspectRatio": 1,
+    "normalizedRatio": 1,
+    "targetRatio": 1,
+    "ratioGroup": "1:1",
+    "ratioDeviation": 0,
+    "ratioMatchStatus": "perfect",
+    "cropWarning": false,
     "grade": "B",
-    "allowedFormats": [
-      "30x45",
-      "50x75"
-    ],
+    "support": "poster",
     "allowedSupports": [
       "poster",
-      "canvas"
+      "frame"
     ],
+    "allowedPrintSizes": {
+      "poster": [
+        {
+          "size": "12x12",
+          "displaySize": "12x12 in (30x30 cm)",
+          "widthInches": 12,
+          "heightInches": 12,
+          "price": 29
+        },
+        {
+          "size": "16x16",
+          "displaySize": "16x16 in (41x41 cm)",
+          "widthInches": 16,
+          "heightInches": 16,
+          "price": 39
+        },
+        {
+          "size": "20x20",
+          "displaySize": "20x20 in (51x51 cm)",
+          "widthInches": 20,
+          "heightInches": 20,
+          "price": 55
+        },
+        {
+          "size": "24x24",
+          "displaySize": "24x24 in (61x61 cm)",
+          "widthInches": 24,
+          "heightInches": 24,
+          "price": 69
+        },
+        {
+          "size": "30x30",
+          "displaySize": "30x30 in (76x76 cm)",
+          "widthInches": 30,
+          "heightInches": 30,
+          "price": 89
+        }
+      ],
+      "frame": [
+        {
+          "size": "12x12",
+          "displaySize": "12x12 in (30x30 cm)",
+          "widthInches": 12,
+          "heightInches": 12,
+          "price": 79
+        },
+        {
+          "size": "16x16",
+          "displaySize": "16x16 in (41x41 cm)",
+          "widthInches": 16,
+          "heightInches": 16,
+          "price": 99
+        },
+        {
+          "size": "20x20",
+          "displaySize": "20x20 in (51x51 cm)",
+          "widthInches": 20,
+          "heightInches": 20,
+          "price": 119
+        },
+        {
+          "size": "24x24",
+          "displaySize": "24x24 in (61x61 cm)",
+          "widthInches": 24,
+          "heightInches": 24,
+          "price": 159
+        },
+        {
+          "size": "30x30",
+          "displaySize": "30x30 in (76x76 cm)",
+          "widthInches": 30,
+          "heightInches": 30,
+          "price": 199
+        }
+      ]
+    },
     "pricing": {
       "poster": {
-        "30x45": 39,
-        "50x75": 59
+        "12x12": 29,
+        "16x16": 39,
+        "20x20": 55,
+        "24x24": 69,
+        "30x30": 89
       },
-      "canvas": {
-        "30x45": 69,
-        "50x75": 119
+      "frame": {
+        "12x12": 79,
+        "16x16": 99,
+        "20x20": 119,
+        "24x24": 159,
+        "30x30": 199
       }
     },
-    "supportDetails": {
+    "supportLabels": {
       "poster": {
         "displayName": "Affiche Fine Art",
-        "description": "Tirage photo haute qualité sur papier mat premium, livré sans cadre."
+        "description": "Tirage photo sur papier mat premium EMA 200 g/m², livré sans cadre."
       },
-      "canvas": {
-        "displayName": "Toile imprimée",
-        "description": "Photo imprimée sur toile, rendu mural prêt à accrocher selon disponibilité Prodigi."
+      "frame": {
+        "displayName": "Tableau encadré",
+        "description": "Tirage encadré classique, finition sobre, prêt à accrocher selon disponibilité Prodigi."
       }
     }
   },
   {
-    "id": "cal-022",
+    "id": "plage-beaucours02",
     "title": "Beaucours",
     "collection": "calanques",
     "previewImage": "/Calanques/plage-beaucours02.webp",
-    "grade": "A",
-    "allowedFormats": [
-      "30x45",
-      "50x75",
-      "70x105"
-    ],
+    "width": 7506,
+    "height": 6706,
+    "aspectRatio": 1.119,
+    "normalizedRatio": 0.8934,
+    "targetRatio": 1,
+    "ratioGroup": "1:1",
+    "ratioDeviation": 0.1066,
+    "ratioMatchStatus": "manual-review",
+    "cropWarning": true,
+    "grade": "B",
+    "support": "poster",
     "allowedSupports": [
       "poster",
-      "canvas",
       "frame"
     ],
+    "allowedPrintSizes": {
+      "poster": [
+        {
+          "size": "12x12",
+          "displaySize": "12x12 in (30x30 cm)",
+          "widthInches": 12,
+          "heightInches": 12,
+          "price": 29
+        },
+        {
+          "size": "16x16",
+          "displaySize": "16x16 in (41x41 cm)",
+          "widthInches": 16,
+          "heightInches": 16,
+          "price": 39
+        },
+        {
+          "size": "20x20",
+          "displaySize": "20x20 in (51x51 cm)",
+          "widthInches": 20,
+          "heightInches": 20,
+          "price": 55
+        },
+        {
+          "size": "24x24",
+          "displaySize": "24x24 in (61x61 cm)",
+          "widthInches": 24,
+          "heightInches": 24,
+          "price": 69
+        },
+        {
+          "size": "30x30",
+          "displaySize": "30x30 in (76x76 cm)",
+          "widthInches": 30,
+          "heightInches": 30,
+          "price": 89
+        }
+      ],
+      "frame": [
+        {
+          "size": "12x12",
+          "displaySize": "12x12 in (30x30 cm)",
+          "widthInches": 12,
+          "heightInches": 12,
+          "price": 79
+        },
+        {
+          "size": "16x16",
+          "displaySize": "16x16 in (41x41 cm)",
+          "widthInches": 16,
+          "heightInches": 16,
+          "price": 99
+        },
+        {
+          "size": "20x20",
+          "displaySize": "20x20 in (51x51 cm)",
+          "widthInches": 20,
+          "heightInches": 20,
+          "price": 119
+        },
+        {
+          "size": "24x24",
+          "displaySize": "24x24 in (61x61 cm)",
+          "widthInches": 24,
+          "heightInches": 24,
+          "price": 159
+        },
+        {
+          "size": "30x30",
+          "displaySize": "30x30 in (76x76 cm)",
+          "widthInches": 30,
+          "heightInches": 30,
+          "price": 199
+        }
+      ]
+    },
     "pricing": {
       "poster": {
-        "30x45": 39,
-        "50x75": 59,
-        "70x105": 89
-      },
-      "canvas": {
-        "30x45": 69,
-        "50x75": 119,
-        "70x105": 179
+        "12x12": 29,
+        "16x16": 39,
+        "20x20": 55,
+        "24x24": 69,
+        "30x30": 89
       },
       "frame": {
-        "30x45": 99,
-        "50x75": 149,
-        "70x105": 229
+        "12x12": 79,
+        "16x16": 99,
+        "20x20": 119,
+        "24x24": 159,
+        "30x30": 199
       }
     },
-    "supportDetails": {
+    "supportLabels": {
       "poster": {
         "displayName": "Affiche Fine Art",
-        "description": "Tirage photo haute qualité sur papier mat premium, livré sans cadre."
-      },
-      "canvas": {
-        "displayName": "Toile imprimée",
-        "description": "Photo imprimée sur toile, rendu mural prêt à accrocher selon disponibilité Prodigi."
+        "description": "Tirage photo sur papier mat premium EMA 200 g/m², livré sans cadre."
       },
       "frame": {
         "displayName": "Tableau encadré",
-        "description": "Tirage encadré prêt à accrocher, finition premium."
+        "description": "Tirage encadré classique, finition sobre, prêt à accrocher selon disponibilité Prodigi."
       }
     }
   },
   {
-    "id": "cal-023",
+    "id": "plage-la-fossette01",
     "title": "Plage de la Fossette",
     "collection": "calanques",
     "previewImage": "/Calanques/plage-la-fossette01.webp",
+    "width": 4800,
+    "height": 5404,
+    "aspectRatio": 0.888,
+    "normalizedRatio": 0.8882,
+    "targetRatio": 0.8,
+    "ratioGroup": "4:5",
+    "ratioDeviation": 0.1103,
+    "ratioMatchStatus": "manual-review",
+    "cropWarning": true,
     "grade": "B",
-    "allowedFormats": [
-      "30x45",
-      "50x75"
-    ],
+    "support": "poster",
     "allowedSupports": [
       "poster",
-      "canvas"
+      "frame"
     ],
+    "allowedPrintSizes": {
+      "poster": [
+        {
+          "size": "8x10",
+          "displaySize": "8x10 in (20x25 cm)",
+          "widthInches": 8,
+          "heightInches": 10,
+          "price": 25
+        },
+        {
+          "size": "16x20",
+          "displaySize": "16x20 in (41x51 cm)",
+          "widthInches": 16,
+          "heightInches": 20,
+          "price": 45
+        },
+        {
+          "size": "20x24",
+          "displaySize": "20x24 in (51x61 cm)",
+          "widthInches": 20,
+          "heightInches": 24,
+          "price": 59
+        }
+      ],
+      "frame": [
+        {
+          "size": "8x10",
+          "displaySize": "8x10 in (20x25 cm)",
+          "widthInches": 8,
+          "heightInches": 10,
+          "price": 69
+        },
+        {
+          "size": "16x20",
+          "displaySize": "16x20 in (41x51 cm)",
+          "widthInches": 16,
+          "heightInches": 20,
+          "price": 99
+        },
+        {
+          "size": "20x24",
+          "displaySize": "20x24 in (51x61 cm)",
+          "widthInches": 20,
+          "heightInches": 24,
+          "price": 139
+        }
+      ]
+    },
     "pricing": {
       "poster": {
-        "30x45": 39,
-        "50x75": 59
+        "8x10": 25,
+        "16x20": 45,
+        "20x24": 59
       },
-      "canvas": {
-        "30x45": 69,
-        "50x75": 119
+      "frame": {
+        "8x10": 69,
+        "16x20": 99,
+        "20x24": 139
       }
     },
-    "supportDetails": {
+    "supportLabels": {
       "poster": {
         "displayName": "Affiche Fine Art",
-        "description": "Tirage photo haute qualité sur papier mat premium, livré sans cadre."
+        "description": "Tirage photo sur papier mat premium EMA 200 g/m², livré sans cadre."
       },
-      "canvas": {
-        "displayName": "Toile imprimée",
-        "description": "Photo imprimée sur toile, rendu mural prêt à accrocher selon disponibilité Prodigi."
+      "frame": {
+        "displayName": "Tableau encadré",
+        "description": "Tirage encadré classique, finition sobre, prêt à accrocher selon disponibilité Prodigi."
       }
     }
   },
   {
-    "id": "cal-024",
+    "id": "plage-la-fossette02",
     "title": "Plage de la Fossette",
     "collection": "calanques",
     "previewImage": "/Calanques/plage-la-fossette02.webp",
+    "width": 4800,
+    "height": 4646,
+    "aspectRatio": 1.033,
+    "normalizedRatio": 0.9679,
+    "targetRatio": 1,
+    "ratioGroup": "1:1",
+    "ratioDeviation": 0.0321,
+    "ratioMatchStatus": "crop-safe",
+    "cropWarning": true,
     "grade": "B",
-    "allowedFormats": [
-      "30x45",
-      "50x75"
-    ],
+    "support": "poster",
     "allowedSupports": [
       "poster",
-      "canvas"
+      "frame"
     ],
+    "allowedPrintSizes": {
+      "poster": [
+        {
+          "size": "12x12",
+          "displaySize": "12x12 in (30x30 cm)",
+          "widthInches": 12,
+          "heightInches": 12,
+          "price": 29
+        },
+        {
+          "size": "16x16",
+          "displaySize": "16x16 in (41x41 cm)",
+          "widthInches": 16,
+          "heightInches": 16,
+          "price": 39
+        },
+        {
+          "size": "20x20",
+          "displaySize": "20x20 in (51x51 cm)",
+          "widthInches": 20,
+          "heightInches": 20,
+          "price": 55
+        },
+        {
+          "size": "24x24",
+          "displaySize": "24x24 in (61x61 cm)",
+          "widthInches": 24,
+          "heightInches": 24,
+          "price": 69
+        },
+        {
+          "size": "30x30",
+          "displaySize": "30x30 in (76x76 cm)",
+          "widthInches": 30,
+          "heightInches": 30,
+          "price": 89
+        }
+      ],
+      "frame": [
+        {
+          "size": "12x12",
+          "displaySize": "12x12 in (30x30 cm)",
+          "widthInches": 12,
+          "heightInches": 12,
+          "price": 79
+        },
+        {
+          "size": "16x16",
+          "displaySize": "16x16 in (41x41 cm)",
+          "widthInches": 16,
+          "heightInches": 16,
+          "price": 99
+        },
+        {
+          "size": "20x20",
+          "displaySize": "20x20 in (51x51 cm)",
+          "widthInches": 20,
+          "heightInches": 20,
+          "price": 119
+        },
+        {
+          "size": "24x24",
+          "displaySize": "24x24 in (61x61 cm)",
+          "widthInches": 24,
+          "heightInches": 24,
+          "price": 159
+        },
+        {
+          "size": "30x30",
+          "displaySize": "30x30 in (76x76 cm)",
+          "widthInches": 30,
+          "heightInches": 30,
+          "price": 199
+        }
+      ]
+    },
     "pricing": {
       "poster": {
-        "30x45": 39,
-        "50x75": 59
+        "12x12": 29,
+        "16x16": 39,
+        "20x20": 55,
+        "24x24": 69,
+        "30x30": 89
       },
-      "canvas": {
-        "30x45": 69,
-        "50x75": 119
+      "frame": {
+        "12x12": 79,
+        "16x16": 99,
+        "20x20": 119,
+        "24x24": 159,
+        "30x30": 199
       }
     },
-    "supportDetails": {
+    "supportLabels": {
       "poster": {
         "displayName": "Affiche Fine Art",
-        "description": "Tirage photo haute qualité sur papier mat premium, livré sans cadre."
+        "description": "Tirage photo sur papier mat premium EMA 200 g/m², livré sans cadre."
       },
-      "canvas": {
-        "displayName": "Toile imprimée",
-        "description": "Photo imprimée sur toile, rendu mural prêt à accrocher selon disponibilité Prodigi."
+      "frame": {
+        "displayName": "Tableau encadré",
+        "description": "Tirage encadré classique, finition sobre, prêt à accrocher selon disponibilité Prodigi."
       }
     }
   },
   {
-    "id": "cal-025",
+    "id": "plage-la-fossette03",
     "title": "Plage de la Fossette",
     "collection": "calanques",
     "previewImage": "/Calanques/plage-la-fossette03.webp",
+    "width": 4800,
+    "height": 3372,
+    "aspectRatio": 1.423,
+    "normalizedRatio": 0.7025,
+    "targetRatio": 0.6667,
+    "ratioGroup": "2:3",
+    "ratioDeviation": 0.0538,
+    "ratioMatchStatus": "crop-safe",
+    "cropWarning": true,
     "grade": "B",
-    "allowedFormats": [
-      "30x45",
-      "50x75"
-    ],
+    "support": "poster",
     "allowedSupports": [
       "poster",
-      "canvas"
+      "frame"
     ],
+    "allowedPrintSizes": {
+      "poster": [
+        {
+          "size": "12x18",
+          "displaySize": "12x18 in (30x46 cm)",
+          "widthInches": 12,
+          "heightInches": 18,
+          "price": 39
+        },
+        {
+          "size": "16x24",
+          "displaySize": "16x24 in (41x61 cm)",
+          "widthInches": 16,
+          "heightInches": 24,
+          "price": 49
+        },
+        {
+          "size": "20x30",
+          "displaySize": "20x30 in (51x76 cm)",
+          "widthInches": 20,
+          "heightInches": 30,
+          "price": 65
+        }
+      ],
+      "frame": [
+        {
+          "size": "12x18",
+          "displaySize": "12x18 in (30x46 cm)",
+          "widthInches": 12,
+          "heightInches": 18,
+          "price": 95
+        },
+        {
+          "size": "20x30",
+          "displaySize": "20x30 in (51x76 cm)",
+          "widthInches": 20,
+          "heightInches": 30,
+          "price": 149
+        }
+      ]
+    },
     "pricing": {
       "poster": {
-        "30x45": 39,
-        "50x75": 59
+        "12x18": 39,
+        "16x24": 49,
+        "20x30": 65
       },
-      "canvas": {
-        "30x45": 69,
-        "50x75": 119
+      "frame": {
+        "12x18": 95,
+        "20x30": 149
       }
     },
-    "supportDetails": {
+    "supportLabels": {
       "poster": {
         "displayName": "Affiche Fine Art",
-        "description": "Tirage photo haute qualité sur papier mat premium, livré sans cadre."
+        "description": "Tirage photo sur papier mat premium EMA 200 g/m², livré sans cadre."
       },
-      "canvas": {
-        "displayName": "Toile imprimée",
-        "description": "Photo imprimée sur toile, rendu mural prêt à accrocher selon disponibilité Prodigi."
+      "frame": {
+        "displayName": "Tableau encadré",
+        "description": "Tirage encadré classique, finition sobre, prêt à accrocher selon disponibilité Prodigi."
       }
     }
   },
   {
-    "id": "cal-027",
+    "id": "sugiton03",
     "title": "Sugiton",
     "collection": "calanques",
     "previewImage": "/Calanques/sugiton03.webp",
+    "width": 3600,
+    "height": 4800,
+    "aspectRatio": 0.75,
+    "normalizedRatio": 0.75,
+    "targetRatio": 0.75,
+    "ratioGroup": "3:4",
+    "ratioDeviation": 0,
+    "ratioMatchStatus": "perfect",
+    "cropWarning": false,
     "grade": "B",
-    "allowedFormats": [
-      "30x45",
-      "50x75"
-    ],
+    "support": "poster",
     "allowedSupports": [
       "poster",
-      "canvas"
+      "frame"
     ],
+    "allowedPrintSizes": {
+      "poster": [
+        {
+          "size": "12x16",
+          "displaySize": "12x16 in (30x41 cm)",
+          "widthInches": 12,
+          "heightInches": 16,
+          "price": 35
+        },
+        {
+          "size": "18x24",
+          "displaySize": "18x24 in (46x61 cm)",
+          "widthInches": 18,
+          "heightInches": 24,
+          "price": 55
+        },
+        {
+          "size": "24x32",
+          "displaySize": "24x32 in (61x81 cm)",
+          "widthInches": 24,
+          "heightInches": 32,
+          "price": 79
+        }
+      ],
+      "frame": [
+        {
+          "size": "12x16",
+          "displaySize": "12x16 in (30x41 cm)",
+          "widthInches": 12,
+          "heightInches": 16,
+          "price": 89
+        },
+        {
+          "size": "18x24",
+          "displaySize": "18x24 in (46x61 cm)",
+          "widthInches": 18,
+          "heightInches": 24,
+          "price": 129
+        },
+        {
+          "size": "24x32",
+          "displaySize": "24x32 in (61x81 cm)",
+          "widthInches": 24,
+          "heightInches": 32,
+          "price": 179
+        }
+      ]
+    },
     "pricing": {
       "poster": {
-        "30x45": 39,
-        "50x75": 59
+        "12x16": 35,
+        "18x24": 55,
+        "24x32": 79
       },
-      "canvas": {
-        "30x45": 69,
-        "50x75": 119
+      "frame": {
+        "12x16": 89,
+        "18x24": 129,
+        "24x32": 179
       }
     },
-    "supportDetails": {
+    "supportLabels": {
       "poster": {
         "displayName": "Affiche Fine Art",
-        "description": "Tirage photo haute qualité sur papier mat premium, livré sans cadre."
+        "description": "Tirage photo sur papier mat premium EMA 200 g/m², livré sans cadre."
       },
-      "canvas": {
-        "displayName": "Toile imprimée",
-        "description": "Photo imprimée sur toile, rendu mural prêt à accrocher selon disponibilité Prodigi."
+      "frame": {
+        "displayName": "Tableau encadré",
+        "description": "Tirage encadré classique, finition sobre, prêt à accrocher selon disponibilité Prodigi."
       }
     }
   },
   {
-    "id": "cal-028",
+    "id": "sugiton04",
     "title": "Sugiton",
     "collection": "calanques",
     "previewImage": "/Calanques/sugiton04.webp",
+    "width": 3600,
+    "height": 4800,
+    "aspectRatio": 0.75,
+    "normalizedRatio": 0.75,
+    "targetRatio": 0.75,
+    "ratioGroup": "3:4",
+    "ratioDeviation": 0,
+    "ratioMatchStatus": "perfect",
+    "cropWarning": false,
     "grade": "B",
-    "allowedFormats": [
-      "30x45",
-      "50x75"
-    ],
+    "support": "poster",
     "allowedSupports": [
       "poster",
-      "canvas"
+      "frame"
     ],
+    "allowedPrintSizes": {
+      "poster": [
+        {
+          "size": "12x16",
+          "displaySize": "12x16 in (30x41 cm)",
+          "widthInches": 12,
+          "heightInches": 16,
+          "price": 35
+        },
+        {
+          "size": "18x24",
+          "displaySize": "18x24 in (46x61 cm)",
+          "widthInches": 18,
+          "heightInches": 24,
+          "price": 55
+        },
+        {
+          "size": "24x32",
+          "displaySize": "24x32 in (61x81 cm)",
+          "widthInches": 24,
+          "heightInches": 32,
+          "price": 79
+        }
+      ],
+      "frame": [
+        {
+          "size": "12x16",
+          "displaySize": "12x16 in (30x41 cm)",
+          "widthInches": 12,
+          "heightInches": 16,
+          "price": 89
+        },
+        {
+          "size": "18x24",
+          "displaySize": "18x24 in (46x61 cm)",
+          "widthInches": 18,
+          "heightInches": 24,
+          "price": 129
+        },
+        {
+          "size": "24x32",
+          "displaySize": "24x32 in (61x81 cm)",
+          "widthInches": 24,
+          "heightInches": 32,
+          "price": 179
+        }
+      ]
+    },
     "pricing": {
       "poster": {
-        "30x45": 39,
-        "50x75": 59
+        "12x16": 35,
+        "18x24": 55,
+        "24x32": 79
       },
-      "canvas": {
-        "30x45": 69,
-        "50x75": 119
+      "frame": {
+        "12x16": 89,
+        "18x24": 129,
+        "24x32": 179
       }
     },
-    "supportDetails": {
+    "supportLabels": {
       "poster": {
         "displayName": "Affiche Fine Art",
-        "description": "Tirage photo haute qualité sur papier mat premium, livré sans cadre."
+        "description": "Tirage photo sur papier mat premium EMA 200 g/m², livré sans cadre."
       },
-      "canvas": {
-        "displayName": "Toile imprimée",
-        "description": "Photo imprimée sur toile, rendu mural prêt à accrocher selon disponibilité Prodigi."
+      "frame": {
+        "displayName": "Tableau encadré",
+        "description": "Tirage encadré classique, finition sobre, prêt à accrocher selon disponibilité Prodigi."
       }
     }
   },
   {
-    "id": "cal-026",
+    "id": "plage-portissol01",
     "title": "Plage de Portissol",
     "collection": "calanques",
     "previewImage": "/Calanques/plage-portissol01.webp",
-    "grade": "A",
-    "allowedFormats": [
-      "30x45",
-      "50x75",
-      "70x105"
-    ],
+    "width": 7008,
+    "height": 5562,
+    "aspectRatio": 1.26,
+    "normalizedRatio": 0.7937,
+    "targetRatio": 0.8,
+    "ratioGroup": "4:5",
+    "ratioDeviation": 0.0079,
+    "ratioMatchStatus": "perfect",
+    "cropWarning": false,
+    "grade": "B",
+    "support": "poster",
     "allowedSupports": [
       "poster",
-      "canvas",
       "frame"
     ],
+    "allowedPrintSizes": {
+      "poster": [
+        {
+          "size": "8x10",
+          "displaySize": "8x10 in (20x25 cm)",
+          "widthInches": 8,
+          "heightInches": 10,
+          "price": 25
+        },
+        {
+          "size": "16x20",
+          "displaySize": "16x20 in (41x51 cm)",
+          "widthInches": 16,
+          "heightInches": 20,
+          "price": 45
+        },
+        {
+          "size": "20x24",
+          "displaySize": "20x24 in (51x61 cm)",
+          "widthInches": 20,
+          "heightInches": 24,
+          "price": 59
+        }
+      ],
+      "frame": [
+        {
+          "size": "8x10",
+          "displaySize": "8x10 in (20x25 cm)",
+          "widthInches": 8,
+          "heightInches": 10,
+          "price": 69
+        },
+        {
+          "size": "16x20",
+          "displaySize": "16x20 in (41x51 cm)",
+          "widthInches": 16,
+          "heightInches": 20,
+          "price": 99
+        },
+        {
+          "size": "20x24",
+          "displaySize": "20x24 in (51x61 cm)",
+          "widthInches": 20,
+          "heightInches": 24,
+          "price": 139
+        }
+      ]
+    },
     "pricing": {
       "poster": {
-        "30x45": 39,
-        "50x75": 59,
-        "70x105": 89
-      },
-      "canvas": {
-        "30x45": 69,
-        "50x75": 119,
-        "70x105": 179
+        "8x10": 25,
+        "16x20": 45,
+        "20x24": 59
       },
       "frame": {
-        "30x45": 99,
-        "50x75": 149,
-        "70x105": 229
+        "8x10": 69,
+        "16x20": 99,
+        "20x24": 139
       }
     },
-    "supportDetails": {
+    "supportLabels": {
       "poster": {
         "displayName": "Affiche Fine Art",
-        "description": "Tirage photo haute qualité sur papier mat premium, livré sans cadre."
-      },
-      "canvas": {
-        "displayName": "Toile imprimée",
-        "description": "Photo imprimée sur toile, rendu mural prêt à accrocher selon disponibilité Prodigi."
+        "description": "Tirage photo sur papier mat premium EMA 200 g/m², livré sans cadre."
       },
       "frame": {
         "displayName": "Tableau encadré",
-        "description": "Tirage encadré prêt à accrocher, finition premium."
+        "description": "Tirage encadré classique, finition sobre, prêt à accrocher selon disponibilité Prodigi."
       }
     }
   },
   {
-    "id": "sun-001",
+    "id": "Coucher de soleil La Ciotat éléphant routedes crêtes",
     "title": "Route des Crêtes, La Ciotat",
     "collection": "couchers-de-soleil",
     "previewImage": "/Sunset/Coucher de soleil La Ciotat éléphant routedes crêtes.webp",
-    "grade": "C",
-    "allowedFormats": [
-      "30x45"
-    ],
+    "width": 3200,
+    "height": 4266,
+    "aspectRatio": 0.75,
+    "normalizedRatio": 0.7501,
+    "targetRatio": 0.75,
+    "ratioGroup": "3:4",
+    "ratioDeviation": 0.0002,
+    "ratioMatchStatus": "perfect",
+    "cropWarning": false,
+    "grade": "B",
+    "support": "poster",
     "allowedSupports": [
-      "poster"
+      "poster",
+      "frame"
     ],
+    "allowedPrintSizes": {
+      "poster": [
+        {
+          "size": "12x16",
+          "displaySize": "12x16 in (30x41 cm)",
+          "widthInches": 12,
+          "heightInches": 16,
+          "price": 35
+        },
+        {
+          "size": "18x24",
+          "displaySize": "18x24 in (46x61 cm)",
+          "widthInches": 18,
+          "heightInches": 24,
+          "price": 55
+        }
+      ],
+      "frame": [
+        {
+          "size": "12x16",
+          "displaySize": "12x16 in (30x41 cm)",
+          "widthInches": 12,
+          "heightInches": 16,
+          "price": 89
+        },
+        {
+          "size": "18x24",
+          "displaySize": "18x24 in (46x61 cm)",
+          "widthInches": 18,
+          "heightInches": 24,
+          "price": 129
+        }
+      ]
+    },
     "pricing": {
       "poster": {
-        "30x45": 39
+        "12x16": 35,
+        "18x24": 55
+      },
+      "frame": {
+        "12x16": 89,
+        "18x24": 129
       }
     },
-    "supportDetails": {
+    "supportLabels": {
       "poster": {
         "displayName": "Affiche Fine Art",
-        "description": "Tirage photo haute qualité sur papier mat premium, livré sans cadre."
+        "description": "Tirage photo sur papier mat premium EMA 200 g/m², livré sans cadre."
+      },
+      "frame": {
+        "displayName": "Tableau encadré",
+        "description": "Tirage encadré classique, finition sobre, prêt à accrocher selon disponibilité Prodigi."
       }
     }
   },
   {
-    "id": "sun-002",
+    "id": "sunset fire la ciotat",
     "title": "La Ciotat au coucher du soleil",
     "collection": "couchers-de-soleil",
     "previewImage": "/Sunset/sunset fire la ciotat.webp",
+    "width": 4800,
+    "height": 2998,
+    "aspectRatio": 1.601,
+    "normalizedRatio": 0.6246,
+    "targetRatio": 0.6667,
+    "ratioGroup": "2:3",
+    "ratioDeviation": 0.0631,
+    "ratioMatchStatus": "crop-safe",
+    "cropWarning": true,
     "grade": "B",
-    "allowedFormats": [
-      "30x45",
-      "50x75"
-    ],
+    "support": "poster",
     "allowedSupports": [
       "poster",
-      "canvas"
+      "frame"
     ],
+    "allowedPrintSizes": {
+      "poster": [
+        {
+          "size": "12x18",
+          "displaySize": "12x18 in (30x46 cm)",
+          "widthInches": 12,
+          "heightInches": 18,
+          "price": 39
+        },
+        {
+          "size": "16x24",
+          "displaySize": "16x24 in (41x61 cm)",
+          "widthInches": 16,
+          "heightInches": 24,
+          "price": 49
+        }
+      ],
+      "frame": [
+        {
+          "size": "12x18",
+          "displaySize": "12x18 in (30x46 cm)",
+          "widthInches": 12,
+          "heightInches": 18,
+          "price": 95
+        }
+      ]
+    },
     "pricing": {
       "poster": {
-        "30x45": 39,
-        "50x75": 59
+        "12x18": 39,
+        "16x24": 49
       },
-      "canvas": {
-        "30x45": 69,
-        "50x75": 119
+      "frame": {
+        "12x18": 95
       }
     },
-    "supportDetails": {
+    "supportLabels": {
       "poster": {
         "displayName": "Affiche Fine Art",
-        "description": "Tirage photo haute qualité sur papier mat premium, livré sans cadre."
+        "description": "Tirage photo sur papier mat premium EMA 200 g/m², livré sans cadre."
       },
-      "canvas": {
-        "displayName": "Toile imprimée",
-        "description": "Photo imprimée sur toile, rendu mural prêt à accrocher selon disponibilité Prodigi."
+      "frame": {
+        "displayName": "Tableau encadré",
+        "description": "Tirage encadré classique, finition sobre, prêt à accrocher selon disponibilité Prodigi."
       }
     }
   },
   {
-    "id": "sun-007",
+    "id": "Sunset La Ciotat1",
     "title": "La Ciotat au coucher du soleil",
     "collection": "couchers-de-soleil",
     "previewImage": "/Sunset/Sunset La Ciotat1.webp",
+    "width": 4800,
+    "height": 4634,
+    "aspectRatio": 1.036,
+    "normalizedRatio": 0.9654,
+    "targetRatio": 1,
+    "ratioGroup": "1:1",
+    "ratioDeviation": 0.0346,
+    "ratioMatchStatus": "crop-safe",
+    "cropWarning": true,
     "grade": "B",
-    "allowedFormats": [
-      "30x45",
-      "50x75"
-    ],
+    "support": "poster",
     "allowedSupports": [
       "poster",
-      "canvas"
+      "frame"
     ],
+    "allowedPrintSizes": {
+      "poster": [
+        {
+          "size": "12x12",
+          "displaySize": "12x12 in (30x30 cm)",
+          "widthInches": 12,
+          "heightInches": 12,
+          "price": 29
+        },
+        {
+          "size": "16x16",
+          "displaySize": "16x16 in (41x41 cm)",
+          "widthInches": 16,
+          "heightInches": 16,
+          "price": 39
+        },
+        {
+          "size": "20x20",
+          "displaySize": "20x20 in (51x51 cm)",
+          "widthInches": 20,
+          "heightInches": 20,
+          "price": 55
+        },
+        {
+          "size": "24x24",
+          "displaySize": "24x24 in (61x61 cm)",
+          "widthInches": 24,
+          "heightInches": 24,
+          "price": 69
+        },
+        {
+          "size": "30x30",
+          "displaySize": "30x30 in (76x76 cm)",
+          "widthInches": 30,
+          "heightInches": 30,
+          "price": 89
+        }
+      ],
+      "frame": [
+        {
+          "size": "12x12",
+          "displaySize": "12x12 in (30x30 cm)",
+          "widthInches": 12,
+          "heightInches": 12,
+          "price": 79
+        },
+        {
+          "size": "16x16",
+          "displaySize": "16x16 in (41x41 cm)",
+          "widthInches": 16,
+          "heightInches": 16,
+          "price": 99
+        },
+        {
+          "size": "20x20",
+          "displaySize": "20x20 in (51x51 cm)",
+          "widthInches": 20,
+          "heightInches": 20,
+          "price": 119
+        },
+        {
+          "size": "24x24",
+          "displaySize": "24x24 in (61x61 cm)",
+          "widthInches": 24,
+          "heightInches": 24,
+          "price": 159
+        },
+        {
+          "size": "30x30",
+          "displaySize": "30x30 in (76x76 cm)",
+          "widthInches": 30,
+          "heightInches": 30,
+          "price": 199
+        }
+      ]
+    },
     "pricing": {
       "poster": {
-        "30x45": 39,
-        "50x75": 59
+        "12x12": 29,
+        "16x16": 39,
+        "20x20": 55,
+        "24x24": 69,
+        "30x30": 89
       },
-      "canvas": {
-        "30x45": 69,
-        "50x75": 119
+      "frame": {
+        "12x12": 79,
+        "16x16": 99,
+        "20x20": 119,
+        "24x24": 159,
+        "30x30": 199
       }
     },
-    "supportDetails": {
+    "supportLabels": {
       "poster": {
         "displayName": "Affiche Fine Art",
-        "description": "Tirage photo haute qualité sur papier mat premium, livré sans cadre."
+        "description": "Tirage photo sur papier mat premium EMA 200 g/m², livré sans cadre."
       },
-      "canvas": {
-        "displayName": "Toile imprimée",
-        "description": "Photo imprimée sur toile, rendu mural prêt à accrocher selon disponibilité Prodigi."
+      "frame": {
+        "displayName": "Tableau encadré",
+        "description": "Tirage encadré classique, finition sobre, prêt à accrocher selon disponibilité Prodigi."
       }
     }
   },
   {
-    "id": "sun-008",
+    "id": "Sunset fire la ciotat 4",
     "title": "La Ciotat au coucher du soleil",
     "collection": "couchers-de-soleil",
     "previewImage": "/Sunset/Sunset fire la ciotat 4.webp",
+    "width": 4800,
+    "height": 3600,
+    "aspectRatio": 1.333,
+    "normalizedRatio": 0.75,
+    "targetRatio": 0.75,
+    "ratioGroup": "3:4",
+    "ratioDeviation": 0,
+    "ratioMatchStatus": "perfect",
+    "cropWarning": false,
     "grade": "B",
-    "allowedFormats": [
-      "30x45",
-      "50x75"
-    ],
+    "support": "poster",
     "allowedSupports": [
       "poster",
-      "canvas"
+      "frame"
     ],
+    "allowedPrintSizes": {
+      "poster": [
+        {
+          "size": "12x16",
+          "displaySize": "12x16 in (30x41 cm)",
+          "widthInches": 12,
+          "heightInches": 16,
+          "price": 35
+        },
+        {
+          "size": "18x24",
+          "displaySize": "18x24 in (46x61 cm)",
+          "widthInches": 18,
+          "heightInches": 24,
+          "price": 55
+        },
+        {
+          "size": "24x32",
+          "displaySize": "24x32 in (61x81 cm)",
+          "widthInches": 24,
+          "heightInches": 32,
+          "price": 79
+        }
+      ],
+      "frame": [
+        {
+          "size": "12x16",
+          "displaySize": "12x16 in (30x41 cm)",
+          "widthInches": 12,
+          "heightInches": 16,
+          "price": 89
+        },
+        {
+          "size": "18x24",
+          "displaySize": "18x24 in (46x61 cm)",
+          "widthInches": 18,
+          "heightInches": 24,
+          "price": 129
+        },
+        {
+          "size": "24x32",
+          "displaySize": "24x32 in (61x81 cm)",
+          "widthInches": 24,
+          "heightInches": 32,
+          "price": 179
+        }
+      ]
+    },
     "pricing": {
       "poster": {
-        "30x45": 39,
-        "50x75": 59
+        "12x16": 35,
+        "18x24": 55,
+        "24x32": 79
       },
-      "canvas": {
-        "30x45": 69,
-        "50x75": 119
+      "frame": {
+        "12x16": 89,
+        "18x24": 129,
+        "24x32": 179
       }
     },
-    "supportDetails": {
+    "supportLabels": {
       "poster": {
         "displayName": "Affiche Fine Art",
-        "description": "Tirage photo haute qualité sur papier mat premium, livré sans cadre."
+        "description": "Tirage photo sur papier mat premium EMA 200 g/m², livré sans cadre."
       },
-      "canvas": {
-        "displayName": "Toile imprimée",
-        "description": "Photo imprimée sur toile, rendu mural prêt à accrocher selon disponibilité Prodigi."
+      "frame": {
+        "displayName": "Tableau encadré",
+        "description": "Tirage encadré classique, finition sobre, prêt à accrocher selon disponibilité Prodigi."
       }
     }
   },
   {
-    "id": "sun-005",
+    "id": "sunset port saintjean la ciotat",
     "title": "Port Saint-Jean, La Ciotat",
     "collection": "couchers-de-soleil",
     "previewImage": "/Sunset/sunset port saintjean la ciotat.webp",
+    "width": 4800,
+    "height": 4800,
+    "aspectRatio": 1,
+    "normalizedRatio": 1,
+    "targetRatio": 1,
+    "ratioGroup": "1:1",
+    "ratioDeviation": 0,
+    "ratioMatchStatus": "perfect",
+    "cropWarning": false,
     "grade": "B",
-    "allowedFormats": [
-      "30x45",
-      "50x75"
-    ],
+    "support": "poster",
     "allowedSupports": [
       "poster",
-      "canvas"
+      "frame"
     ],
+    "allowedPrintSizes": {
+      "poster": [
+        {
+          "size": "12x12",
+          "displaySize": "12x12 in (30x30 cm)",
+          "widthInches": 12,
+          "heightInches": 12,
+          "price": 29
+        },
+        {
+          "size": "16x16",
+          "displaySize": "16x16 in (41x41 cm)",
+          "widthInches": 16,
+          "heightInches": 16,
+          "price": 39
+        },
+        {
+          "size": "20x20",
+          "displaySize": "20x20 in (51x51 cm)",
+          "widthInches": 20,
+          "heightInches": 20,
+          "price": 55
+        },
+        {
+          "size": "24x24",
+          "displaySize": "24x24 in (61x61 cm)",
+          "widthInches": 24,
+          "heightInches": 24,
+          "price": 69
+        },
+        {
+          "size": "30x30",
+          "displaySize": "30x30 in (76x76 cm)",
+          "widthInches": 30,
+          "heightInches": 30,
+          "price": 89
+        }
+      ],
+      "frame": [
+        {
+          "size": "12x12",
+          "displaySize": "12x12 in (30x30 cm)",
+          "widthInches": 12,
+          "heightInches": 12,
+          "price": 79
+        },
+        {
+          "size": "16x16",
+          "displaySize": "16x16 in (41x41 cm)",
+          "widthInches": 16,
+          "heightInches": 16,
+          "price": 99
+        },
+        {
+          "size": "20x20",
+          "displaySize": "20x20 in (51x51 cm)",
+          "widthInches": 20,
+          "heightInches": 20,
+          "price": 119
+        },
+        {
+          "size": "24x24",
+          "displaySize": "24x24 in (61x61 cm)",
+          "widthInches": 24,
+          "heightInches": 24,
+          "price": 159
+        },
+        {
+          "size": "30x30",
+          "displaySize": "30x30 in (76x76 cm)",
+          "widthInches": 30,
+          "heightInches": 30,
+          "price": 199
+        }
+      ]
+    },
     "pricing": {
       "poster": {
-        "30x45": 39,
-        "50x75": 59
+        "12x12": 29,
+        "16x16": 39,
+        "20x20": 55,
+        "24x24": 69,
+        "30x30": 89
       },
-      "canvas": {
-        "30x45": 69,
-        "50x75": 119
+      "frame": {
+        "12x12": 79,
+        "16x16": 99,
+        "20x20": 119,
+        "24x24": 159,
+        "30x30": 199
       }
     },
-    "supportDetails": {
+    "supportLabels": {
       "poster": {
         "displayName": "Affiche Fine Art",
-        "description": "Tirage photo haute qualité sur papier mat premium, livré sans cadre."
+        "description": "Tirage photo sur papier mat premium EMA 200 g/m², livré sans cadre."
       },
-      "canvas": {
-        "displayName": "Toile imprimée",
-        "description": "Photo imprimée sur toile, rendu mural prêt à accrocher selon disponibilité Prodigi."
+      "frame": {
+        "displayName": "Tableau encadré",
+        "description": "Tirage encadré classique, finition sobre, prêt à accrocher selon disponibilité Prodigi."
       }
     }
   },
   {
-    "id": "sun-003",
+    "id": "Sunset catalans marseille",
     "title": "Plage des Catalans, Marseille",
     "collection": "couchers-de-soleil",
     "previewImage": "/Sunset/Sunset catalans marseille.webp",
+    "width": 4800,
+    "height": 3914,
+    "aspectRatio": 1.226,
+    "normalizedRatio": 0.8154,
+    "targetRatio": 0.8,
+    "ratioGroup": "4:5",
+    "ratioDeviation": 0.0193,
+    "ratioMatchStatus": "perfect",
+    "cropWarning": false,
     "grade": "B",
-    "allowedFormats": [
-      "30x45",
-      "50x75"
-    ],
+    "support": "poster",
     "allowedSupports": [
       "poster",
-      "canvas"
+      "frame"
     ],
+    "allowedPrintSizes": {
+      "poster": [
+        {
+          "size": "8x10",
+          "displaySize": "8x10 in (20x25 cm)",
+          "widthInches": 8,
+          "heightInches": 10,
+          "price": 25
+        },
+        {
+          "size": "16x20",
+          "displaySize": "16x20 in (41x51 cm)",
+          "widthInches": 16,
+          "heightInches": 20,
+          "price": 45
+        },
+        {
+          "size": "20x24",
+          "displaySize": "20x24 in (51x61 cm)",
+          "widthInches": 20,
+          "heightInches": 24,
+          "price": 59
+        }
+      ],
+      "frame": [
+        {
+          "size": "8x10",
+          "displaySize": "8x10 in (20x25 cm)",
+          "widthInches": 8,
+          "heightInches": 10,
+          "price": 69
+        },
+        {
+          "size": "16x20",
+          "displaySize": "16x20 in (41x51 cm)",
+          "widthInches": 16,
+          "heightInches": 20,
+          "price": 99
+        },
+        {
+          "size": "20x24",
+          "displaySize": "20x24 in (51x61 cm)",
+          "widthInches": 20,
+          "heightInches": 24,
+          "price": 139
+        }
+      ]
+    },
     "pricing": {
       "poster": {
-        "30x45": 39,
-        "50x75": 59
+        "8x10": 25,
+        "16x20": 45,
+        "20x24": 59
       },
-      "canvas": {
-        "30x45": 69,
-        "50x75": 119
+      "frame": {
+        "8x10": 69,
+        "16x20": 99,
+        "20x24": 139
       }
     },
-    "supportDetails": {
+    "supportLabels": {
       "poster": {
         "displayName": "Affiche Fine Art",
-        "description": "Tirage photo haute qualité sur papier mat premium, livré sans cadre."
+        "description": "Tirage photo sur papier mat premium EMA 200 g/m², livré sans cadre."
       },
-      "canvas": {
-        "displayName": "Toile imprimée",
-        "description": "Photo imprimée sur toile, rendu mural prêt à accrocher selon disponibilité Prodigi."
+      "frame": {
+        "displayName": "Tableau encadré",
+        "description": "Tirage encadré classique, finition sobre, prêt à accrocher selon disponibilité Prodigi."
       }
     }
   },
   {
-    "id": "sun-011",
+    "id": "Sunset catalans",
     "title": "Plage des Catalans, Marseille",
     "collection": "couchers-de-soleil",
     "previewImage": "/Sunset/Sunset catalans.webp",
+    "width": 4800,
+    "height": 4796,
+    "aspectRatio": 1.001,
+    "normalizedRatio": 0.9992,
+    "targetRatio": 1,
+    "ratioGroup": "1:1",
+    "ratioDeviation": 0.0008,
+    "ratioMatchStatus": "perfect",
+    "cropWarning": false,
     "grade": "B",
-    "allowedFormats": [
-      "30x45",
-      "50x75"
-    ],
+    "support": "poster",
     "allowedSupports": [
       "poster",
-      "canvas"
+      "frame"
     ],
+    "allowedPrintSizes": {
+      "poster": [
+        {
+          "size": "12x12",
+          "displaySize": "12x12 in (30x30 cm)",
+          "widthInches": 12,
+          "heightInches": 12,
+          "price": 29
+        },
+        {
+          "size": "16x16",
+          "displaySize": "16x16 in (41x41 cm)",
+          "widthInches": 16,
+          "heightInches": 16,
+          "price": 39
+        },
+        {
+          "size": "20x20",
+          "displaySize": "20x20 in (51x51 cm)",
+          "widthInches": 20,
+          "heightInches": 20,
+          "price": 55
+        },
+        {
+          "size": "24x24",
+          "displaySize": "24x24 in (61x61 cm)",
+          "widthInches": 24,
+          "heightInches": 24,
+          "price": 69
+        },
+        {
+          "size": "30x30",
+          "displaySize": "30x30 in (76x76 cm)",
+          "widthInches": 30,
+          "heightInches": 30,
+          "price": 89
+        }
+      ],
+      "frame": [
+        {
+          "size": "12x12",
+          "displaySize": "12x12 in (30x30 cm)",
+          "widthInches": 12,
+          "heightInches": 12,
+          "price": 79
+        },
+        {
+          "size": "16x16",
+          "displaySize": "16x16 in (41x41 cm)",
+          "widthInches": 16,
+          "heightInches": 16,
+          "price": 99
+        },
+        {
+          "size": "20x20",
+          "displaySize": "20x20 in (51x51 cm)",
+          "widthInches": 20,
+          "heightInches": 20,
+          "price": 119
+        },
+        {
+          "size": "24x24",
+          "displaySize": "24x24 in (61x61 cm)",
+          "widthInches": 24,
+          "heightInches": 24,
+          "price": 159
+        },
+        {
+          "size": "30x30",
+          "displaySize": "30x30 in (76x76 cm)",
+          "widthInches": 30,
+          "heightInches": 30,
+          "price": 199
+        }
+      ]
+    },
     "pricing": {
       "poster": {
-        "30x45": 39,
-        "50x75": 59
+        "12x12": 29,
+        "16x16": 39,
+        "20x20": 55,
+        "24x24": 69,
+        "30x30": 89
       },
-      "canvas": {
-        "30x45": 69,
-        "50x75": 119
+      "frame": {
+        "12x12": 79,
+        "16x16": 99,
+        "20x20": 119,
+        "24x24": 159,
+        "30x30": 199
       }
     },
-    "supportDetails": {
+    "supportLabels": {
       "poster": {
         "displayName": "Affiche Fine Art",
-        "description": "Tirage photo haute qualité sur papier mat premium, livré sans cadre."
+        "description": "Tirage photo sur papier mat premium EMA 200 g/m², livré sans cadre."
       },
-      "canvas": {
-        "displayName": "Toile imprimée",
-        "description": "Photo imprimée sur toile, rendu mural prêt à accrocher selon disponibilité Prodigi."
+      "frame": {
+        "displayName": "Tableau encadré",
+        "description": "Tirage encadré classique, finition sobre, prêt à accrocher selon disponibilité Prodigi."
       }
     }
   },
   {
-    "id": "sun-004",
+    "id": "sunset l'estaque Marseille",
     "title": "L'Estaque, Marseille",
     "collection": "couchers-de-soleil",
     "previewImage": "/Sunset/sunset l'estaque Marseille.webp",
+    "width": 4800,
+    "height": 6400,
+    "aspectRatio": 0.75,
+    "normalizedRatio": 0.75,
+    "targetRatio": 0.75,
+    "ratioGroup": "3:4",
+    "ratioDeviation": 0,
+    "ratioMatchStatus": "perfect",
+    "cropWarning": false,
     "grade": "A",
-    "allowedFormats": [
-      "30x45",
-      "50x75",
-      "70x105"
-    ],
+    "support": "poster",
     "allowedSupports": [
       "poster",
-      "canvas",
       "frame"
     ],
+    "allowedPrintSizes": {
+      "poster": [
+        {
+          "size": "12x16",
+          "displaySize": "12x16 in (30x41 cm)",
+          "widthInches": 12,
+          "heightInches": 16,
+          "price": 35
+        },
+        {
+          "size": "18x24",
+          "displaySize": "18x24 in (46x61 cm)",
+          "widthInches": 18,
+          "heightInches": 24,
+          "price": 55
+        },
+        {
+          "size": "24x32",
+          "displaySize": "24x32 in (61x81 cm)",
+          "widthInches": 24,
+          "heightInches": 32,
+          "price": 79
+        },
+        {
+          "size": "30x40",
+          "displaySize": "30x40 in (76x102 cm)",
+          "widthInches": 30,
+          "heightInches": 40,
+          "price": 99
+        }
+      ],
+      "frame": [
+        {
+          "size": "12x16",
+          "displaySize": "12x16 in (30x41 cm)",
+          "widthInches": 12,
+          "heightInches": 16,
+          "price": 89
+        },
+        {
+          "size": "18x24",
+          "displaySize": "18x24 in (46x61 cm)",
+          "widthInches": 18,
+          "heightInches": 24,
+          "price": 129
+        },
+        {
+          "size": "24x32",
+          "displaySize": "24x32 in (61x81 cm)",
+          "widthInches": 24,
+          "heightInches": 32,
+          "price": 179
+        },
+        {
+          "size": "30x40",
+          "displaySize": "30x40 in (76x102 cm)",
+          "widthInches": 30,
+          "heightInches": 40,
+          "price": 229
+        }
+      ]
+    },
     "pricing": {
       "poster": {
-        "30x45": 39,
-        "50x75": 59,
-        "70x105": 89
-      },
-      "canvas": {
-        "30x45": 69,
-        "50x75": 119,
-        "70x105": 179
+        "12x16": 35,
+        "18x24": 55,
+        "24x32": 79,
+        "30x40": 99
       },
       "frame": {
-        "30x45": 99,
-        "50x75": 149,
-        "70x105": 229
+        "12x16": 89,
+        "18x24": 129,
+        "24x32": 179,
+        "30x40": 229
       }
     },
-    "supportDetails": {
+    "supportLabels": {
       "poster": {
         "displayName": "Affiche Fine Art",
-        "description": "Tirage photo haute qualité sur papier mat premium, livré sans cadre."
-      },
-      "canvas": {
-        "displayName": "Toile imprimée",
-        "description": "Photo imprimée sur toile, rendu mural prêt à accrocher selon disponibilité Prodigi."
+        "description": "Tirage photo sur papier mat premium EMA 200 g/m², livré sans cadre."
       },
       "frame": {
         "displayName": "Tableau encadré",
-        "description": "Tirage encadré prêt à accrocher, finition premium."
+        "description": "Tirage encadré classique, finition sobre, prêt à accrocher selon disponibilité Prodigi."
       }
     }
   },
   {
-    "id": "sun-006",
+    "id": "sunset serpent bain des dames marseille",
     "title": "Bain des Dames, Marseille",
     "collection": "couchers-de-soleil",
     "previewImage": "/Sunset/sunset serpent bain des dames marseille.webp",
+    "width": 4800,
+    "height": 6400,
+    "aspectRatio": 0.75,
+    "normalizedRatio": 0.75,
+    "targetRatio": 0.75,
+    "ratioGroup": "3:4",
+    "ratioDeviation": 0,
+    "ratioMatchStatus": "perfect",
+    "cropWarning": false,
     "grade": "A",
-    "allowedFormats": [
-      "30x45",
-      "50x75",
-      "70x105"
-    ],
+    "support": "poster",
     "allowedSupports": [
       "poster",
-      "canvas",
       "frame"
     ],
+    "allowedPrintSizes": {
+      "poster": [
+        {
+          "size": "12x16",
+          "displaySize": "12x16 in (30x41 cm)",
+          "widthInches": 12,
+          "heightInches": 16,
+          "price": 35
+        },
+        {
+          "size": "18x24",
+          "displaySize": "18x24 in (46x61 cm)",
+          "widthInches": 18,
+          "heightInches": 24,
+          "price": 55
+        },
+        {
+          "size": "24x32",
+          "displaySize": "24x32 in (61x81 cm)",
+          "widthInches": 24,
+          "heightInches": 32,
+          "price": 79
+        },
+        {
+          "size": "30x40",
+          "displaySize": "30x40 in (76x102 cm)",
+          "widthInches": 30,
+          "heightInches": 40,
+          "price": 99
+        }
+      ],
+      "frame": [
+        {
+          "size": "12x16",
+          "displaySize": "12x16 in (30x41 cm)",
+          "widthInches": 12,
+          "heightInches": 16,
+          "price": 89
+        },
+        {
+          "size": "18x24",
+          "displaySize": "18x24 in (46x61 cm)",
+          "widthInches": 18,
+          "heightInches": 24,
+          "price": 129
+        },
+        {
+          "size": "24x32",
+          "displaySize": "24x32 in (61x81 cm)",
+          "widthInches": 24,
+          "heightInches": 32,
+          "price": 179
+        },
+        {
+          "size": "30x40",
+          "displaySize": "30x40 in (76x102 cm)",
+          "widthInches": 30,
+          "heightInches": 40,
+          "price": 229
+        }
+      ]
+    },
     "pricing": {
       "poster": {
-        "30x45": 39,
-        "50x75": 59,
-        "70x105": 89
-      },
-      "canvas": {
-        "30x45": 69,
-        "50x75": 119,
-        "70x105": 179
+        "12x16": 35,
+        "18x24": 55,
+        "24x32": 79,
+        "30x40": 99
       },
       "frame": {
-        "30x45": 99,
-        "50x75": 149,
-        "70x105": 229
+        "12x16": 89,
+        "18x24": 129,
+        "24x32": 179,
+        "30x40": 229
       }
     },
-    "supportDetails": {
+    "supportLabels": {
       "poster": {
         "displayName": "Affiche Fine Art",
-        "description": "Tirage photo haute qualité sur papier mat premium, livré sans cadre."
-      },
-      "canvas": {
-        "displayName": "Toile imprimée",
-        "description": "Photo imprimée sur toile, rendu mural prêt à accrocher selon disponibilité Prodigi."
+        "description": "Tirage photo sur papier mat premium EMA 200 g/m², livré sans cadre."
       },
       "frame": {
         "displayName": "Tableau encadré",
-        "description": "Tirage encadré prêt à accrocher, finition premium."
+        "description": "Tirage encadré classique, finition sobre, prêt à accrocher selon disponibilité Prodigi."
       }
     }
   },
   {
-    "id": "sunrise-001",
+    "id": "lever-de-soleil-laciotat01",
     "title": "Lever de soleil à La Ciotat",
     "collection": "lever-de-soleil",
     "previewImage": "/Sunrise/lever-de-soleil-laciotat01.jpg",
+    "width": 13808,
+    "height": 7820,
+    "aspectRatio": 1.766,
+    "normalizedRatio": 0.5663,
+    "targetRatio": 0.5,
+    "ratioGroup": "panoramic",
+    "ratioDeviation": 0.1327,
+    "ratioMatchStatus": "manual-review",
+    "cropWarning": true,
     "grade": "A",
-    "allowedFormats": [
-      "30x45",
-      "50x75",
-      "70x105"
-    ],
+    "support": "poster",
     "allowedSupports": [
       "poster",
-      "canvas",
       "frame"
     ],
+    "allowedPrintSizes": {
+      "poster": [
+        {
+          "size": "10x20",
+          "displaySize": "10x20 in (25x51 cm)",
+          "widthInches": 10,
+          "heightInches": 20,
+          "price": 39
+        },
+        {
+          "size": "12x24",
+          "displaySize": "12x24 in (30x61 cm)",
+          "widthInches": 12,
+          "heightInches": 24,
+          "price": 49
+        },
+        {
+          "size": "20x40",
+          "displaySize": "20x40 in (51x102 cm)",
+          "widthInches": 20,
+          "heightInches": 40,
+          "price": 89
+        }
+      ],
+      "frame": [
+        {
+          "size": "10x20",
+          "displaySize": "10x20 in (25x51 cm)",
+          "widthInches": 10,
+          "heightInches": 20,
+          "price": 95
+        },
+        {
+          "size": "12x24",
+          "displaySize": "12x24 in (30x61 cm)",
+          "widthInches": 12,
+          "heightInches": 24,
+          "price": 119
+        },
+        {
+          "size": "20x40",
+          "displaySize": "20x40 in (51x102 cm)",
+          "widthInches": 20,
+          "heightInches": 40,
+          "price": 199
+        }
+      ]
+    },
     "pricing": {
       "poster": {
-        "30x45": 39,
-        "50x75": 59,
-        "70x105": 89
-      },
-      "canvas": {
-        "30x45": 69,
-        "50x75": 119,
-        "70x105": 179
+        "10x20": 39,
+        "12x24": 49,
+        "20x40": 89
       },
       "frame": {
-        "30x45": 99,
-        "50x75": 149,
-        "70x105": 229
+        "10x20": 95,
+        "12x24": 119,
+        "20x40": 199
       }
     },
-    "supportDetails": {
+    "supportLabels": {
       "poster": {
         "displayName": "Affiche Fine Art",
-        "description": "Tirage photo haute qualité sur papier mat premium, livré sans cadre."
-      },
-      "canvas": {
-        "displayName": "Toile imprimée",
-        "description": "Photo imprimée sur toile, rendu mural prêt à accrocher selon disponibilité Prodigi."
+        "description": "Tirage photo sur papier mat premium EMA 200 g/m², livré sans cadre."
       },
       "frame": {
         "displayName": "Tableau encadré",
-        "description": "Tirage encadré prêt à accrocher, finition premium."
+        "description": "Tirage encadré classique, finition sobre, prêt à accrocher selon disponibilité Prodigi."
       }
     }
   },
   {
-    "id": "sunrise-002",
+    "id": "lever-de-soleil-laciotat02",
     "title": "Lever de soleil à La Ciotat",
     "collection": "lever-de-soleil",
     "previewImage": "/Sunrise/lever-de-soleil-laciotat02.jpg",
+    "width": 8064,
+    "height": 6048,
+    "aspectRatio": 1.333,
+    "normalizedRatio": 0.75,
+    "targetRatio": 0.75,
+    "ratioGroup": "3:4",
+    "ratioDeviation": 0,
+    "ratioMatchStatus": "perfect",
+    "cropWarning": false,
     "grade": "A",
-    "allowedFormats": [
-      "30x45",
-      "50x75",
-      "70x105"
-    ],
+    "support": "poster",
     "allowedSupports": [
       "poster",
-      "canvas",
       "frame"
     ],
+    "allowedPrintSizes": {
+      "poster": [
+        {
+          "size": "12x16",
+          "displaySize": "12x16 in (30x41 cm)",
+          "widthInches": 12,
+          "heightInches": 16,
+          "price": 35
+        },
+        {
+          "size": "18x24",
+          "displaySize": "18x24 in (46x61 cm)",
+          "widthInches": 18,
+          "heightInches": 24,
+          "price": 55
+        },
+        {
+          "size": "24x32",
+          "displaySize": "24x32 in (61x81 cm)",
+          "widthInches": 24,
+          "heightInches": 32,
+          "price": 79
+        },
+        {
+          "size": "30x40",
+          "displaySize": "30x40 in (76x102 cm)",
+          "widthInches": 30,
+          "heightInches": 40,
+          "price": 99
+        }
+      ],
+      "frame": [
+        {
+          "size": "12x16",
+          "displaySize": "12x16 in (30x41 cm)",
+          "widthInches": 12,
+          "heightInches": 16,
+          "price": 89
+        },
+        {
+          "size": "18x24",
+          "displaySize": "18x24 in (46x61 cm)",
+          "widthInches": 18,
+          "heightInches": 24,
+          "price": 129
+        },
+        {
+          "size": "24x32",
+          "displaySize": "24x32 in (61x81 cm)",
+          "widthInches": 24,
+          "heightInches": 32,
+          "price": 179
+        },
+        {
+          "size": "30x40",
+          "displaySize": "30x40 in (76x102 cm)",
+          "widthInches": 30,
+          "heightInches": 40,
+          "price": 229
+        }
+      ]
+    },
     "pricing": {
       "poster": {
-        "30x45": 39,
-        "50x75": 59,
-        "70x105": 89
-      },
-      "canvas": {
-        "30x45": 69,
-        "50x75": 119,
-        "70x105": 179
+        "12x16": 35,
+        "18x24": 55,
+        "24x32": 79,
+        "30x40": 99
       },
       "frame": {
-        "30x45": 99,
-        "50x75": 149,
-        "70x105": 229
+        "12x16": 89,
+        "18x24": 129,
+        "24x32": 179,
+        "30x40": 229
       }
     },
-    "supportDetails": {
+    "supportLabels": {
       "poster": {
         "displayName": "Affiche Fine Art",
-        "description": "Tirage photo haute qualité sur papier mat premium, livré sans cadre."
-      },
-      "canvas": {
-        "displayName": "Toile imprimée",
-        "description": "Photo imprimée sur toile, rendu mural prêt à accrocher selon disponibilité Prodigi."
+        "description": "Tirage photo sur papier mat premium EMA 200 g/m², livré sans cadre."
       },
       "frame": {
         "displayName": "Tableau encadré",
-        "description": "Tirage encadré prêt à accrocher, finition premium."
+        "description": "Tirage encadré classique, finition sobre, prêt à accrocher selon disponibilité Prodigi."
       }
     }
   },
   {
-    "id": "sunrise-003",
+    "id": "lever-de-soleil-laciotat03",
     "title": "Lever de soleil à La Ciotat",
     "collection": "lever-de-soleil",
     "previewImage": "/Sunrise/lever-de-soleil-laciotat03.jpg",
+    "width": 8064,
+    "height": 6048,
+    "aspectRatio": 1.333,
+    "normalizedRatio": 0.75,
+    "targetRatio": 0.75,
+    "ratioGroup": "3:4",
+    "ratioDeviation": 0,
+    "ratioMatchStatus": "perfect",
+    "cropWarning": false,
     "grade": "A",
-    "allowedFormats": [
-      "30x45",
-      "50x75",
-      "70x105"
-    ],
+    "support": "poster",
     "allowedSupports": [
       "poster",
-      "canvas",
       "frame"
     ],
+    "allowedPrintSizes": {
+      "poster": [
+        {
+          "size": "12x16",
+          "displaySize": "12x16 in (30x41 cm)",
+          "widthInches": 12,
+          "heightInches": 16,
+          "price": 35
+        },
+        {
+          "size": "18x24",
+          "displaySize": "18x24 in (46x61 cm)",
+          "widthInches": 18,
+          "heightInches": 24,
+          "price": 55
+        },
+        {
+          "size": "24x32",
+          "displaySize": "24x32 in (61x81 cm)",
+          "widthInches": 24,
+          "heightInches": 32,
+          "price": 79
+        },
+        {
+          "size": "30x40",
+          "displaySize": "30x40 in (76x102 cm)",
+          "widthInches": 30,
+          "heightInches": 40,
+          "price": 99
+        }
+      ],
+      "frame": [
+        {
+          "size": "12x16",
+          "displaySize": "12x16 in (30x41 cm)",
+          "widthInches": 12,
+          "heightInches": 16,
+          "price": 89
+        },
+        {
+          "size": "18x24",
+          "displaySize": "18x24 in (46x61 cm)",
+          "widthInches": 18,
+          "heightInches": 24,
+          "price": 129
+        },
+        {
+          "size": "24x32",
+          "displaySize": "24x32 in (61x81 cm)",
+          "widthInches": 24,
+          "heightInches": 32,
+          "price": 179
+        },
+        {
+          "size": "30x40",
+          "displaySize": "30x40 in (76x102 cm)",
+          "widthInches": 30,
+          "heightInches": 40,
+          "price": 229
+        }
+      ]
+    },
     "pricing": {
       "poster": {
-        "30x45": 39,
-        "50x75": 59,
-        "70x105": 89
-      },
-      "canvas": {
-        "30x45": 69,
-        "50x75": 119,
-        "70x105": 179
+        "12x16": 35,
+        "18x24": 55,
+        "24x32": 79,
+        "30x40": 99
       },
       "frame": {
-        "30x45": 99,
-        "50x75": 149,
-        "70x105": 229
+        "12x16": 89,
+        "18x24": 129,
+        "24x32": 179,
+        "30x40": 229
       }
     },
-    "supportDetails": {
+    "supportLabels": {
       "poster": {
         "displayName": "Affiche Fine Art",
-        "description": "Tirage photo haute qualité sur papier mat premium, livré sans cadre."
-      },
-      "canvas": {
-        "displayName": "Toile imprimée",
-        "description": "Photo imprimée sur toile, rendu mural prêt à accrocher selon disponibilité Prodigi."
+        "description": "Tirage photo sur papier mat premium EMA 200 g/m², livré sans cadre."
       },
       "frame": {
         "displayName": "Tableau encadré",
-        "description": "Tirage encadré prêt à accrocher, finition premium."
+        "description": "Tirage encadré classique, finition sobre, prêt à accrocher selon disponibilité Prodigi."
       }
     }
   },
   {
-    "id": "sunrise-005",
+    "id": "lever-de-soleil-laciotat05",
     "title": "Lever de soleil à La Ciotat",
     "collection": "lever-de-soleil",
     "previewImage": "/Sunrise/lever-de-soleil-laciotat05.jpg",
-    "grade": "C",
-    "allowedFormats": [
-      "30x45"
-    ],
+    "width": 3840,
+    "height": 2880,
+    "aspectRatio": 1.333,
+    "normalizedRatio": 0.75,
+    "targetRatio": 0.75,
+    "ratioGroup": "3:4",
+    "ratioDeviation": 0,
+    "ratioMatchStatus": "perfect",
+    "cropWarning": false,
+    "grade": "B",
+    "support": "poster",
     "allowedSupports": [
-      "poster"
+      "poster",
+      "frame"
     ],
+    "allowedPrintSizes": {
+      "poster": [
+        {
+          "size": "12x16",
+          "displaySize": "12x16 in (30x41 cm)",
+          "widthInches": 12,
+          "heightInches": 16,
+          "price": 35
+        },
+        {
+          "size": "18x24",
+          "displaySize": "18x24 in (46x61 cm)",
+          "widthInches": 18,
+          "heightInches": 24,
+          "price": 55
+        }
+      ],
+      "frame": [
+        {
+          "size": "12x16",
+          "displaySize": "12x16 in (30x41 cm)",
+          "widthInches": 12,
+          "heightInches": 16,
+          "price": 89
+        },
+        {
+          "size": "18x24",
+          "displaySize": "18x24 in (46x61 cm)",
+          "widthInches": 18,
+          "heightInches": 24,
+          "price": 129
+        }
+      ]
+    },
     "pricing": {
       "poster": {
-        "30x45": 39
+        "12x16": 35,
+        "18x24": 55
+      },
+      "frame": {
+        "12x16": 89,
+        "18x24": 129
       }
     },
-    "supportDetails": {
+    "supportLabels": {
       "poster": {
         "displayName": "Affiche Fine Art",
-        "description": "Tirage photo haute qualité sur papier mat premium, livré sans cadre."
+        "description": "Tirage photo sur papier mat premium EMA 200 g/m², livré sans cadre."
+      },
+      "frame": {
+        "displayName": "Tableau encadré",
+        "description": "Tirage encadré classique, finition sobre, prêt à accrocher selon disponibilité Prodigi."
       }
     }
   },
   {
-    "id": "sunrise-006",
+    "id": "lever-de-soleil-laciotat06",
     "title": "Lever de soleil à La Ciotat",
     "collection": "lever-de-soleil",
     "previewImage": "/Sunrise/lever-de-soleil-laciotat06.jpg",
+    "width": 6048,
+    "height": 8064,
+    "aspectRatio": 0.75,
+    "normalizedRatio": 0.75,
+    "targetRatio": 0.75,
+    "ratioGroup": "3:4",
+    "ratioDeviation": 0,
+    "ratioMatchStatus": "perfect",
+    "cropWarning": false,
     "grade": "A",
-    "allowedFormats": [
-      "30x45",
-      "50x75",
-      "70x105"
-    ],
+    "support": "poster",
     "allowedSupports": [
       "poster",
-      "canvas",
       "frame"
     ],
+    "allowedPrintSizes": {
+      "poster": [
+        {
+          "size": "12x16",
+          "displaySize": "12x16 in (30x41 cm)",
+          "widthInches": 12,
+          "heightInches": 16,
+          "price": 35
+        },
+        {
+          "size": "18x24",
+          "displaySize": "18x24 in (46x61 cm)",
+          "widthInches": 18,
+          "heightInches": 24,
+          "price": 55
+        },
+        {
+          "size": "24x32",
+          "displaySize": "24x32 in (61x81 cm)",
+          "widthInches": 24,
+          "heightInches": 32,
+          "price": 79
+        },
+        {
+          "size": "30x40",
+          "displaySize": "30x40 in (76x102 cm)",
+          "widthInches": 30,
+          "heightInches": 40,
+          "price": 99
+        }
+      ],
+      "frame": [
+        {
+          "size": "12x16",
+          "displaySize": "12x16 in (30x41 cm)",
+          "widthInches": 12,
+          "heightInches": 16,
+          "price": 89
+        },
+        {
+          "size": "18x24",
+          "displaySize": "18x24 in (46x61 cm)",
+          "widthInches": 18,
+          "heightInches": 24,
+          "price": 129
+        },
+        {
+          "size": "24x32",
+          "displaySize": "24x32 in (61x81 cm)",
+          "widthInches": 24,
+          "heightInches": 32,
+          "price": 179
+        },
+        {
+          "size": "30x40",
+          "displaySize": "30x40 in (76x102 cm)",
+          "widthInches": 30,
+          "heightInches": 40,
+          "price": 229
+        }
+      ]
+    },
     "pricing": {
       "poster": {
-        "30x45": 39,
-        "50x75": 59,
-        "70x105": 89
-      },
-      "canvas": {
-        "30x45": 69,
-        "50x75": 119,
-        "70x105": 179
+        "12x16": 35,
+        "18x24": 55,
+        "24x32": 79,
+        "30x40": 99
       },
       "frame": {
-        "30x45": 99,
-        "50x75": 149,
-        "70x105": 229
+        "12x16": 89,
+        "18x24": 129,
+        "24x32": 179,
+        "30x40": 229
       }
     },
-    "supportDetails": {
+    "supportLabels": {
       "poster": {
         "displayName": "Affiche Fine Art",
-        "description": "Tirage photo haute qualité sur papier mat premium, livré sans cadre."
-      },
-      "canvas": {
-        "displayName": "Toile imprimée",
-        "description": "Photo imprimée sur toile, rendu mural prêt à accrocher selon disponibilité Prodigi."
+        "description": "Tirage photo sur papier mat premium EMA 200 g/m², livré sans cadre."
       },
       "frame": {
         "displayName": "Tableau encadré",
-        "description": "Tirage encadré prêt à accrocher, finition premium."
+        "description": "Tirage encadré classique, finition sobre, prêt à accrocher selon disponibilité Prodigi."
       }
     }
   }

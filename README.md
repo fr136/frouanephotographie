@@ -14,7 +14,7 @@ Variables requises pour le tunnel de vente :
 Upload Vercel Blob serveur uniquement :
 
 - tous les masters d'impression : `npm --prefix frontend run upload:blob-masters`
-- un seul produit : `npm --prefix frontend run upload:blob-product -- cal-001`
+- un seul produit : `npm --prefix frontend run upload:blob-product -- calanque-en-vau02`
 
 Verifications rapides :
 
