@@ -105,9 +105,23 @@ const Home = () => {
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <FadeInOnScroll direction="left">
               <p className="section-subtitle mb-4">Ancrage local</p>
-              <h2 className="section-title mb-6">Photographies de la Méditerranée vues depuis Marseille</h2>
+              <h2 className="section-title mb-6">Photographies de la Méditerranée depuis Marseille</h2>
               <div className="gold-line" />
-              <p className="body-large mb-6">{photographer.bio}</p>
+              <div className="body-large mb-6 space-y-4">
+                <p>
+                  Photographe de paysage basé à Marseille, je capture la côte méditerranéenne, de la rade de Marseille à
+                  la Côte d'Azur.
+                </p>
+                <p>
+                  Mon travail se concentre sur la lumière naturelle, les lignes de l'horizon et l'équilibre entre mer,
+                  ciel et relief.
+                </p>
+                <p>Chaque image est prise sans mise en scène, au moment précis où la lumière révèle le lieu.</p>
+                <p>
+                  Ces photographies sont conçues pour être imprimées et s'intégrer dans des intérieurs sobres. Tirages
+                  disponibles en formats adaptés, sur papier fine art ou encadrés.
+                </p>
+              </div>
               <Link to="/a-propos" className="btn-outline inline-flex items-center gap-2">
                 En savoir plus
                 <ArrowRight size={18} />

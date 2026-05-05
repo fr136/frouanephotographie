@@ -27,7 +27,7 @@ const PHOTO_TITLES = {
   "sugiton03.webp": "Sugiton",
   "sugiton04.webp": "Sugiton",
   "Coucher de soleil La Ciotat éléphant routedes crêtes.webp": "Route des Crêtes, La Ciotat",
-  "sunset fire la ciotat.webp": "La Ciotat au coucher du soleil",
+  "sunset fire la ciotat.webp": "Arène Cros, La Ciotat",
   "Sunset La Ciotat1.webp": "La Ciotat au coucher du soleil",
   "Sunset catalans marseille.webp": "Plage des Catalans, Marseille",
   "Sunset catalans.webp": "Plage des Catalans, Marseille",

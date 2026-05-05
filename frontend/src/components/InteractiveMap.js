@@ -68,7 +68,7 @@ const photoLocations = [
   {
     id: "loc-sugiton",
     name: "Sugiton",
-    coordinates: [43.2094, 5.4567],
+    coordinates: [43.21187727247635, 5.455337586300759],
     collection: "calanques",
     collectionLabel: COLLECTION_LABELS.calanques,
     routeTo: "/collections/calanques?lieu=sugiton",
@@ -113,7 +113,7 @@ const photoLocations = [
   {
     id: "loc-port-dalon",
     name: "Port d'Alon",
-    coordinates: [43.149, 5.712],
+    coordinates: [43.14748391233942, 5.709687758854818],
     collection: "calanques",
     collectionLabel: COLLECTION_LABELS.calanques,
     routeTo: "/collections/calanques?lieu=port-d-alon",
@@ -128,7 +128,7 @@ const photoLocations = [
   {
     id: "loc-sunset-ciotat",
     name: "La Ciotat – Route des Crêtes",
-    coordinates: [43.1854, 5.6070],
+    coordinates: [43.18617671379673, 5.561710110099902],
     collection: "sunset",
     collectionLabel: COLLECTION_LABELS.sunset,
     routeTo: "/collections/couchers-de-soleil?lieu=la-ciotat",
@@ -140,13 +140,25 @@ const photoLocations = [
         ),
         image: "/Sunset/Coucher de soleil La Ciotat éléphant routedes crêtes.webp",
       },
+    ],
+    description:
+      "La Route des Crêtes surplombe la baie de La Ciotat et offre l'un des meilleurs belvédères du littoral pour photographier les couchers de soleil sur la mer.",
+  },
+  {
+    id: "loc-arene-cros-la-ciotat",
+    name: "Arène Cros, La Ciotat",
+    coordinates: [43.18916, 5.65212],
+    collection: "sunset",
+    collectionLabel: COLLECTION_LABELS.sunset,
+    routeTo: "/collections/couchers-de-soleil?lieu=arene-cros-la-ciotat",
+    photos: [
       {
-        title: getPhotoTitleFromPath("/Sunset/sunset fire la ciotat.webp", "La Ciotat au coucher du soleil"),
+        title: getPhotoTitleFromPath("/Sunset/sunset fire la ciotat.webp", "Arène Cros, La Ciotat"),
         image: "/Sunset/sunset fire la ciotat.webp",
       },
     ],
     description:
-      "La Route des Crêtes surplombe la baie de La Ciotat et offre l'un des meilleurs belvédères du littoral pour photographier les couchers de soleil sur la mer.",
+      "Arène Cros se situe sur le littoral est de La Ciotat. Le point de vue est plus bas et plus maritime que la Route des Crêtes, avec une lumière de fin de journée ouverte sur la baie.",
   },
   {
     id: "loc-catalans",

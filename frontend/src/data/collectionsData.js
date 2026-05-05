@@ -291,11 +291,21 @@ const RAW_COLLECTIONS = [
         spotTags: ["La Ciotat", "Route des Crêtes", "Port Saint-Jean"],
         photos: [
           createPhoto("Coucher de soleil La Ciotat éléphant routedes crêtes.webp", { featured: true }),
-          createPhoto("sunset fire la ciotat.webp", { featured: true }),
           createPhoto("Sunset La Ciotat1.webp"),
           createPhoto("Sunset fire la ciotat 4.webp"),
           createPhoto("sunset port saintjean la ciotat.webp"),
         ],
+      },
+      {
+        id: "arene-cros-la-ciotat",
+        slug: "arene-cros-la-ciotat",
+        title: "Arène Cros",
+        location: "Arène Cros, La Ciotat",
+        description:
+          "Arène Cros, sur le littoral est de La Ciotat. Un point de vue plus bas et plus maritime que la Route des Crêtes, ouvert sur la lumière du soir.",
+        coverFile: "sunset fire la ciotat.webp",
+        spotTags: ["La Ciotat", "Arène Cros", "coucher de soleil"],
+        photos: [createPhoto("sunset fire la ciotat.webp", { featured: true })],
       },
       {
         id: "marseille",

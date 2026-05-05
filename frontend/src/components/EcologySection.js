@@ -8,22 +8,22 @@ const EcologySection = () => {
     {
       title: "Sentiers fragilisés",
       description:
-        "Autour de Marseille et dans les Calanques, les raccourcis et les passages répétés élargissent les traces et fatiguent vite les sols secs.",
+        "Dans les Calanques, les passages répétés élargissent les sentiers, tassent les sols et marquent durablement les zones sèches.",
     },
     {
       title: "Déchets visibles",
       description:
-        "Mégots, canettes, plastique léger ou restes de pique-nique reviennent souvent sur les accès, dans les anses et en bord de mer.",
+        "Mégots, canettes, plastiques et restes de pique-nique finissent souvent sur les plages, dans les anses ou en bord de mer.",
     },
     {
       title: "Pression touristique",
       description:
-        "Sormiou, les accès des Calanques et plusieurs points du littoral méditerranéen encaissent les mêmes pics de fréquentation, surtout aux heures les plus photogéniques.",
+        "Aux heures de forte fréquentation, certains accès deviennent saturés. La beauté du lieu attire, mais elle augmente aussi la pression sur les espaces naturels.",
     },
     {
       title: "Milieu marin vulnérable",
       description:
-        "Depuis le rivage, on voit aussi ce que la carte postale montre moins : déchets flottants, anses sous pression et bord de mer qui absorbe beaucoup.",
+        "Depuis le rivage, tout paraît stable. Pourtant, déchets flottants, rejets et usages répétés fragilisent les zones côtières.",
     },
   ];
 
@@ -39,8 +39,9 @@ const EcologySection = () => {
             <div className="w-16 h-0.5 bg-[var(--color-gold)] mx-auto mb-8" />
             <p className="text-[var(--color-gray-700)] text-lg leading-relaxed">
               Quand je photographie Marseille, les Calanques ou le littoral méditerranéen, je cherche la lumière, les
-              lignes et le calme. Mais je vois aussi des sentiers fragilisés, des déchets, des accès saturés et un
-              milieu marin qui reste vulnérable.
+              lignes et le calme. Mais ces paysages restent fragiles. Déchets, sentiers abîmés, pression touristique et
+              accès saturés font aussi partie du réel. Montrer la beauté du littoral, c'est aussi rappeler ce qui menace
+              son équilibre.
             </p>
           </div>
         </FadeInOnScroll>
@@ -72,15 +73,16 @@ const EcologySection = () => {
             <article className="relative min-h-[480px] overflow-hidden border border-[#e6ddcf] shadow-[0_20px_60px_rgba(0,0,0,0.04)]">
               <div
                 className="absolute inset-0 bg-cover bg-center"
-                style={{ backgroundImage: "url('/Calanques/Cover hero.jpg')" }}
+                style={{ backgroundImage: "url('/images/ecologie/plage-marseille-dechets.jpg')" }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/25 to-transparent" />
               <div className="relative z-10 h-full flex flex-col justify-end p-8 text-white">
-                <p className="text-[var(--color-gold)] text-xs uppercase tracking-[0.28em] mb-3">Calanque de Sormiou</p>
+                <p className="text-[var(--color-gold)] text-xs uppercase tracking-[0.28em] mb-3">Plage de Marseille</p>
                 <h3 className="font-display text-3xl font-semibold mb-3">Marseille</h3>
                 <p className="text-white/85 max-w-md">
-                  Une belle image n'annule pas ce qu'elle contourne. Elle peut aussi rappeler la pression qui s'exerce
-                  sur les accès, les sentiers et le bord de mer.
+                  Une image agréable ne doit pas effacer ce qui se trouve autour du cadre. Sur certaines plages
+                  marseillaises, les déchets rappellent que le littoral reste fragile, même lorsqu'il paraît calme au
+                  loin.
                 </p>
               </div>
             </article>

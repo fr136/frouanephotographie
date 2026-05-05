@@ -352,11 +352,11 @@
     "pricing_source": "Coucher de soleil La Ciotat éléphant routedes crêtes"
   },
   "sunset fire la ciotat": {
-    "title": "La Ciotat au coucher du soleil",
+    "title": "Arène Cros, La Ciotat",
     "category": "sunset",
     "collection_slug": "couchers-de-soleil",
-    "subcollection_slug": "la-ciotat",
-    "location": "La Ciotat, Bouches-du-Rhône",
+    "subcollection_slug": "arene-cros-la-ciotat",
+    "location": "Arène Cros, La Ciotat",
     "asset_path": "/Sunset/sunset fire la ciotat.webp",
     "base_price_eur": 49,
     "sizes": [
